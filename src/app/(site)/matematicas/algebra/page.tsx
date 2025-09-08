@@ -1,3 +1,12 @@
+import { Metadata } from 'next'
+import { buildMeta } from '@/lib/seo'
+
+export const metadata: Metadata = buildMeta({
+  title: 'Calculadora de Álgebra – Resuelve ecuaciones lineales, cuadráticas y sistemas',
+  description: 'Calculadora de álgebra online para resolver ecuaciones lineales, cuadráticas, sistemas 2x2, factorización y vértice de parábolas. Gratis y fácil de usar.',
+  canonical: '/matematicas/algebra/',
+})
+
 "use client"
 
 import { useState } from 'react'

@@ -1,3 +1,12 @@
+import { Metadata } from 'next'
+import { buildMeta } from '@/lib/seo'
+
+export const metadata: Metadata = buildMeta({
+  title: 'Calculadora de Porcentajes – Aumento, descuento, porcentaje de un número',
+  description: 'Calculadora de porcentajes online para calcular aumentos, descuentos, porcentaje de un número y conversiones. Gratis y fácil de usar.',
+  canonical: '/matematicas/porcentajes/',
+})
+
 "use client"
 
 import { useState } from 'react'
