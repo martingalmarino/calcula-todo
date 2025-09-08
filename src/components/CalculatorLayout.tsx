@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Copy, Share2, Lightbulb, HelpCircle } from "lucide-react"
+import { Copy, Share2, Lightbulb, HelpCircle, Calculator } from "lucide-react"
 
 interface Example {
   label: string
@@ -63,44 +63,47 @@ export function CalculatorLayout({
   }
 
   return (
-    <div className="space-y-8">
-      {/* Header */}
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">{title}</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+    <div className="space-y-6">
+      {/* Header - Mobile First */}
+      <div className="text-center space-y-3">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <Calculator className="h-6 w-6 text-red-600" />
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{title}</h1>
+        </div>
+        <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
           {description}
         </p>
       </div>
 
-      {/* Main Content */}
+      {/* Main Content - Mobile First */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="calculator">Calculadora</TabsTrigger>
-          <TabsTrigger value="examples">Ejemplos</TabsTrigger>
-          <TabsTrigger value="help">Ayuda</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-3 h-12">
+          <TabsTrigger value="calculator" className="text-sm">Calculadora</TabsTrigger>
+          <TabsTrigger value="examples" className="text-sm">Ejemplos</TabsTrigger>
+          <TabsTrigger value="help" className="text-sm">Ayuda</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="calculator" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Lightbulb className="h-5 w-5" />
+        <TabsContent value="calculator" className="space-y-4 mt-6">
+          <Card className="calculator-card">
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Lightbulb className="h-5 w-5 text-yellow-500" />
                 Calculadora
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="text-sm">
                 Ingresa los valores y obtén el resultado con explicación paso a paso
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-4">
               {children}
               
-              {/* Action Buttons */}
-              <div className="flex gap-2 pt-4">
-                <Button onClick={handleCopyResult} variant="outline" size="sm">
+              {/* Action Buttons - Mobile First */}
+              <div className="flex flex-col sm:flex-row gap-2 pt-4">
+                <Button onClick={handleCopyResult} variant="outline" size="sm" className="flex-1">
                   <Copy className="h-4 w-4 mr-2" />
                   Copiar resultado
                 </Button>
-                <Button onClick={handleShare} variant="outline" size="sm">
+                <Button onClick={handleShare} variant="outline" size="sm" className="flex-1">
                   <Share2 className="h-4 w-4 mr-2" />
                   Compartir
                 </Button>
@@ -110,11 +113,11 @@ export function CalculatorLayout({
 
           {/* Disclaimer */}
           {disclaimer && (
-            <Card className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950">
-              <CardContent className="pt-6">
+            <Card className="border-amber-200 bg-amber-50">
+              <CardContent className="pt-4">
                 <div className="flex items-start gap-3">
-                  <HelpCircle className="h-5 w-5 text-amber-600 dark:text-amber-400 mt-0.5" />
-                  <div className="text-sm text-amber-800 dark:text-amber-200">
+                  <HelpCircle className="h-5 w-5 text-amber-600 mt-0.5" />
+                  <div className="text-sm text-amber-800">
                     <strong>Nota:</strong> {disclaimer}
                   </div>
                 </div>
@@ -123,11 +126,11 @@ export function CalculatorLayout({
           )}
         </TabsContent>
 
-        <TabsContent value="examples" className="space-y-6">
+        <TabsContent value="examples" className="space-y-4 mt-6">
           <Card>
-            <CardHeader>
-              <CardTitle>Ejemplos Rápidos</CardTitle>
-              <CardDescription>
+            <CardHeader className="pb-4">
+              <CardTitle className="text-lg">Ejemplos Rápidos</CardTitle>
+              <CardDescription className="text-sm">
                 Haz clic en un ejemplo para autocompletar la calculadora
               </CardDescription>
             </CardHeader>
@@ -137,12 +140,10 @@ export function CalculatorLayout({
                   <Button
                     key={index}
                     variant="outline"
-                    className="justify-start h-auto p-4"
+                    className="justify-start h-auto p-4 text-left"
                     onClick={() => onExampleClick?.(example.values)}
                   >
-                    <div className="text-left">
-                      <div className="font-medium">{example.label}</div>
-                    </div>
+                    <div className="font-medium text-sm">{example.label}</div>
                   </Button>
                 ))}
               </div>
@@ -150,13 +151,13 @@ export function CalculatorLayout({
           </Card>
         </TabsContent>
 
-        <TabsContent value="help" className="space-y-6">
+        <TabsContent value="help" className="space-y-4 mt-6">
           {/* FAQ */}
           {faqItems.length > 0 && (
             <Card>
-              <CardHeader>
-                <CardTitle>Preguntas Frecuentes</CardTitle>
-                <CardDescription>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg">Preguntas Frecuentes</CardTitle>
+                <CardDescription className="text-sm">
                   Respuestas a las dudas más comunes sobre esta calculadora
                 </CardDescription>
               </CardHeader>
@@ -164,10 +165,10 @@ export function CalculatorLayout({
                 <Accordion type="single" collapsible className="w-full">
                   {faqItems.map((item, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger className="text-left">
+                      <AccordionTrigger className="text-left text-sm">
                         {item.question}
                       </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground">
+                      <AccordionContent className="text-muted-foreground text-sm">
                         {item.answer}
                       </AccordionContent>
                     </AccordionItem>
@@ -180,9 +181,9 @@ export function CalculatorLayout({
           {/* Related Links */}
           {relatedLinks.length > 0 && (
             <Card>
-              <CardHeader>
-                <CardTitle>Calculadoras Relacionadas</CardTitle>
-                <CardDescription>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg">Calculadoras Relacionadas</CardTitle>
+                <CardDescription className="text-sm">
                   Otras calculadoras que podrían interesarte
                 </CardDescription>
               </CardHeader>
@@ -192,11 +193,11 @@ export function CalculatorLayout({
                     <Button
                       key={index}
                       variant="ghost"
-                      className="justify-start h-auto p-3"
+                      className="justify-start h-auto p-3 text-left"
                       asChild
                     >
                       <a href={link.href}>
-                        {link.label}
+                        <span className="text-sm">{link.label}</span>
                       </a>
                     </Button>
                   ))}

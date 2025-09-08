@@ -223,128 +223,103 @@ export default function FraccionesPage() {
             onExampleClick={handleExampleClick}
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5">
-                <TabsTrigger value="simplify">Simplificar</TabsTrigger>
-                <TabsTrigger value="to-decimal">A Decimal</TabsTrigger>
-                <TabsTrigger value="from-decimal">De Decimal</TabsTrigger>
-                <TabsTrigger value="operations">Operaciones</TabsTrigger>
-                <TabsTrigger value="mixed-number">Mixto</TabsTrigger>
+              <TabsList className="calculator-tabs">
+                <TabsTrigger value="simplify" className="calculator-tab">Simplificar</TabsTrigger>
+                <TabsTrigger value="to-decimal" className="calculator-tab">A Decimal</TabsTrigger>
+                <TabsTrigger value="from-decimal" className="calculator-tab">De Decimal</TabsTrigger>
+                <TabsTrigger value="operations" className="calculator-tab">Operaciones</TabsTrigger>
+                <TabsTrigger value="mixed-number" className="calculator-tab">Mixto</TabsTrigger>
               </TabsList>
 
               <TabsContent value="simplify" className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Simplificar Fracción</CardTitle>
-                    <CardDescription>
-                      Simplifica una fracción a su forma irreducible
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="numerator" className="block text-sm font-medium mb-2">
-                          Numerador
-                        </label>
-                        <Input
-                          id="numerator"
-                          type="number"
-                          placeholder="Ej: 12"
-                          value={simplifyValues.numerator}
-                          onChange={(e) => setSimplifyValues({ ...simplifyValues, numerator: e.target.value })}
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="denominator" className="block text-sm font-medium mb-2">
-                          Denominador
-                        </label>
-                        <Input
-                          id="denominator"
-                          type="number"
-                          placeholder="Ej: 18"
-                          value={simplifyValues.denominator}
-                          onChange={(e) => setSimplifyValues({ ...simplifyValues, denominator: e.target.value })}
-                        />
-                      </div>
-                    </div>
-                    <Button onClick={handleCalculate} className="w-full">
-                      <Calculator className="h-4 w-4 mr-2" />
-                      Simplificar
-                    </Button>
-                  </CardContent>
-                </Card>
+                <div className="calculator-grid calculator-grid-2">
+                  <div>
+                    <label htmlFor="numerator" className="calculator-label">
+                      Numerador
+                    </label>
+                    <Input
+                      id="numerator"
+                      type="number"
+                      placeholder="Ej: 12"
+                      value={simplifyValues.numerator}
+                      onChange={(e) => setSimplifyValues({ ...simplifyValues, numerator: e.target.value })}
+                      className="calculator-input"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="denominator" className="calculator-label">
+                      Denominador
+                    </label>
+                    <Input
+                      id="denominator"
+                      type="number"
+                      placeholder="Ej: 18"
+                      value={simplifyValues.denominator}
+                      onChange={(e) => setSimplifyValues({ ...simplifyValues, denominator: e.target.value })}
+                      className="calculator-input"
+                    />
+                  </div>
+                </div>
+                <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Calculator className="h-4 w-4 mr-2" />
+                  Simplificar
+                </Button>
               </TabsContent>
 
               <TabsContent value="to-decimal" className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Convertir Fracción a Decimal</CardTitle>
-                    <CardDescription>
-                      Convierte una fracción a su equivalente decimal
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="numerator-decimal" className="block text-sm font-medium mb-2">
-                          Numerador
-                        </label>
-                        <Input
-                          id="numerator-decimal"
-                          type="number"
-                          placeholder="Ej: 3"
-                          value={toDecimalValues.numerator}
-                          onChange={(e) => setToDecimalValues({ ...toDecimalValues, numerator: e.target.value })}
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="denominator-decimal" className="block text-sm font-medium mb-2">
-                          Denominador
-                        </label>
-                        <Input
-                          id="denominator-decimal"
-                          type="number"
-                          placeholder="Ej: 4"
-                          value={toDecimalValues.denominator}
-                          onChange={(e) => setToDecimalValues({ ...toDecimalValues, denominator: e.target.value })}
-                        />
-                      </div>
-                    </div>
-                    <Button onClick={handleCalculate} className="w-full">
-                      <Calculator className="h-4 w-4 mr-2" />
-                      Convertir a Decimal
-                    </Button>
-                  </CardContent>
-                </Card>
+                <div className="calculator-grid calculator-grid-2">
+                  <div>
+                    <label htmlFor="numerator-decimal" className="calculator-label">
+                      Numerador
+                    </label>
+                    <Input
+                      id="numerator-decimal"
+                      type="number"
+                      placeholder="Ej: 3"
+                      value={toDecimalValues.numerator}
+                      onChange={(e) => setToDecimalValues({ ...toDecimalValues, numerator: e.target.value })}
+                      className="calculator-input"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="denominator-decimal" className="calculator-label">
+                      Denominador
+                    </label>
+                    <Input
+                      id="denominator-decimal"
+                      type="number"
+                      placeholder="Ej: 4"
+                      value={toDecimalValues.denominator}
+                      onChange={(e) => setToDecimalValues({ ...toDecimalValues, denominator: e.target.value })}
+                      className="calculator-input"
+                    />
+                  </div>
+                </div>
+                <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Calculator className="h-4 w-4 mr-2" />
+                  Convertir a Decimal
+                </Button>
               </TabsContent>
 
               <TabsContent value="from-decimal" className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Convertir Decimal a Fracción</CardTitle>
-                    <CardDescription>
-                      Convierte un decimal a su equivalente fraccionario
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <label htmlFor="decimal" className="block text-sm font-medium mb-2">
-                        Decimal
-                      </label>
-                      <Input
-                        id="decimal"
-                        type="number"
-                        step="0.01"
-                        placeholder="Ej: 0.75"
-                        value={fromDecimalValues.decimal}
-                        onChange={(e) => setFromDecimalValues({ ...fromDecimalValues, decimal: e.target.value })}
-                      />
-                    </div>
-                    <Button onClick={handleCalculate} className="w-full">
-                      <Calculator className="h-4 w-4 mr-2" />
-                      Convertir a Fracción
-                    </Button>
-                  </CardContent>
-                </Card>
+                <div>
+                  <label htmlFor="decimal" className="calculator-label">
+                    Decimal
+                  </label>
+                  <Input
+                    id="decimal"
+                    type="number"
+                    step="0.01"
+                    placeholder="Ej: 0.75"
+                    value={fromDecimalValues.decimal}
+                    onChange={(e) => setFromDecimalValues({ ...fromDecimalValues, decimal: e.target.value })}
+                    className="calculator-input"
+                  />
+                </div>
+                <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Calculator className="h-4 w-4 mr-2" />
+                  Convertir a Fracción
+                </Button>
               </TabsContent>
 
               <TabsContent value="operations" className="space-y-4">
