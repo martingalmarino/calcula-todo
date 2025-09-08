@@ -101,43 +101,43 @@ export default function MatematicasPage() {
 
           {/* Header */}
           <div className="text-center space-y-6 mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold">
+            <h1 className="hero-title">
               Calculadoras de Matemáticas
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="hero-subtitle max-w-3xl mx-auto">
               {matematicasCluster.description}
             </p>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <Card className="text-center">
+            <Card className="text-center calculator-card">
               <CardHeader>
-                <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Calculator className="h-6 w-6 text-primary" />
+                <div className="mx-auto w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                  <Calculator className="h-6 w-6 text-red-600" />
                 </div>
-                <CardTitle className="text-2xl">{calculators.length}</CardTitle>
-                <CardDescription>Calculadoras Disponibles</CardDescription>
+                <CardTitle className="text-2xl text-gray-900">{calculators.length}</CardTitle>
+                <CardDescription className="text-gray-600">Calculadoras Disponibles</CardDescription>
               </CardHeader>
             </Card>
             
-            <Card className="text-center">
+            <Card className="text-center calculator-card">
               <CardHeader>
-                <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <BookOpen className="h-6 w-6 text-primary" />
+                <div className="mx-auto w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                  <BookOpen className="h-6 w-6 text-red-600" />
                 </div>
-                <CardTitle className="text-2xl">6+</CardTitle>
-                <CardDescription>Categorías Matemáticas</CardDescription>
+                <CardTitle className="text-2xl text-gray-900">6+</CardTitle>
+                <CardDescription className="text-gray-600">Categorías Matemáticas</CardDescription>
               </CardHeader>
             </Card>
             
-            <Card className="text-center">
+            <Card className="text-center calculator-card">
               <CardHeader>
-                <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6 text-primary" />
+                <div className="mx-auto w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                  <Users className="h-6 w-6 text-red-600" />
                 </div>
-                <CardTitle className="text-2xl">100%</CardTitle>
-                <CardDescription>Gratuito</CardDescription>
+                <CardTitle className="text-2xl text-gray-900">100%</CardTitle>
+                <CardDescription className="text-gray-600">Gratuito</CardDescription>
               </CardHeader>
             </Card>
           </div>
@@ -155,7 +155,7 @@ export default function MatematicasPage() {
           {/* Calculators by Category */}
           {Object.entries(calculatorsByCategory).map(([category, categoryCalculators]) => (
             <section key={category} className="mb-12">
-              <h2 className="text-2xl font-bold mb-6 capitalize">
+              <h2 className="text-3xl font-bold mb-6 capitalize text-gray-900 border-b-2 border-red-200 pb-2">
                 {category}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -171,39 +171,10 @@ export default function MatematicasPage() {
             </section>
           ))}
 
-          {/* Subcategories */}
-          {subcategories.length > 0 && (
-            <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">
-                Subcategorías Especializadas
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {subcategories.map((subcategory) => (
-                  <Card key={subcategory.href} className="group hover:shadow-lg transition-all duration-200">
-                    <CardHeader>
-                      <CardTitle className="group-hover:text-primary transition-colors">
-                        {subcategory.label}
-                      </CardTitle>
-                      <CardDescription>
-                        {subcategory.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <Button variant="outline" size="sm" asChild className="w-full">
-                        <Link href={subcategory.href}>
-                          Explorar
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </section>
-          )}
 
           {/* All Calculators Grid */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-6">
+            <h2 className="text-3xl font-bold mb-6 text-gray-900 border-b-2 border-red-200 pb-2">
               Todas las Calculadoras
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -228,17 +199,20 @@ export default function MatematicasPage() {
           </section>
 
           {/* CTA */}
-          <Card className="text-center">
-            <CardHeader>
-              <CardTitle className="text-2xl">
+          <Card className="text-center bg-gradient-to-r from-red-50 to-red-100 border-red-200">
+            <CardHeader className="pb-4">
+              <div className="mx-auto w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-4">
+                <Calculator className="h-8 w-8 text-white" />
+              </div>
+              <CardTitle className="text-3xl font-bold text-gray-900">
                 ¿Necesitas una calculadora específica?
               </CardTitle>
-              <CardDescription className="text-lg">
-                Si no encuentras la calculadora que necesitas, contáctanos y la agregaremos
+              <CardDescription className="text-lg text-gray-700 max-w-2xl mx-auto">
+                Si no encuentras la calculadora que necesitas, contáctanos y la agregaremos a nuestra colección
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-semibold">
                 <Link href="/contacto/">
                   Solicitar Calculadora
                 </Link>
