@@ -91,25 +91,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Newsletter Section */}
-          <div className="border-t border-gray-700 pt-8 mb-8">
-            <div className="max-w-md mx-auto text-center">
-              <h3 className="text-white font-semibold mb-2">Mantente Actualizado</h3>
-              <p className="text-gray-300 text-sm mb-4">
-                Recibe notificaciones sobre nuevas calculadoras y actualizaciones
-              </p>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Tu email"
-                  className="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
-                />
-                <button className="px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors">
-                  Suscribirse
-                </button>
-              </div>
-            </div>
-          </div>
 
           {/* Bottom Section */}
           <div className="border-t border-gray-700 pt-8">
