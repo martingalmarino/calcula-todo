@@ -200,8 +200,8 @@ export default function PorcentajesPage() {
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <TabsList className="calculator-tabs">
-                <TabsTrigger value="percentage-of" className="calculator-tab">X es % de Y</TabsTrigger>
-                <TabsTrigger value="percentage-of-number" className="calculator-tab">% de un número</TabsTrigger>
+                <TabsTrigger value="percentage-of" className="calculator-tab">% de Y</TabsTrigger>
+                <TabsTrigger value="percentage-of-number" className="calculator-tab">% de número</TabsTrigger>
                 <TabsTrigger value="increase" className="calculator-tab">Aumento</TabsTrigger>
                 <TabsTrigger value="decrease" className="calculator-tab">Descuento</TabsTrigger>
               </TabsList>
