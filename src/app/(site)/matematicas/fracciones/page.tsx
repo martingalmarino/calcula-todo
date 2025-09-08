@@ -410,58 +410,53 @@ export default function FraccionesPage() {
               </TabsContent>
 
               <TabsContent value="mixed-number" className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Convertir Número Mixto a Fracción</CardTitle>
-                    <CardDescription>
-                      Convierte un número mixto a fracción impropia
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div>
-                        <label htmlFor="whole" className="block text-sm font-medium mb-2">
-                          Parte entera
-                        </label>
-                        <Input
-                          id="whole"
-                          type="number"
-                          placeholder="Ej: 2"
-                          value={mixedNumberValues.whole}
-                          onChange={(e) => setMixedNumberValues({ ...mixedNumberValues, whole: e.target.value })}
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="numerator-mixed" className="block text-sm font-medium mb-2">
-                          Numerador
-                        </label>
-                        <Input
-                          id="numerator-mixed"
-                          type="number"
-                          placeholder="Ej: 1"
-                          value={mixedNumberValues.numerator}
-                          onChange={(e) => setMixedNumberValues({ ...mixedNumberValues, numerator: e.target.value })}
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="denominator-mixed" className="block text-sm font-medium mb-2">
-                          Denominador
-                        </label>
-                        <Input
-                          id="denominator-mixed"
-                          type="number"
-                          placeholder="Ej: 3"
-                          value={mixedNumberValues.denominator}
-                          onChange={(e) => setMixedNumberValues({ ...mixedNumberValues, denominator: e.target.value })}
-                        />
-                      </div>
+                <div className="space-y-4">
+                  <div className="calculator-grid calculator-grid-3">
+                    <div>
+                      <label htmlFor="whole" className="calculator-label">
+                        Parte entera
+                      </label>
+                      <Input
+                        id="whole"
+                        type="number"
+                        placeholder="Ej: 2"
+                        value={mixedNumberValues.whole}
+                        onChange={(e) => setMixedNumberValues({ ...mixedNumberValues, whole: e.target.value })}
+                        className="calculator-input"
+                      />
                     </div>
-                    <Button onClick={handleCalculate} className="w-full">
-                      <Calculator className="h-4 w-4 mr-2" />
-                      Convertir
-                    </Button>
-                  </CardContent>
-                </Card>
+                    <div>
+                      <label htmlFor="numerator-mixed" className="calculator-label">
+                        Numerador
+                      </label>
+                      <Input
+                        id="numerator-mixed"
+                        type="number"
+                        placeholder="Ej: 1"
+                        value={mixedNumberValues.numerator}
+                        onChange={(e) => setMixedNumberValues({ ...mixedNumberValues, numerator: e.target.value })}
+                        className="calculator-input"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="denominator-mixed" className="calculator-label">
+                        Denominador
+                      </label>
+                      <Input
+                        id="denominator-mixed"
+                        type="number"
+                        placeholder="Ej: 3"
+                        value={mixedNumberValues.denominator}
+                        onChange={(e) => setMixedNumberValues({ ...mixedNumberValues, denominator: e.target.value })}
+                        className="calculator-input"
+                      />
+                    </div>
+                  </div>
+                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                    <Calculator className="h-4 w-4 mr-2" />
+                    Convertir
+                  </Button>
+                </div>
               </TabsContent>
             </Tabs>
 
