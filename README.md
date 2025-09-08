@@ -281,3 +281,4 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 # Flexbox solution applied Mon Sep  8 00:57:31 -03 2025
 # Simple vertical list solution Mon Sep  8 01:00:11 -03 2025
 # Robust CSS Grid solution Mon Sep  8 01:05:49 -03 2025
+# Vertical stack solution Mon Sep  8 01:12:30 -03 2025
