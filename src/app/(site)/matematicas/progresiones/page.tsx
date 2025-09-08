@@ -826,43 +826,43 @@ export default function ProgresionesPage() {
                       )}
                       {activeTab.includes('verify') && (
                         <div className="text-lg font-semibold">
-                          {results.isArithmetic !== undefined 
-                            ? (results.isArithmetic ? '✓ Es una progresión aritmética' : '✗ No es una progresión aritmética')
-                            : (results.isGeometric ? '✓ Es una progresión geométrica' : '✗ No es una progresión geométrica')
+                          {(results as { isArithmetic: boolean; difference?: number; steps: string[] }).isArithmetic !== undefined 
+                            ? ((results as { isArithmetic: boolean; difference?: number; steps: string[] }).isArithmetic ? '✓ Es una progresión aritmética' : '✗ No es una progresión aritmética')
+                            : ((results as { isGeometric: boolean; ratio?: number; steps: string[] }).isGeometric ? '✓ Es una progresión geométrica' : '✗ No es una progresión geométrica')
                           }
                         </div>
                       )}
-                      {results.terms && (
+                      {(results as ProgressionTerms).terms && (
                         <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
-                          [{results.terms.join(', ')}]
+                          [{(results as ProgressionTerms).terms.join(', ')}]
                         </div>
                       )}
-                      {results.difference !== undefined && (
+                      {(results as { isArithmetic: boolean; difference?: number; steps: string[] }).difference !== undefined && (
                         <div className="text-lg font-semibold">
-                          Diferencia común: {results.difference}
+                          Diferencia común: {(results as { isArithmetic: boolean; difference?: number; steps: string[] }).difference}
                         </div>
                       )}
-                      {results.ratio !== undefined && (
+                      {(results as { isGeometric: boolean; ratio?: number; steps: string[] }).ratio !== undefined && (
                         <div className="text-lg font-semibold">
-                          Razón común: {results.ratio}
+                          Razón común: {(results as { isGeometric: boolean; ratio?: number; steps: string[] }).ratio}
                         </div>
                       )}
                     </div>
                   ) : (
                     <div className="text-2xl font-bold text-primary">
-                      {results.result.toFixed(6)}
+                      {(results as ProgressionResult).result.toFixed(6)}
                     </div>
                   )}
                   
                   <div>
                     <h4 className="font-medium mb-2">Explicación:</h4>
-                    <p className="text-sm text-muted-foreground">{results.explanation}</p>
+                    <p className="text-sm text-muted-foreground">{(results as ProgressionResult).explanation}</p>
                   </div>
                   
                   <div>
                     <h4 className="font-medium mb-2">Pasos:</h4>
                     <ol className="list-decimal list-inside space-y-1 text-sm">
-                      {results.steps.map((step: string, index: number) => (
+                      {(results as ProgressionResult).steps.map((step: string, index: number) => (
                         <li key={index}>{step}</li>
                       ))}
                     </ol>
