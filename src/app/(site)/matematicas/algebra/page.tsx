@@ -503,27 +503,27 @@ export default function AlgebraPage() {
                 <CardContent className="space-y-4">
                   {activeTab === 'linear' && (
                     <div className="text-2xl font-bold text-primary">
-                      x = {results.x.toFixed(6)}
+                      x = {(results as LinearResult).x.toFixed(6)}
                     </div>
                   )}
                   
                   {activeTab === 'quadratic' && (
                     <div className="space-y-2">
                       <div className="text-lg font-semibold">
-                        Discriminante: {results.discriminant}
+                        Discriminante: {(results as QuadraticResult).discriminant}
                       </div>
                       <div className="text-lg font-semibold">
-                        Naturaleza: {results.nature === 'real-distinct' ? 'Dos raíces reales distintas' : 
-                                   results.nature === 'real-equal' ? 'Una raíz real doble' : 'Raíces complejas'}
+                        Naturaleza: {(results as QuadraticResult).nature === 'real-distinct' ? 'Dos raíces reales distintas' : 
+                                   (results as QuadraticResult).nature === 'real-equal' ? 'Una raíz real doble' : 'Raíces complejas'}
                       </div>
-                      {results.x1 !== null && (
+                      {(results as QuadraticResult).x1 !== null && (
                         <div className="text-2xl font-bold text-primary">
-                          x₁ = {results.x1.toFixed(6)}
+                          x₁ = {(results as QuadraticResult).x1!.toFixed(6)}
                         </div>
                       )}
-                      {results.x2 !== null && results.x2 !== results.x1 && (
+                      {(results as QuadraticResult).x2 !== null && (results as QuadraticResult).x2 !== (results as QuadraticResult).x1 && (
                         <div className="text-2xl font-bold text-primary">
-                          x₂ = {results.x2.toFixed(6)}
+                          x₂ = {(results as QuadraticResult).x2!.toFixed(6)}
                         </div>
                       )}
                     </div>
@@ -532,23 +532,23 @@ export default function AlgebraPage() {
                   {activeTab === 'system' && (
                     <div className="space-y-2">
                       <div className="text-2xl font-bold text-primary">
-                        x = {results.x.toFixed(6)}
+                        x = {(results as System2x2Result).x.toFixed(6)}
                       </div>
                       <div className="text-2xl font-bold text-primary">
-                        y = {results.y.toFixed(6)}
+                        y = {(results as System2x2Result).y.toFixed(6)}
                       </div>
                     </div>
                   )}
                   
                   {activeTab === 'factor' && (
                     <div className="text-2xl font-bold text-primary">
-                      {results.factors}
+                      {(results as { factors: string; steps: string[] }).factors}
                     </div>
                   )}
                   
                   {activeTab === 'vertex' && (
                     <div className="text-2xl font-bold text-primary">
-                      Vértice: ({results.x.toFixed(6)}, {results.y.toFixed(6)})
+                      Vértice: ({(results as { x: number; y: number; steps: string[] }).x.toFixed(6)}, {(results as { x: number; y: number; steps: string[] }).y.toFixed(6)})
                     </div>
                   )}
                   
