@@ -225,7 +225,7 @@ export default function ProgresionesPage() {
     },
     {
       question: "¿Cuándo converge la suma infinita de una progresión geométrica?",
-      answer: "La suma infinita de una progresión geométrica converge cuando |r| < 1, y su valor es S∞ = a₁/(1 - r). Si |r| ≥ 1, la serie diverge."
+      answer: "La suma infinita de una progresión geométrica converge cuando |r| &lt; 1, y su valor es S∞ = a₁/(1 - r). Si |r| ≥ 1, la serie diverge."
     }
   ]
 
@@ -514,7 +514,7 @@ export default function ProgresionesPage() {
                     </div>
                     <div>
                       <label htmlFor="inf-r" className="calculator-label">
-                        Razón común (r, |r| < 1)
+                        Razón común (r, |r| &lt; 1)
                       </label>
                       <Input
                         id="inf-r"
