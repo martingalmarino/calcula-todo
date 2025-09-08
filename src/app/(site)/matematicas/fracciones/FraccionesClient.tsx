@@ -12,13 +12,13 @@ import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config'
 import { 
-  simplifyFraction,
-  addFractions,
-  subtractFractions,
-  multiplyFractions,
-  divideFractions,
-  fractionToDecimal,
-  decimalToFraction,
+  simplify,
+  add,
+  subtract,
+  multiply,
+  divide,
+  toDecimal,
+  fromDecimal,
   type FractionResult
 } from '@/lib/math/fractions'
 
@@ -53,7 +53,7 @@ export default function FraccionesClient() {
             setError('El denominador no puede ser 0')
             return
           }
-          result = simplifyFraction(num, den)
+          result = simplify(num, den)
           break
         case 'add':
           if (!operationValues.num1 || !operationValues.den1 || !operationValues.num2 || !operationValues.den2) {
@@ -68,7 +68,7 @@ export default function FraccionesClient() {
             setError('Los denominadores no pueden ser 0')
             return
           }
-          result = addFractions(num1, den1, num2, den2)
+          result = add({ numerator: num1, denominator: den1 }, { numerator: num2, denominator: den2 })
           break
         case 'subtract':
           if (!operationValues.num1 || !operationValues.den1 || !operationValues.num2 || !operationValues.den2) {
@@ -83,7 +83,7 @@ export default function FraccionesClient() {
             setError('Los denominadores no pueden ser 0')
             return
           }
-          result = subtractFractions(num1Sub, den1Sub, num2Sub, den2Sub)
+          result = subtract({ numerator: num1Sub, denominator: den1Sub }, { numerator: num2Sub, denominator: den2Sub })
           break
         case 'multiply':
           if (!operationValues.num1 || !operationValues.den1 || !operationValues.num2 || !operationValues.den2) {
@@ -98,7 +98,7 @@ export default function FraccionesClient() {
             setError('Los denominadores no pueden ser 0')
             return
           }
-          result = multiplyFractions(num1Mult, den1Mult, num2Mult, den2Mult)
+          result = multiply({ numerator: num1Mult, denominator: den1Mult }, { numerator: num2Mult, denominator: den2Mult })
           break
         case 'divide':
           if (!operationValues.num1 || !operationValues.den1 || !operationValues.num2 || !operationValues.den2) {
@@ -117,7 +117,7 @@ export default function FraccionesClient() {
             setError('No se puede dividir por 0')
             return
           }
-          result = divideFractions(num1Div, den1Div, num2Div, den2Div)
+          result = divide({ numerator: num1Div, denominator: den1Div }, { numerator: num2Div, denominator: den2Div })
           break
         case 'to-decimal':
           if (!simplifyValues.numerator || !simplifyValues.denominator) {
@@ -130,14 +130,15 @@ export default function FraccionesClient() {
             setError('El denominador no puede ser 0')
             return
           }
-          result = fractionToDecimal(numDec, denDec)
+          const decimal = toDecimal(numDec, denDec)
+          result = { result: { numerator: numDec, denominator: denDec }, decimal, steps: [`${numDec}/${denDec} = ${decimal}`] }
           break
         case 'from-decimal':
           if (!decimalValue) {
             setError('Por favor, ingresa un número decimal')
             return
           }
-          result = decimalToFraction(parseFloat(decimalValue))
+          result = fromDecimal(parseFloat(decimalValue))
           break
         default:
           setError('Tipo de cálculo no válido')

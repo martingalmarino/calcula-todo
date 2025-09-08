@@ -15,10 +15,10 @@ import {
   factorial,
   permutations,
   combinations,
-  subsets,
+  numberOfSubsets,
   circularPermutations,
-  indistinguishablePermutations,
-  pascalTriangle,
+  arrangementsWithIndistinguishable,
+  pascalsTriangle,
   type CombinatoricsResult
 } from '@/lib/math/combinatorics'
 
@@ -91,7 +91,7 @@ export default function CombinatoriaClient() {
             setError('El número debe estar entre 0 y 30')
             return
           }
-          result = subsets(nSub)
+          result = numberOfSubsets(nSub)
           break
         case 'circular':
           if (!circularValue) {
@@ -116,7 +116,7 @@ export default function CombinatoriaClient() {
             setError('Los números deben ser positivos y la suma de grupos debe igualar n')
             return
           }
-          result = indistinguishablePermutations(nInd, groups)
+          result = arrangementsWithIndistinguishable(nInd, ...groups)
           break
         case 'pascal':
           if (!pascalValue) {
@@ -128,7 +128,8 @@ export default function CombinatoriaClient() {
             setError('El número debe estar entre 0 y 20')
             return
           }
-          result = pascalTriangle(nPascal)
+          const triangle = pascalsTriangle(nPascal)
+          result = { result: triangle.length, steps: triangle.map((row, i) => `Fila ${i}: ${row.join(', ')}`) }
           break
         default:
           setError('Tipo de cálculo no válido')

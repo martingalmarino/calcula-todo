@@ -12,13 +12,14 @@ import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config'
 import { 
-  squareRoot,
-  cubeRoot,
-  nthRoot,
-  power,
-  powerOf10,
-  scientificNotation,
-  type PowerRootResult
+  sqrt,
+  cbrt,
+  root,
+  pow,
+  powerOfTen,
+  toScientificNotation,
+  type PowerResult,
+  type RootResult
 } from '@/lib/math/powerRoot'
 
 export default function PotenciasRaicesClient() {
@@ -51,14 +52,14 @@ export default function PotenciasRaicesClient() {
             setError('No se puede calcular la raíz cuadrada de un número negativo')
             return
           }
-          result = squareRoot(num)
+          result = sqrt(num)
           break
         case 'cube-root':
           if (!cubeRootValue) {
             setError('Por favor, ingresa un número')
             return
           }
-          result = cubeRoot(parseFloat(cubeRootValue))
+          result = cbrt(parseFloat(cubeRootValue))
           break
         case 'nth-root':
           if (!nthRootValues.number || !nthRootValues.n) {
@@ -75,21 +76,21 @@ export default function PotenciasRaicesClient() {
             setError('No se puede calcular la raíz par de un número negativo')
             return
           }
-          result = nthRoot(number, n)
+          result = root(number, n)
           break
         case 'power':
           if (!powerValues.base || !powerValues.exponent) {
             setError('Por favor, completa todos los campos')
             return
           }
-          result = power(parseFloat(powerValues.base), parseFloat(powerValues.exponent))
+          result = pow(parseFloat(powerValues.base), parseFloat(powerValues.exponent))
           break
         case 'power-of-10':
           if (!powerOf10Value) {
             setError('Por favor, ingresa un exponente')
             return
           }
-          result = powerOf10(parseInt(powerOf10Value))
+          result = powerOfTen(parseInt(powerOf10Value))
           break
         case 'scientific':
           if (!scientificValues.number) {
@@ -101,7 +102,8 @@ export default function PotenciasRaicesClient() {
             setError('La precisión debe estar entre 0 y 10')
             return
           }
-          result = scientificNotation(parseFloat(scientificValues.number), precision)
+          const notation = toScientificNotation(parseFloat(scientificValues.number))
+          result = { result: notation.coefficient * Math.pow(10, notation.exponent), steps: [notation.notation] }
           break
         default:
           setError('Tipo de cálculo no válido')

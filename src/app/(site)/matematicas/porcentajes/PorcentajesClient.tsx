@@ -12,10 +12,11 @@ import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config'
 import { 
-  calculatePercentage,
-  calculatePercentageOf,
-  calculatePercentageChange,
-  calculateOriginalValue,
+  percentageOf,
+  percentageOfNumber,
+  variationPercent,
+  originalValueAfterIncrease,
+  originalValueAfterDecrease,
   type PercentageResult
 } from '@/lib/math/percentage'
 
@@ -48,7 +49,7 @@ export default function PorcentajesClient() {
             setError('El total no puede ser 0')
             return
           }
-          result = calculatePercentage(value, total)
+          result = percentageOf(value, total)
           break
         case 'percentage-of':
           if (!percentageOfValues.percentage || !percentageOfValues.number) {
@@ -61,7 +62,7 @@ export default function PorcentajesClient() {
             setError('El porcentaje debe estar entre 0 y 100')
             return
           }
-          result = calculatePercentageOf(percentage, number)
+          result = percentageOfNumber(percentage, number)
           break
         case 'change':
           if (!changeValues.original || !changeValues.new) {
@@ -74,7 +75,7 @@ export default function PorcentajesClient() {
             setError('El valor original no puede ser 0')
             return
           }
-          result = calculatePercentageChange(original, newValue)
+          result = variationPercent(original, newValue)
           break
         case 'original':
           if (!originalValues.percentage || !originalValues.result) {
@@ -87,7 +88,7 @@ export default function PorcentajesClient() {
             setError('El porcentaje no puede ser 0')
             return
           }
-          result = calculateOriginalValue(percentageOrig, resultValue)
+          result = originalValueAfterIncrease(resultValue, percentageOrig)
           break
         default:
           setError('Tipo de cálculo no válido')

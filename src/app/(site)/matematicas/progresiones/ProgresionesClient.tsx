@@ -16,7 +16,7 @@ import {
   geometricNthTerm,
   arithmeticSum,
   geometricSum,
-  infiniteGeometricSum,
+  geometricInfiniteSum,
   generateArithmeticTerms,
   generateGeometricTerms,
   findArithmeticDifference,
@@ -106,7 +106,7 @@ export default function ProgresionesClient() {
             setError('La razón debe cumplir |r| &lt; 1 para convergencia')
             return
           }
-          result = infiniteGeometricSum(
+          result = geometricInfiniteSum(
             parseFloat(infiniteSumValues.a1),
             r
           )
