@@ -15,12 +15,10 @@ import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config'
 import { 
   simplify, 
   toDecimal, 
-  fromDecimal,
   add,
   subtract,
   multiply,
-  divide,
-  fromMixedNumber
+  divide
 } from '@/lib/math/fractions'
 
 
@@ -36,18 +34,12 @@ export default function FraccionesPage() {
   // Estados para cada tipo de cálculo
   const [simplifyValues, setSimplifyValues] = useState({ numerator: '', denominator: '' })
   const [toDecimalValues, setToDecimalValues] = useState({ numerator: '', denominator: '' })
-  const [fromDecimalValues, setFromDecimalValues] = useState({ decimal: '' })
   const [operationValues, setOperationValues] = useState({ 
     operation: 'add',
     numerator1: '', 
     denominator1: '', 
     numerator2: '', 
     denominator2: '' 
-  })
-  const [mixedNumberValues, setMixedNumberValues] = useState({ 
-    whole: '', 
-    numerator: '', 
-    denominator: '' 
   })
 
   const handleCalculate = () => {
@@ -74,13 +66,6 @@ export default function FraccionesPage() {
             steps: [`${toDecimalValues.numerator}/${toDecimalValues.denominator} = ${toDecimal(Number(toDecimalValues.numerator), Number(toDecimalValues.denominator))}`]
           }
           break
-        case 'from-decimal':
-          if (!fromDecimalValues.decimal) {
-            setError('Por favor, completa todos los campos')
-            return
-          }
-          result = fromDecimal(Number(fromDecimalValues.decimal))
-          break
         case 'operations':
           if (!operationValues.numerator1 || !operationValues.denominator1 || 
               !operationValues.numerator2 || !operationValues.denominator2) {
@@ -104,17 +89,6 @@ export default function FraccionesPage() {
               result = divide(fraction1, fraction2)
               break
           }
-          break
-        case 'mixed-number':
-          if (!mixedNumberValues.whole || !mixedNumberValues.numerator || !mixedNumberValues.denominator) {
-            setError('Por favor, completa todos los campos')
-            return
-          }
-          result = fromMixedNumber(
-            Number(mixedNumberValues.whole), 
-            Number(mixedNumberValues.numerator), 
-            Number(mixedNumberValues.denominator)
-          )
           break
         default:
           setError('Tipo de cálculo no válido')
@@ -141,9 +115,6 @@ export default function FraccionesPage() {
           numerator: (values.numerator as number).toString(), 
           denominator: (values.denominator as number).toString() 
         })
-        break
-      case 'from-decimal':
-        setFromDecimalValues({ decimal: (values.decimal as number).toString() })
         break
       case 'operations':
         setOperationValues({
@@ -225,10 +196,8 @@ export default function FraccionesPage() {
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <TabsList className="calculator-tabs">
                 <TabsTrigger value="simplify" className="calculator-tab">Simplificar</TabsTrigger>
-                <TabsTrigger value="to-decimal" className="calculator-tab">A Decimal</TabsTrigger>
-                <TabsTrigger value="from-decimal" className="calculator-tab">De Decimal</TabsTrigger>
                 <TabsTrigger value="operations" className="calculator-tab">Operaciones</TabsTrigger>
-                <TabsTrigger value="mixed-number" className="calculator-tab">Mixto</TabsTrigger>
+                <TabsTrigger value="to-decimal" className="calculator-tab">A Decimal</TabsTrigger>
               </TabsList>
 
               <TabsContent value="simplify" className="space-y-4">
@@ -301,26 +270,6 @@ export default function FraccionesPage() {
                 </Button>
               </TabsContent>
 
-              <TabsContent value="from-decimal" className="space-y-4">
-                <div>
-                  <label htmlFor="decimal" className="calculator-label">
-                    Decimal
-                  </label>
-                  <Input
-                    id="decimal"
-                    type="number"
-                    step="0.01"
-                    placeholder="Ej: 0.75"
-                    value={fromDecimalValues.decimal}
-                    onChange={(e) => setFromDecimalValues({ ...fromDecimalValues, decimal: e.target.value })}
-                    className="calculator-input"
-                  />
-                </div>
-                <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
-                  <Calculator className="h-4 w-4 mr-2" />
-                  Convertir a Fracción
-                </Button>
-              </TabsContent>
 
               <TabsContent value="operations" className="space-y-4">
                 <div className="space-y-4">
@@ -409,55 +358,6 @@ export default function FraccionesPage() {
                 </div>
               </TabsContent>
 
-              <TabsContent value="mixed-number" className="space-y-4">
-                <div className="space-y-4">
-                  <div className="calculator-grid calculator-grid-3">
-                    <div>
-                      <label htmlFor="whole" className="calculator-label">
-                        Parte entera
-                      </label>
-                      <Input
-                        id="whole"
-                        type="number"
-                        placeholder="Ej: 2"
-                        value={mixedNumberValues.whole}
-                        onChange={(e) => setMixedNumberValues({ ...mixedNumberValues, whole: e.target.value })}
-                        className="calculator-input"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="numerator-mixed" className="calculator-label">
-                        Numerador
-                      </label>
-                      <Input
-                        id="numerator-mixed"
-                        type="number"
-                        placeholder="Ej: 1"
-                        value={mixedNumberValues.numerator}
-                        onChange={(e) => setMixedNumberValues({ ...mixedNumberValues, numerator: e.target.value })}
-                        className="calculator-input"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="denominator-mixed" className="calculator-label">
-                        Denominador
-                      </label>
-                      <Input
-                        id="denominator-mixed"
-                        type="number"
-                        placeholder="Ej: 3"
-                        value={mixedNumberValues.denominator}
-                        onChange={(e) => setMixedNumberValues({ ...mixedNumberValues, denominator: e.target.value })}
-                        className="calculator-input"
-                      />
-                    </div>
-                  </div>
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
-                    <Calculator className="h-4 w-4 mr-2" />
-                    Convertir
-                  </Button>
-                </div>
-              </TabsContent>
             </Tabs>
 
             {/* Resultados */}
