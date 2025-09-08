@@ -323,94 +323,90 @@ export default function FraccionesPage() {
               </TabsContent>
 
               <TabsContent value="operations" className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Operaciones con Fracciones</CardTitle>
-                    <CardDescription>
-                      Realiza operaciones aritméticas con dos fracciones
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <label htmlFor="operation" className="block text-sm font-medium mb-2">
-                        Operación
-                      </label>
-                      <Select value={operationValues.operation} onValueChange={(value) => setOperationValues({ ...operationValues, operation: value })}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Selecciona una operación" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="add">
-                            <div className="flex items-center gap-2">
-                              <Plus className="h-4 w-4" />
-                              Sumar
-                            </div>
-                          </SelectItem>
-                          <SelectItem value="subtract">
-                            <div className="flex items-center gap-2">
-                              <Minus className="h-4 w-4" />
-                              Restar
-                            </div>
-                          </SelectItem>
-                          <SelectItem value="multiply">
-                            <div className="flex items-center gap-2">
-                              <X className="h-4 w-4" />
-                              Multiplicar
-                            </div>
-                          </SelectItem>
-                          <SelectItem value="divide">
-                            <div className="flex items-center gap-2">
-                              <Divide className="h-4 w-4" />
-                              Dividir
-                            </div>
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <label className="block text-sm font-medium">Primera fracción</label>
-                        <div className="grid grid-cols-2 gap-2">
-                          <Input
-                            type="number"
-                            placeholder="Num"
-                            value={operationValues.numerator1}
-                            onChange={(e) => setOperationValues({ ...operationValues, numerator1: e.target.value })}
-                          />
-                          <Input
-                            type="number"
-                            placeholder="Den"
-                            value={operationValues.denominator1}
-                            onChange={(e) => setOperationValues({ ...operationValues, denominator1: e.target.value })}
-                          />
-                        </div>
-                      </div>
-                      <div className="space-y-2">
-                        <label className="block text-sm font-medium">Segunda fracción</label>
-                        <div className="grid grid-cols-2 gap-2">
-                          <Input
-                            type="number"
-                            placeholder="Num"
-                            value={operationValues.numerator2}
-                            onChange={(e) => setOperationValues({ ...operationValues, numerator2: e.target.value })}
-                          />
-                          <Input
-                            type="number"
-                            placeholder="Den"
-                            value={operationValues.denominator2}
-                            onChange={(e) => setOperationValues({ ...operationValues, denominator2: e.target.value })}
-                          />
-                        </div>
+                <div className="space-y-4">
+                  <div>
+                    <label htmlFor="operation" className="calculator-label">
+                      Operación
+                    </label>
+                    <Select value={operationValues.operation} onValueChange={(value) => setOperationValues({ ...operationValues, operation: value })}>
+                      <SelectTrigger className="calculator-input">
+                        <SelectValue placeholder="Selecciona una operación" />
+                      </SelectTrigger>
+                      <SelectContent className="calculator-select-content">
+                        <SelectItem value="add">
+                          <div className="flex items-center gap-2">
+                            <Plus className="h-4 w-4" />
+                            Sumar
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="subtract">
+                          <div className="flex items-center gap-2">
+                            <Minus className="h-4 w-4" />
+                            Restar
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="multiply">
+                          <div className="flex items-center gap-2">
+                            <X className="h-4 w-4" />
+                            Multiplicar
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="divide">
+                          <div className="flex items-center gap-2">
+                            <Divide className="h-4 w-4" />
+                            Dividir
+                          </div>
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  
+                  <div className="calculator-grid calculator-grid-2">
+                    <div className="space-y-2">
+                      <label className="calculator-label">Primera fracción</label>
+                      <div className="calculator-grid calculator-grid-2">
+                        <Input
+                          type="number"
+                          placeholder="Num"
+                          value={operationValues.numerator1}
+                          onChange={(e) => setOperationValues({ ...operationValues, numerator1: e.target.value })}
+                          className="calculator-input"
+                        />
+                        <Input
+                          type="number"
+                          placeholder="Den"
+                          value={operationValues.denominator1}
+                          onChange={(e) => setOperationValues({ ...operationValues, denominator1: e.target.value })}
+                          className="calculator-input"
+                        />
                       </div>
                     </div>
-                    
-                    <Button onClick={handleCalculate} className="w-full">
-                      <Calculator className="h-4 w-4 mr-2" />
-                      Calcular
-                    </Button>
-                  </CardContent>
-                </Card>
+                    <div className="space-y-2">
+                      <label className="calculator-label">Segunda fracción</label>
+                      <div className="calculator-grid calculator-grid-2">
+                        <Input
+                          type="number"
+                          placeholder="Num"
+                          value={operationValues.numerator2}
+                          onChange={(e) => setOperationValues({ ...operationValues, numerator2: e.target.value })}
+                          className="calculator-input"
+                        />
+                        <Input
+                          type="number"
+                          placeholder="Den"
+                          value={operationValues.denominator2}
+                          onChange={(e) => setOperationValues({ ...operationValues, denominator2: e.target.value })}
+                          className="calculator-input"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                    <Calculator className="h-4 w-4 mr-2" />
+                    Calcular
+                  </Button>
+                </div>
               </TabsContent>
 
               <TabsContent value="mixed-number" className="space-y-4">

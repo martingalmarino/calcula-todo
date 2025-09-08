@@ -319,6 +319,15 @@ body {
   @apply transform scale-[0.98];
 }
 
+/* Select Content - Fix Overlap Issues */
+.calculator-select-content {
+  @apply z-50 bg-white border border-gray-200 rounded-lg shadow-lg;
+}
+
+.calculator-select-content [data-radix-select-content] {
+  @apply z-50;
+}
+
 /* Responsive Breakpoints - Mobile First */
 @media (max-width: 640px) {
   .calculator-tab {
