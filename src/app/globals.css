@@ -264,9 +264,11 @@ body {
 
 /* Mobile First Tabs Styles - 100% Mobile Usable */
 .calculator-tabs {
-  @apply flex overflow-x-auto pb-2 gap-1;
+  @apply flex overflow-x-auto pb-2 gap-2;
   -ms-overflow-style: none;
   scroll-behavior: smooth;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .calculator-tabs::-webkit-scrollbar {
@@ -274,9 +276,11 @@ body {
 }
 
 .calculator-tab {
-  @apply flex-shrink-0 px-4 py-3 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 hover:text-gray-900 transition-all duration-200 min-w-fit cursor-pointer;
+  @apply flex-shrink-0 px-3 py-2.5 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 hover:text-gray-900 transition-all duration-200 cursor-pointer;
   min-height: 44px; /* iOS touch target minimum */
+  min-width: 80px; /* Ensure minimum width for visibility */
   touch-action: manipulation;
+  white-space: nowrap;
 }
 
 .calculator-tab[data-state="active"] {
@@ -341,9 +345,16 @@ body {
 
 /* Responsive Breakpoints - Mobile First */
 @media (max-width: 640px) {
+  .calculator-tabs {
+    @apply gap-1;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
   .calculator-tab {
-    @apply px-3 py-2.5 text-sm;
-    min-height: 44px; /* Maintain touch target */
+    @apply px-2 py-2 text-xs;
+    min-height: 40px;
+    min-width: 70px;
   }
   
   .calculator-example-button {
@@ -355,10 +366,25 @@ body {
   }
 }
 
+@media (min-width: 641px) and (max-width: 767px) {
+  .calculator-tab {
+    @apply px-3 py-2.5 text-sm;
+    min-height: 44px;
+    min-width: 80px;
+  }
+}
+
 @media (min-width: 768px) {
+  .calculator-tabs {
+    @apply gap-2;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
   .calculator-tab {
     @apply px-4 py-3 text-sm;
-    min-height: 44px; /* Maintain touch target */
+    min-height: 44px;
+    min-width: 90px;
   }
   
   .calculator-example-button {
