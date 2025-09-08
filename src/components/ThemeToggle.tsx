@@ -39,6 +39,7 @@ export function ThemeToggle() {
       size="icon"
       onClick={toggleTheme}
       aria-label={`Cambiar a tema ${theme === 'light' ? 'oscuro' : 'claro'}`}
+      className="header-text hover:bg-white/10"
     >
       {theme === 'light' ? (
         <Moon className="h-5 w-5" />
