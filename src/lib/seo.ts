@@ -36,7 +36,7 @@ export function buildMeta(config: SEOConfig): Metadata {
     }
   }
   
-  const fullTitle = finalTitle && finalTitle.includes('Calculadora de') ? finalTitle : `${finalTitle || 'Calculadora'} | CalculaTodo.online`;
+  const fullTitle = finalTitle || 'Calculadora | CalculaTodo.online';
   const canonicalUrl = canonical ? `${baseUrl}${canonical}` : undefined;
 
   return {
