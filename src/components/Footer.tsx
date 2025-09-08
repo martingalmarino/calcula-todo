@@ -1,104 +1,134 @@
 import Link from "next/link"
-import { Calculator, Mail, ExternalLink } from "lucide-react"
+import { Calculator, Mail, Globe, Heart } from "lucide-react"
 import { Container } from "@/components/Container"
-import { SITE } from "@/lib/site.config"
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
-
   return (
-    <footer className="border-t bg-background">
+    <footer className="footer-bg">
       <Container>
-        <div className="py-12 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Brand */}
-            <div className="space-y-4">
-              <Link href="/" className="flex items-center space-x-2">
-                <Calculator className="h-6 w-6 text-primary" />
-                <span className="text-lg font-bold">Calculadoras Online</span>
+        <div className="py-12">
+          {/* Main Footer Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            
+            {/* Brand Section */}
+            <div className="lg:col-span-2">
+              <Link href="/" className="flex items-center space-x-2 mb-4">
+                <Calculator className="h-8 w-8 text-white" />
+                <span className="text-2xl font-bold text-white">CalculaTodo.online</span>
               </Link>
-              <p className="text-sm text-muted-foreground">
-                Calculadoras matemáticas online gratuitas con resultados explicados paso a paso.
+              <p className="text-gray-300 text-sm leading-relaxed mb-4 max-w-md">
+                Tu plataforma de confianza para calculadoras matemáticas online gratuitas. 
+                Resolvemos tus problemas de cálculo de forma rápida, precisa y fácil de entender.
               </p>
+              <div className="flex items-center space-x-2 text-gray-300 text-sm">
+                <Heart className="h-4 w-4 text-red-400" />
+                <span>Hecho con amor para la comunidad educativa</span>
+              </div>
             </div>
 
-            {/* Calculadoras Populares */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold">Calculadoras Populares</h3>
-              <ul className="space-y-2 text-sm">
-                {SITE.clusters.matematicas.calculators.slice(0, 6).map((calc) => (
-                  <li key={calc.href}>
-                    <Link
-                      href={calc.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {calc.label}
-                    </Link>
-                  </li>
-                ))}
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-white font-semibold mb-4">Enlaces Rápidos</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/matematicas/" className="footer-link">
+                    Matemáticas
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/calendario/" className="footer-link">
+                    Calendario
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/salud/" className="footer-link">
+                    Salud
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/geometria/" className="footer-link">
+                    Geometría
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/otras/" className="footer-link">
+                    Otras Calculadoras
+                  </Link>
+                </li>
               </ul>
             </div>
 
-            {/* Enlaces Rápidos */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold">Enlaces Rápidos</h3>
-              <ul className="space-y-2 text-sm">
-                {SITE.nav.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
+            {/* Support */}
+            <div>
+              <h3 className="text-white font-semibold mb-4">Soporte</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/acerca/" className="footer-link">
+                    Acerca de Nosotros
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contacto/" className="footer-link">
+                    Contacto
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/" className="footer-link">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacidad/" className="footer-link">
+                    Política de Privacidad
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terminos/" className="footer-link">
+                    Términos de Uso
+                  </Link>
+                </li>
               </ul>
             </div>
+          </div>
 
-            {/* Contacto */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold">Contacto</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center space-x-2 text-muted-foreground">
-                  <Mail className="h-4 w-4" />
-                  <a
-                    href={`mailto:${SITE.contact.email}`}
-                    className="hover:text-foreground transition-colors"
-                  >
-                    {SITE.contact.email}
-                  </a>
-                </div>
+          {/* Newsletter Section */}
+          <div className="border-t border-gray-700 pt-8 mb-8">
+            <div className="max-w-md mx-auto text-center">
+              <h3 className="text-white font-semibold mb-2">Mantente Actualizado</h3>
+              <p className="text-gray-300 text-sm mb-4">
+                Recibe notificaciones sobre nuevas calculadoras y actualizaciones
+              </p>
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Tu email"
+                  className="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                />
+                <button className="px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors">
+                  Suscribirse
+                </button>
               </div>
             </div>
           </div>
 
-          {/* Bottom */}
-          <div className="mt-12 pt-8 border-t">
+          {/* Bottom Section */}
+          <div className="border-t border-gray-700 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-sm text-muted-foreground">
-                © {currentYear} Calculadoras Online. Todos los derechos reservados.
+              <div className="flex items-center space-x-4 text-gray-300 text-sm">
+                <span>© 2024 CalculaTodo.online</span>
+                <span>•</span>
+                <span>Todos los derechos reservados</span>
               </div>
-              <div className="flex items-center space-x-6 text-sm">
-                <Link
-                  href="/privacidad"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Privacidad
-                </Link>
-                <Link
-                  href="/terminos"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Términos
-                </Link>
-                <Link
-                  href="/sitemap.xml"
-                  className="text-muted-foreground hover:text-foreground transition-colors flex items-center space-x-1"
-                >
-                  <span>Sitemap</span>
-                  <ExternalLink className="h-3 w-3" />
-                </Link>
+              
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-1 text-gray-300 text-sm">
+                  <Globe className="h-4 w-4" />
+                  <span>Español</span>
+                </div>
+                <div className="flex items-center space-x-1 text-gray-300 text-sm">
+                  <Mail className="h-4 w-4" />
+                  <span>contacto@calculatodo.online</span>
+                </div>
               </div>
             </div>
           </div>

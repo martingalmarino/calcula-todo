@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/ThemeProvider'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { AnalyticsProvider } from '@/lib/analytics'
@@ -10,8 +9,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Calculadoras Online – Matemáticas Gratis y Paso a Paso',
-    template: '%s | Calculadoras Online'
+    default: 'CalculaTodo.online – Matemáticas Gratis y Paso a Paso',
+    template: '%s | CalculaTodo.online'
   },
   description: 'Calculadoras matemáticas online: fracciones, porcentajes, álgebra, trigonometría y más. Resultados rápidos y explicados, 100% gratis.',
   keywords: [
@@ -30,15 +29,15 @@ export const metadata: Metadata = {
     'gratis',
     'educación'
   ],
-  authors: [{ name: 'Calculadoras Online' }],
-  creator: 'Calculadoras Online',
-  publisher: 'Calculadoras Online',
+  authors: [{ name: 'CalculaTodo.online' }],
+  creator: 'CalculaTodo.online',
+  publisher: 'CalculaTodo.online',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://calculadoras-online.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://calculatodo.online'),
   alternates: {
     canonical: '/',
   },
@@ -46,13 +45,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_AR',
     url: '/',
-    title: 'Calculadoras Online – Matemáticas Gratis y Paso a Paso',
+    title: 'CalculaTodo.online – Matemáticas Gratis y Paso a Paso',
     description: 'Calculadoras matemáticas online: fracciones, porcentajes, álgebra, trigonometría y más. Resultados rápidos y explicados, 100% gratis.',
-    siteName: 'Calculadoras Online',
+    siteName: 'CalculaTodo.online',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Calculadoras Online – Matemáticas Gratis y Paso a Paso',
+    title: 'CalculaTodo.online – Matemáticas Gratis y Paso a Paso',
     description: 'Calculadoras matemáticas online: fracciones, porcentajes, álgebra, trigonometría y más. Resultados rápidos y explicados, 100% gratis.',
   },
   robots: {
@@ -85,39 +84,32 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
-              name: 'Calculadoras Online',
+              name: 'CalculaTodo.online',
               description: 'Calculadoras matemáticas online gratuitas: fracciones, porcentajes, álgebra, trigonometría y más. Resultados rápidos y explicados paso a paso.',
-              url: process.env.NEXT_PUBLIC_BASE_URL || 'https://calculadoras-online.com',
+              url: process.env.NEXT_PUBLIC_BASE_URL || 'https://calculatodo.online',
               inLanguage: 'es-AR',
               author: {
                 '@type': 'Organization',
-                name: 'Calculadoras Online',
+                name: 'CalculaTodo.online',
               },
               publisher: {
                 '@type': 'Organization',
-                name: 'Calculadoras Online',
+                name: 'CalculaTodo.online',
               },
             }),
           }}
         />
       </head>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <AnalyticsProvider>
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-1">
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </AnalyticsProvider>
-        </ThemeProvider>
+        <AnalyticsProvider>
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </AnalyticsProvider>
       </body>
     </html>
   )

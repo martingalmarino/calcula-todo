@@ -38,11 +38,11 @@ export default function HomePage() {
         <Container>
           <div className="py-8">
             {/* Main Title */}
-            <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-16">
+              <h1 className="hero-title">
                 Calculadoras Online Gratuitas
               </h1>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="hero-subtitle">
                 Facilitamos tus cálculos en temas de finanzas, salud, matemática, calendario, geometría y más. 
                 Calculadoras online gratuitas, rápidas y amigables.
               </p>

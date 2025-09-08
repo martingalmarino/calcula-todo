@@ -4,7 +4,6 @@ import Link from "next/link"
 import { useState } from "react"
 import { Menu, X, Calculator, Globe, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/ThemeToggle"
 import { Container } from "@/components/Container"
 
 const navigationItems = [
@@ -27,7 +26,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Calculator className="h-8 w-8 header-text" />
-            <span className="text-xl font-bold header-text">Calculatodo.com</span>
+            <span className="text-xl font-bold header-text">CalculaTodo.online</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -52,12 +51,10 @@ export function Header() {
               <span className="text-sm">ES</span>
               <ChevronDown className="h-4 w-4" />
             </div>
-            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center space-x-2">
-            <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"

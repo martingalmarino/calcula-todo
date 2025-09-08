@@ -49,8 +49,8 @@ export interface SiteConfig {
 }
 
 export const SITE: SiteConfig = {
-  baseUrl: process.env.NEXT_PUBLIC_BASE_URL || 'https://calculadoras-online.com',
-  name: 'Calculadoras Online',
+  baseUrl: process.env.NEXT_PUBLIC_BASE_URL || 'https://calculatodo.online',
+  name: 'CalculaTodo.online',
   description: 'Calculadoras matemáticas online gratuitas: fracciones, porcentajes, álgebra, trigonometría y más. Resultados rápidos y explicados paso a paso.',
   nav: [
     { label: 'Inicio', href: '/' },

@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --header-bg: #6b46c1;
+  --header-bg: #dc2626;
   --header-text: #ffffff;
   --math-color: #ef4444;
   --calendar-color: #2563eb;
@@ -186,4 +186,29 @@ body {
 
 .header-text {
   color: var(--header-text);
+}
+
+/* Hero Title Styles */
+.hero-title {
+  @apply text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6;
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  @apply text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed;
+}
+
+/* Footer Styles */
+.footer-bg {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border-top: 1px solid #374151;
+}
+
+.footer-link {
+  @apply text-gray-300 hover:text-white transition-colors duration-200 text-sm;
 }
