@@ -21,21 +21,21 @@ export function CardCalculator({
   return (
     <Link href={href} className="group">
       <Card className={cn(
-        "h-full transition-all duration-200 hover:shadow-lg hover:scale-[1.02] border-2 hover:border-primary/20",
+        "h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.03] border-2 border-gray-200 hover:border-red-300 bg-white hover:bg-red-50/30",
         className
       )}>
         <CardHeader className="pb-3">
           <div className="flex items-center space-x-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+            <div className="p-3 rounded-xl bg-red-100 text-red-600 group-hover:bg-red-600 group-hover:text-white transition-all duration-300 shadow-sm">
               {icon}
             </div>
-            <CardTitle className="text-lg group-hover:text-primary transition-colors">
+            <CardTitle className="text-lg font-semibold text-gray-900 group-hover:text-red-700 transition-colors">
               {title}
             </CardTitle>
           </div>
         </CardHeader>
         <CardContent>
-          <CardDescription className="text-sm leading-relaxed">
+          <CardDescription className="text-sm leading-relaxed text-gray-600 group-hover:text-gray-700 transition-colors">
             {description}
           </CardDescription>
         </CardContent>
