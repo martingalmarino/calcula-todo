@@ -166,12 +166,6 @@ export default function AlgebraClient() {
         <Breadcrumbs items={breadcrumbs} />
         
         <div className="py-8">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-foreground mb-4">
-              Calculadora de Álgebra
-            </h1>
-          </div>
-
           <CalculatorLayout
             title="Calculadora de Álgebra"
             description="Herramienta completa para resolver problemas de álgebra"
