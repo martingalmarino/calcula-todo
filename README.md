@@ -277,3 +277,4 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 **Desarrollado con ❤️ para hacer las matemáticas más accesibles**# Deploy trigger Mon Sep  8 00:37:26 -03 2025
 # Responsive improvements Mon Sep  8 00:41:02 -03 2025
 # Fix overlapping clusters Mon Sep  8 00:44:03 -03 2025
+# Unified patch applied Mon Sep  8 00:54:01 -03 2025
