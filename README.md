@@ -274,4 +274,4 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 
 ---
 
-**Desarrollado con ❤️ para hacer las matemáticas más accesibles**
+**Desarrollado con ❤️ para hacer las matemáticas más accesibles**# Deploy trigger Mon Sep  8 00:37:26 -03 2025
