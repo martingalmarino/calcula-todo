@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
 import { SITE } from '@/lib/site.config'
-import { Pill } from '@/components/Pill'
 import Link from 'next/link'
 
 export const metadata: Metadata = buildMeta({
@@ -53,7 +52,7 @@ export default function HomePage() {
               
               {/* Left Column */}
               <div className="space-y-4">
-                {mathCalculators.slice(0, 5).map((calculator, index) => (
+                {mathCalculators.slice(0, 5).map((calculator) => (
                   <Link 
                     key={calculator.href}
                     href={calculator.href} 
@@ -67,7 +66,7 @@ export default function HomePage() {
 
               {/* Right Column */}
               <div className="space-y-4">
-                {mathCalculators.slice(5, 10).map((calculator, index) => (
+                {mathCalculators.slice(5, 10).map((calculator) => (
                   <Link 
                     key={calculator.href}
                     href={calculator.href} 

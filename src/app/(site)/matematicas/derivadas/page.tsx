@@ -1,24 +1,20 @@
 "use client"
 
 import { useState } from 'react'
-import { Calculator, TrendingUp, FunctionSquare, Zap } from 'lucide-react'
+import { Calculator } from 'lucide-react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { jsonLdCalculator } from '@/lib/seo'
 import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config'
 import { 
   numericalDerivative,
-  forwardDifferenceDerivative,
-  backwardDifferenceDerivative,
   secondDerivative,
-  analyticalDerivative,
-  polynomialFunctions
+  analyticalDerivative
 } from '@/lib/math/calculus'
 
 export default function DerivadasPage() {
@@ -128,8 +124,8 @@ export default function DerivadasPage() {
           return
       }
       setResults(result)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error en el cálculo')
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Error en el cálculo')
     }
   }
 
@@ -393,7 +389,7 @@ export default function DerivadasPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="text-2xl font-bold text-primary">
-                    f'({activeTab === 'analytical' ? 'x' : 'x₀'}) = {results.result.toFixed(6)}
+                    f&apos;({activeTab === 'analytical' ? 'x' : 'x₀'}) = {results.result.toFixed(6)}
                   </div>
                   <div>
                     <h4 className="font-medium mb-2">Método:</h4>
