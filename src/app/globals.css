@@ -213,23 +213,35 @@ body {
   @apply text-gray-300 hover:text-white transition-colors duration-200 text-sm;
 }
 
-/* Calculator Mobile First Styles */
+/* Calculator Mobile First Styles - Standardized Solution */
 .calculator-card {
-  @apply border border-gray-200 rounded-xl shadow-sm;
+  @apply border border-gray-200 rounded-xl shadow-sm bg-white;
 }
 
 /* Mobile First Input Styles */
 .calculator-input {
-  @apply w-full h-12 px-4 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200;
+  @apply w-full h-12 px-4 text-base border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200;
 }
 
 .calculator-input:focus {
   @apply shadow-sm;
 }
 
-/* Mobile First Button Styles */
+.calculator-input:hover {
+  @apply border-gray-400;
+}
+
+/* Mobile First Button Styles - Standardized */
 .calculator-button {
-  @apply w-full h-12 text-base font-medium rounded-lg transition-all duration-200;
+  @apply w-full h-12 text-base font-medium rounded-lg transition-all duration-200 flex items-center justify-center gap-2;
+}
+
+.calculator-button:hover {
+  @apply transform scale-[1.02] shadow-md;
+}
+
+.calculator-button:active {
+  @apply transform scale-[0.98];
 }
 
 /* Mobile First Label Styles */
@@ -250,9 +262,9 @@ body {
   @apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3;
 }
 
-/* Mobile First Tabs Styles */
+/* Mobile First Tabs Styles - Robust Solution */
 .calculator-tabs {
-  @apply flex overflow-x-auto pb-2;
+  @apply flex overflow-x-auto pb-2 gap-1;
   -ms-overflow-style: none;
 }
 
@@ -261,9 +273,77 @@ body {
 }
 
 .calculator-tab {
-  @apply flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300 transition-colors duration-200;
+  @apply flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 hover:text-gray-900 transition-all duration-200 min-w-fit;
 }
 
-.calculator-tab.active {
-  @apply text-red-600 border-red-600;
+.calculator-tab[data-state="active"] {
+  @apply bg-red-600 text-white hover:bg-red-700;
+}
+
+/* Example Buttons - Standardized */
+.calculator-example-button {
+  @apply w-full p-4 text-left border border-gray-200 rounded-lg bg-white hover:bg-gray-50 hover:border-gray-300 transition-all duration-200;
+}
+
+.calculator-example-button:hover {
+  @apply transform translate-y-[-1px] shadow-sm;
+}
+
+.calculator-example-button:active {
+  @apply transform translate-y-0;
+}
+
+/* Help Buttons - Standardized */
+.calculator-help-button {
+  @apply w-full p-3 text-left border border-gray-200 rounded-lg bg-white hover:bg-gray-50 hover:border-gray-300 transition-all duration-200;
+}
+
+.calculator-help-button:hover {
+  @apply transform translate-y-[-1px] shadow-sm;
+}
+
+.calculator-help-button:active {
+  @apply transform translate-y-0;
+}
+
+/* Action Buttons - Standardized */
+.calculator-action-button {
+  @apply flex-1 h-10 px-4 text-sm font-medium border border-gray-300 rounded-lg bg-white hover:bg-gray-50 hover:border-gray-400 transition-all duration-200;
+}
+
+.calculator-action-button:hover {
+  @apply transform scale-[1.02] shadow-sm;
+}
+
+.calculator-action-button:active {
+  @apply transform scale-[0.98];
+}
+
+/* Responsive Breakpoints - Mobile First */
+@media (max-width: 640px) {
+  .calculator-tab {
+    @apply px-2 py-1.5 text-xs;
+  }
+  
+  .calculator-example-button {
+    @apply p-3;
+  }
+  
+  .calculator-help-button {
+    @apply p-2;
+  }
+}
+
+@media (min-width: 768px) {
+  .calculator-tab {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  .calculator-example-button {
+    @apply p-4;
+  }
+  
+  .calculator-help-button {
+    @apply p-3;
+  }
 }

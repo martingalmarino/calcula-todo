@@ -77,10 +77,10 @@ export function CalculatorLayout({
 
       {/* Main Content - Mobile First */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 h-12">
-          <TabsTrigger value="calculator" className="text-sm">Calculadora</TabsTrigger>
-          <TabsTrigger value="examples" className="text-sm">Ejemplos</TabsTrigger>
-          <TabsTrigger value="help" className="text-sm">Ayuda</TabsTrigger>
+        <TabsList className="calculator-tabs">
+          <TabsTrigger value="calculator" className="calculator-tab">Calculadora</TabsTrigger>
+          <TabsTrigger value="examples" className="calculator-tab">Ejemplos</TabsTrigger>
+          <TabsTrigger value="help" className="calculator-tab">Ayuda</TabsTrigger>
         </TabsList>
 
         <TabsContent value="calculator" className="space-y-4 mt-6">
@@ -99,11 +99,11 @@ export function CalculatorLayout({
               
               {/* Action Buttons - Mobile First */}
               <div className="flex flex-col sm:flex-row gap-2 pt-4">
-                <Button onClick={handleCopyResult} variant="outline" size="sm" className="flex-1">
+                <Button onClick={handleCopyResult} className="calculator-action-button">
                   <Copy className="h-4 w-4 mr-2" />
                   Copiar resultado
                 </Button>
-                <Button onClick={handleShare} variant="outline" size="sm" className="flex-1">
+                <Button onClick={handleShare} className="calculator-action-button">
                   <Share2 className="h-4 w-4 mr-2" />
                   Compartir
                 </Button>
@@ -137,14 +137,13 @@ export function CalculatorLayout({
             <CardContent>
               <div className="grid gap-3">
                 {examples.map((example, index) => (
-                  <Button
+                  <button
                     key={index}
-                    variant="outline"
-                    className="justify-start h-auto p-4 text-left"
+                    className="calculator-example-button"
                     onClick={() => onExampleClick?.(example.values)}
                   >
                     <div className="font-medium text-sm">{example.label}</div>
-                  </Button>
+                  </button>
                 ))}
               </div>
             </CardContent>
@@ -190,16 +189,13 @@ export function CalculatorLayout({
               <CardContent>
                 <div className="grid gap-2">
                   {relatedLinks.map((link, index) => (
-                    <Button
+                    <a
                       key={index}
-                      variant="ghost"
-                      className="justify-start h-auto p-3 text-left"
-                      asChild
+                      href={link.href}
+                      className="calculator-help-button"
                     >
-                      <a href={link.href}>
-                        <span className="text-sm">{link.label}</span>
-                      </a>
-                    </Button>
+                      <span className="text-sm">{link.label}</span>
+                    </a>
                   ))}
                 </div>
               </CardContent>
