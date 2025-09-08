@@ -57,6 +57,23 @@ body {
   @apply bg-purple-600 hover:bg-purple-700;
 }
 
+/* Estilos para las cajas de enlaces de calculadoras - Similar a la imagen de referencia */
+.calculator-link-box {
+  @apply flex items-center gap-3 p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 cursor-pointer;
+}
+
+.arrow-icon {
+  @apply text-red-500 text-lg font-bold flex-shrink-0;
+}
+
+.link-text {
+  @apply text-gray-800 font-medium text-sm;
+}
+
+.category-section {
+  @apply bg-gray-50 p-6 rounded-lg border border-gray-200;
+}
+
 /* Header styles */
 .header-bg {
   background-color: var(--header-bg);
