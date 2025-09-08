@@ -170,9 +170,6 @@ export default function AlgebraClient() {
             <h1 className="text-4xl font-bold text-foreground mb-4">
               Calculadora de Álgebra
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Resuelve ecuaciones lineales, cuadráticas, sistemas 2x2, factorización y vértice de parábolas de forma rápida y precisa.
-            </p>
           </div>
 
           <CalculatorLayout
