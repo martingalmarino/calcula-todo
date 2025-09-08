@@ -267,6 +267,10 @@ body {
   @apply flex overflow-x-auto pb-2 gap-2;
   -ms-overflow-style: none;
   scroll-behavior: smooth;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: -1rem;
+  margin-right: -1rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -347,6 +351,8 @@ body {
 @media (max-width: 640px) {
   .calculator-tabs {
     @apply gap-1;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
@@ -367,6 +373,13 @@ body {
 }
 
 @media (min-width: 641px) and (max-width: 767px) {
+  .calculator-tabs {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
   .calculator-tab {
     @apply px-3 py-2.5 text-sm;
     min-height: 44px;
@@ -377,6 +390,8 @@ body {
 @media (min-width: 768px) {
   .calculator-tabs {
     @apply gap-2;
+    margin-left: -1rem;
+    margin-right: -1rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
