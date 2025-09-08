@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
 import { SITE } from '@/lib/site.config'
+import { Pill } from '@/components/Pill'
 import Link from 'next/link'
 
 export const metadata: Metadata = buildMeta({
@@ -79,58 +80,105 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Additional Categories Section */}
-            <div className="mt-16">
-              <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+            {/* Additional Categories Section - New Responsive Design */}
+            <div className="mt-20">
+              <h2 className="text-2xl font-bold text-gray-900 text-center mb-12">
                 Más Calculadoras por Categoría
               </h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Categories Grid - Responsive */}
+              <div className="space-y-12">
                 
-                {/* Calculadoras de Calendario */}
-                <div className="category-section">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">📅 Calendario</h3>
-                  <div className="space-y-2">
-                    <Link href="/calendario/dias-entre-fechas/" className="category-button category-calendar">
+                {/* Calendario Section */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">📅</span>
+                    <h3 className="text-xl font-bold text-gray-900">Calendario</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <Link href="/calendario/dias-entre-fechas/" className="pill-link pill-calendar">
                       Contador de Días entre Fechas
                     </Link>
-                    <Link href="/calendario/calculadora-edad/" className="category-button category-calendar">
+                    <Link href="/calendario/calculadora-edad/" className="pill-link pill-calendar">
                       Calculadora de Edad
                     </Link>
-                    <Link href="/calendario/sumar-restar-dias/" className="category-button category-calendar">
+                    <Link href="/calendario/sumar-restar-dias/" className="pill-link pill-calendar">
                       Sumar/Restar Días a una Fecha
                     </Link>
+                    <Link href="/calendario/horas-minutos/" className="pill-link pill-calendar">
+                      Calculadora de Horas y Minutos
+                    </Link>
+                    <Link href="/calendario/dias-vacaciones/" className="pill-link pill-calendar">
+                      Días de Vacaciones
+                    </Link>
                   </div>
                 </div>
 
-                {/* Calculadoras de Salud */}
-                <div className="category-section">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">🏥 Salud</h3>
-                  <div className="space-y-2">
-                    <Link href="/salud/imc/" className="category-button category-health">
+                {/* Salud Section */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">🏥</span>
+                    <h3 className="text-xl font-bold text-gray-900">Salud</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <Link href="/salud/imc/" className="pill-link pill-health">
                       Índice Masa Corporal (IMC)
                     </Link>
-                    <Link href="/salud/tmb/" className="category-button category-health">
+                    <Link href="/salud/tmb/" className="pill-link pill-health">
                       Tasa Metabólica Basal (TMB)
                     </Link>
-                    <Link href="/salud/grasa-corporal/" className="category-button category-health">
+                    <Link href="/salud/grasa-corporal/" className="pill-link pill-health">
                       Porcentaje Grasa Corporal
+                    </Link>
+                    <Link href="/salud/pafi/" className="pill-link pill-health">
+                      Calculadora PaFi
                     </Link>
                   </div>
                 </div>
 
-                {/* Calculadoras de Geometría */}
-                <div className="category-section">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">📐 Geometría</h3>
-                  <div className="space-y-2">
-                    <Link href="/geometria/circulo/" className="category-button category-geometry">
+                {/* Geometría Section */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">📐</span>
+                    <h3 className="text-xl font-bold text-gray-900">Geometría</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <Link href="/geometria/circulo/" className="pill-link pill-geometry">
                       Área y Perímetro del Círculo
                     </Link>
-                    <Link href="/geometria/rectangulo/" className="category-button category-geometry">
+                    <Link href="/geometria/rectangulo/" className="pill-link pill-geometry">
                       Área y Perímetro del Rectángulo
                     </Link>
-                    <Link href="/geometria/triangulo/" className="category-button category-geometry">
+                    <Link href="/geometria/triangulo/" className="pill-link pill-geometry">
                       Área del Triángulo
+                    </Link>
+                    <Link href="/geometria/cuadrado/" className="pill-link pill-geometry">
+                      Área y Perímetro del Cuadrado
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Otras Calculadoras Section */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">🔧</span>
+                    <h3 className="text-xl font-bold text-gray-900">Otras Calculadoras</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <Link href="/otras/escala-notas/" className="pill-link pill-other">
+                      Escala de Notas
+                    </Link>
+                    <Link href="/otras/gasto-gasolina/" className="pill-link pill-other">
+                      Gasto Gasolina para Viajes
+                    </Link>
+                    <Link href="/otras/contador-palabras/" className="pill-link pill-other">
+                      Contador de Palabras y Caracteres
+                    </Link>
+                    <Link href="/otras/numeros-romanos/" className="pill-link pill-other">
+                      Conversor de Números Romanos
+                    </Link>
+                    <Link href="/otras/contador-clicks/" className="pill-link pill-other">
+                      Contador de Clicks (CPS Test)
                     </Link>
                   </div>
                 </div>

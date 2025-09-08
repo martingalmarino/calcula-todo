@@ -101,6 +101,63 @@ body {
   word-wrap: break-word;
 }
 
+/* Nuevos estilos para la sección de categorías responsive */
+.category-section-new {
+  @apply bg-white border border-gray-200 rounded-xl p-6 shadow-sm;
+}
+
+/* Estilos para los pill links */
+.pill-link {
+  @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 hover:shadow-md;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.pill-link:hover {
+  text-decoration: none;
+}
+
+/* Colores específicos para cada categoría */
+.pill-calendar {
+  @apply bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 hover:border-blue-300;
+}
+
+.pill-health {
+  @apply bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:border-green-300;
+}
+
+.pill-geometry {
+  @apply bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100 hover:border-purple-300;
+}
+
+.pill-other {
+  @apply bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100 hover:border-orange-300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .category-section-new {
+    @apply p-4;
+  }
+  
+  .pill-link {
+    @apply px-3 py-1.5 text-xs;
+  }
+  
+  .flex.flex-wrap {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pill-link {
+    @apply px-2 py-1 text-xs;
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+  }
+}
+
 /* Header styles */
 .header-bg {
   background-color: var(--header-bg);
