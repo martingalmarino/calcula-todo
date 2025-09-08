@@ -199,195 +199,159 @@ export default function PorcentajesPage() {
             onExampleClick={handleExampleClick}
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4">
-                <TabsTrigger value="percentage-of">X es % de Y</TabsTrigger>
-                <TabsTrigger value="percentage-of-number">% de un número</TabsTrigger>
-                <TabsTrigger value="increase">Aumento</TabsTrigger>
-                <TabsTrigger value="decrease">Descuento</TabsTrigger>
+              <TabsList className="calculator-tabs">
+                <TabsTrigger value="percentage-of" className="calculator-tab">X es % de Y</TabsTrigger>
+                <TabsTrigger value="percentage-of-number" className="calculator-tab">% de un número</TabsTrigger>
+                <TabsTrigger value="increase" className="calculator-tab">Aumento</TabsTrigger>
+                <TabsTrigger value="decrease" className="calculator-tab">Descuento</TabsTrigger>
               </TabsList>
 
               <TabsContent value="percentage-of" className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Percent className="h-5 w-5" />
-                      ¿Qué porcentaje es X de Y?
-                    </CardTitle>
-                    <CardDescription>
-                      Calcula qué porcentaje representa un número de otro
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="x" className="block text-sm font-medium mb-2">
-                          Valor X
-                        </label>
-                        <Input
-                          id="x"
-                          type="number"
-                          placeholder="Ej: 50"
-                          value={percentageOfValues.x}
-                          onChange={(e) => setPercentageOfValues({ ...percentageOfValues, x: e.target.value })}
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="y" className="block text-sm font-medium mb-2">
-                          Valor Y (total)
-                        </label>
-                        <Input
-                          id="y"
-                          type="number"
-                          placeholder="Ej: 200"
-                          value={percentageOfValues.y}
-                          onChange={(e) => setPercentageOfValues({ ...percentageOfValues, y: e.target.value })}
-                        />
-                      </div>
+                <div className="space-y-4">
+                  <div className="calculator-grid calculator-grid-2">
+                    <div>
+                      <label htmlFor="x" className="calculator-label">
+                        Valor X
+                      </label>
+                      <Input
+                        id="x"
+                        type="number"
+                        placeholder="Ej: 50"
+                        value={percentageOfValues.x}
+                        onChange={(e) => setPercentageOfValues({ ...percentageOfValues, x: e.target.value })}
+                        className="calculator-input"
+                      />
                     </div>
-                    <Button onClick={handleCalculate} className="w-full">
-                      <Calculator className="h-4 w-4 mr-2" />
-                      Calcular Porcentaje
-                    </Button>
-                  </CardContent>
-                </Card>
+                    <div>
+                      <label htmlFor="y" className="calculator-label">
+                        Valor Y (total)
+                      </label>
+                      <Input
+                        id="y"
+                        type="number"
+                        placeholder="Ej: 200"
+                        value={percentageOfValues.y}
+                        onChange={(e) => setPercentageOfValues({ ...percentageOfValues, y: e.target.value })}
+                        className="calculator-input"
+                      />
+                    </div>
+                  </div>
+                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                    <Calculator className="h-4 w-4 mr-2" />
+                    Calcular Porcentaje
+                  </Button>
+                </div>
               </TabsContent>
 
               <TabsContent value="percentage-of-number" className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Percent className="h-5 w-5" />
-                      Porcentaje de un número
-                    </CardTitle>
-                    <CardDescription>
-                      Calcula el X% de un número
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="percentage" className="block text-sm font-medium mb-2">
-                          Porcentaje (%)
-                        </label>
-                        <Input
-                          id="percentage"
-                          type="number"
-                          placeholder="Ej: 25"
-                          value={percentageOfNumberValues.percentage}
-                          onChange={(e) => setPercentageOfNumberValues({ ...percentageOfNumberValues, percentage: e.target.value })}
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="base" className="block text-sm font-medium mb-2">
-                          Número base
-                        </label>
-                        <Input
-                          id="base"
-                          type="number"
-                          placeholder="Ej: 200"
-                          value={percentageOfNumberValues.base}
-                          onChange={(e) => setPercentageOfNumberValues({ ...percentageOfNumberValues, base: e.target.value })}
-                        />
-                      </div>
+                <div className="space-y-4">
+                  <div className="calculator-grid calculator-grid-2">
+                    <div>
+                      <label htmlFor="percentage" className="calculator-label">
+                        Porcentaje (%)
+                      </label>
+                      <Input
+                        id="percentage"
+                        type="number"
+                        placeholder="Ej: 25"
+                        value={percentageOfNumberValues.percentage}
+                        onChange={(e) => setPercentageOfNumberValues({ ...percentageOfNumberValues, percentage: e.target.value })}
+                        className="calculator-input"
+                      />
                     </div>
-                    <Button onClick={handleCalculate} className="w-full">
-                      <Calculator className="h-4 w-4 mr-2" />
-                      Calcular
-                    </Button>
-                  </CardContent>
-                </Card>
+                    <div>
+                      <label htmlFor="base" className="calculator-label">
+                        Número base
+                      </label>
+                      <Input
+                        id="base"
+                        type="number"
+                        placeholder="Ej: 200"
+                        value={percentageOfNumberValues.base}
+                        onChange={(e) => setPercentageOfNumberValues({ ...percentageOfNumberValues, base: e.target.value })}
+                        className="calculator-input"
+                      />
+                    </div>
+                  </div>
+                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                    <Calculator className="h-4 w-4 mr-2" />
+                    Calcular
+                  </Button>
+                </div>
               </TabsContent>
 
               <TabsContent value="increase" className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <TrendingUp className="h-5 w-5" />
-                      Aumento porcentual
-                    </CardTitle>
-                    <CardDescription>
-                      Calcula el valor después de un aumento
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="value-increase" className="block text-sm font-medium mb-2">
-                          Valor original
-                        </label>
-                        <Input
-                          id="value-increase"
-                          type="number"
-                          placeholder="Ej: 100"
-                          value={increaseValues.value}
-                          onChange={(e) => setIncreaseValues({ ...increaseValues, value: e.target.value })}
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="percentage-increase" className="block text-sm font-medium mb-2">
-                          Porcentaje de aumento (%)
-                        </label>
-                        <Input
-                          id="percentage-increase"
-                          type="number"
-                          placeholder="Ej: 15"
-                          value={increaseValues.percentage}
-                          onChange={(e) => setIncreaseValues({ ...increaseValues, percentage: e.target.value })}
-                        />
-                      </div>
+                <div className="space-y-4">
+                  <div className="calculator-grid calculator-grid-2">
+                    <div>
+                      <label htmlFor="value-increase" className="calculator-label">
+                        Valor original
+                      </label>
+                      <Input
+                        id="value-increase"
+                        type="number"
+                        placeholder="Ej: 100"
+                        value={increaseValues.value}
+                        onChange={(e) => setIncreaseValues({ ...increaseValues, value: e.target.value })}
+                        className="calculator-input"
+                      />
                     </div>
-                    <Button onClick={handleCalculate} className="w-full">
-                      <Calculator className="h-4 w-4 mr-2" />
-                      Calcular Aumento
-                    </Button>
-                  </CardContent>
-                </Card>
+                    <div>
+                      <label htmlFor="percentage-increase" className="calculator-label">
+                        Porcentaje de aumento (%)
+                      </label>
+                      <Input
+                        id="percentage-increase"
+                        type="number"
+                        placeholder="Ej: 15"
+                        value={increaseValues.percentage}
+                        onChange={(e) => setIncreaseValues({ ...increaseValues, percentage: e.target.value })}
+                        className="calculator-input"
+                      />
+                    </div>
+                  </div>
+                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                    <Calculator className="h-4 w-4 mr-2" />
+                    Calcular Aumento
+                  </Button>
+                </div>
               </TabsContent>
 
               <TabsContent value="decrease" className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <TrendingDown className="h-5 w-5" />
-                      Descuento porcentual
-                    </CardTitle>
-                    <CardDescription>
-                      Calcula el valor después de un descuento
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="value-decrease" className="block text-sm font-medium mb-2">
-                          Valor original
-                        </label>
-                        <Input
-                          id="value-decrease"
-                          type="number"
-                          placeholder="Ej: 100"
-                          value={decreaseValues.value}
-                          onChange={(e) => setDecreaseValues({ ...decreaseValues, value: e.target.value })}
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="percentage-decrease" className="block text-sm font-medium mb-2">
-                          Porcentaje de descuento (%)
-                        </label>
-                        <Input
-                          id="percentage-decrease"
-                          type="number"
-                          placeholder="Ej: 20"
-                          value={decreaseValues.percentage}
-                          onChange={(e) => setDecreaseValues({ ...decreaseValues, percentage: e.target.value })}
-                        />
-                      </div>
+                <div className="space-y-4">
+                  <div className="calculator-grid calculator-grid-2">
+                    <div>
+                      <label htmlFor="value-decrease" className="calculator-label">
+                        Valor original
+                      </label>
+                      <Input
+                        id="value-decrease"
+                        type="number"
+                        placeholder="Ej: 100"
+                        value={decreaseValues.value}
+                        onChange={(e) => setDecreaseValues({ ...decreaseValues, value: e.target.value })}
+                        className="calculator-input"
+                      />
                     </div>
-                    <Button onClick={handleCalculate} className="w-full">
-                      <Calculator className="h-4 w-4 mr-2" />
-                      Calcular Descuento
-                    </Button>
-                  </CardContent>
-                </Card>
+                    <div>
+                      <label htmlFor="percentage-decrease" className="calculator-label">
+                        Porcentaje de descuento (%)
+                      </label>
+                      <Input
+                        id="percentage-decrease"
+                        type="number"
+                        placeholder="Ej: 20"
+                        value={decreaseValues.percentage}
+                        onChange={(e) => setDecreaseValues({ ...decreaseValues, percentage: e.target.value })}
+                        className="calculator-input"
+                      />
+                    </div>
+                  </div>
+                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                    <Calculator className="h-4 w-4 mr-2" />
+                    Calcular Descuento
+                  </Button>
+                </div>
               </TabsContent>
             </Tabs>
 
