@@ -59,19 +59,46 @@ body {
 
 /* Estilos para las cajas de enlaces de calculadoras - Similar a la imagen de referencia */
 .calculator-link-box {
-  @apply flex items-center gap-3 p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 cursor-pointer;
+  @apply flex items-center gap-4 p-5 bg-white border border-gray-300 rounded-md shadow-sm hover:shadow-lg hover:border-gray-400 transition-all duration-300 cursor-pointer;
+  min-height: 60px;
 }
 
 .arrow-icon {
-  @apply text-red-500 text-lg font-bold flex-shrink-0;
+  @apply text-red-500 text-xl font-bold flex-shrink-0;
+  width: 20px;
+  text-align: center;
 }
 
 .link-text {
-  @apply text-gray-800 font-medium text-sm;
+  @apply text-gray-900 font-semibold text-base leading-tight;
+  flex: 1;
 }
 
 .category-section {
   @apply bg-gray-50 p-6 rounded-lg border border-gray-200;
+}
+
+/* Mejoras adicionales para alineación y look and feel */
+.calculator-link-box:hover {
+  transform: translateY(-2px);
+}
+
+.calculator-link-box:active {
+  transform: translateY(0);
+}
+
+/* Asegurar que las cajas tengan el mismo ancho y altura */
+.calculator-link-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Mejorar la alineación del texto */
+.link-text {
+  text-align: left;
+  word-wrap: break-word;
 }
 
 /* Header styles */
