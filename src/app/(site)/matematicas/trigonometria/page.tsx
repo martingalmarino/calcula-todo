@@ -367,16 +367,16 @@ export default function TrigonometriaPage() {
                   {activeTab === 'basic' && (
                     <div className="space-y-2">
                       <div className="text-lg font-semibold">
-                        Ángulo: {results.angle}{results.unit === 'degrees' ? '°' : ' rad'}
+                        Ángulo: {(results as { angle: number; unit: string; sin: TrigResult; cos: TrigResult; tan: TrigResult; steps: string[] }).angle}{(results as { angle: number; unit: string; sin: TrigResult; cos: TrigResult; tan: TrigResult; steps: string[] }).unit === 'degrees' ? '°' : ' rad'}
                       </div>
                       <div className="text-2xl font-bold text-primary">
-                        sin = {results.sin.result.toFixed(6)}
+                        sin = {(results as { angle: number; unit: string; sin: TrigResult; cos: TrigResult; tan: TrigResult; steps: string[] }).sin.result.toFixed(6)}
                       </div>
                       <div className="text-2xl font-bold text-primary">
-                        cos = {results.cos.result.toFixed(6)}
+                        cos = {(results as { angle: number; unit: string; sin: TrigResult; cos: TrigResult; tan: TrigResult; steps: string[] }).cos.result.toFixed(6)}
                       </div>
                       <div className="text-2xl font-bold text-primary">
-                        tan = {results.tan.result.toFixed(6)}
+                        tan = {(results as { angle: number; unit: string; sin: TrigResult; cos: TrigResult; tan: TrigResult; steps: string[] }).tan.result.toFixed(6)}
                       </div>
                     </div>
                   )}
@@ -384,30 +384,30 @@ export default function TrigonometriaPage() {
                   {activeTab === 'inverse' && (
                     <div className="space-y-2">
                       <div className="text-lg font-semibold">
-                        Valor: {results.value}
+                        Valor: {(results as { value: number; unit: string; asin: TrigResult; acos: TrigResult; atan: TrigResult; steps: string[] }).value}
                       </div>
                       <div className="text-2xl font-bold text-primary">
-                        arcsin = {results.asin.result.toFixed(6)}{results.unit === 'degrees' ? '°' : ' rad'}
+                        arcsin = {(results as { value: number; unit: string; asin: TrigResult; acos: TrigResult; atan: TrigResult; steps: string[] }).asin.result.toFixed(6)}{(results as { value: number; unit: string; asin: TrigResult; acos: TrigResult; atan: TrigResult; steps: string[] }).unit === 'degrees' ? '°' : ' rad'}
                       </div>
                       <div className="text-2xl font-bold text-primary">
-                        arccos = {results.acos.result.toFixed(6)}{results.unit === 'degrees' ? '°' : ' rad'}
+                        arccos = {(results as { value: number; unit: string; asin: TrigResult; acos: TrigResult; atan: TrigResult; steps: string[] }).acos.result.toFixed(6)}{(results as { value: number; unit: string; asin: TrigResult; acos: TrigResult; atan: TrigResult; steps: string[] }).unit === 'degrees' ? '°' : ' rad'}
                       </div>
                       <div className="text-2xl font-bold text-primary">
-                        arctan = {results.atan.result.toFixed(6)}{results.unit === 'degrees' ? '°' : ' rad'}
+                        arctan = {(results as { value: number; unit: string; asin: TrigResult; acos: TrigResult; atan: TrigResult; steps: string[] }).atan.result.toFixed(6)}{(results as { value: number; unit: string; asin: TrigResult; acos: TrigResult; atan: TrigResult; steps: string[] }).unit === 'degrees' ? '°' : ' rad'}
                       </div>
                     </div>
                   )}
                   
                   {(activeTab === 'pythagoras' || activeTab === 'cathetus') && (
                     <div className="text-2xl font-bold text-primary">
-                      {activeTab === 'pythagoras' ? 'Hipotenusa' : 'Cateto'} = {results.result.toFixed(6)}
+                      {activeTab === 'pythagoras' ? 'Hipotenusa' : 'Cateto'} = {(results as TrigResult).result.toFixed(6)}
                     </div>
                   )}
                   
                   <div>
                     <h4 className="font-medium mb-2">Pasos:</h4>
                     <ol className="list-decimal list-inside space-y-1 text-sm">
-                      {results.steps.map((step: string, index: number) => (
+                      {(results as { angle: number; unit: string; sin: TrigResult; cos: TrigResult; tan: TrigResult; steps: string[] }).steps.map((step: string, index: number) => (
                         <li key={index}>{step}</li>
                       ))}
                     </ol>
