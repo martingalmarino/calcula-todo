@@ -1,12 +1,14 @@
 import { Metadata } from 'next';
+import { calculatorTitles } from './page-title';
 
 export interface SEOConfig {
-  title: string;
+  title?: string;
   description: string;
   canonical?: string;
   keywords?: string[];
   ogImage?: string;
   noIndex?: boolean;
+  autoTitle?: boolean;
 }
 
 /**
@@ -19,11 +21,22 @@ export function buildMeta(config: SEOConfig): Metadata {
     canonical,
     keywords = [],
     ogImage = '/og-image.jpg',
-    noIndex = false
+    noIndex = false,
+    autoTitle = false
   } = config;
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://calculadoras-online.com';
-  const fullTitle = title.includes('Calculadoras Online') ? title : `${title} | Calculadoras Online`;
+  
+  // Si autoTitle está habilitado, usar el título automático basado en la ruta
+  let finalTitle = title;
+  if (autoTitle && canonical) {
+    const autoTitleFromPath = calculatorTitles[canonical];
+    if (autoTitleFromPath) {
+      finalTitle = autoTitleFromPath;
+    }
+  }
+  
+  const fullTitle = finalTitle && finalTitle.includes('Calculadora de') ? finalTitle : `${finalTitle || 'Calculadora'} | CalculaTodo.online`;
   const canonicalUrl = canonical ? `${baseUrl}${canonical}` : undefined;
 
   return {
