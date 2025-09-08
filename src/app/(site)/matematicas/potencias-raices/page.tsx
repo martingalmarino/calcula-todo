@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { Calculator, Zap, Square, Cube } from 'lucide-react'
+import { Calculator, Zap, Square, Box } from 'lucide-react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
@@ -322,7 +322,7 @@ export default function PotenciasRaicesPage() {
                   </div>
                   
                   <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
-                    <Cube className="h-4 w-4 mr-2" />
+                    <Box className="h-4 w-4 mr-2" />
                     Calcular Raíz Cúbica
                   </Button>
                 </div>
