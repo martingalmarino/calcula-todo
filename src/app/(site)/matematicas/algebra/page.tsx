@@ -16,7 +16,10 @@ import {
   solveQuadratic,
   solveSystem2x2,
   factorQuadratic,
-  vertexOfParabola
+  vertexOfParabola,
+  type LinearResult,
+  type QuadraticResult,
+  type System2x2Result
 } from '@/lib/math/algebra'
 
 export default function AlgebraPage() {

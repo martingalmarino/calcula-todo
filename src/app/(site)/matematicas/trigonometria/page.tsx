@@ -15,7 +15,8 @@ import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config'
 import { 
   sin, cos, tan,
   asin, acos, atan,
-  hypotenuse, cathetus
+  hypotenuse, cathetus,
+  type TrigResult
 } from '@/lib/math/trig'
 
 export default function TrigonometriaPage() {

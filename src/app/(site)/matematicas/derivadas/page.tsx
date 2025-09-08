@@ -59,7 +59,7 @@ export default function DerivadasPage() {
         .replace(/e/g, 'Math.E');
       
       return new Function('x', `return ${cleanFunc}`) as (x: number) => number;
-    } catch (error) {
+    } catch {
       throw new Error('Función inválida. Use notación como: x^2, sin(x), cos(x), etc.');
     }
   }

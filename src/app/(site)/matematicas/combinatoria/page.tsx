@@ -20,7 +20,8 @@ import {
   numberOfSubsets,
   circularPermutations,
   arrangementsWithIndistinguishable,
-  pascalsTriangle
+  pascalsTriangle,
+  type CombinatoricsResult
 } from '@/lib/math/combinatorics'
 
 export default function CombinatoriaPage() {

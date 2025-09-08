@@ -22,7 +22,9 @@ import {
   findArithmeticDifference,
   findGeometricRatio,
   isArithmeticProgression,
-  isGeometricProgression
+  isGeometricProgression,
+  type ProgressionResult,
+  type ProgressionTerms
 } from '@/lib/math/progressions'
 
 export default function ProgresionesPage() {

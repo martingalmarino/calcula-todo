@@ -19,7 +19,9 @@ import {
   determinant,
   inverseMatrix,
   scalarMultiply,
-  transpose
+  transpose,
+  type Matrix,
+  type MatrixResult
 } from '@/lib/math/matrices'
 
 export default function MatricesPage() {
