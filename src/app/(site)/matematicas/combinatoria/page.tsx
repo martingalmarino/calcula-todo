@@ -20,13 +20,12 @@ import {
   numberOfSubsets,
   circularPermutations,
   arrangementsWithIndistinguishable,
-  binomialCoefficient,
   pascalsTriangle
 } from '@/lib/math/combinatorics'
 
 export default function CombinatoriaPage() {
   const [activeTab, setActiveTab] = useState('factorial')
-  const [results, setResults] = useState<any>(null)
+  const [results, setResults] = useState<CombinatoricsResult | { result: number[][]; formula: string; steps: string[]; explanation: string } | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   // Estados para cada tipo de cálculo

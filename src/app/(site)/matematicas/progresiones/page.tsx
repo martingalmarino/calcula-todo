@@ -27,7 +27,7 @@ import {
 
 export default function ProgresionesPage() {
   const [activeTab, setActiveTab] = useState('arithmetic-nth')
-  const [results, setResults] = useState<any>(null)
+  const [results, setResults] = useState<ProgressionResult | ProgressionTerms | { isArithmetic: boolean; difference?: number; steps: string[] } | { isGeometric: boolean; ratio?: number; steps: string[] } | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   // Estados para cada tipo de cálculo

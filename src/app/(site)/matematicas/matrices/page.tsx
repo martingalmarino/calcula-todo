@@ -19,15 +19,12 @@ import {
   determinant,
   inverseMatrix,
   scalarMultiply,
-  transpose,
-  identityMatrix,
-  zeroMatrix,
-  predefinedMatrices
+  transpose
 } from '@/lib/math/matrices'
 
 export default function MatricesPage() {
   const [activeTab, setActiveTab] = useState('add')
-  const [results, setResults] = useState<any>(null)
+  const [results, setResults] = useState<MatrixResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   // Estados para cada tipo de cálculo
@@ -62,7 +59,7 @@ export default function MatricesPage() {
     return matrix
   }
 
-  const formatMatrix = (matrix: any): string => {
+  const formatMatrix = (matrix: Matrix): string => {
     if (typeof matrix === 'number') {
       return matrix.toString()
     }

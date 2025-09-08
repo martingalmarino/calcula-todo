@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { Calculator, Triangle, RotateCcw } from 'lucide-react'
+import { Triangle, RotateCcw } from 'lucide-react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
@@ -13,16 +13,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { jsonLdCalculator } from '@/lib/seo'
 import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config'
 import { 
-  sin, cos, tan, cot, sec, csc,
+  sin, cos, tan,
   asin, acos, atan,
-  hypotenuse, cathetus,
-  toRadians, toDegrees,
-  specialAngles
+  hypotenuse, cathetus
 } from '@/lib/math/trig'
 
 export default function TrigonometriaPage() {
   const [activeTab, setActiveTab] = useState('basic')
-  const [results, setResults] = useState<any>(null)
+  const [results, setResults] = useState<TrigResult | { angle: number; unit: string; sin: TrigResult; cos: TrigResult; tan: TrigResult; steps: string[] } | { value: number; unit: string; asin: TrigResult; acos: TrigResult; atan: TrigResult; steps: string[] } | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [angleUnit, setAngleUnit] = useState<'degrees' | 'radians'>('degrees')
 

@@ -17,9 +17,7 @@ import {
   sqrt,
   cbrt,
   toScientificNotation,
-  powerOfTen,
-  perfectRoot,
-  perfectPower
+  powerOfTen
 } from '@/lib/math/powerRoot'
 
 export default function PotenciasRaicesPage() {

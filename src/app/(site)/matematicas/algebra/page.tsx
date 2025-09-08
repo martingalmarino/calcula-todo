@@ -21,7 +21,7 @@ import {
 
 export default function AlgebraPage() {
   const [activeTab, setActiveTab] = useState('linear')
-  const [results, setResults] = useState<any>(null)
+  const [results, setResults] = useState<LinearResult | QuadraticResult | System2x2Result | { factors: string; steps: string[] } | { x: number; y: number; steps: string[] } | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   // Estados para cada tipo de cálculo
