@@ -95,7 +95,7 @@ export default function HomePage() {
                     <span className="text-2xl">📅</span>
                     <h3 className="text-xl font-bold text-gray-900">Calendario</h3>
                   </div>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="pills-container">
                     <Link href="/calendario/dias-entre-fechas/" className="pill-link pill-calendar">
                       Contador de Días entre Fechas
                     </Link>
@@ -120,7 +120,7 @@ export default function HomePage() {
                     <span className="text-2xl">🏥</span>
                     <h3 className="text-xl font-bold text-gray-900">Salud</h3>
                   </div>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="pills-container">
                     <Link href="/salud/imc/" className="pill-link pill-health">
                       Índice Masa Corporal (IMC)
                     </Link>
@@ -142,7 +142,7 @@ export default function HomePage() {
                     <span className="text-2xl">📐</span>
                     <h3 className="text-xl font-bold text-gray-900">Geometría</h3>
                   </div>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="pills-container">
                     <Link href="/geometria/circulo/" className="pill-link pill-geometry">
                       Área y Perímetro del Círculo
                     </Link>
@@ -164,7 +164,7 @@ export default function HomePage() {
                     <span className="text-2xl">🔧</span>
                     <h3 className="text-xl font-bold text-gray-900">Otras Calculadoras</h3>
                   </div>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="pills-container">
                     <Link href="/otras/escala-notas/" className="pill-link pill-other">
                       Escala de Notas
                     </Link>
