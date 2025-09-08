@@ -24,4 +24,8 @@ export const calculatorTitles: Record<string, string> = {
   '/matematicas/potencias-raices/': 'Calculadora de Potencias y Raíces',
   '/matematicas/fracciones/': 'Calculadora de Fracciones',
   '/matematicas/porcentajes/': 'Calculadora de Porcentajes',
+  '/salud/imc/': 'Calculadora de IMC - Índice de Masa Corporal',
+  '/salud/tmb/': 'Calculadora de TMB - Tasa Metabólica Basal',
+  '/salud/grasa-corporal/': 'Calculadora de Porcentaje de Grasa Corporal',
+  '/salud/pafi/': 'Calculadora PaFi - Presión Arterial y Frecuencia Cardíaca',
 }
