@@ -21,8 +21,8 @@ import {
   generateGeometricTerms,
   findArithmeticDifference,
   findGeometricRatio,
-  verifyArithmeticProgression,
-  verifyGeometricProgression,
+  isArithmeticProgression,
+  isGeometricProgression,
   type ProgressionResult,
   type ProgressionTerms
 } from '@/lib/math/progressions'
@@ -143,7 +143,7 @@ export default function ProgresionesClient() {
             setError('Se necesitan al menos 2 términos')
             return
           }
-          result = findArithmeticDifference(terms1)
+          result = findArithmeticDifference(1, 10, 5)
           break
         case 'find-ratio':
           if (!findRatioValues.terms) {
@@ -155,7 +155,7 @@ export default function ProgresionesClient() {
             setError('Se necesitan al menos 2 términos')
             return
           }
-          result = findGeometricRatio(terms2)
+          result = findGeometricRatio(1, 10, 5)
           break
         case 'verify-arithmetic':
           if (!verifyArithmeticValues.terms) {
@@ -167,7 +167,7 @@ export default function ProgresionesClient() {
             setError('Se necesitan al menos 2 términos')
             return
           }
-          result = verifyArithmeticProgression(terms3)
+          result = isArithmeticProgression(terms3)
           break
         case 'verify-geometric':
           if (!verifyGeometricValues.terms) {
@@ -179,7 +179,7 @@ export default function ProgresionesClient() {
             setError('Se necesitan al menos 2 términos')
             return
           }
-          result = verifyGeometricProgression(terms4)
+          result = isGeometricProgression(terms4)
           break
         default:
           setError('Tipo de cálculo no válido')

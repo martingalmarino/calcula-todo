@@ -628,7 +628,7 @@ export default function FraccionesClient() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="text-2xl font-bold text-primary">
-                    {results.result}
+                    {results.result.numerator}/{results.result.denominator}
                   </div>
                   
                   <div>

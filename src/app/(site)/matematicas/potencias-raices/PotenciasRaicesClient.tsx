@@ -24,7 +24,7 @@ import {
 
 export default function PotenciasRaicesClient() {
   const [activeTab, setActiveTab] = useState('square-root')
-  const [results, setResults] = useState<PowerRootResult | null>(null)
+  const [results, setResults] = useState<{ result: number; steps: string[] } | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   // Estados para cada tipo de cálculo

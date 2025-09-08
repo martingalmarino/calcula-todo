@@ -129,7 +129,12 @@ export default function CombinatoriaClient() {
             return
           }
           const triangle = pascalsTriangle(nPascal)
-          result = { result: triangle.length, steps: triangle.map((row, i) => `Fila ${i}: ${row.join(', ')}`) }
+          result = { 
+            result: triangle.length, 
+            formula: `Triángulo de Pascal con ${nPascal} filas`,
+            explanation: `Se generaron ${nPascal} filas del triángulo de Pascal`,
+            steps: triangle.map((row, i) => `Fila ${i}: ${row.join(', ')}`) 
+          }
           break
         default:
           setError('Tipo de cálculo no válido')

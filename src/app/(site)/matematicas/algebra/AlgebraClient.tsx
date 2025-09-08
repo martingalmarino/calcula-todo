@@ -48,7 +48,7 @@ export default function AlgebraClient() {
         return
       }
 
-      const result = solveLinear(a, b, c)
+      const result = solveLinear(a, b)
       setResults(result)
       setError(null)
     } catch (err) {
@@ -146,7 +146,7 @@ export default function AlgebraClient() {
   }
 
   const breadcrumbs = getBreadcrumbs('/matematicas/algebra')
-  const relatedCalculators = getRelatedCalculators('algebra')
+  const relatedCalculators = getRelatedCalculators('algebra', 'algebra')
 
   return (
     <div className="min-h-screen bg-background">
@@ -156,7 +156,8 @@ export default function AlgebraClient() {
           __html: JSON.stringify(jsonLdCalculator({
             name: 'Calculadora de Álgebra',
             description: 'Resuelve ecuaciones lineales, cuadráticas, sistemas 2x2, factorización y vértice de parábolas',
-            url: '/matematicas/algebra'
+            url: '/matematicas/algebra',
+            category: 'Matemáticas'
           }))
         }}
       />
@@ -177,8 +178,6 @@ export default function AlgebraClient() {
           <CalculatorLayout
             title="Calculadora de Álgebra"
             description="Herramienta completa para resolver problemas de álgebra"
-            icon={<Calculator className="h-8 w-8" />}
-            relatedCalculators={relatedCalculators}
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <TabsList className="calculator-tabs">
@@ -500,11 +499,16 @@ export default function AlgebraClient() {
                   
                   {activeTab === 'quadratic' && (
                     <div className="space-y-2">
-                      {(results as QuadraticResult).solutions.map((solution, index) => (
-                        <div key={index} className="text-2xl font-bold text-primary">
-                          x{index + 1} = {solution.toFixed(6)}
+                      {(results as QuadraticResult).x1 !== null && (
+                        <div className="text-2xl font-bold text-primary">
+                          x1 = {(results as QuadraticResult).x1!.toFixed(6)}
                         </div>
-                      ))}
+                      )}
+                      {(results as QuadraticResult).x2 !== null && (
+                        <div className="text-2xl font-bold text-primary">
+                          x2 = {(results as QuadraticResult).x2!.toFixed(6)}
+                        </div>
+                      )}
                     </div>
                   )}
                   
@@ -536,7 +540,7 @@ export default function AlgebraClient() {
                   <div>
                     <h4 className="font-medium mb-2">Pasos:</h4>
                     <ol className="list-decimal list-inside space-y-1 text-sm">
-                      {(results as any).steps?.map((step: string, index: number) => (
+                      {(results as { steps?: string[] }).steps?.map((step: string, index: number) => (
                         <li key={index}>{step}</li>
                       ))}
                     </ol>
