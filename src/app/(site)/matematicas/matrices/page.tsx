@@ -61,7 +61,7 @@ export default function MatricesPage() {
     return matrix
   }
 
-  const formatMatrix = (matrix: Matrix): string => {
+  const formatMatrix = (matrix: Matrix | number): string => {
     if (typeof matrix === 'number') {
       return matrix.toString()
     }
