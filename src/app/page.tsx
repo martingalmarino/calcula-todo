@@ -40,7 +40,7 @@ export default function HomePage() {
               <h1 className="text-h1-new text-4xl md:text-5xl font-bold mb-6">
                 Calculadoras Online Gratuitas
               </h1>
-              <p className="text-h2-new text-lg md:text-xl font-semibold max-w-3xl mx-auto">
+              <p className="text-body-new text-lg md:text-xl font-semibold max-w-3xl mx-auto">
                 Facilitamos tus cálculos en temas de finanzas, salud, matemática, calendario, geometría y más. 
                 Calculadoras online gratuitas, rápidas y amigables.
               </p>
@@ -55,10 +55,10 @@ export default function HomePage() {
                   <Link 
                     key={calculator.href}
                     href={calculator.href} 
-                    className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-primary-new hover:shadow-md transition-all duration-200 group"
+                    className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-primary hover:shadow-md transition-all duration-200 group"
                   >
-                    <span className="text-primary-new text-lg font-medium group-hover:text-primary-new/80">Calculadora de {calculator.label}</span>
-                    <span className="text-primary-new text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
+                    <span className="text-primary text-lg font-medium group-hover:text-primary/80">Calculadora de {calculator.label}</span>
+                    <span className="text-primary text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
                   </Link>
                 ))}
               </div>
@@ -69,20 +69,21 @@ export default function HomePage() {
                   <Link 
                     key={calculator.href}
                     href={calculator.href} 
-                    className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-primary-new hover:shadow-md transition-all duration-200 group"
+                    className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-primary hover:shadow-md transition-all duration-200 group"
                   >
-                    <span className="text-primary-new text-lg font-medium group-hover:text-primary-new/80">Calculadora de {calculator.label}</span>
-                    <span className="text-primary-new text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
+                    <span className="text-primary text-lg font-medium group-hover:text-primary/80">Calculadora de {calculator.label}</span>
+                    <span className="text-primary text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
                   </Link>
                 ))}
               </div>
             </div>
 
             {/* Additional Categories Section - New Responsive Design */}
-            <div className="mt-20">
-              <h2 className="text-h2-new text-2xl font-bold text-center mb-12">
-                Más Calculadoras por Categoría
-              </h2>
+            <div className="mt-20 bg-section-alt py-16 -mx-4 px-4">
+              <div className="max-w-7xl mx-auto">
+                <h2 className="text-h2-new text-2xl font-bold text-center mb-12">
+                  Más Calculadoras por Categoría
+                </h2>
               
               {/* Categories Grid - Responsive */}
               <div className="space-y-12">
@@ -182,13 +183,14 @@ export default function HomePage() {
                 </div>
 
               </div>
+              </div>
             </div>
 
             {/* SEO Content Section */}
             <div className="mt-20 mb-12">
               <div className="max-w-4xl mx-auto">
-                <div className="bg-gray-50 rounded-lg p-8">
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="bg-section-alt rounded-lg p-8">
+                  <div className="prose prose-lg max-w-none text-body-new">
                     <p className="text-lg leading-relaxed mb-4">
                       Encuentra las mejores calculadoras online gratuitas para resolver operaciones de matemáticas, finanzas, salud, estadísticas y geometría en segundos. Nuestro objetivo es que realices tus cálculos de forma rápida, precisa y sencilla, sin necesidad de instalar nada en tu dispositivo.
                     </p>

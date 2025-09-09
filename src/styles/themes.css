@@ -1,41 +1,41 @@
-/* Nueva paleta de colores - Branding actualizado */
+/* Paleta Tech & Clean - Branding institucional y tecnológico */
 
 :root {
-  /* Colores principales - Nueva paleta */
-  --color-primary: 201 96% 32%; /* #0284C7 - Azul brillante para botones primarios */
+  /* Colores principales - Paleta Tech & Clean */
+  --color-primary: 217 91% 60%; /* #2563EB - Celeste brillante para botones primarios */
   --color-primary-foreground: 0 0% 100%; /* #FFFFFF - Blanco */
-  --color-primary-hover: 201 96% 28%; /* #0369A1 - Azul más oscuro para hover */
-  --color-primary-light: 201 96% 95%; /* Azul muy claro para fondos */
+  --color-primary-hover: 217 91% 50%; /* #1D4ED8 - Azul más oscuro para hover */
+  --color-primary-light: 217 91% 95%; /* Azul muy claro para fondos */
   
   /* Colores secundarios */
-  --color-secondary: 220 13% 91%; /* #E5E7EB - Gris claro para botones secundarios */
-  --color-secondary-foreground: 215 25% 27%; /* #111827 - Gris oscuro profundo */
-  --color-secondary-hover: 220 13% 85%; /* #D1D5DB - Gris medio para hover */
+  --color-secondary: 220 13% 95%; /* #F3F4F6 - Gris claro para botones secundarios */
+  --color-secondary-foreground: 215 19% 35%; /* #374151 - Gris oscuro */
+  --color-secondary-hover: 220 13% 90%; /* #E5E7EB - Gris medio para hover */
   
-  /* Colores de acento - Naranja cálido */
-  --color-accent: 38 92% 50%; /* #F59E0B - Naranja cálido para H1 y acentos */
+  /* Colores de acento - Azul medio */
+  --color-accent: 217 91% 60%; /* #3B82F6 - Azul medio para H1 y acentos */
   --color-accent-foreground: 0 0% 100%; /* #FFFFFF - Blanco */
-  --color-accent-hover: 38 92% 45%; /* Naranja más oscuro para hover */
+  --color-accent-hover: 217 91% 55%; /* Azul medio más oscuro para hover */
   
   /* Colores de fondo */
   --color-background: 0 0% 100%; /* #FFFFFF - Blanco puro */
-  --color-foreground: 215 25% 27%; /* #111827 - Gris oscuro profundo */
+  --color-foreground: 215 19% 35%; /* #374151 - Gris oscuro */
   --color-card: 0 0% 100%; /* #FFFFFF - Blanco puro */
-  --color-card-foreground: 215 25% 27%; /* #111827 - Gris oscuro profundo */
+  --color-card-foreground: 215 19% 35%; /* #374151 - Gris oscuro */
   
   /* Colores de borde */
-  --color-border: 220 13% 91%; /* #E5E7EB - Gris claro para bordes */
-  --color-input: 220 13% 91%; /* #E5E7EB - Gris claro para inputs */
-  --color-ring: 201 96% 32%; /* #0284C7 - Azul brillante para focus */
+  --color-border: 220 13% 95%; /* #F3F4F6 - Gris claro para bordes */
+  --color-input: 220 13% 95%; /* #F3F4F6 - Gris claro para inputs */
+  --color-ring: 217 91% 60%; /* #3B82F6 - Azul medio para focus */
   
   /* Colores de estado */
   --color-success: 142.1 76.2% 36.3%;
   --color-success-foreground: 355.7 100% 97.3%;
-  --color-warning: 38 92% 50%; /* #F59E0B - Naranja cálido */
+  --color-warning: 38 92% 50%;
   --color-warning-foreground: 0 0% 100%;
   --color-error: 0 84.2% 60.2%;
   --color-error-foreground: 210 40% 98%;
-  --color-info: 201 96% 32%; /* #0284C7 - Azul brillante */
+  --color-info: 217 91% 60%; /* #3B82F6 - Azul medio */
   --color-info-foreground: 0 0% 100%;
   
   /* Colores de texto */
@@ -43,13 +43,16 @@
   --color-muted-foreground: 215 16% 47%;
   
   /* Header/Navbar específicos */
-  --color-header-bg: 215 25% 27%; /* #111827 - Gris oscuro profundo */
+  --color-header-bg: 217 91% 35%; /* #1E3A8A - Azul profundo */
   --color-header-text: 0 0% 100%; /* #FFFFFF - Blanco */
-  --color-header-hover: 38 92% 50%; /* #F59E0B - Naranja cálido */
+  --color-header-hover: 217 91% 60%; /* #3B82F6 - Azul medio */
   
   /* Footer específicos */
-  --color-footer-bg: 215 25% 27%; /* #111827 - Gris oscuro profundo */
+  --color-footer-bg: 217 91% 35%; /* #1E3A8A - Azul profundo */
   --color-footer-text: 0 0% 100%; /* #FFFFFF - Blanco */
+  
+  /* Secciones alternadas */
+  --color-section-alt: 220 13% 98%; /* #F9FAFB - Gris muy claro */
   
   /* Sombras */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -108,34 +111,34 @@
   --z-toast: 1080;
 }
 
-/* Tema oscuro - Mantener consistencia */
+/* Tema oscuro - Paleta Tech & Clean */
 .dark {
   /* Colores principales */
-  --color-primary: 201 96% 40%; /* Azul más claro en modo oscuro */
+  --color-primary: 217 91% 65%; /* Azul más claro en modo oscuro */
   --color-primary-foreground: 0 0% 100%;
-  --color-primary-hover: 201 96% 35%;
-  --color-primary-light: 201 96% 15%;
+  --color-primary-hover: 217 91% 60%;
+  --color-primary-light: 217 91% 15%;
   
   /* Colores secundarios */
-  --color-secondary: 215 25% 27%; /* #111827 - Gris oscuro profundo */
+  --color-secondary: 215 19% 20%; /* Gris oscuro */
   --color-secondary-foreground: 0 0% 100%; /* #FFFFFF - Blanco */
-  --color-secondary-hover: 215 25% 35%;
+  --color-secondary-hover: 215 19% 30%;
   
   /* Colores de acento */
-  --color-accent: 38 92% 55%; /* Naranja más claro en modo oscuro */
+  --color-accent: 217 91% 65%; /* Azul medio más claro en modo oscuro */
   --color-accent-foreground: 0 0% 100%;
-  --color-accent-hover: 38 92% 50%;
+  --color-accent-hover: 217 91% 60%;
   
   /* Colores de fondo */
-  --color-background: 215 25% 27%; /* #111827 - Gris oscuro profundo */
+  --color-background: 215 19% 20%; /* Gris oscuro */
   --color-foreground: 0 0% 100%; /* #FFFFFF - Blanco */
-  --color-card: 215 25% 27%; /* #111827 - Gris oscuro profundo */
+  --color-card: 215 19% 20%; /* Gris oscuro */
   --color-card-foreground: 0 0% 100%; /* #FFFFFF - Blanco */
   
   /* Colores de borde */
-  --color-border: 215 25% 35%;
-  --color-input: 215 25% 35%;
-  --color-ring: 201 96% 40%;
+  --color-border: 215 19% 30%;
+  --color-input: 215 19% 30%;
+  --color-ring: 217 91% 65%;
   
   /* Colores de estado */
   --color-success: 142.1 70.6% 45.3%;
@@ -144,7 +147,7 @@
   --color-warning-foreground: 0 0% 100%;
   --color-error: 0 62.8% 30.6%;
   --color-error-foreground: 210 40% 98%;
-  --color-info: 201 96% 40%;
+  --color-info: 217 91% 65%;
   --color-info-foreground: 0 0% 100%;
   
   /* Colores de texto */
@@ -152,13 +155,16 @@
   --color-muted-foreground: 0 0% 70%;
   
   /* Header/Navbar específicos */
-  --color-header-bg: 215 25% 20%; /* Gris más oscuro */
+  --color-header-bg: 217 91% 25%; /* Azul profundo más oscuro */
   --color-header-text: 0 0% 100%;
-  --color-header-hover: 38 92% 55%;
+  --color-header-hover: 217 91% 65%;
   
   /* Footer específicos */
-  --color-footer-bg: 215 25% 20%; /* Gris más oscuro */
+  --color-footer-bg: 217 91% 25%; /* Azul profundo más oscuro */
   --color-footer-text: 0 0% 100%;
+  
+  /* Secciones alternadas */
+  --color-section-alt: 215 19% 15%; /* Gris más oscuro */
   
   /* Sombras oscuras */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
@@ -243,15 +249,24 @@
   color: hsl(var(--color-footer-text));
 }
 
-/* Jerarquía tipográfica */
+/* Jerarquía tipográfica Tech & Clean */
 .text-h1-new {
-  color: hsl(var(--color-accent)); /* Naranja cálido para H1 */
+  color: hsl(var(--color-accent)); /* Azul medio #3B82F6 para H1 */
   font-weight: var(--font-weight-bold);
 }
 
 .text-h2-new {
-  color: hsl(var(--color-foreground)); /* Gris oscuro para H2 */
+  color: hsl(var(--color-header-bg)); /* Azul profundo #1E3A8A para H2 */
   font-weight: var(--font-weight-semibold);
+}
+
+.text-body-new {
+  color: hsl(var(--color-foreground)); /* Gris oscuro #374151 para textos */
+}
+
+/* Secciones alternadas */
+.bg-section-alt {
+  background-color: hsl(var(--color-section-alt)); /* #F9FAFB - Gris muy claro */
 }
 
 /* Botones con nueva paleta */
