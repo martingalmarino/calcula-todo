@@ -181,10 +181,12 @@ export default function CafeAhorroClient() {
                 </p>
               </div>
               
-              <Button onClick={handleCalculate} className="calculator-button">
-                <Calculator className="h-4 w-4" />
-                Calcular Ahorro
-              </Button>
+              <div className="mt-4">
+                <Button onClick={handleCalculate} className="calculator-button">
+                  <Calculator className="h-4 w-4" />
+                  Calcular Ahorro
+                </Button>
+              </div>
 
               {error && (
                 <Alert variant="destructive">
