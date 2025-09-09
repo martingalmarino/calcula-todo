@@ -10,7 +10,7 @@ const navigationItems = [
   { label: "Finanzas", href: "/finanzas", hasDropdown: true },
   { label: "Salud", href: "/salud", hasDropdown: true },
   { label: "Matemática", href: "/matematicas", hasDropdown: true },
-  { label: "Estadística", href: "/estadistica", hasDropdown: true },
+  { label: "Curiosas", href: "/curiosas", hasDropdown: true },
   { label: "Geometría", href: "/geometria", hasDropdown: true },
   { label: "Calendario", href: "/calendario", hasDropdown: true },
   { label: "Otras", href: "/otras", hasDropdown: true },
