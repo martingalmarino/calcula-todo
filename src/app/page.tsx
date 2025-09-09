@@ -274,33 +274,6 @@ export default function HomePage() {
                   </ChipsContainer>
                 </div>
 
-                {/* Gastronomía y Hogar Section */}
-                <div className="category-section-new">
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="text-2xl">🍳</span>
-                    <h3 className="text-blue-900 text-xl font-bold">Gastronomía y Hogar</h3>
-                  </div>
-                  <ChipsContainer>
-                    <Chip href="/gastronomia-hogar/conversion-medidas/" icon="scale" ariaLabel="Conversión de Medidas de Cocina">
-                      Conversión de Medidas de Cocina
-                    </Chip>
-                    <Chip href="/gastronomia-hogar/calorias-receta/" icon="apple" ariaLabel="Calorías por Receta">
-                      Calorías por Receta
-                    </Chip>
-                    <Chip href="/gastronomia-hogar/conversion-temperaturas/" icon="thermometer" ariaLabel="Conversión de Temperaturas">
-                      Conversión de Temperaturas
-                    </Chip>
-                    <Chip href="/gastronomia-hogar/costos-recetas/" icon="dollar-sign" ariaLabel="Costos de Recetas">
-                      Costos de Recetas
-                    </Chip>
-                    <Chip href="/gastronomia-hogar/fermentacion-levado/" icon="clock" ariaLabel="Fermentación y Levado">
-                      Fermentación y Levado
-                    </Chip>
-                    <Chip href="/gastronomia-hogar/consumo-electrico/" icon="zap" ariaLabel="Consumo Eléctrico">
-                      Consumo Eléctrico
-                    </Chip>
-                  </ChipsContainer>
-                </div>
 
                 {/* Otras Calculadoras Section */}
                 <div className="category-section-new">
