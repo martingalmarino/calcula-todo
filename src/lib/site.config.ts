@@ -527,6 +527,163 @@ export const SITE: SiteConfig = {
           keywords: ['trapecio', 'área', 'bases', 'altura', 'lados paralelos']
         }
       ]
+    },
+    salud: {
+      label: 'Salud',
+      href: '/salud/',
+      description: 'Calculadoras de salud para evaluar tu bienestar físico: IMC, TMB, porcentaje de grasa corporal, PaFi, agua diaria recomendada y ovulación.',
+      calculators: [
+        {
+          label: 'Calculadora de IMC',
+          href: '/salud/imc/',
+          description: 'Calcula tu Índice de Masa Corporal y evalúa tu peso ideal',
+          icon: 'scale',
+          category: 'peso',
+          keywords: ['IMC', 'índice masa corporal', 'peso ideal', 'obesidad', 'delgadez']
+        },
+        {
+          label: 'Calculadora de TMB',
+          href: '/salud/tmb/',
+          description: 'Calcula tu Tasa Metabólica Basal y las calorías que quemas en reposo',
+          icon: 'activity',
+          category: 'metabolismo',
+          keywords: ['TMB', 'tasa metabólica basal', 'calorías', 'metabolismo', 'reposo']
+        },
+        {
+          label: 'Porcentaje de Grasa Corporal',
+          href: '/salud/grasa-corporal/',
+          description: 'Estima tu porcentaje de grasa corporal usando diferentes métodos',
+          icon: 'heart',
+          category: 'composición corporal',
+          keywords: ['grasa corporal', 'porcentaje grasa', 'composición corporal', 'fitness']
+        },
+        {
+          label: 'Calculadora de PaFi',
+          href: '/salud/pafi/',
+          description: 'Calcula el índice PaFi (Presión Arterial / Frecuencia Cardíaca)',
+          icon: 'zap',
+          category: 'cardiovascular',
+          keywords: ['PaFi', 'presión arterial', 'frecuencia cardíaca', 'cardiovascular']
+        },
+        {
+          label: 'Agua Diaria Recomendada',
+          href: '/salud/agua-diaria/',
+          description: 'Calcula cuánta agua debes beber diariamente según tu peso y actividad',
+          icon: 'droplets',
+          category: 'hidratación',
+          keywords: ['agua', 'hidratación', 'líquidos', 'salud', 'recomendación diaria']
+        },
+        {
+          label: 'Ovulación y Días Fértiles',
+          href: '/salud/ovulacion/',
+          description: 'Calcula tus días fértiles y fecha de ovulación basándose en tu ciclo menstrual',
+          icon: 'calendar',
+          category: 'reproductivo',
+          keywords: ['ovulación', 'días fértiles', 'ciclo menstrual', 'fertilidad', 'planificación']
+        }
+      ]
+    },
+    calendario: {
+      label: 'Calendario',
+      href: '/calendario/',
+      description: 'Herramientas de calendario y fechas: calcular días entre fechas, edad exacta, sumar/restar días, horas y minutos, y días de vacaciones.',
+      calculators: [
+        {
+          label: 'Días entre Fechas',
+          href: '/calendario/dias-entre-fechas/',
+          description: 'Calcula la diferencia en días entre dos fechas específicas',
+          icon: 'calendar',
+          category: 'fechas',
+          keywords: ['días entre fechas', 'diferencia fechas', 'calendario', 'tiempo transcurrido']
+        },
+        {
+          label: 'Calculadora de Edad',
+          href: '/calendario/calculadora-edad/',
+          description: 'Calcula tu edad exacta en años, meses y días',
+          icon: 'user',
+          category: 'edad',
+          keywords: ['edad', 'años', 'meses', 'días', 'cumpleaños', 'fecha nacimiento']
+        },
+        {
+          label: 'Sumar / Restar Días',
+          href: '/calendario/sumar-restar-dias/',
+          description: 'Suma o resta días a una fecha específica',
+          icon: 'plus',
+          category: 'fechas',
+          keywords: ['sumar días', 'restar días', 'fecha futura', 'fecha pasada', 'calendario']
+        },
+        {
+          label: 'Horas y Minutos',
+          href: '/calendario/horas-minutos/',
+          description: 'Calcula y convierte entre horas y minutos',
+          icon: 'clock',
+          category: 'tiempo',
+          keywords: ['horas', 'minutos', 'conversión tiempo', 'cálculo tiempo', 'duración']
+        },
+        {
+          label: 'Días de Vacaciones',
+          href: '/calendario/dias-vacaciones/',
+          description: 'Calcula los días de vacaciones entre dos fechas',
+          icon: 'plane',
+          category: 'vacaciones',
+          keywords: ['vacaciones', 'días libres', 'tiempo libre', 'descanso', 'planificación']
+        }
+      ]
+    },
+    otras: {
+      label: 'Otras Calculadoras',
+      href: '/otras/',
+      description: 'Calculadoras útiles para diversas situaciones: propinas, gasto de gasolina, contador de palabras, números romanos, contador de clicks y escala de notas.',
+      calculators: [
+        {
+          label: 'Calculadora de Propinas',
+          href: '/otras/calculadora-propinas/',
+          description: 'Calcula la propina y el total a pagar en restaurantes',
+          icon: 'dollar-sign',
+          category: 'restaurantes',
+          keywords: ['propinas', 'restaurante', 'servicio', 'pago', 'gastronomía']
+        },
+        {
+          label: 'Escala de Notas',
+          href: '/otras/escala-notas/',
+          description: 'Convierte puntuaciones numéricas a escala de calificaciones A, B, C, D, F',
+          icon: 'graduation-cap',
+          category: 'educación',
+          keywords: ['notas', 'calificaciones', 'escala', 'educación', 'puntuación']
+        },
+        {
+          label: 'Gasto Gasolina',
+          href: '/otras/gasto-gasolina/',
+          description: 'Calcula el costo de combustible para un viaje específico',
+          icon: 'fuel',
+          category: 'transporte',
+          keywords: ['gasolina', 'combustible', 'viaje', 'costo', 'transporte', 'automóvil']
+        },
+        {
+          label: 'Contador de Palabras',
+          href: '/otras/contador-palabras/',
+          description: 'Cuenta palabras, caracteres y párrafos en un texto',
+          icon: 'type',
+          category: 'texto',
+          keywords: ['contador palabras', 'caracteres', 'texto', 'escritura', 'conteo']
+        },
+        {
+          label: 'Números Romanos',
+          href: '/otras/numeros-romanos/',
+          description: 'Convierte entre números arábigos y números romanos',
+          icon: 'hash',
+          category: 'conversión',
+          keywords: ['números romanos', 'conversión', 'arábigos', 'romanos', 'numeración']
+        },
+        {
+          label: 'Contador de Clicks (CPS)',
+          href: '/otras/contador-clicks/',
+          description: 'Mide tu velocidad de clicks por segundo (CPS Test)',
+          icon: 'mouse-pointer',
+          category: 'juegos',
+          keywords: ['clicks', 'CPS', 'velocidad', 'juegos', 'test', 'destreza']
+        }
+      ]
     }
   },
   social: {
