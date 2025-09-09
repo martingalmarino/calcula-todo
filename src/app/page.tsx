@@ -246,6 +246,34 @@ export default function HomePage() {
                   </ChipsContainer>
                 </div>
 
+                {/* Tecnología Section */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">💻</span>
+                    <h3 className="text-blue-900 text-xl font-bold">Tecnología</h3>
+                  </div>
+                  <ChipsContainer>
+                    <Chip href="/tecnologia/conversion-almacenamiento/" icon="hard-drive" ariaLabel="Conversión de Almacenamiento">
+                      Conversión de Almacenamiento
+                    </Chip>
+                    <Chip href="/tecnologia/velocidad-descarga/" icon="download" ariaLabel="Velocidad de Descarga">
+                      Velocidad de Descarga
+                    </Chip>
+                    <Chip href="/tecnologia/uptime-downtime/" icon="clock" ariaLabel="Uptime/Downtime">
+                      Uptime/Downtime
+                    </Chip>
+                    <Chip href="/tecnologia/conversion-colores/" icon="palette" ariaLabel="Conversión de Colores">
+                      Conversión de Colores
+                    </Chip>
+                    <Chip href="/tecnologia/analisis-contraseñas/" icon="shield" ariaLabel="Análisis de Contraseñas">
+                      Análisis de Contraseñas
+                    </Chip>
+                    <Chip href="/tecnologia/analisis-latencia/" icon="zap" ariaLabel="Análisis de Latencia">
+                      Análisis de Latencia
+                    </Chip>
+                  </ChipsContainer>
+                </div>
+
                 {/* Otras Calculadoras Section */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">

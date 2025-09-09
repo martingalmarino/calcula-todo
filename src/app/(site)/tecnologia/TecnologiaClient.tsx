@@ -111,7 +111,7 @@ export function TecnologiaClient() {
         <div className="py-8">
           <div className="text-center mb-8">
             <h1 className="text-4xl md:text-5xl font-bold text-blue-600 mb-6">
-              💻 Calculadoras de Tecnología
+              Calculadoras de Tecnología
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Herramientas especializadas para desarrolladores, diseñadores y técnicos.
