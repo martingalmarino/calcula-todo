@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { FAQ } from '@/components/FAQ'
 import { buildMeta, jsonLdCollection } from '@/lib/seo'
-import { SITE } from '@/lib/site.config'
+import { SITE, getBreadcrumbs } from '@/lib/site.config'
 import Link from 'next/link'
 import { MatematicasClient } from './MatematicasClient'
 
@@ -80,52 +80,53 @@ export default function MatematicasPage() {
       <Container>
         <div className="py-8">
           {/* Breadcrumbs */}
-          <Breadcrumbs 
-            items={[
-              { label: 'Matemáticas', href: '/matematicas/', current: true }
-            ]} 
-            className="mb-8"
-          />
+          <Breadcrumbs items={getBreadcrumbs('/matematicas/')} />
 
-          {/* Header */}
-          <div className="text-center space-y-6 mb-12">
-            <h1 className="hero-title">
-              Calculadoras de Matemáticas
-            </h1>
-            <p className="hero-subtitle max-w-3xl mx-auto">
+          {/* Header - Mejorado con nuevo branding */}
+          <div className="text-center space-y-8 mb-16">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="p-3 bg-blue-100 rounded-xl">
+                <Calculator className="h-8 w-8 text-blue-600" />
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold text-blue-600">
+                Calculadoras de Matemáticas
+              </h1>
+            </div>
+            <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
               {matematicasCluster.description}
             </p>
+            <div className="w-32 h-1 bg-blue-600 mx-auto rounded-full"></div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <Card className="text-center calculator-card">
-              <CardHeader>
-                <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Calculator className="h-6 w-6 text-blue-600" />
+          {/* Stats - Mejorado con nuevo branding */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <Card className="text-center calculator-card shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardHeader className="pb-6">
+                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center mb-6">
+                  <Calculator className="h-8 w-8 text-blue-600" />
                 </div>
-                <CardTitle className="text-2xl text-gray-900">{calculators.length}</CardTitle>
-                <CardDescription className="text-gray-600">Calculadoras Disponibles</CardDescription>
+                <CardTitle className="text-4xl font-bold text-blue-600 mb-2">{calculators.length}</CardTitle>
+                <CardDescription className="text-lg text-gray-600">Calculadoras Disponibles</CardDescription>
               </CardHeader>
             </Card>
             
-            <Card className="text-center calculator-card">
-              <CardHeader>
-                <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <BookOpen className="h-6 w-6 text-blue-600" />
+            <Card className="text-center calculator-card shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardHeader className="pb-6">
+                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center mb-6">
+                  <BookOpen className="h-8 w-8 text-green-600" />
                 </div>
-                <CardTitle className="text-2xl text-gray-900">6+</CardTitle>
-                <CardDescription className="text-gray-600">Categorías Matemáticas</CardDescription>
+                <CardTitle className="text-4xl font-bold text-green-600 mb-2">6+</CardTitle>
+                <CardDescription className="text-lg text-gray-600">Categorías Matemáticas</CardDescription>
               </CardHeader>
             </Card>
             
-            <Card className="text-center calculator-card">
-              <CardHeader>
-                <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6 text-blue-600" />
+            <Card className="text-center calculator-card shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardHeader className="pb-6">
+                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center mb-6">
+                  <Users className="h-8 w-8 text-purple-600" />
                 </div>
-                <CardTitle className="text-2xl text-gray-900">100%</CardTitle>
-                <CardDescription className="text-gray-600">Gratuito</CardDescription>
+                <CardTitle className="text-4xl font-bold text-purple-600 mb-2">100%</CardTitle>
+                <CardDescription className="text-lg text-gray-600">Gratuito</CardDescription>
               </CardHeader>
             </Card>
           </div>
@@ -142,21 +143,21 @@ export default function MatematicasPage() {
             />
           </section>
 
-          {/* CTA */}
-          <Card className="text-center bg-gradient-to-r from-red-50 to-red-100 border-red-200">
-            <CardHeader className="pb-4">
-              <div className="mx-auto w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-4">
-                <Calculator className="h-8 w-8 text-white" />
+          {/* CTA - Mejorado con nuevo branding */}
+          <Card className="text-center bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200 shadow-lg">
+            <CardHeader className="pb-6">
+              <div className="mx-auto w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                <Calculator className="h-10 w-10 text-white" />
               </div>
-              <CardTitle className="text-3xl font-bold text-gray-900">
+              <CardTitle className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
                 ¿Necesitas una calculadora específica?
               </CardTitle>
-              <CardDescription className="text-lg text-gray-700 max-w-2xl mx-auto">
+              <CardDescription className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
                 Si no encuentras la calculadora que necesitas, contáctanos y la agregaremos a nuestra colección
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button size="lg" asChild className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-semibold">
+              <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200">
                 <Link href="/contacto/">
                   Solicitar Calculadora
                 </Link>

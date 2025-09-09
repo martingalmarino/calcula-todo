@@ -284,16 +284,26 @@ export function getCalculatorMeta(category: string, calculatorSlug: string) {
 /**
  * Obtiene breadcrumbs para una ruta
  */
-export function getBreadcrumbs(pathname: string): Array<{ label: string; href: string }> {
-  const breadcrumbs: Array<{ label: string; href: string }> = [
+export function getBreadcrumbs(pathname: string): Array<{ label: string; href: string; current?: boolean }> {
+  const breadcrumbs: Array<{ label: string; href: string; current?: boolean }> = [
     { label: 'Inicio', href: '/' }
   ];
   
-  if (pathname === '/') return breadcrumbs;
+  if (pathname === '/') {
+    breadcrumbs[0].current = true;
+    return breadcrumbs;
+  }
   
   // Agregar categoría si estamos en matemáticas
   if (pathname.startsWith('/matematicas')) {
-    breadcrumbs.push({ label: 'Matemáticas', href: '/matematicas/' });
+    const isCategoryPage = pathname === '/matematicas/';
+    breadcrumbs.push({ 
+      label: 'Matemáticas', 
+      href: '/matematicas/',
+      current: isCategoryPage
+    });
+    
+    if (isCategoryPage) return breadcrumbs;
   }
   
   // Agregar calculadora específica
@@ -302,7 +312,11 @@ export function getBreadcrumbs(pathname: string): Array<{ label: string; href: s
     .find(calc => calc.href === pathname);
   
   if (calculator) {
-    breadcrumbs.push({ label: calculator.label, href: calculator.href });
+    breadcrumbs.push({ 
+      label: calculator.label, 
+      href: calculator.href,
+      current: true
+    });
   }
   
   return breadcrumbs;
