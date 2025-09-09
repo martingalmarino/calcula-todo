@@ -63,14 +63,16 @@ export function CalculatorLayout({
   }
 
   return (
-    <div className="space-y-6">
-      {/* Header - Mobile First */}
-      <div className="text-center space-y-3">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <Calculator className="h-6 w-6 text-blue-600" />
-          <h1 className="text-2xl md:text-3xl font-bold text-blue-600">{title}</h1>
+    <div className="space-y-8">
+      {/* Header - Mobile First con mejor branding */}
+      <div className="text-center space-y-4">
+        <div className="flex items-center justify-center gap-3 mb-3">
+          <div className="p-2 bg-blue-100 rounded-lg">
+            <Calculator className="h-6 w-6 text-blue-600" />
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-blue-600">{title}</h1>
         </div>
-        <p className="text-sm md:text-base text-gray-700 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
           {description}
         </p>
       </div>
@@ -83,27 +85,29 @@ export function CalculatorLayout({
           <TabsTrigger value="help" className="calculator-tab">Ayuda</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="calculator" className="space-y-4 mt-6">
-          <Card className="calculator-card">
-            <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Lightbulb className="h-5 w-5 text-blue-500" />
+        <TabsContent value="calculator" className="space-y-6 mt-8">
+          <Card className="calculator-card shadow-lg">
+            <CardHeader className="pb-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-t-lg">
+              <CardTitle className="flex items-center gap-3 text-xl">
+                <div className="p-2 bg-blue-100 rounded-lg">
+                  <Lightbulb className="h-5 w-5 text-blue-600" />
+                </div>
                 Calculadora
               </CardTitle>
-              <CardDescription className="text-sm">
+              <CardDescription className="text-base text-gray-600">
                 Ingresa los valores y obtén el resultado con explicación paso a paso
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-6 p-6">
               {children}
               
-              {/* Action Buttons - Mobile First */}
-              <div className="flex flex-col sm:flex-row gap-2 pt-4">
-                <Button onClick={handleCopyResult} className="calculator-action-button">
+              {/* Action Buttons - Mobile First con mejor diseño */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-100">
+                <Button onClick={handleCopyResult} className="calculator-action-button flex-1">
                   <Copy className="h-4 w-4 mr-2" />
                   Copiar resultado
                 </Button>
-                <Button onClick={handleShare} className="calculator-action-button">
+                <Button onClick={handleShare} className="calculator-action-button flex-1">
                   <Share2 className="h-4 w-4 mr-2" />
                   Compartir
                 </Button>
@@ -126,23 +130,33 @@ export function CalculatorLayout({
           )}
         </TabsContent>
 
-        <TabsContent value="examples" className="space-y-4 mt-6">
-          <Card>
-            <CardHeader className="pb-4">
-              <CardTitle className="text-lg">Ejemplos Rápidos</CardTitle>
-              <CardDescription className="text-sm">
+        <TabsContent value="examples" className="space-y-6 mt-8">
+          <Card className="calculator-card shadow-lg">
+            <CardHeader className="pb-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-t-lg">
+              <CardTitle className="flex items-center gap-3 text-xl">
+                <div className="p-2 bg-green-100 rounded-lg">
+                  <Lightbulb className="h-5 w-5 text-green-600" />
+                </div>
+                Ejemplos Rápidos
+              </CardTitle>
+              <CardDescription className="text-base text-gray-600">
                 Haz clic en un ejemplo para autocompletar la calculadora
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="grid gap-3">
+            <CardContent className="p-6">
+              <div className="grid gap-4">
                 {examples.map((example, index) => (
                   <button
                     key={index}
-                    className="calculator-example-button"
+                    className="calculator-example-button group"
                     onClick={() => onExampleClick?.(example.values)}
                   >
-                    <div className="font-medium text-sm">{example.label}</div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium text-sm group-hover:bg-blue-200 transition-colors">
+                        {index + 1}
+                      </div>
+                      <div className="font-medium text-base text-left">{example.label}</div>
+                    </div>
                   </button>
                 ))}
               </div>
@@ -150,24 +164,29 @@ export function CalculatorLayout({
           </Card>
         </TabsContent>
 
-        <TabsContent value="help" className="space-y-4 mt-6">
+        <TabsContent value="help" className="space-y-6 mt-8">
           {/* FAQ */}
           {faqItems.length > 0 && (
-            <Card>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg">Preguntas Frecuentes</CardTitle>
-                <CardDescription className="text-sm">
+            <Card className="calculator-card shadow-lg">
+              <CardHeader className="pb-6 bg-gradient-to-r from-purple-50 to-violet-50 rounded-t-lg">
+                <CardTitle className="flex items-center gap-3 text-xl">
+                  <div className="p-2 bg-purple-100 rounded-lg">
+                    <HelpCircle className="h-5 w-5 text-purple-600" />
+                  </div>
+                  Preguntas Frecuentes
+                </CardTitle>
+                <CardDescription className="text-base text-gray-600">
                   Respuestas a las dudas más comunes sobre esta calculadora
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <Accordion type="single" collapsible className="w-full">
+              <CardContent className="p-6">
+                <Accordion type="single" collapsible className="w-full space-y-2">
                   {faqItems.map((item, index) => (
-                    <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger className="text-left text-sm">
+                    <AccordionItem key={index} value={`item-${index}`} className="border border-gray-200 rounded-lg">
+                      <AccordionTrigger className="text-left text-base px-4 py-3 hover:bg-gray-50 rounded-lg">
                         {item.question}
                       </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground text-sm">
+                      <AccordionContent className="text-gray-700 text-base px-4 pb-3">
                         {item.answer}
                       </AccordionContent>
                     </AccordionItem>
@@ -179,22 +198,32 @@ export function CalculatorLayout({
 
           {/* Related Links */}
           {relatedLinks.length > 0 && (
-            <Card>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg">Calculadoras Relacionadas</CardTitle>
-                <CardDescription className="text-sm">
+            <Card className="calculator-card shadow-lg">
+              <CardHeader className="pb-6 bg-gradient-to-r from-orange-50 to-amber-50 rounded-t-lg">
+                <CardTitle className="flex items-center gap-3 text-xl">
+                  <div className="p-2 bg-orange-100 rounded-lg">
+                    <Calculator className="h-5 w-5 text-orange-600" />
+                  </div>
+                  Calculadoras Relacionadas
+                </CardTitle>
+                <CardDescription className="text-base text-gray-600">
                   Otras calculadoras que podrían interesarte
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="grid gap-2">
+              <CardContent className="p-6">
+                <div className="grid gap-3">
                   {relatedLinks.map((link, index) => (
                     <a
                       key={index}
                       href={link.href}
-                      className="calculator-help-button"
+                      className="calculator-help-button group"
                     >
-                      <span className="text-sm">{link.label}</span>
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-medium text-sm group-hover:bg-orange-200 transition-colors">
+                          {index + 1}
+                        </div>
+                        <span className="text-base font-medium">{link.label}</span>
+                      </div>
                     </a>
                   ))}
                 </div>

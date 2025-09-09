@@ -35,12 +35,13 @@ export function MatematicasClient({ calculators }: MatematicasClientProps) {
 
   return (
     <>
-      {/* Category Pills */}
-      <div className="flex flex-wrap gap-2 mb-8">
+      {/* Category Pills - Mejorado con nuevo branding */}
+      <div className="flex flex-wrap justify-center gap-3 mb-12">
         <Pill 
           active={activeFilter === 'todas'}
           onClick={() => setActiveFilter('todas')}
-          className="cursor-pointer hover:bg-blue-100 transition-colors"
+          size="lg"
+          className="cursor-pointer"
         >
           Todas
         </Pill>
@@ -49,21 +50,25 @@ export function MatematicasClient({ calculators }: MatematicasClientProps) {
             key={category}
             active={activeFilter === category}
             onClick={() => setActiveFilter(category)}
-            className="cursor-pointer hover:bg-blue-100 transition-colors"
+            size="lg"
+            className="cursor-pointer"
           >
             {category.charAt(0).toUpperCase() + category.slice(1)}
           </Pill>
         ))}
       </div>
 
-      {/* Calculators by Category */}
+      {/* Calculators by Category - Mejorado con nuevo branding */}
       {activeFilter === 'todas' ? (
         Object.entries(calculatorsByCategory).map(([category, categoryCalculators]) => (
-          <section key={category} className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 capitalize text-blue-900 border-b-2 border-blue-200 pb-2">
-              {category}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <section key={category} className="mb-16">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold mb-4 capitalize text-blue-600">
+                {category}
+              </h2>
+              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {categoryCalculators.map((calculator) => (
                 <CardCalculator
                   key={calculator.href}
@@ -76,11 +81,14 @@ export function MatematicasClient({ calculators }: MatematicasClientProps) {
           </section>
         ))
       ) : (
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 capitalize text-gray-900 border-b-2 border-red-200 pb-2">
-            {activeFilter}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold mb-4 capitalize text-blue-600">
+              {activeFilter}
+            </h2>
+            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCalculators.map((calculator) => (
               <CardCalculator
                 key={calculator.href}
@@ -95,11 +103,14 @@ export function MatematicasClient({ calculators }: MatematicasClientProps) {
 
       {/* All Calculators Grid - Solo mostrar cuando no hay filtro activo */}
       {activeFilter === 'todas' && (
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-blue-900 border-b-2 border-blue-200 pb-2">
-            Todas las Calculadoras
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold mb-4 text-blue-600">
+              Todas las Calculadoras
+            </h2>
+            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {calculators.map((calculator) => (
               <CardCalculator
                 key={calculator.href}
