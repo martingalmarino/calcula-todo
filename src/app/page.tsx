@@ -37,10 +37,10 @@ export default function HomePage() {
           <div className="py-8">
             {/* Main Title */}
             <div className="text-center mb-16">
-              <h1 className="text-h1-new text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-blue-600 text-4xl md:text-5xl font-bold mb-6">
                 Calculadoras Online Gratuitas
               </h1>
-              <p className="text-body-new text-lg md:text-xl font-semibold max-w-3xl mx-auto">
+              <p className="text-gray-700 text-lg md:text-xl font-semibold max-w-3xl mx-auto">
                 Facilitamos tus cálculos en temas de finanzas, salud, matemática, calendario, geometría y más. 
                 Calculadoras online gratuitas, rápidas y amigables.
               </p>
@@ -79,9 +79,9 @@ export default function HomePage() {
             </div>
 
             {/* Additional Categories Section - New Responsive Design */}
-            <div className="mt-20 bg-section-alt py-16 -mx-4 px-4">
+            <div className="mt-20 bg-gray-50 py-16 -mx-4 px-4">
               <div className="max-w-7xl mx-auto">
-                <h2 className="text-h2-new text-2xl font-bold text-center mb-12">
+                <h2 className="text-blue-900 text-2xl font-bold text-center mb-12">
                   Más Calculadoras por Categoría
                 </h2>
               
@@ -92,7 +92,7 @@ export default function HomePage() {
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">📅</span>
-                    <h3 className="text-h2-new text-xl font-bold">Calendario</h3>
+                    <h3 className="text-blue-900 text-xl font-bold">Calendario</h3>
                   </div>
                   <div className="pills-container">
                     <Link href="/calendario/dias-entre-fechas/" className="pill-link pill-calendar">
@@ -117,7 +117,7 @@ export default function HomePage() {
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">🏥</span>
-                    <h3 className="text-h2-new text-xl font-bold">Salud</h3>
+                    <h3 className="text-blue-900 text-xl font-bold">Salud</h3>
                   </div>
                   <div className="pills-container">
                     <Link href="/salud/imc/" className="pill-link pill-health">
@@ -139,7 +139,7 @@ export default function HomePage() {
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">📐</span>
-                    <h3 className="text-h2-new text-xl font-bold">Geometría</h3>
+                    <h3 className="text-blue-900 text-xl font-bold">Geometría</h3>
                   </div>
                   <div className="pills-container">
                     <Link href="/geometria/circulo/" className="pill-link pill-geometry">
@@ -161,7 +161,7 @@ export default function HomePage() {
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">🔧</span>
-                    <h3 className="text-h2-new text-xl font-bold">Otras Calculadoras</h3>
+                    <h3 className="text-blue-900 text-xl font-bold">Otras Calculadoras</h3>
                   </div>
                   <div className="pills-container">
                     <Link href="/otras/escala-notas/" className="pill-link pill-other">
@@ -189,8 +189,8 @@ export default function HomePage() {
             {/* SEO Content Section */}
             <div className="mt-20 mb-12">
               <div className="max-w-4xl mx-auto">
-                <div className="bg-section-alt rounded-lg p-8">
-                  <div className="prose prose-lg max-w-none text-body-new">
+                <div className="bg-gray-50 rounded-lg p-8">
+                  <div className="prose prose-lg max-w-none text-gray-700">
                     <p className="text-lg leading-relaxed mb-4">
                       Encuentra las mejores calculadoras online gratuitas para resolver operaciones de matemáticas, finanzas, salud, estadísticas y geometría en segundos. Nuestro objetivo es que realices tus cálculos de forma rápida, precisa y sencilla, sin necesidad de instalar nada en tu dispositivo.
                     </p>
