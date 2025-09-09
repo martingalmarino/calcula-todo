@@ -205,7 +205,7 @@ export default function PercentualiClientIT() {
                     </div>
                     <Button onClick={handleBasicCalculation} className="w-full calculator-button">
                       <Calculator className="h-4 w-4 mr-2" />
-                      Calcola Percentuale
+                      Calcolare
                     </Button>
                   </TabsContent>
                   
@@ -232,7 +232,7 @@ export default function PercentualiClientIT() {
                     </div>
                     <Button onClick={handleOfCalculation} className="w-full calculator-button">
                       <Percent className="h-4 w-4 mr-2" />
-                      Calcola Percentuale
+                      Calcolare
                     </Button>
                   </TabsContent>
                   
@@ -259,7 +259,7 @@ export default function PercentualiClientIT() {
                     </div>
                     <Button onClick={handleChangeCalculation} className="w-full calculator-button">
                       <TrendingUp className="h-4 w-4 mr-2" />
-                      Calcola Variazione
+                      Calcolare
                     </Button>
                   </TabsContent>
                   
@@ -286,7 +286,7 @@ export default function PercentualiClientIT() {
                     </div>
                     <Button onClick={handleOriginalCalculation} className="w-full calculator-button">
                       <TrendingDown className="h-4 w-4 mr-2" />
-                      Calcola Valore Originale
+                      Calcolare
                     </Button>
                   </TabsContent>
                 </Tabs>

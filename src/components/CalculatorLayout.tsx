@@ -44,6 +44,8 @@ export function CalculatorLayout({
   onExampleClick
 }: CalculatorLayoutProps) {
   const [activeTab, setActiveTab] = useState("calculator")
+  const pathname = usePathname()
+  const isItalian = pathname.startsWith('/it')
 
   const handleCopyResult = () => {
     // Implementar lógica de copiado
@@ -168,10 +170,10 @@ export function CalculatorLayout({
                   <div className="p-2 bg-purple-100 rounded-lg">
                     <HelpCircle className="h-5 w-5 text-purple-600" />
                   </div>
-                  Preguntas Frecuentes
+                  {isItalian ? 'Domande Frequenti' : 'Preguntas Frecuentes'}
                 </CardTitle>
                 <CardDescription className="text-base text-gray-600">
-                  Respuestas a las dudas más comunes sobre esta calculadora
+                  {isItalian ? 'Risposte alle domande più comuni su questa calcolatrice' : 'Respuestas a las dudas más comunes sobre esta calculadora'}
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6">

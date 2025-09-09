@@ -230,7 +230,7 @@ export default function FrazioniClientIT() {
                     </div>
                     <Button onClick={handleSimplify} className="w-full calculator-button">
                       <Calculator className="h-4 w-4 mr-2" />
-                      Semplifica Frazione
+                      Calcolare
                     </Button>
                   </TabsContent>
                   
@@ -276,19 +276,19 @@ export default function FrazioniClientIT() {
                     <div className="grid grid-cols-2 gap-2">
                       <Button onClick={() => handleOperation('add')} variant="outline">
                         <Plus className="h-4 w-4 mr-2" />
-                        Somma
+                        Calcolare
                       </Button>
                       <Button onClick={() => handleOperation('subtract')} variant="outline">
                         <Minus className="h-4 w-4 mr-2" />
-                        Sottrai
+                        Calcolare
                       </Button>
                       <Button onClick={() => handleOperation('multiply')} variant="outline">
                         <X className="h-4 w-4 mr-2" />
-                        Moltiplica
+                        Calcolare
                       </Button>
                       <Button onClick={() => handleOperation('divide')} variant="outline">
                         <Divide className="h-4 w-4 mr-2" />
-                        Dividi
+                        Calcolare
                       </Button>
                     </div>
                   </TabsContent>
@@ -306,10 +306,10 @@ export default function FrazioniClientIT() {
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <Button onClick={() => handleDecimalConversion('fromDecimal')} variant="outline">
-                        Decimale → Frazione
+                        Calcolare
                       </Button>
                       <Button onClick={() => handleDecimalConversion('toDecimal')} variant="outline">
-                        Frazione → Decimale
+                        Calcolare
                       </Button>
                     </div>
                   </TabsContent>
