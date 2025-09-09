@@ -57,6 +57,7 @@ export const SITE: SiteConfig = {
     { label: 'Matemáticas', href: '/matematicas/' },
     { label: 'Finanzas', href: '/finanzas/' },
     { label: 'Marketing', href: '/marketing/' },
+    { label: 'Curiosas', href: '/curiosas/' },
     { label: 'Blog', href: '/blog/' },
     { label: 'Acerca', href: '/acerca/' },
     { label: 'Contacto', href: '/contacto/' },
@@ -311,6 +312,61 @@ export const SITE: SiteConfig = {
           icon: 'bar-chart-3',
           category: 'ROI',
           keywords: ['ROI', 'retorno inversión', 'marketing', 'campañas', 'publicidad']
+        }
+      ]
+    },
+    curiosas: {
+      label: 'Curiosas',
+      href: '/curiosas/',
+      description: 'Calculadoras divertidas y curiosas para descubrir datos sorprendentes sobre café, pizza, comida chatarra, besos, películas y más.',
+      calculators: [
+        {
+          label: 'Café vs. Ahorro',
+          href: '/curiosas/cafe-ahorro/',
+          description: 'Calcula cuánto ahorrarías si dejaras de tomar café diario con interés compuesto',
+          icon: 'coffee',
+          category: 'ahorro',
+          keywords: ['café', 'ahorro', 'starbucks', 'interés compuesto', 'finanzas personales']
+        },
+        {
+          label: 'Pizza por Persona',
+          href: '/curiosas/pizza-persona/',
+          description: 'Calcula cuántas pizzas necesitas según personas, hambre y tamaño',
+          icon: 'pizza',
+          category: 'comida',
+          keywords: ['pizza', 'personas', 'hambre', 'tamaño', 'fiesta']
+        },
+        {
+          label: 'Expectativa de Vida y Comida',
+          href: '/curiosas/expectativa-comida/',
+          description: 'Descubre el impacto de la comida chatarra en tu expectativa de vida',
+          icon: 'heart',
+          category: 'salud',
+          keywords: ['expectativa vida', 'comida chatarra', 'hamburguesas', 'salud', 'alimentación']
+        },
+        {
+          label: 'Besos Quemacalorías',
+          href: '/curiosas/besos-calorias/',
+          description: 'Calcula las calorías quemadas por besos, abrazos y risas',
+          icon: 'heart',
+          category: 'ejercicio',
+          keywords: ['besos', 'abrazos', 'calorías', 'ejercicio', 'risas']
+        },
+        {
+          label: 'Tiempo en Películas',
+          href: '/curiosas/tiempo-peliculas/',
+          description: 'Calcula cuántos años de vida dedicas a ver películas y series',
+          icon: 'tv',
+          category: 'entretenimiento',
+          keywords: ['películas', 'series', 'tiempo', 'entretenimiento', 'cine']
+        },
+        {
+          label: 'Nivel de Friolento',
+          href: '/curiosas/nivel-friolento/',
+          description: 'Descubre en qué ciudades del mundo estarías siempre cómodo según tu temperatura ideal',
+          icon: 'thermometer',
+          category: 'clima',
+          keywords: ['temperatura', 'clima', 'ciudades', 'friolento', 'cómodo']
         }
       ]
     }

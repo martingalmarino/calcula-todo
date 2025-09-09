@@ -164,6 +164,34 @@ export default function HomePage() {
                   </ChipsContainer>
                 </div>
 
+                {/* Curiosas Section */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">🎉</span>
+                    <h3 className="text-blue-900 text-xl font-bold">Curiosas</h3>
+                  </div>
+                  <ChipsContainer>
+                    <Chip href="/curiosas/cafe-ahorro/" icon="coffee" ariaLabel="Café vs. Ahorro">
+                      Café vs. Ahorro
+                    </Chip>
+                    <Chip href="/curiosas/pizza-persona/" icon="pizza" ariaLabel="Pizza por Persona">
+                      Pizza por Persona
+                    </Chip>
+                    <Chip href="/curiosas/expectativa-comida/" icon="heart" ariaLabel="Expectativa de Vida y Comida">
+                      Expectativa de Vida y Comida
+                    </Chip>
+                    <Chip href="/curiosas/besos-calorias/" icon="heart" ariaLabel="Besos Quemacalorías">
+                      Besos Quemacalorías
+                    </Chip>
+                    <Chip href="/curiosas/tiempo-peliculas/" icon="tv" ariaLabel="Tiempo en Películas">
+                      Tiempo en Películas
+                    </Chip>
+                    <Chip href="/curiosas/nivel-friolento/" icon="thermometer" ariaLabel="Nivel de Friolento">
+                      Nivel de Friolento
+                    </Chip>
+                  </ChipsContainer>
+                </div>
+
                 {/* Finanzas Section */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">

@@ -52,4 +52,10 @@ export const calculatorTitles: Record<string, string> = {
   '/marketing/presupuesto/': 'Calculadora de Presupuesto de Marketing - Inversión Recomendada',
   '/marketing/cpc-cpm/': 'Calculadora de CPC/CPM - Costo por Clic e Impresiones',
   '/marketing/roi/': 'Calculadora de ROI en Marketing - Retorno de Inversión',
+  '/curiosas/cafe-ahorro/': 'Calculadora de Café vs. Ahorro - Cuánto Ahorrarías Dejando el Café',
+  '/curiosas/pizza-persona/': 'Calculadora de Pizza por Persona - Cuántas Pizzas Necesitas',
+  '/curiosas/expectativa-comida/': 'Calculadora de Expectativa de Vida y Comida Chatarra - Impacto en la Salud',
+  '/curiosas/besos-calorias/': 'Calculadora de Besos Quemacalorías - Calorías Quemadas por Besos y Abrazos',
+  '/curiosas/tiempo-peliculas/': 'Calculadora de Tiempo de Vida en Películas - Cuántos Años Dedicamos al Cine',
+  '/curiosas/nivel-friolento/': 'Calculadora de Nivel de Friolento - Ciudades Ideales para tu Temperatura',
 }
