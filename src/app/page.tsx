@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/Container'
+import { Chip, ChipsContainer } from '@/components/Chip'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
 import { SITE } from '@/lib/site.config'
 import Link from 'next/link'
@@ -98,23 +99,23 @@ export default function HomePage() {
                     <span className="text-2xl">📅</span>
                     <h3 className="text-blue-900 text-xl font-bold">Calendario</h3>
                   </div>
-                  <div className="pills-container">
-                    <Link href="/calendario/dias-entre-fechas/" className="pill-link pill-calendar">
+                  <ChipsContainer>
+                    <Chip href="/calendario/dias-entre-fechas/" icon="calendar" ariaLabel="Contador de Días entre Fechas">
                       Contador de Días entre Fechas
-                    </Link>
-                    <Link href="/calendario/calculadora-edad/" className="pill-link pill-calendar">
+                    </Chip>
+                    <Chip href="/calendario/calculadora-edad/" icon="user-round" ariaLabel="Calculadora de Edad">
                       Calculadora de Edad
-                    </Link>
-                    <Link href="/calendario/sumar-restar-dias/" className="pill-link pill-calendar">
+                    </Chip>
+                    <Chip href="/calendario/sumar-restar-dias/" icon="plus-minus" ariaLabel="Sumar/Restar Días a una Fecha">
                       Sumar/Restar Días a una Fecha
-                    </Link>
-                    <Link href="/calendario/horas-minutos/" className="pill-link pill-calendar">
+                    </Chip>
+                    <Chip href="/calendario/horas-minutos/" icon="clock-8" ariaLabel="Calculadora de Horas y Minutos">
                       Calculadora de Horas y Minutos
-                    </Link>
-                    <Link href="/calendario/dias-vacaciones/" className="pill-link pill-calendar">
+                    </Chip>
+                    <Chip href="/calendario/dias-vacaciones/" icon="calendar-days" ariaLabel="Días de Vacaciones">
                       Días de Vacaciones
-                    </Link>
-                  </div>
+                    </Chip>
+                  </ChipsContainer>
                 </div>
 
                 {/* Salud Section */}
@@ -123,20 +124,20 @@ export default function HomePage() {
                     <span className="text-2xl">🏥</span>
                     <h3 className="text-blue-900 text-xl font-bold">Salud</h3>
                   </div>
-                  <div className="pills-container">
-                    <Link href="/salud/imc/" className="pill-link pill-health">
+                  <ChipsContainer>
+                    <Chip href="/salud/imc/" icon="heart-pulse" ariaLabel="Índice Masa Corporal (IMC)">
                       Índice Masa Corporal (IMC)
-                    </Link>
-                    <Link href="/salud/tmb/" className="pill-link pill-health">
+                    </Chip>
+                    <Chip href="/salud/tmb/" icon="flame" ariaLabel="Tasa Metabólica Basal (TMB)">
                       Tasa Metabólica Basal (TMB)
-                    </Link>
-                    <Link href="/salud/grasa-corporal/" className="pill-link pill-health">
+                    </Chip>
+                    <Chip href="/salud/grasa-corporal/" icon="percent" ariaLabel="Porcentaje Grasa Corporal">
                       Porcentaje Grasa Corporal
-                    </Link>
-                    <Link href="/salud/pafi/" className="pill-link pill-health">
+                    </Chip>
+                    <Chip href="/salud/pafi/" icon="users-round" ariaLabel="Calculadora PaFi">
                       Calculadora PaFi
-                    </Link>
-                  </div>
+                    </Chip>
+                  </ChipsContainer>
                 </div>
 
                 {/* Geometría Section */}
@@ -145,20 +146,20 @@ export default function HomePage() {
                     <span className="text-2xl">📐</span>
                     <h3 className="text-blue-900 text-xl font-bold">Geometría</h3>
                   </div>
-                  <div className="pills-container">
-                    <Link href="/geometria/circulo/" className="pill-link pill-geometry">
+                  <ChipsContainer>
+                    <Chip href="/geometria/circulo/" icon="circle" ariaLabel="Área y Perímetro del Círculo">
                       Área y Perímetro del Círculo
-                    </Link>
-                    <Link href="/geometria/rectangulo/" className="pill-link pill-geometry">
+                    </Chip>
+                    <Chip href="/geometria/rectangulo/" icon="rectangle-horizontal" ariaLabel="Área y Perímetro del Rectángulo">
                       Área y Perímetro del Rectángulo
-                    </Link>
-                    <Link href="/geometria/triangulo/" className="pill-link pill-geometry">
+                    </Chip>
+                    <Chip href="/geometria/triangulo/" icon="triangle" ariaLabel="Área del Triángulo">
                       Área del Triángulo
-                    </Link>
-                    <Link href="/geometria/cuadrado/" className="pill-link pill-geometry">
+                    </Chip>
+                    <Chip href="/geometria/cuadrado/" icon="square" ariaLabel="Área y Perímetro del Cuadrado">
                       Área y Perímetro del Cuadrado
-                    </Link>
-                  </div>
+                    </Chip>
+                  </ChipsContainer>
                 </div>
 
                 {/* Otras Calculadoras Section */}

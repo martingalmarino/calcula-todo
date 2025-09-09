@@ -158,6 +158,69 @@ body {
   @apply bg-gray-50 text-blue-900 border-gray-100 hover:bg-blue-100 hover:border-blue-600;
 }
 
+/* Nuevos Chips con Iconos - Paleta Tech & Clean */
+:root {
+  --chip-bg: #F9FAFB;
+  --chip-text: #1E3A8A;
+  --chip-border: #E5E7EB;
+  --chip-bg-hover: #E0F2FE;
+  --chip-border-hover: #2563EB;
+  --chip-shadow-hover: 0 2px 8px rgba(37, 99, 235, 0.15);
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 720px) {
+  .chips { 
+    grid-template-columns: 1fr; 
+  }
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  min-height: 42px;
+  border: 1px solid var(--chip-border);
+  border-radius: 999px; /* pill */
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1;
+  transition: background .18s ease, border-color .18s ease,
+              box-shadow .18s ease, transform .18s ease, color .18s ease;
+  will-change: transform;
+}
+
+.chip i {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  color: var(--chip-text);
+}
+
+.chip:hover {
+  background: var(--chip-bg-hover);
+  border-color: var(--chip-border-hover);
+  box-shadow: var(--chip-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.chip:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.chip:focus-visible {
+  outline: 3px solid rgba(37,99,235,0.35);
+  outline-offset: 2px;
+}
+
 /* Responsive adjustments - Desktop */
 @media (min-width: 768px) {
   .category-section-new {

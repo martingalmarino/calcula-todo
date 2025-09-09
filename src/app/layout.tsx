@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -120,6 +121,25 @@ export default function RootLayout({
             <Footer />
           </div>
         </AnalyticsProvider>
+        {/* Lucide Icons CDN */}
+        <Script
+          src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
+          strategy="afterInteractive"
+        />
+        {/* Activar iconos de Lucide */}
+        <Script
+          id="lucide-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('DOMContentLoaded', () => {
+                if (typeof lucide !== 'undefined') {
+                  lucide.createIcons();
+                }
+              });
+            `,
+          }}
+        />
       </body>
     </html>
   )
