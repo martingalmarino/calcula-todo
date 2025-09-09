@@ -168,23 +168,23 @@ export default function HomePage() {
                     <span className="text-2xl">🔧</span>
                     <h3 className="text-blue-900 text-xl font-bold">Otras Calculadoras</h3>
                   </div>
-                  <div className="pills-container">
-                    <Link href="/otras/escala-notas/" className="pill-link pill-other">
+                  <ChipsContainer>
+                    <Chip href="/otras/escala-notas/" icon="graduation-cap" ariaLabel="Escala de Notas">
                       Escala de Notas
-                    </Link>
-                    <Link href="/otras/gasto-gasolina/" className="pill-link pill-other">
+                    </Chip>
+                    <Chip href="/otras/gasto-gasolina/" icon="fuel" ariaLabel="Gasto Gasolina para Viajes">
                       Gasto Gasolina para Viajes
-                    </Link>
-                    <Link href="/otras/contador-palabras/" className="pill-link pill-other">
+                    </Chip>
+                    <Chip href="/otras/contador-palabras/" icon="type" ariaLabel="Contador de Palabras y Caracteres">
                       Contador de Palabras y Caracteres
-                    </Link>
-                    <Link href="/otras/numeros-romanos/" className="pill-link pill-other">
+                    </Chip>
+                    <Chip href="/otras/numeros-romanos/" icon="hash" ariaLabel="Conversor de Números Romanos">
                       Conversor de Números Romanos
-                    </Link>
-                    <Link href="/otras/contador-clicks/" className="pill-link pill-other">
+                    </Chip>
+                    <Chip href="/otras/contador-clicks/" icon="mouse-pointer" ariaLabel="Contador de Clicks (CPS Test)">
                       Contador de Clicks (CPS Test)
-                    </Link>
-                  </div>
+                    </Chip>
+                  </ChipsContainer>
                 </div>
 
               </div>
