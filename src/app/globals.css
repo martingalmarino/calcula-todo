@@ -295,17 +295,7 @@ body {
 }
 
 /* Mobile First Button Styles - Standardized */
-.calculator-button {
-  @apply w-full h-12 text-base font-medium rounded-lg transition-all duration-200 flex items-center justify-center gap-2;
-}
-
-.calculator-button:hover {
-  @apply transform scale-[1.02] shadow-md;
-}
-
-.calculator-button:active {
-  @apply transform scale-[0.98];
-}
+/* Los estilos de .calculator-button están definidos en src/styles/globals.css */
 
 /* Mobile First Label Styles */
 .calculator-label {
