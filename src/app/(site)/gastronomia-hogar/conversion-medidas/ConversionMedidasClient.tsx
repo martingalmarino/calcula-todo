@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { convertKitchenMeasure } from '@/lib/math/gastronomy';
-import { getBreadcrumbs } from '@/lib/getBreadcrumbs';
+import { getBreadcrumbs } from '@/lib/site.config';
 import { jsonLdCalculator } from '@/lib/seo';
 
 export default function ConversionMedidasClient() {

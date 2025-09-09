@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { jsonLdCalculator } from '@/lib/seo';
-import { getBreadcrumbs } from '@/lib/getBreadcrumbs';
+import { getBreadcrumbs } from '@/lib/site.config';
 import { calculateFermentation } from '@/lib/math/gastronomy';
 import { FAQ } from '@/components/FAQ';
 
