@@ -19,7 +19,8 @@ const breadcrumbs = getBreadcrumbs('/gastronomia-hogar/fermentacion-levado/');
 const jsonLd = jsonLdCalculator({
   name: 'Calculadora de Fermentación y Tiempos de Levado',
   description: 'Calcula los tiempos de fermentación y levado para panes y masas según temperatura y tipo de levadura.',
-  url: 'https://www.calculatodo.online/gastronomia-hogar/fermentacion-levado/'
+  url: 'https://www.calculatodo.online/gastronomia-hogar/fermentacion-levado/',
+  category: 'Gastronomía y Hogar'
 });
 
 const yeastTypes = [

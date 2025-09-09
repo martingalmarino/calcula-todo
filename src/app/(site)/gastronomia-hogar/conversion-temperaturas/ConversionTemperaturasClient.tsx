@@ -19,7 +19,8 @@ const breadcrumbs = getBreadcrumbs('/gastronomia-hogar/conversion-temperaturas/'
 const jsonLd = jsonLdCalculator({
   name: 'Conversión de Temperaturas',
   description: 'Convierte entre grados Celsius, Fahrenheit y Gas Mark para cocinar y hornear.',
-  url: 'https://www.calculatodo.online/gastronomia-hogar/conversion-temperaturas/'
+  url: 'https://www.calculatodo.online/gastronomia-hogar/conversion-temperaturas/',
+  category: 'Gastronomía y Hogar'
 });
 
 const temperatureUnits = [

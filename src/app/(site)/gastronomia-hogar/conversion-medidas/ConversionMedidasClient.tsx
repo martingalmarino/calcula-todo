@@ -138,7 +138,7 @@ export default function ConversionMedidasClient() {
             name: 'Calculadora de Conversión de Medidas de Cocina',
             description: 'Convierte cantidades entre gramos, mililitros, tazas, cucharadas y cucharaditas',
             url: '/gastronomia-hogar/conversion-medidas/',
-            category: 'gastronomiaHogar'
+            category: 'Gastronomía y Hogar'
           }))
         }}
       />

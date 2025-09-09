@@ -19,7 +19,8 @@ const breadcrumbs = getBreadcrumbs('/gastronomia-hogar/calorias-receta/');
 const jsonLd = jsonLdCalculator({
   name: 'Calculadora de Calorías por Receta',
   description: 'Calcula las calorías totales y por porción de tus recetas con análisis nutricional completo.',
-  url: 'https://www.calculatodo.online/gastronomia-hogar/calorias-receta/'
+  url: 'https://www.calculatodo.online/gastronomia-hogar/calorias-receta/',
+  category: 'Gastronomía y Hogar'
 });
 
 // Base de datos de ingredientes con información nutricional

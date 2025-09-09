@@ -18,7 +18,8 @@ const breadcrumbs = getBreadcrumbs('/gastronomia-hogar/consumo-electrico/');
 const jsonLd = jsonLdCalculator({
   name: 'Calculadora de Consumo Eléctrico de Electrodomésticos',
   description: 'Calcula el consumo eléctrico y costo de tus electrodomésticos para optimizar tu factura de luz.',
-  url: 'https://www.calculatodo.online/gastronomia-hogar/consumo-electrico/'
+  url: 'https://www.calculatodo.online/gastronomia-hogar/consumo-electrico/',
+  category: 'Gastronomía y Hogar'
 });
 
 const commonAppliances = [

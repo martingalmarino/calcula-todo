@@ -19,7 +19,8 @@ const breadcrumbs = getBreadcrumbs('/gastronomia-hogar/costos-recetas/');
 const jsonLd = jsonLdCalculator({
   name: 'Calculadora de Costos de Recetas',
   description: 'Calcula el costo total y por porción de tus recetas con análisis detallado de ingredientes.',
-  url: 'https://www.calculatodo.online/gastronomia-hogar/costos-recetas/'
+  url: 'https://www.calculatodo.online/gastronomia-hogar/costos-recetas/',
+  category: 'Gastronomía y Hogar'
 });
 
 const units = [
