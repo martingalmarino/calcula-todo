@@ -20,13 +20,13 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="header-bg sticky top-0 z-50 w-full">
+    <header className="bg-header-new sticky top-0 z-50 w-full shadow-lg">
       <Container>
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Calculator className="h-8 w-8 header-text" />
-            <span className="text-xl font-bold header-text">CalculaTodo.online</span>
+            <Calculator className="h-8 w-8 text-header-new" />
+            <span className="text-xl font-bold text-header-new">CalculaTodo.online</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -35,7 +35,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="header-text text-sm font-medium transition-colors hover:opacity-80 flex items-center space-x-1"
+                className="text-header-new text-sm font-medium transition-colors hover:text-header-hover flex items-center space-x-1"
               >
                 <span>{item.label}</span>
                 {item.hasDropdown && <ChevronDown className="h-4 w-4" />}
@@ -46,7 +46,7 @@ export function Header() {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
             {/* Language Selector */}
-            <div className="flex items-center space-x-1 header-text">
+            <div className="flex items-center space-x-1 text-header-new">
               <Globe className="h-4 w-4" />
               <span className="text-sm">ES</span>
               <ChevronDown className="h-4 w-4" />
@@ -60,7 +60,7 @@ export function Header() {
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
-              className="header-text hover:bg-white/10"
+              className="text-header-new hover:bg-white/10"
             >
               {isMenuOpen ? (
                 <X className="h-5 w-5" />
@@ -79,7 +79,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-3 py-2 text-base font-medium header-text hover:bg-white/10 rounded-md transition-colors"
+                  className="block px-3 py-2 text-base font-medium text-header-new hover:text-header-hover hover:bg-white/10 rounded-md transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}

@@ -37,10 +37,10 @@ export default function HomePage() {
           <div className="py-8">
             {/* Main Title */}
             <div className="text-center mb-16">
-              <h1 className="hero-title">
+              <h1 className="text-h1-new text-4xl md:text-5xl font-bold mb-6">
                 Calculadoras Online Gratuitas
               </h1>
-              <p className="hero-subtitle">
+              <p className="text-h2-new text-lg md:text-xl font-semibold max-w-3xl mx-auto">
                 Facilitamos tus cálculos en temas de finanzas, salud, matemática, calendario, geometría y más. 
                 Calculadoras online gratuitas, rápidas y amigables.
               </p>
@@ -55,10 +55,10 @@ export default function HomePage() {
                   <Link 
                     key={calculator.href}
                     href={calculator.href} 
-                    className="calculator-link-box"
+                    className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-primary-new hover:shadow-md transition-all duration-200 group"
                   >
-                    <span className="arrow-icon">→</span>
-                    <span className="link-text">Calculadora de {calculator.label}</span>
+                    <span className="text-primary-new text-lg font-medium group-hover:text-primary-new/80">Calculadora de {calculator.label}</span>
+                    <span className="text-primary-new text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
                   </Link>
                 ))}
               </div>
@@ -69,10 +69,10 @@ export default function HomePage() {
                   <Link 
                     key={calculator.href}
                     href={calculator.href} 
-                    className="calculator-link-box"
+                    className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-primary-new hover:shadow-md transition-all duration-200 group"
                   >
-                    <span className="arrow-icon">→</span>
-                    <span className="link-text">Calculadora de {calculator.label}</span>
+                    <span className="text-primary-new text-lg font-medium group-hover:text-primary-new/80">Calculadora de {calculator.label}</span>
+                    <span className="text-primary-new text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
                   </Link>
                 ))}
               </div>
@@ -80,7 +80,7 @@ export default function HomePage() {
 
             {/* Additional Categories Section - New Responsive Design */}
             <div className="mt-20">
-              <h2 className="text-2xl font-bold text-gray-900 text-center mb-12">
+              <h2 className="text-h2-new text-2xl font-bold text-center mb-12">
                 Más Calculadoras por Categoría
               </h2>
               
@@ -91,7 +91,7 @@ export default function HomePage() {
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">📅</span>
-                    <h3 className="text-xl font-bold text-gray-900">Calendario</h3>
+                    <h3 className="text-h2-new text-xl font-bold">Calendario</h3>
                   </div>
                   <div className="pills-container">
                     <Link href="/calendario/dias-entre-fechas/" className="pill-link pill-calendar">
@@ -116,7 +116,7 @@ export default function HomePage() {
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">🏥</span>
-                    <h3 className="text-xl font-bold text-gray-900">Salud</h3>
+                    <h3 className="text-h2-new text-xl font-bold">Salud</h3>
                   </div>
                   <div className="pills-container">
                     <Link href="/salud/imc/" className="pill-link pill-health">
@@ -138,7 +138,7 @@ export default function HomePage() {
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">📐</span>
-                    <h3 className="text-xl font-bold text-gray-900">Geometría</h3>
+                    <h3 className="text-h2-new text-xl font-bold">Geometría</h3>
                   </div>
                   <div className="pills-container">
                     <Link href="/geometria/circulo/" className="pill-link pill-geometry">
@@ -160,7 +160,7 @@ export default function HomePage() {
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">🔧</span>
-                    <h3 className="text-xl font-bold text-gray-900">Otras Calculadoras</h3>
+                    <h3 className="text-h2-new text-xl font-bold">Otras Calculadoras</h3>
                   </div>
                   <div className="pills-container">
                     <Link href="/otras/escala-notas/" className="pill-link pill-other">
