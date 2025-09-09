@@ -72,13 +72,13 @@ export default function ItalianHomePage() {
                     <h3 className="text-blue-900 text-xl font-bold">Matematica</h3>
                   </div>
                   <ChipsContainer>
-                    <Chip href="/it/matematicas/fracciones/" icon="divide" ariaLabel="Calcolatrice di Frazioni">
+                    <Chip href="/it/matematicas/frazioni/" icon="divide" ariaLabel="Calcolatrice di Frazioni">
                       Calcolatrice di Frazioni
                     </Chip>
-                    <Chip href="/it/matematicas/porcentajes/" icon="percent" ariaLabel="Calcolatrice di Percentuali">
+                    <Chip href="/it/matematicas/percentuali/" icon="percent" ariaLabel="Calcolatrice di Percentuali">
                       Calcolatrice di Percentuali
                     </Chip>
-                    <Chip href="/it/matematicas/potencias-raices/" icon="zap" ariaLabel="Calcolatrice di Potenze e Radici">
+                    <Chip href="/it/matematicas/potenze-e-radici/" icon="zap" ariaLabel="Calcolatrice di Potenze e Radici">
                       Calcolatrice di Potenze e Radici
                     </Chip>
                     <Chip href="/it/matematicas/algebra/" icon="x" ariaLabel="Calcolatrice di Algebra">
@@ -87,7 +87,7 @@ export default function ItalianHomePage() {
                     <Chip href="/it/matematicas/trigonometria/" icon="triangle" ariaLabel="Calcolatrice di Trigonometria">
                       Calcolatrice di Trigonometria
                     </Chip>
-                    <Chip href="/it/matematicas/derivadas/" icon="trending-up" ariaLabel="Calcolatrice di Derivate">
+                    <Chip href="/it/matematicas/derivate/" icon="trending-up" ariaLabel="Calcolatrice di Derivate">
                       Calcolatrice di Derivate
                     </Chip>
                   </ChipsContainer>
