@@ -36,26 +36,16 @@ export default function OvulazioneClientIT() {
     }
   }
 
-  const handleExample = (example: string) => {
-    const examples: { [key: string]: { lastPeriod: string; cycleLength: string } } = {
-      'ciclo_28': { lastPeriod: '2024-01-01', cycleLength: '28' },
-      'ciclo_30': { lastPeriod: '2024-01-01', cycleLength: '30' },
-      'ciclo_26': { lastPeriod: '2024-01-01', cycleLength: '26' },
-      'ciclo_32': { lastPeriod: '2024-01-01', cycleLength: '32' }
-    }
-    
-    const exampleData = examples[example]
-    if (exampleData) {
-      setLastPeriod(exampleData.lastPeriod)
-      setCycleLength(exampleData.cycleLength)
-    }
+  const handleExample = (example: Record<string, unknown>) => {
+    if (example.lastPeriod) setLastPeriod(example.lastPeriod as string)
+    if (example.cycleLength) setCycleLength(example.cycleLength as string)
   }
 
   const examples = [
-    { label: 'Ciclo 28 giorni', value: 'ciclo_28', description: 'Ciclo regolare di 28 giorni' },
-    { label: 'Ciclo 30 giorni', value: 'ciclo_30', description: 'Ciclo di 30 giorni' },
-    { label: 'Ciclo 26 giorni', value: 'ciclo_26', description: 'Ciclo corto di 26 giorni' },
-    { label: 'Ciclo 32 giorni', value: 'ciclo_32', description: 'Ciclo lungo di 32 giorni' }
+    { label: 'Ciclo 28 giorni', values: { lastPeriod: '2024-01-01', cycleLength: '28' } },
+    { label: 'Ciclo 30 giorni', values: { lastPeriod: '2024-01-01', cycleLength: '30' } },
+    { label: 'Ciclo 26 giorni', values: { lastPeriod: '2024-01-01', cycleLength: '26' } },
+    { label: 'Ciclo 32 giorni', values: { lastPeriod: '2024-01-01', cycleLength: '32' } }
   ]
 
   const faqItems = [

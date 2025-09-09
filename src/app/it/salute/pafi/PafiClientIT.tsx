@@ -59,27 +59,17 @@ export default function PafiClientIT() {
     }
   }
 
-  const handleExample = (example: string) => {
-    const examples: { [key: string]: { systolic: string; diastolic: string; heartRate: string } } = {
-      'normale': { systolic: '120', diastolic: '80', heartRate: '70' },
-      'ipertensione': { systolic: '140', diastolic: '90', heartRate: '75' },
-      'ipotensione': { systolic: '100', diastolic: '60', heartRate: '65' },
-      'tachicardia': { systolic: '130', diastolic: '85', heartRate: '100' }
-    }
-    
-    const exampleData = examples[example]
-    if (exampleData) {
-      setSystolic(exampleData.systolic)
-      setDiastolic(exampleData.diastolic)
-      setHeartRate(exampleData.heartRate)
-    }
+  const handleExample = (example: Record<string, unknown>) => {
+    if (example.systolic) setSystolic(example.systolic as string)
+    if (example.diastolic) setDiastolic(example.diastolic as string)
+    if (example.heartRate) setHeartRate(example.heartRate as string)
   }
 
   const examples = [
-    { label: 'Pressione Normale', value: 'normale', description: '120/80 mmHg, 70 bpm' },
-    { label: 'Ipertensione', value: 'ipertensione', description: '140/90 mmHg, 75 bpm' },
-    { label: 'Ipotensione', value: 'ipotensione', description: '100/60 mmHg, 65 bpm' },
-    { label: 'Tachicardia', value: 'tachicardia', description: '130/85 mmHg, 100 bpm' }
+    { label: 'Pressione Normale', values: { systolic: '120', diastolic: '80', heartRate: '70' } },
+    { label: 'Ipertensione', values: { systolic: '140', diastolic: '90', heartRate: '75' } },
+    { label: 'Ipotensione', values: { systolic: '100', diastolic: '60', heartRate: '65' } },
+    { label: 'Tachicardia', values: { systolic: '130', diastolic: '85', heartRate: '100' } }
   ]
 
   const faqItems = [

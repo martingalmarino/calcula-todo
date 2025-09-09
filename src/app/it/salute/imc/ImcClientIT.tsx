@@ -47,26 +47,16 @@ export default function ImcClientIT() {
     }
   }
 
-  const handleExample = (example: string) => {
-    const examples: { [key: string]: { weight: string; height: string } } = {
-      'normale': { weight: '70', height: '175' },
-      'sottopeso': { weight: '50', height: '175' },
-      'sovrappeso': { weight: '85', height: '175' },
-      'obeso': { weight: '100', height: '175' }
-    }
-    
-    const exampleData = examples[example]
-    if (exampleData) {
-      setWeight(exampleData.weight)
-      setHeight(exampleData.height)
-    }
+  const handleExample = (example: Record<string, unknown>) => {
+    if (example.weight) setWeight(example.weight as string)
+    if (example.height) setHeight(example.height as string)
   }
 
   const examples = [
-    { label: 'Peso Normale', value: 'normale', description: '70 kg, 175 cm' },
-    { label: 'Sottopeso', value: 'sottopeso', description: '50 kg, 175 cm' },
-    { label: 'Sovrappeso', value: 'sovrappeso', description: '85 kg, 175 cm' },
-    { label: 'Obeso', value: 'obeso', description: '100 kg, 175 cm' }
+    { label: 'Peso Normale', values: { weight: '70', height: '175' } },
+    { label: 'Sottopeso', values: { weight: '50', height: '175' } },
+    { label: 'Sovrappeso', values: { weight: '85', height: '175' } },
+    { label: 'Obeso', values: { weight: '100', height: '175' } }
   ]
 
   const faqItems = [

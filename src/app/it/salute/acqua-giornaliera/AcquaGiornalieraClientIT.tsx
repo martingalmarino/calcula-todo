@@ -49,27 +49,17 @@ export default function AcquaGiornalieraClientIT() {
     }
   }
 
-  const handleExample = (example: string) => {
-    const examples: { [key: string]: { weight: string; age: string; activity: string } } = {
-      'uomo_attivo': { weight: '75', age: '30', activity: 'moderate' },
-      'donna_sedentaria': { weight: '65', age: '25', activity: 'low' },
-      'uomo_sportivo': { weight: '80', age: '28', activity: 'high' },
-      'donna_anziana': { weight: '70', age: '60', activity: 'low' }
-    }
-    
-    const exampleData = examples[example]
-    if (exampleData) {
-      setWeight(exampleData.weight)
-      setAge(exampleData.age)
-      setActivity(exampleData.activity)
-    }
+  const handleExample = (example: Record<string, unknown>) => {
+    if (example.weight) setWeight(example.weight as string)
+    if (example.age) setAge(example.age as string)
+    if (example.activity) setActivity(example.activity as string)
   }
 
   const examples = [
-    { label: 'Uomo Attivo', value: 'uomo_attivo', description: '75 kg, 30 anni, attività moderata' },
-    { label: 'Donna Sedentaria', value: 'donna_sedentaria', description: '65 kg, 25 anni, attività leggera' },
-    { label: 'Uomo Sportivo', value: 'uomo_sportivo', description: '80 kg, 28 anni, attività intensa' },
-    { label: 'Donna Anziana', value: 'donna_anziana', description: '70 kg, 60 anni, attività leggera' }
+    { label: 'Uomo Attivo', values: { weight: '75', age: '30', activity: 'moderate' } },
+    { label: 'Donna Sedentaria', values: { weight: '65', age: '25', activity: 'low' } },
+    { label: 'Uomo Sportivo', values: { weight: '80', age: '28', activity: 'high' } },
+    { label: 'Donna Anziana', values: { weight: '70', age: '60', activity: 'low' } }
   ]
 
   const faqItems = [

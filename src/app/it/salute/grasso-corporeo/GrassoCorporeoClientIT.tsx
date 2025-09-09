@@ -63,29 +63,19 @@ export default function GrassoCorporeoClientIT() {
     }
   }
 
-  const handleExample = (example: string) => {
-    const examples: { [key: string]: { weight: string; height: string; age: string; gender: string; waist: string } } = {
-      'uomo': { weight: '75', height: '180', age: '30', gender: 'male', waist: '85' },
-      'donna': { weight: '65', height: '165', age: '25', gender: 'female', waist: '75' },
-      'uomo_atleta': { weight: '80', height: '185', age: '28', gender: 'male', waist: '80' },
-      'donna_atleta': { weight: '60', height: '170', age: '26', gender: 'female', waist: '70' }
-    }
-    
-    const exampleData = examples[example]
-    if (exampleData) {
-      setWeight(exampleData.weight)
-      setHeight(exampleData.height)
-      setAge(exampleData.age)
-      setGender(exampleData.gender)
-      setWaist(exampleData.waist)
-    }
+  const handleExample = (example: Record<string, unknown>) => {
+    if (example.weight) setWeight(example.weight as string)
+    if (example.height) setHeight(example.height as string)
+    if (example.age) setAge(example.age as string)
+    if (example.gender) setGender(example.gender as string)
+    if (example.waist) setWaist(example.waist as string)
   }
 
   const examples = [
-    { label: 'Uomo Adulto', value: 'uomo', description: '75 kg, 180 cm, 30 anni, vita 85 cm' },
-    { label: 'Donna Adulta', value: 'donna', description: '65 kg, 165 cm, 25 anni, vita 75 cm' },
-    { label: 'Uomo Atleta', value: 'uomo_atleta', description: '80 kg, 185 cm, 28 anni, vita 80 cm' },
-    { label: 'Donna Atleta', value: 'donna_atleta', description: '60 kg, 170 cm, 26 anni, vita 70 cm' }
+    { label: 'Uomo Adulto', values: { weight: '75', height: '180', age: '30', gender: 'male', waist: '85' } },
+    { label: 'Donna Adulta', values: { weight: '65', height: '165', age: '25', gender: 'female', waist: '75' } },
+    { label: 'Uomo Atleta', values: { weight: '80', height: '185', age: '28', gender: 'male', waist: '80' } },
+    { label: 'Donna Atleta', values: { weight: '60', height: '170', age: '26', gender: 'female', waist: '70' } }
   ]
 
   const faqItems = [

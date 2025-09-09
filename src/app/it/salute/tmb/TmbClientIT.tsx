@@ -56,28 +56,18 @@ export default function TmbClientIT() {
     }
   }
 
-  const handleExample = (example: string) => {
-    const examples: { [key: string]: { weight: string; height: string; age: string; gender: string } } = {
-      'uomo': { weight: '75', height: '180', age: '30', gender: 'male' },
-      'donna': { weight: '65', height: '165', age: '25', gender: 'female' },
-      'uomo_anziano': { weight: '80', height: '175', age: '60', gender: 'male' },
-      'donna_anziana': { weight: '70', height: '160', age: '55', gender: 'female' }
-    }
-    
-    const exampleData = examples[example]
-    if (exampleData) {
-      setWeight(exampleData.weight)
-      setHeight(exampleData.height)
-      setAge(exampleData.age)
-      setGender(exampleData.gender)
-    }
+  const handleExample = (example: Record<string, unknown>) => {
+    if (example.weight) setWeight(example.weight as string)
+    if (example.height) setHeight(example.height as string)
+    if (example.age) setAge(example.age as string)
+    if (example.gender) setGender(example.gender as string)
   }
 
   const examples = [
-    { label: 'Uomo Adulto', value: 'uomo', description: '75 kg, 180 cm, 30 anni' },
-    { label: 'Donna Adulta', value: 'donna', description: '65 kg, 165 cm, 25 anni' },
-    { label: 'Uomo Anziano', value: 'uomo_anziano', description: '80 kg, 175 cm, 60 anni' },
-    { label: 'Donna Anziana', value: 'donna_anziana', description: '70 kg, 160 cm, 55 anni' }
+    { label: 'Uomo Adulto', values: { weight: '75', height: '180', age: '30', gender: 'male' } },
+    { label: 'Donna Adulta', values: { weight: '65', height: '165', age: '25', gender: 'female' } },
+    { label: 'Uomo Anziano', values: { weight: '80', height: '175', age: '60', gender: 'male' } },
+    { label: 'Donna Anziana', values: { weight: '70', height: '160', age: '55', gender: 'female' } }
   ]
 
   const faqItems = [
