@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import '../globals.css'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
+import { HeaderItalian } from '@/components/HeaderItalian'
+import { FooterItalian } from '@/components/FooterItalian'
 import { AnalyticsProvider } from '@/lib/analytics'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -119,11 +119,11 @@ export default function ItalianLayout({
       <body className={inter.className}>
         <AnalyticsProvider>
           <div className="min-h-screen flex flex-col">
-            <Header />
+            <HeaderItalian />
             <main className="flex-1">
               {children}
             </main>
-            <Footer />
+            <FooterItalian />
           </div>
         </AnalyticsProvider>
         {/* Lucide Icons CDN */}

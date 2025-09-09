@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
-import { LanguageSelector } from '@/components/LanguageSelector'
 import { buildMeta } from '@/lib/seo'
 
 export const metadata: Metadata = buildMeta({
@@ -47,10 +46,6 @@ export default function ItalianHomePage() {
       <div className="min-h-screen bg-white">
         <Container>
           <div className="py-8">
-            {/* Language Selector */}
-            <div className="flex justify-end mb-8">
-              <LanguageSelector />
-            </div>
 
             {/* Main Title */}
             <div className="text-center mb-16">
