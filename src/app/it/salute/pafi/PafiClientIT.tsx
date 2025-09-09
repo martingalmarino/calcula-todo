@@ -5,13 +5,13 @@ import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { calculatePaFi } from '@/lib/math/health'
+import { calculatePaFi, PaFiResult } from '@/lib/math/health'
 
 export default function PafiClientIT() {
   const [systolic, setSystolic] = useState('')
   const [diastolic, setDiastolic] = useState('')
   const [heartRate, setHeartRate] = useState('')
-  const [result, setResult] = useState<any>(null)
+  const [result, setResult] = useState<PaFiResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleCalculate = () => {
@@ -54,7 +54,7 @@ export default function PafiClientIT() {
     try {
       const pafiResult = calculatePaFi(systolicNum, diastolicNum, heartRateNum)
       setResult(pafiResult)
-    } catch (err) {
+    } catch {
       setError('Errore nel calcolo dell\'indice PaFi')
     }
   }

@@ -5,12 +5,12 @@ import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { calculateOvulation } from '@/lib/math/health'
+import { calculateOvulation, OvulationResult } from '@/lib/math/health'
 
 export default function OvulazioneClientIT() {
   const [lastPeriod, setLastPeriod] = useState('')
   const [cycleLength, setCycleLength] = useState('')
-  const [result, setResult] = useState<any>(null)
+  const [result, setResult] = useState<OvulationResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleCalculate = () => {
@@ -174,7 +174,7 @@ export default function OvulazioneClientIT() {
                 <h4 className="font-semibold text-yellow-900 mb-2">⚠️ Avviso Importante:</h4>
                 <p className="text-yellow-800 text-sm">
                   Questo calcolo è solo indicativo e si basa su cicli regolari. Per una pianificazione familiare accurata, 
-                  consulta sempre un ginecologo e considera di monitorare i sintomi dell\'ovulazione.
+                  consulta sempre un ginecologo e considera di monitorare i sintomi dell&apos;ovulazione.
                 </p>
               </div>
             </CardContent>

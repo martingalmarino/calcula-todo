@@ -6,14 +6,14 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { calculateTMB } from '@/lib/math/health'
+import { calculateTMB, TMBResult } from '@/lib/math/health'
 
 export default function TmbClientIT() {
   const [weight, setWeight] = useState('')
   const [height, setHeight] = useState('')
   const [age, setAge] = useState('')
   const [gender, setGender] = useState('')
-  const [result, setResult] = useState<any>(null)
+  const [result, setResult] = useState<TMBResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleCalculate = () => {
@@ -51,7 +51,7 @@ export default function TmbClientIT() {
     try {
       const tmbResult = calculateTMB(weightNum, heightNum, ageNum, gender as 'male' | 'female')
       setResult(tmbResult)
-    } catch (err) {
+    } catch {
       setError('Errore nel calcolo del TMB')
     }
   }

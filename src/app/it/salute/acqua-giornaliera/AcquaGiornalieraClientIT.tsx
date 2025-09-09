@@ -6,15 +6,13 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { calculateWaterIntake } from '@/lib/math/health'
+import { calculateWaterIntake, WaterIntakeResult } from '@/lib/math/health'
 
 export default function AcquaGiornalieraClientIT() {
   const [weight, setWeight] = useState('')
   const [age, setAge] = useState('')
-  const [gender, setGender] = useState('')
   const [activity, setActivity] = useState('')
-  const [climate, setClimate] = useState('')
-  const [result, setResult] = useState<any>(null)
+  const [result, setResult] = useState<WaterIntakeResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleCalculate = () => {
@@ -46,7 +44,7 @@ export default function AcquaGiornalieraClientIT() {
     try {
       const waterResult = calculateWaterIntake(weightNum, ageNum, activity as 'low' | 'moderate' | 'high')
       setResult(waterResult)
-    } catch (err) {
+    } catch {
       setError('Errore nel calcolo dell\'acqua giornaliera raccomandata')
     }
   }

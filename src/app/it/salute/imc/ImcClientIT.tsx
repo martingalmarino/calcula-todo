@@ -5,12 +5,12 @@ import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { calculateIMC } from '@/lib/math/health'
+import { calculateIMC, IMCResult } from '@/lib/math/health'
 
 export default function ImcClientIT() {
   const [weight, setWeight] = useState('')
   const [height, setHeight] = useState('')
-  const [result, setResult] = useState<any>(null)
+  const [result, setResult] = useState<IMCResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleCalculate = () => {
@@ -42,7 +42,7 @@ export default function ImcClientIT() {
     try {
       const imcResult = calculateIMC(weightNum, heightNum, 'it')
       setResult(imcResult)
-    } catch (err) {
+    } catch {
       setError('Errore nel calcolo dell\'IMC')
     }
   }

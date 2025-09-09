@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { calculateBodyFat } from '@/lib/math/health'
+import { calculateBodyFat, BodyFatResult } from '@/lib/math/health'
 
 export default function GrassoCorporeoClientIT() {
   const [weight, setWeight] = useState('')
@@ -14,7 +14,7 @@ export default function GrassoCorporeoClientIT() {
   const [age, setAge] = useState('')
   const [gender, setGender] = useState('')
   const [waist, setWaist] = useState('')
-  const [result, setResult] = useState<any>(null)
+  const [result, setResult] = useState<BodyFatResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleCalculate = () => {
@@ -58,7 +58,7 @@ export default function GrassoCorporeoClientIT() {
     try {
       const bodyFatResult = calculateBodyFat(weightNum, heightNum, ageNum, gender as 'male' | 'female')
       setResult(bodyFatResult)
-    } catch (err) {
+    } catch {
       setError('Errore nel calcolo della percentuale di grasso corporeo')
     }
   }
