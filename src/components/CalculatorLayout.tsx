@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Copy, Share2, Lightbulb, HelpCircle, Calculator } from "lucide-react"
 import { usePathname } from 'next/navigation'
+import { SEOTitleManager } from './SEOTitleManager'
 
 interface Example {
   label: string
@@ -67,6 +68,7 @@ export function CalculatorLayout({
 
   return (
     <div className="space-y-8">
+      <SEOTitleManager fallbackTitle={title} />
       {/* Header - Mobile First con mejor branding */}
       <div className="text-center space-y-4">
         <h1 className="text-3xl md:text-4xl font-bold text-blue-600">{title}</h1>

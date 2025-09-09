@@ -9,6 +9,7 @@ export interface SEOConfig {
   ogImage?: string;
   noIndex?: boolean;
   autoTitle?: boolean;
+  h1Title?: string; // Título extraído del H1 para usar como page title
 }
 
 /**
@@ -22,14 +23,22 @@ export function buildMeta(config: SEOConfig): Metadata {
     keywords = [],
     ogImage = '/og-image.jpg',
     noIndex = false,
-    autoTitle = false
+    autoTitle = false,
+    h1Title
   } = config;
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://calculadoras-online.com';
   
-  // Si autoTitle está habilitado, usar el título automático basado en la ruta
+  // Prioridad de títulos:
+  // 1. h1Title (título extraído del H1) - MÁS ALTA
+  // 2. title (título explícito)
+  // 3. autoTitle basado en canonical
+  // 4. fallback por defecto
   let finalTitle = title;
-  if (autoTitle && canonical) {
+  
+  if (h1Title) {
+    finalTitle = h1Title;
+  } else if (autoTitle && canonical) {
     const autoTitleFromPath = calculatorTitles[canonical];
     if (autoTitleFromPath) {
       finalTitle = autoTitleFromPath;
