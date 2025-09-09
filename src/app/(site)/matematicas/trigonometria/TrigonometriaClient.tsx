@@ -250,7 +250,7 @@ export default function TrigonometriaClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Triangle className="h-4 w-4 mr-2" />
                     Calcular Funciones Trigonométricas
                   </Button>
@@ -291,7 +291,7 @@ export default function TrigonometriaClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <RotateCcw className="h-4 w-4 mr-2" />
                     Calcular Funciones Inversas
                   </Button>
@@ -331,7 +331,7 @@ export default function TrigonometriaClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Triangle className="h-4 w-4 mr-2" />
                     Calcular Hipotenusa
                   </Button>
@@ -371,7 +371,7 @@ export default function TrigonometriaClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Triangle className="h-4 w-4 mr-2" />
                     Calcular Cateto
                   </Button>

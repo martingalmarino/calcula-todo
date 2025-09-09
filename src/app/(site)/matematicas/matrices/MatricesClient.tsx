@@ -215,7 +215,7 @@ export default function MatricesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Plus className="h-4 w-4 mr-2" />
                     Sumar Matrices
                   </Button>
@@ -261,7 +261,7 @@ export default function MatricesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Minus className="h-4 w-4 mr-2" />
                     Restar Matrices
                   </Button>
@@ -307,7 +307,7 @@ export default function MatricesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <X className="h-4 w-4 mr-2" />
                     Multiplicar Matrices
                   </Button>
@@ -347,7 +347,7 @@ export default function MatricesClient() {
                     />
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Multiplicar por Escalar
                   </Button>
@@ -374,7 +374,7 @@ export default function MatricesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Square className="h-4 w-4 mr-2" />
                     Calcular Determinante
                   </Button>
@@ -401,7 +401,7 @@ export default function MatricesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular Inversa
                   </Button>
@@ -428,7 +428,7 @@ export default function MatricesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular Transpuesta
                   </Button>

@@ -155,7 +155,7 @@ export default function ContadorClicksClient() {
                     ) : (
                       <Button 
                         onClick={handleStop}
-                        className="bg-red-600 hover:bg-red-700 text-white"
+                        className="calculator-button"
                       >
                         <Square className="h-4 w-4 mr-2" />
                         Detener

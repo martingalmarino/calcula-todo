@@ -171,7 +171,7 @@ export default function GrasaCorporalClient() {
                 
                 <Button 
                   onClick={handleCalculate} 
-                  className="w-full bg-red-600 hover:bg-red-700 text-white"
+                  className="w-full calculator-button"
                 >
                   <Heart className="h-4 w-4 mr-2" />
                   Calcular Grasa Corporal

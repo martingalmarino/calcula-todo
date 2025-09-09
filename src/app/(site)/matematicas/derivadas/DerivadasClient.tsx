@@ -243,7 +243,7 @@ export default function DerivadasClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular Derivada Numérica
                   </Button>
@@ -268,7 +268,7 @@ export default function DerivadasClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular Derivada Analítica
                   </Button>
@@ -307,7 +307,7 @@ export default function DerivadasClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular Segunda Derivada
                   </Button>

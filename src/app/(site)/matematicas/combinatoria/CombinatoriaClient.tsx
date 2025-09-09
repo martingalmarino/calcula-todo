@@ -271,7 +271,7 @@ export default function CombinatoriaClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Hash className="h-4 w-4 mr-2" />
                     Calcular Factorial
                   </Button>
@@ -311,7 +311,7 @@ export default function CombinatoriaClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Users className="h-4 w-4 mr-2" />
                     Calcular Permutaciones
                   </Button>
@@ -351,7 +351,7 @@ export default function CombinatoriaClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Grid3X3 className="h-4 w-4 mr-2" />
                     Calcular Combinaciones
                   </Button>
@@ -378,7 +378,7 @@ export default function CombinatoriaClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular Subconjuntos
                   </Button>
@@ -405,7 +405,7 @@ export default function CombinatoriaClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular Permutaciones Circulares
                   </Button>
@@ -444,7 +444,7 @@ export default function CombinatoriaClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular Permutaciones Indistinguibles
                   </Button>
@@ -471,7 +471,7 @@ export default function CombinatoriaClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Grid3X3 className="h-4 w-4 mr-2" />
                     Generar Triángulo de Pascal
                   </Button>

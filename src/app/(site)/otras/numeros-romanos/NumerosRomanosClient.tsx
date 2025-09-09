@@ -154,7 +154,7 @@ export default function NumerosRomanosClient() {
                     
                     <Button 
                       onClick={handleArabicToRoman} 
-                      className="w-full bg-red-600 hover:bg-red-700 text-white"
+                      className="w-full calculator-button"
                     >
                       <Hash className="h-4 w-4 mr-2" />
                       Convertir a Romano
@@ -218,7 +218,7 @@ export default function NumerosRomanosClient() {
                     
                     <Button 
                       onClick={handleRomanToArabic} 
-                      className="w-full bg-red-600 hover:bg-red-700 text-white"
+                      className="w-full calculator-button"
                     >
                       <Hash className="h-4 w-4 mr-2" />
                       Convertir a Arábigo

@@ -244,8 +244,8 @@ export default function PotenciasRaicesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
-                    <Square className="h-4 w-4 mr-2" />
+                  <Button onClick={handleCalculate} className="calculator-button">
+                    <Calculator className="h-4 w-4" />
                     Calcular Raíz Cuadrada
                   </Button>
                 </div>
@@ -270,8 +270,8 @@ export default function PotenciasRaicesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
-                    <Box className="h-4 w-4 mr-2" />
+                  <Button onClick={handleCalculate} className="calculator-button">
+                    <Calculator className="h-4 w-4" />
                     Calcular Raíz Cúbica
                   </Button>
                 </div>
@@ -310,8 +310,8 @@ export default function PotenciasRaicesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
-                    <Calculator className="h-4 w-4 mr-2" />
+                  <Button onClick={handleCalculate} className="calculator-button">
+                    <Calculator className="h-4 w-4" />
                     Calcular Raíz n-ésima
                   </Button>
                 </div>
@@ -350,8 +350,8 @@ export default function PotenciasRaicesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
-                    <Zap className="h-4 w-4 mr-2" />
+                  <Button onClick={handleCalculate} className="calculator-button">
+                    <Calculator className="h-4 w-4" />
                     Calcular Potencia
                   </Button>
                 </div>
@@ -375,8 +375,8 @@ export default function PotenciasRaicesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
-                    <Zap className="h-4 w-4 mr-2" />
+                  <Button onClick={handleCalculate} className="calculator-button">
+                    <Calculator className="h-4 w-4" />
                     Calcular Potencia de 10
                   </Button>
                 </div>
@@ -416,8 +416,8 @@ export default function PotenciasRaicesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
-                    <Calculator className="h-4 w-4 mr-2" />
+                  <Button onClick={handleCalculate} className="calculator-button">
+                    <Calculator className="h-4 w-4" />
                     Convertir a Notación Científica
                   </Button>
                 </div>

@@ -224,6 +224,7 @@ export default function AlgebraClient() {
                       </div>
                     </div>
                     <Button onClick={handleLinearCalculate} className="calculator-button">
+                      <Calculator className="h-4 w-4" />
                       Resolver Ecuación
                     </Button>
                   </CardContent>
@@ -275,6 +276,7 @@ export default function AlgebraClient() {
                       </div>
                     </div>
                     <Button onClick={handleQuadraticCalculate} className="calculator-button">
+                      <Calculator className="h-4 w-4" />
                       Resolver Ecuación
                     </Button>
                   </CardContent>
@@ -359,6 +361,7 @@ export default function AlgebraClient() {
                       </div>
                     </div>
                     <Button onClick={handleSystemCalculate} className="calculator-button">
+                      <Calculator className="h-4 w-4" />
                       Resolver Sistema
                     </Button>
                   </CardContent>
@@ -410,6 +413,7 @@ export default function AlgebraClient() {
                       </div>
                     </div>
                     <Button onClick={handleFactorCalculate} className="calculator-button">
+                      <Calculator className="h-4 w-4" />
                       Factorizar
                     </Button>
                   </CardContent>
@@ -461,6 +465,7 @@ export default function AlgebraClient() {
                       </div>
                     </div>
                     <Button onClick={handleVertexCalculate} className="calculator-button">
+                      <Calculator className="h-4 w-4" />
                       Calcular Vértice
                     </Button>
                   </CardContent>

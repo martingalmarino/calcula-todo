@@ -378,7 +378,7 @@ export default function ProgresionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <TrendingUp className="h-4 w-4 mr-2" />
                     Calcular Término n-ésimo
                   </Button>
@@ -432,7 +432,7 @@ export default function ProgresionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <BarChart3 className="h-4 w-4 mr-2" />
                     Calcular Término n-ésimo
                   </Button>
@@ -486,7 +486,7 @@ export default function ProgresionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular Suma
                   </Button>
@@ -540,7 +540,7 @@ export default function ProgresionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular Suma
                   </Button>
@@ -580,7 +580,7 @@ export default function ProgresionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular Suma Infinita
                   </Button>
@@ -635,7 +635,7 @@ export default function ProgresionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <List className="h-4 w-4 mr-2" />
                     Generar Términos
                   </Button>
@@ -690,7 +690,7 @@ export default function ProgresionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <List className="h-4 w-4 mr-2" />
                     Generar Términos
                   </Button>
@@ -715,7 +715,7 @@ export default function ProgresionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Encontrar Diferencia
                   </Button>
@@ -740,7 +740,7 @@ export default function ProgresionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Encontrar Razón
                   </Button>
@@ -765,7 +765,7 @@ export default function ProgresionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Verificar Progresión Aritmética
                   </Button>
@@ -790,7 +790,7 @@ export default function ProgresionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Verificar Progresión Geométrica
                   </Button>

@@ -168,7 +168,7 @@ export default function SumarRestarDiasClient() {
                     
                     <Button 
                       onClick={handleAddDays} 
-                      className="w-full bg-red-600 hover:bg-red-700 text-white"
+                      className="w-full calculator-button"
                     >
                       <Plus className="h-4 w-4 mr-2" />
                       Sumar Días
@@ -266,7 +266,7 @@ export default function SumarRestarDiasClient() {
                     
                     <Button 
                       onClick={handleSubtractDays} 
-                      className="w-full bg-red-600 hover:bg-red-700 text-white"
+                      className="w-full calculator-button"
                     >
                       <Minus className="h-4 w-4 mr-2" />
                       Restar Días

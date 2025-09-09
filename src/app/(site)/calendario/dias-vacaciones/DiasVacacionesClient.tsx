@@ -129,7 +129,7 @@ export default function DiasVacacionesClient() {
                 
                 <Button 
                   onClick={handleCalculate} 
-                  className="w-full bg-red-600 hover:bg-red-700 text-white"
+                  className="w-full calculator-button"
                 >
                   <Plane className="h-4 w-4 mr-2" />
                   Calcular Días de Vacaciones

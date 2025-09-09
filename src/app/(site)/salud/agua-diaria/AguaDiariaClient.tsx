@@ -162,7 +162,7 @@ export default function AguaDiariaClient() {
                 
                 <Button 
                   onClick={handleCalculate} 
-                  className="w-full bg-red-600 hover:bg-red-700 text-white"
+                  className="w-full calculator-button"
                 >
                   <Droplets className="h-4 w-4 mr-2" />
                   Calcular Ingesta de Agua

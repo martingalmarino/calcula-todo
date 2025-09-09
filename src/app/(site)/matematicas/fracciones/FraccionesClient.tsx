@@ -284,7 +284,7 @@ export default function FraccionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Simplificar Fracción
                   </Button>
@@ -348,7 +348,7 @@ export default function FraccionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Plus className="h-4 w-4 mr-2" />
                     Sumar Fracciones
                   </Button>
@@ -412,7 +412,7 @@ export default function FraccionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Minus className="h-4 w-4 mr-2" />
                     Restar Fracciones
                   </Button>
@@ -476,7 +476,7 @@ export default function FraccionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <X className="h-4 w-4 mr-2" />
                     Multiplicar Fracciones
                   </Button>
@@ -540,7 +540,7 @@ export default function FraccionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Divide className="h-4 w-4 mr-2" />
                     Dividir Fracciones
                   </Button>
@@ -578,7 +578,7 @@ export default function FraccionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Convertir a Decimal
                   </Button>
@@ -604,7 +604,7 @@ export default function FraccionesClient() {
                     </div>
                   </div>
                   
-                  <Button onClick={handleCalculate} className="calculator-button bg-red-600 hover:bg-red-700 text-white">
+                  <Button onClick={handleCalculate} className="calculator-button">
                     <Calculator className="h-4 w-4 mr-2" />
                     Convertir a Fracción
                   </Button>
