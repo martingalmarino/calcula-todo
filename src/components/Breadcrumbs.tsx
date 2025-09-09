@@ -1,6 +1,9 @@
+"use client"
+
 import Link from "next/link"
 import { ChevronRight, Home } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { usePathname } from "next/navigation"
 
 interface BreadcrumbItem {
   label: string
@@ -14,18 +17,23 @@ interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
+  const pathname = usePathname()
+  const isItalian = pathname.startsWith('/it')
+  const homeHref = isItalian ? '/it' : '/'
+  const homeLabel = isItalian ? 'Home' : 'Inicio'
+
   return (
     <nav 
       aria-label="Breadcrumb" 
       className={cn("flex items-center space-x-2 text-sm text-gray-600 mb-8", className)}
     >
       <Link 
-        href="/" 
+        href={homeHref} 
         className="flex items-center hover:text-blue-600 transition-colors duration-200"
-        aria-label="Inicio"
+        aria-label={homeLabel}
       >
         <Home className="h-4 w-4" />
-        <span className="sr-only">Inicio</span>
+        <span className="sr-only">{homeLabel}</span>
       </Link>
       
       {items.map((item, index) => (
