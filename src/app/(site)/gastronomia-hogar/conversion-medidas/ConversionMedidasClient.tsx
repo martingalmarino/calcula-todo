@@ -95,7 +95,7 @@ export default function ConversionMedidasClient() {
     }
   ];
 
-  const relatedLinks = [];
+  const relatedLinks: Array<{ name: string; url: string; description: string }> = [];
 
   const handleExampleClick = (values: Record<string, unknown>) => {
     setValue(values.value as string);
