@@ -141,7 +141,7 @@ export const italianTranslations = {
 export function getItalianTranslation(category: keyof typeof italianTranslations, key: string): string {
   const categoryTranslations = italianTranslations[category];
   if (categoryTranslations && typeof categoryTranslations === 'object' && key in categoryTranslations) {
-    return (categoryTranslations as any)[key];
+    return (categoryTranslations as Record<string, string>)[key];
   }
   return key; // Retornar la clave si no se encuentra
 }
@@ -151,9 +151,9 @@ export function getItalianTranslation(category: keyof typeof italianTranslations
  */
 export function translateToItalian(text: string, fallback?: string): string {
   // Buscar en todas las categorías
-  for (const [category, translations] of Object.entries(italianTranslations)) {
+  for (const [, translations] of Object.entries(italianTranslations)) {
     if (typeof translations === 'object') {
-      for (const [key, value] of Object.entries(translations)) {
+      for (const [, value] of Object.entries(translations)) {
         if (value === text) {
           return value;
         }
