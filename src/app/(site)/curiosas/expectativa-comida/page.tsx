@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { buildMeta } from '@/lib/seo';
-import { ExpectativaComidaClient } from './ExpectativaComidaClient';
+import ExpectativaComidaClient from './ExpectativaComidaClient';
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Expectativa de Vida y Comida Chatarra - Impacto en la Salud',
