@@ -90,7 +90,7 @@ export default function RectanguloClient() {
     {
       label: 'Rectángulo 8cm × 6cm',
       values: {
-        inputType: 'dimensions',
+        inputType: 'dimensions' as const,
         length: '8',
         width: '6'
       }
@@ -98,7 +98,7 @@ export default function RectanguloClient() {
     {
       label: 'Rectángulo con área 48 cm² y largo 8 cm',
       values: {
-        inputType: 'area',
+        inputType: 'area' as const,
         length: '8',
         knownValue: '48'
       }
@@ -106,7 +106,7 @@ export default function RectanguloClient() {
     {
       label: 'Rectángulo con perímetro 28 cm y largo 8 cm',
       values: {
-        inputType: 'perimeter',
+        inputType: 'perimeter' as const,
         length: '8',
         knownValue: '28'
       }

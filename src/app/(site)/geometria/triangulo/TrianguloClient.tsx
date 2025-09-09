@@ -73,7 +73,7 @@ export default function TrianguloClient() {
     {
       label: 'Triángulo base 10cm, altura 6cm',
       values: {
-        inputType: 'base-height',
+        inputType: 'base-height' as const,
         base: '10',
         height: '6'
       }
@@ -81,7 +81,7 @@ export default function TrianguloClient() {
     {
       label: 'Triángulo lados 3cm, 4cm, 5cm',
       values: {
-        inputType: 'three-sides',
+        inputType: 'three-sides' as const,
         side1: '3',
         side2: '4',
         side3: '5'

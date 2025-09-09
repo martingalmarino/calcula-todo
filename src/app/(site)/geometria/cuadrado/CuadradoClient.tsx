@@ -68,21 +68,21 @@ export default function CuadradoClient() {
     {
       label: 'Cuadrado de lado 5 cm',
       values: {
-        inputType: 'side',
+        inputType: 'side' as const,
         inputValue: '5'
       }
     },
     {
       label: 'Cuadrado con área 25 cm²',
       values: {
-        inputType: 'area',
+        inputType: 'area' as const,
         inputValue: '25'
       }
     },
     {
       label: 'Cuadrado con perímetro 20 cm',
       values: {
-        inputType: 'perimeter',
+        inputType: 'perimeter' as const,
         inputValue: '20'
       }
     }

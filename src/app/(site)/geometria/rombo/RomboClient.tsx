@@ -70,7 +70,7 @@ export default function RomboClient() {
     {
       label: 'Rombo con diagonales 8cm y 6cm',
       values: {
-        inputType: 'diagonals',
+        inputType: 'diagonals' as const,
         diagonal1: '8',
         diagonal2: '6'
       }
@@ -78,7 +78,7 @@ export default function RomboClient() {
     {
       label: 'Rombo lado 5cm, diagonal 8cm',
       values: {
-        inputType: 'side-diagonal',
+        inputType: 'side-diagonal' as const,
         side: '5',
         diagonal1: '8'
       }

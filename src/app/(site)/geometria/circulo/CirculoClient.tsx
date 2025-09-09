@@ -69,21 +69,21 @@ export default function CirculoClient() {
       label: 'Círculo con radio 5 cm',
       values: {
         inputValue: '5',
-        inputType: 'radius'
+        inputType: 'radius' as const
       }
     },
     {
       label: 'Círculo con diámetro 10 cm',
       values: {
         inputValue: '10',
-        inputType: 'diameter'
+        inputType: 'diameter' as const
       }
     },
     {
       label: 'Círculo con área 78.54 cm²',
       values: {
         inputValue: '78.54',
-        inputType: 'area'
+        inputType: 'area' as const
       }
     }
   ];

@@ -72,7 +72,7 @@ export default function TrapecioClient() {
     {
       label: 'Trapecio bases 8cm y 6cm, altura 4cm',
       values: {
-        inputType: 'bases-height',
+        inputType: 'bases-height' as const,
         base1: '8',
         base2: '6',
         height: '4'
@@ -81,7 +81,7 @@ export default function TrapecioClient() {
     {
       label: 'Trapecio área 28cm², bases 8cm y 6cm',
       values: {
-        inputType: 'area',
+        inputType: 'area' as const,
         base1: '28',
         base2: '8',
         height: '6'
