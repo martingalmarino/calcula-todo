@@ -28,4 +28,9 @@ export const calculatorTitles: Record<string, string> = {
   '/salud/tmb/': 'Calculadora de TMB - Tasa Metabólica Basal',
   '/salud/grasa-corporal/': 'Calculadora de Porcentaje de Grasa Corporal',
   '/salud/pafi/': 'Calculadora PaFi - Presión Arterial y Frecuencia Cardíaca',
+  '/otras/escala-notas/': 'Calculadora de Escala de Notas - Conversión A B C D F',
+  '/otras/gasto-gasolina/': 'Calculadora de Gasto de Gasolina - Costo por Kilómetro',
+  '/otras/contador-palabras/': 'Contador de Palabras y Caracteres Online',
+  '/otras/numeros-romanos/': 'Conversor de Números Romanos - Romano a Arábigo',
+  '/otras/contador-clicks/': 'Contador de Clicks - CPS Test Online',
 }
