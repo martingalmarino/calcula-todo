@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Pill } from '@/components/Pill'
-import { Calendar, Clock, User, Plus, Minus, Plane } from 'lucide-react'
+import { Calendar, Clock, User, Plus, Plane } from 'lucide-react'
 import Link from 'next/link'
 
 export default function CalendarioClient() {

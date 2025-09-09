@@ -16,7 +16,13 @@ export default function InteresSimpleClient() {
   const [capital, setCapital] = useState('')
   const [tasa, setTasa] = useState('')
   const [tiempo, setTiempo] = useState('')
-  const [resultado, setResultado] = useState<any>(null)
+  const [resultado, setResultado] = useState<{
+    capital: number;
+    tasa: number;
+    tiempo: number;
+    interes: number;
+    montoTotal: number;
+  } | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleCalculate = () => {
@@ -40,7 +46,7 @@ export default function InteresSimpleClient() {
 
       const resultado = calcularInteresSimple(capitalNum, tasaNum, tiempoNum)
       setResultado(resultado)
-    } catch (err) {
+    } catch {
       setError('Error al calcular. Verifica los valores ingresados.')
     }
   }

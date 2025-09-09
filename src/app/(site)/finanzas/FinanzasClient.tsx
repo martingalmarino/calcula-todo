@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { FAQ } from '@/components/FAQ'
-import { buildMeta, jsonLdCollection } from '@/lib/seo'
+import { jsonLdCollection } from '@/lib/seo'
 import { SITE, getBreadcrumbs } from '@/lib/site.config'
 import Link from 'next/link'
 import { Calculator, TrendingUp, Home, Car, Target, DollarSign } from 'lucide-react'

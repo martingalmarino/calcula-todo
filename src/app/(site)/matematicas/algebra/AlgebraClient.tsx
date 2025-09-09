@@ -51,7 +51,7 @@ export default function AlgebraClient() {
       const result = solveLinear(a, b)
       setResults(result)
       setError(null)
-    } catch (err) {
+    } catch {
       setError('Error al calcular la ecuación lineal')
     }
   }
@@ -75,7 +75,7 @@ export default function AlgebraClient() {
       const result = solveQuadratic(a, b, c)
       setResults(result)
       setError(null)
-    } catch (err) {
+    } catch {
       setError('Error al calcular la ecuación cuadrática')
     }
   }
@@ -97,7 +97,7 @@ export default function AlgebraClient() {
       const result = solveSystem2x2(a1, b1, c1, a2, b2, c2)
       setResults(result)
       setError(null)
-    } catch (err) {
+    } catch {
       setError('Error al calcular el sistema de ecuaciones')
     }
   }
@@ -116,7 +116,7 @@ export default function AlgebraClient() {
       const result = factorQuadratic(a, b, c)
       setResults(result)
       setError(null)
-    } catch (err) {
+    } catch {
       setError('Error al factorizar la expresión')
     }
   }
@@ -140,13 +140,12 @@ export default function AlgebraClient() {
       const result = vertexOfParabola(a, b, c)
       setResults(result)
       setError(null)
-    } catch (err) {
+    } catch {
       setError('Error al calcular el vértice')
     }
   }
 
   const breadcrumbs = getBreadcrumbs('/matematicas/algebra')
-  const relatedCalculators = getRelatedCalculators('algebra', 'algebra')
 
   return (
     <div className="min-h-screen bg-background">
