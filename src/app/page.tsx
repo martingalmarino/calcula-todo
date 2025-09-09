@@ -55,10 +55,12 @@ export default function HomePage() {
                   <Link 
                     key={calculator.href}
                     href={calculator.href} 
-                    className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-primary hover:shadow-md transition-all duration-200 group"
+                    className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-all duration-200 group relative overflow-hidden"
                   >
-                    <span className="text-primary text-lg font-medium group-hover:text-primary/80">Calculadora de {calculator.label}</span>
-                    <span className="text-primary text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
+                    {/* Línea lateral izquierda */}
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-600 group-hover:bg-blue-500 transition-colors duration-200"></div>
+                    <span className="text-gray-700 text-lg font-bold ml-2">Calculadora de {calculator.label}</span>
+                    <span className="text-gray-400 text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
                   </Link>
                 ))}
               </div>
@@ -69,10 +71,12 @@ export default function HomePage() {
                   <Link 
                     key={calculator.href}
                     href={calculator.href} 
-                    className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-primary hover:shadow-md transition-all duration-200 group"
+                    className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-all duration-200 group relative overflow-hidden"
                   >
-                    <span className="text-primary text-lg font-medium group-hover:text-primary/80">Calculadora de {calculator.label}</span>
-                    <span className="text-primary text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
+                    {/* Línea lateral izquierda */}
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-600 group-hover:bg-blue-500 transition-colors duration-200"></div>
+                    <span className="text-gray-700 text-lg font-bold ml-2">Calculadora de {calculator.label}</span>
+                    <span className="text-gray-400 text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
                   </Link>
                 ))}
               </div>
