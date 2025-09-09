@@ -6,7 +6,6 @@ import { buildMeta } from '@/lib/seo'
 export const metadata: Metadata = buildMeta({
   title: 'Términos de Uso - Calculadoras Online',
   description: 'Términos de uso de Calculadoras Online. Condiciones para el uso de nuestras calculadoras gratuitas.',
-  canonical: '/terminos/',
   noIndex: true
 })
 

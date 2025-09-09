@@ -7,7 +7,6 @@ import Link from 'next/link'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadoras Online Gratuitas',
   description: 'Facilitamos tus cálculos en temas de finanzas, salud, matemática, calendario, geometría y más. Calculadoras online gratuitas, rápidas y amigables.',
-  canonical: '/',
   keywords: [
     'calculadoras online',
     'matemáticas',

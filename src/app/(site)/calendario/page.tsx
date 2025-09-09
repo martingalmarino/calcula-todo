@@ -5,7 +5,6 @@ import CalendarioClient from './CalendarioClient'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadoras de Calendario - Fechas, Edad, Horas y Vacaciones',
   description: 'Calculadoras de calendario online gratuitas: días entre fechas, calculadora de edad, sumar/restar días, horas y minutos, días de vacaciones. Herramientas de tiempo y fechas.',
-  canonical: '/calendario/',
   keywords: [
     'calculadoras calendario',
     'días entre fechas',

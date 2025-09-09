@@ -39,7 +39,6 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://calculatodo.online'),
   alternates: {
-    canonical: '/',
   },
   icons: {
     icon: [

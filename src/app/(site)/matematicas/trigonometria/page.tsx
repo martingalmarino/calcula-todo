@@ -4,7 +4,6 @@ import TrigonometriaClient from './TrigonometriaClient'
 
 export const metadata: Metadata = buildMeta({
   description: 'Calculadora de trigonometría online para calcular seno, coseno, tangente, funciones inversas, teorema de Pitágoras y catetos. Gratis y fácil de usar.',
-  canonical: '/matematicas/trigonometria/',
   autoTitle: true,
 })
 

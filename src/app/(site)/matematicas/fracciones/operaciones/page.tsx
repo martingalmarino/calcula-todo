@@ -10,7 +10,6 @@ import Link from 'next/link'
 export const metadata: Metadata = buildMeta({
   title: 'Operaciones con Fracciones - Calculadora Online',
   description: 'Suma, resta, multiplica y divide fracciones con explicaciones paso a paso.',
-  canonical: '/matematicas/fracciones/operaciones/',
   keywords: ['operaciones fracciones', 'sumar fracciones', 'restar fracciones', 'multiplicar fracciones', 'dividir fracciones']
 })
 

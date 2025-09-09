@@ -4,7 +4,6 @@ import PaFiClient from './PaFiClient'
 
 export const metadata: Metadata = buildMeta({
   description: 'Calculadora PaFi online gratuita. Evalúa la relación entre presión arterial y frecuencia cardíaca. Herramienta médica para monitoreo cardiovascular.',
-  canonical: '/salud/pafi/',
   autoTitle: true,
 })
 

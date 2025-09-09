@@ -4,7 +4,6 @@ import { buildMeta } from '@/lib/seo'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Porcentajes - Calcular % Online Gratis',
   description: 'Calcula porcentajes, descuentos, aumentos y variaciones porcentuales. Resultados con explicación paso a paso.',
-  canonical: '/matematicas/porcentajes/',
   keywords: ['porcentajes', 'descuentos', 'aumentos', 'variación', 'proporción', 'calcular porcentaje']
 })
 

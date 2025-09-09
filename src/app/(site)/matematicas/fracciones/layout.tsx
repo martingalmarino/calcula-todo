@@ -4,7 +4,6 @@ import { buildMeta } from '@/lib/seo'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Fracciones - Operaciones con Fracciones Online',
   description: 'Simplifica, convierte, suma, resta, multiplica y divide fracciones. Resultados con explicación paso a paso.',
-  canonical: '/matematicas/fracciones/',
   keywords: ['fracciones', 'simplificar', 'sumar', 'restar', 'multiplicar', 'dividir', 'decimal', 'fracción']
 })
 

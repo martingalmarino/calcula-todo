@@ -6,7 +6,6 @@ import { buildMeta } from '@/lib/seo'
 export const metadata: Metadata = buildMeta({
   title: 'Blog - Artículos sobre Matemáticas y Calculadoras',
   description: 'Artículos educativos sobre matemáticas, consejos para usar calculadoras y explicaciones de conceptos matemáticos.',
-  canonical: '/blog/',
   keywords: ['blog matemáticas', 'artículos educativos', 'consejos calculadoras', 'conceptos matemáticos']
 })
 

@@ -7,7 +7,6 @@ import { buildMeta } from '@/lib/seo'
 export const metadata: Metadata = buildMeta({
   title: 'Acerca de Nosotros - Calculadoras Online',
   description: 'Conoce nuestra misión de hacer las matemáticas más accesibles con calculadoras online gratuitas y educativas.',
-  canonical: '/acerca/',
   keywords: ['acerca de', 'misión', 'matemáticas accesibles', 'educación gratuita']
 })
 

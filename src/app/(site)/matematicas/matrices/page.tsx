@@ -4,7 +4,6 @@ import MatricesClient from './MatricesClient'
 
 export const metadata: Metadata = buildMeta({
   description: 'Calculadora de matrices online para operaciones básicas, determinante, matriz inversa, transpuesta y multiplicación por escalar. Gratis y fácil de usar.',
-  canonical: '/matematicas/matrices/',
   autoTitle: true,
 })
 

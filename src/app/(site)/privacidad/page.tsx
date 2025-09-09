@@ -6,7 +6,6 @@ import { buildMeta } from '@/lib/seo'
 export const metadata: Metadata = buildMeta({
   title: 'Política de Privacidad - Calculadoras Online',
   description: 'Política de privacidad de Calculadoras Online. Información sobre cómo recopilamos y usamos tus datos.',
-  canonical: '/privacidad/',
   noIndex: true
 })
 

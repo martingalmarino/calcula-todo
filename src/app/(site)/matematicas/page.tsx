@@ -13,7 +13,6 @@ import { MatematicasClient } from './MatematicasClient'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadoras de Matemáticas – Resuelve operaciones online',
   description: 'Fracciones, porcentajes, potencias y raíces, álgebra, trigonometría, derivadas, integrales, matrices, combinatoria, progresiones y logaritmos.',
-  canonical: '/matematicas/',
   keywords: [
     'calculadoras matemáticas',
     'fracciones',

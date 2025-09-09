@@ -4,7 +4,6 @@ import NumerosRomanosClient from './NumerosRomanosClient'
 
 export const metadata: Metadata = buildMeta({
   description: 'Conversor de números romanos online gratuito. Convierte entre números arábigos y romanos. Herramienta educativa para aprender el sistema de numeración romana.',
-  canonical: '/otras/numeros-romanos/',
   autoTitle: true,
 })
 

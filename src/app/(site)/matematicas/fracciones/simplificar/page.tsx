@@ -10,7 +10,6 @@ import Link from 'next/link'
 export const metadata: Metadata = buildMeta({
   title: 'Simplificar Fracciones - Calculadora Online',
   description: 'Simplifica fracciones a su forma irreducible con explicaciones paso a paso.',
-  canonical: '/matematicas/fracciones/simplificar/',
   keywords: ['simplificar fracciones', 'fracción irreducible', 'máximo común divisor', 'MCD']
 })
 

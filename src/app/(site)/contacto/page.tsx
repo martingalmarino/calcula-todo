@@ -9,7 +9,6 @@ import { buildMeta } from '@/lib/seo'
 export const metadata: Metadata = buildMeta({
   title: 'Contacto - Calculadoras Online',
   description: 'Contáctanos para sugerencias, reportar errores o solicitar nuevas calculadoras.',
-  canonical: '/contacto/',
   keywords: ['contacto', 'sugerencias', 'reportar errores', 'nuevas calculadoras']
 })
 

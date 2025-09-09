@@ -10,7 +10,6 @@ import Link from 'next/link'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Aumentos - Calcular Aumentos Online',
   description: 'Calcula aumentos porcentuales y precios finales con explicaciones paso a paso.',
-  canonical: '/matematicas/porcentajes/aumento/',
   keywords: ['calculadora aumentos', 'calcular aumento', 'precio final', 'incremento', 'subida']
 })
 

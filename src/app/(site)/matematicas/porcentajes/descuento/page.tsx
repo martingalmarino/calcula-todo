@@ -10,7 +10,6 @@ import Link from 'next/link'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Descuentos - Calcular Descuentos Online',
   description: 'Calcula descuentos y precios finales con explicaciones paso a paso.',
-  canonical: '/matematicas/porcentajes/descuento/',
   keywords: ['calculadora descuentos', 'calcular descuento', 'precio final', 'rebaja', 'oferta']
 })
 
