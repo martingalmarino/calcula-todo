@@ -66,12 +66,7 @@ export function CalculatorLayout({
     <div className="space-y-8">
       {/* Header - Mobile First con mejor branding */}
       <div className="text-center space-y-4">
-        <div className="flex items-center justify-center gap-3 mb-3">
-          <div className="p-2 bg-blue-100 rounded-lg">
-            <Calculator className="h-6 w-6 text-blue-600" />
-          </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-600">{title}</h1>
-        </div>
+        <h1 className="text-3xl md:text-4xl font-bold text-blue-600">{title}</h1>
         <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
           {description}
         </p>

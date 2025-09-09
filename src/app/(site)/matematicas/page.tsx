@@ -84,14 +84,9 @@ export default function MatematicasPage() {
 
           {/* Header - Mejorado con nuevo branding */}
           <div className="text-center space-y-8 mb-16">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="p-3 bg-blue-100 rounded-xl">
-                <Calculator className="h-8 w-8 text-blue-600" />
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-blue-600">
-                Calculadoras de Matemáticas
-              </h1>
-            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-blue-600">
+              Calculadoras de Matemáticas
+            </h1>
             <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
               {matematicasCluster.description}
             </p>
