@@ -200,7 +200,10 @@ export function CategoryPageLayout({
 
           {/* FAQ */}
           <div className="mt-16">
-            <FAQ items={faqItems} />
+            <FAQ 
+              items={faqItems} 
+              title={isItalian ? "Domande Frequenti" : "Preguntas Frecuentes"}
+            />
           </div>
         </div>
       </Container>
