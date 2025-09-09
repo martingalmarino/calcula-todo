@@ -168,7 +168,7 @@ export function CategoryPageLayout({
                 <CardContent className="pt-0">
                   <Button asChild className="w-full calculator-button">
                     <Link href={calculator.href}>
-                      Usar Calculadora
+                      {isItalian ? 'Usa Calcolatrice' : 'Usar Calculadora'}
                     </Link>
                   </Button>
                 </CardContent>
