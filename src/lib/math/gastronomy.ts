@@ -295,7 +295,6 @@ export function convertTemperature(
 ): TemperatureConversionResult {
   let celsius: number;
   let fahrenheit: number;
-  let gasMark: number;
 
   switch (fromUnit) {
     case 'celsius':
