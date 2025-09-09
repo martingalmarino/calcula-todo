@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { buildMeta } from '@/lib/seo';
-import MarketingClient from './MarketingClient';
+import { MarketingClient } from './MarketingClient';
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadoras de Marketing - CAC, LTV, Conversión, ROI y Más',
