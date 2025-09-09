@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { buildMeta } from '@/lib/seo';
-import { CafeAhorroClient } from './CafeAhorroClient';
+import CafeAhorroClient from './CafeAhorroClient';
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Café vs. Ahorro - Cuánto Ahorrarías Dejando el Café',
