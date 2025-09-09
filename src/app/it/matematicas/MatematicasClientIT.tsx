@@ -3,7 +3,7 @@
 import { CategoryPageLayout } from '@/components/CategoryPageLayout'
 import { Calculator, BookOpen, Users, Divide, Percent, Zap, X, Triangle, TrendingUp } from 'lucide-react'
 
-// Configuración específica para matemáticas italianas
+// Configurazione specifica per matematica italiana
 const matematicasClusterIT = {
   label: 'Matematica',
   description: 'Calcolatrici matematiche online gratuite per risolvere problemi di algebra, geometria, trigonometria e molto altro. Risultati precisi e spiegazioni dettagliate.',

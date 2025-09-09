@@ -26,7 +26,7 @@ export default function FrazioniClientIT() {
   const [results, setResults] = useState<FractionResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  // Estados para cada tipo de cálculo
+  // Stati per ogni tipo di calcolo
   const [simplifyInput, setSimplifyInput] = useState({ numerator: '', denominator: '' })
   const [operationInputs, setOperationInputs] = useState({
     num1: '', den1: '', num2: '', den2: ''

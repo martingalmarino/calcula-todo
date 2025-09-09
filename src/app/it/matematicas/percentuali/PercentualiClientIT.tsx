@@ -23,7 +23,7 @@ export default function PercentualiClientIT() {
   const [results, setResults] = useState<PercentageResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  // Estados para cada tipo de cálculo
+  // Stati per ogni tipo di calcolo
   const [basicInputs, setBasicInputs] = useState({ value: '', percentage: '' })
   const [ofInputs, setOfInputs] = useState({ part: '', total: '' })
   const [changeInputs, setChangeInputs] = useState({ original: '', final: '' })

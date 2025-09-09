@@ -65,7 +65,7 @@ export default function ItalianHomePage() {
               {/* Categories Grid - Responsive */}
               <div className="space-y-12">
                 
-                {/* Matemáticas Section */}
+                {/* Sezione Matematica */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">🧮</span>
@@ -233,7 +233,7 @@ export default function ItalianHomePage() {
                   </ChipsContainer>
                 </div>
 
-                {/* Geometría Section */}
+                {/* Sezione Geometria */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">📐</span>
@@ -261,7 +261,7 @@ export default function ItalianHomePage() {
                   </ChipsContainer>
                 </div>
 
-                {/* Tecnología Section */}
+                {/* Sezione Tecnologia */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">💻</span>
