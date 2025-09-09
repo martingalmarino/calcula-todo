@@ -4,7 +4,6 @@ import IPCClient from './IPCClient';
 
 export const metadata: Metadata = buildMeta({
   description: 'Calculadora del IPC online. Calcula el poder adquisitivo, variación del IPC y pérdida de valor por inflación.',
-  canonical: '/finanzas/ipc/',
   autoTitle: true,
 });
 

@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'café ahorro', 'starbucks', 'interés compuesto', 'finanzas personales', 'ahorro diario', 'dinero café'
   ],
-  canonical: '/curiosas/cafe-ahorro/',
 });
 
 export default function CafeAhorroPage() {

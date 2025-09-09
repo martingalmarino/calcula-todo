@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'CPC', 'CPM', 'costo clic', 'impresiones', 'Google Ads', 'Meta Ads', 'publicidad', 'marketing digital'
   ],
-  canonical: '/marketing/cpc-cpm/',
 });
 
 export default function CPCCPMPage() {

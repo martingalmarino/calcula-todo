@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'pizza personas', 'cuántas pizzas', 'fiesta pizza', 'tamaño pizza', 'hambre', 'reunión'
   ],
-  canonical: '/curiosas/pizza-persona/',
 });
 
 export default function PizzaPersonaPage() {

@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'CAC', 'costo adquisición cliente', 'marketing', 'ventas', 'startup', 'e-commerce', 'agencia'
   ],
-  canonical: '/marketing/cac/',
 });
 
 export default function CACPage() {

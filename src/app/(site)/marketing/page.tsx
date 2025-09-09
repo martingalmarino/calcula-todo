@@ -7,8 +7,7 @@ export const metadata: Metadata = buildMeta({
   description: 'Calculadoras de marketing online gratuitas para CAC, LTV, conversión, presupuesto, CPC/CPM y ROI de campañas publicitarias.',
   keywords: [
     'calculadoras marketing', 'CAC', 'LTV', 'conversión', 'ROI', 'CPC', 'CPM', 'presupuesto marketing', 'marketing online'
-  ],
-  canonical: '/marketing/',
+  ]
 });
 
 export default function MarketingPage() {

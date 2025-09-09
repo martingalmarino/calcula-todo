@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'temperatura ideal', 'ciudades clima', 'friolento', 'temperatura cómoda', 'destinos', 'clima perfecto'
   ],
-  canonical: '/curiosas/nivel-friolento/',
 });
 
 export default function NivelFriolentoPage() {

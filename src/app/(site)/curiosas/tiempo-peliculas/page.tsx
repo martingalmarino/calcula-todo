@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'tiempo películas', 'series', 'entretenimiento', 'cine', 'años vida', 'tiempo pantalla'
   ],
-  canonical: '/curiosas/tiempo-peliculas/',
 });
 
 export default function TiempoPeliculasPage() {

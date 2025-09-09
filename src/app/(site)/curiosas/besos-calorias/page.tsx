@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'besos calorías', 'abrazos calorías', 'risas calorías', 'ejercicio', 'quemar calorías', 'actividades afectivas'
   ],
-  canonical: '/curiosas/besos-calorias/',
 });
 
 export default function BesosCaloriasPage() {

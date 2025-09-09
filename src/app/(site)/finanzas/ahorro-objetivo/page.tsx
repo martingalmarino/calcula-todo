@@ -4,7 +4,6 @@ import AhorroObjetivoClient from './AhorroObjetivoClient';
 
 export const metadata: Metadata = buildMeta({
   description: 'Calculadora de ahorro objetivo online. Calcula cuánto ahorrar mensualmente para alcanzar tu meta financiera con intereses.',
-  canonical: '/finanzas/ahorro-objetivo/',
   autoTitle: true,
 });
 

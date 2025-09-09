@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'presupuesto marketing', 'inversión marketing', 'ingresos', 'porcentaje', 'planificación', 'marketing'
   ],
-  canonical: '/marketing/presupuesto/',
 });
 
 export default function PresupuestoPage() {

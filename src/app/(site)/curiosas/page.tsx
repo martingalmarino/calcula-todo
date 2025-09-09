@@ -7,8 +7,7 @@ export const metadata: Metadata = buildMeta({
   description: 'Calculadoras divertidas y curiosas para descubrir datos sorprendentes sobre café, pizza, comida chatarra, besos, películas y más.',
   keywords: [
     'calculadoras curiosas', 'café ahorro', 'pizza personas', 'comida chatarra', 'besos calorías', 'películas tiempo', 'datos curiosos'
-  ],
-  canonical: '/curiosas/',
+  ]
 });
 
 export default function CuriosasPage() {

@@ -4,7 +4,6 @@ import OvulacionClient from './OvulacionClient'
 
 export const metadata: Metadata = buildMeta({
   description: 'Calculadora de ovulación y días fértiles online gratuita. Calcula tu ventana fértil, próxima ovulación y ciclo menstrual. Planificación familiar.',
-  canonical: '/salud/ovulacion/',
   autoTitle: true,
 })
 

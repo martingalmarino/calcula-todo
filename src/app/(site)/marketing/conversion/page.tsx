@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'conversión', 'tasa conversión', 'leads', 'ventas', 'embudo', 'marketing', 'funnel'
   ],
-  canonical: '/marketing/conversion/',
 });
 
 export default function ConversionPage() {

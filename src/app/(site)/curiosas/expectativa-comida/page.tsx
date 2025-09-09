@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'expectativa vida', 'comida chatarra', 'hamburguesas', 'gaseosas', 'pizzas', 'salud', 'alimentación'
   ],
-  canonical: '/curiosas/expectativa-comida/',
 });
 
 export default function ExpectativaComidaPage() {

@@ -4,7 +4,6 @@ import FraccionesClient from './FraccionesClient'
 
 export const metadata: Metadata = buildMeta({
   description: 'Calculadora de fracciones online para simplificar, operaciones básicas, conversión a decimal y cálculos con fracciones. Gratis y fácil de usar.',
-  canonical: '/matematicas/fracciones/',
   autoTitle: true,
 })
 

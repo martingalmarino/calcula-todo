@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'ROI', 'retorno inversión', 'marketing', 'campañas', 'publicidad', 'rentabilidad', 'ROI marketing'
   ],
-  canonical: '/marketing/roi/',
 });
 
 export default function ROIPage() {

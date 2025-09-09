@@ -8,7 +8,6 @@ export const metadata: Metadata = buildMeta({
   keywords: [
     'LTV', 'lifetime value', 'valor cliente', 'ticket promedio', 'frecuencia compra', 'marketing'
   ],
-  canonical: '/marketing/ltv/',
 });
 
 export default function LTVPage() {
