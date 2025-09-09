@@ -42,9 +42,16 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+    
+    // Si se usa la clase calculator-button, aplicar estilos específicos
+    const isCalculatorButton = className?.includes('calculator-button')
+    
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(
+          isCalculatorButton ? '' : buttonVariants({ variant, size }),
+          className
+        )}
         ref={ref}
         {...props}
       />

@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Activity, AlertCircle } from 'lucide-react'
+import { Activity, AlertCircle, Calculator } from 'lucide-react'
 import { calculateTMB, type TMBResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
 import { getBreadcrumbs } from '@/lib/site.config'
@@ -171,9 +171,9 @@ export default function TMBClient() {
                 
                 <Button 
                   onClick={handleCalculate} 
-                  className="w-full calculator-button"
+                  className="calculator-button"
                 >
-                  <Activity className="h-4 w-4 mr-2" />
+                  <Calculator className="h-4 w-4" />
                   Calcular TMB
                 </Button>
 
