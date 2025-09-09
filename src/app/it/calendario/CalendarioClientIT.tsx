@@ -6,6 +6,7 @@ import { Calculator, Calendar, Clock, User, Plus, Plane, Users } from 'lucide-re
 // Definir la categoría calendario en italiano
 const calendarioClusterIT = {
   title: 'Calendario',
+  label: 'Calendario',
   description: 'Calculadoras de calendario y fechas en italiano para gestionar fechas, calcular edades, contar días y más.',
   href: '/it/calendario',
   calculators: [
