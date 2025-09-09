@@ -56,7 +56,7 @@ export default function FermentacionLevadoClient() {
         return;
       }
 
-      const calculation = calculateFermentation(temperature, yeastType, 1000);
+      const calculation = calculateFermentation(temperature, yeastType);
       
       // Convertir el resultado al formato esperado
       setResult({

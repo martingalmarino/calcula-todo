@@ -380,8 +380,7 @@ export function calculateRecipeCost(
  */
 export function calculateFermentation(
   temperature: number,
-  yeastType: 'fresh' | 'dry' | 'instant',
-  _doughWeight: number = 1000 // gramos
+  yeastType: 'fresh' | 'dry' | 'instant'
 ): FermentationResult {
   if (temperature < 0 || temperature > 50) {
     throw new Error('La temperatura debe estar entre 0°C y 50°C');

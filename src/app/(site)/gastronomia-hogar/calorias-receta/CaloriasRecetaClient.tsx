@@ -151,7 +151,12 @@ export default function CaloriasRecetaClient() {
           carbs: calculation.macronutrients.carbohydrates / servings,
           fat: calculation.macronutrients.fats / servings
         },
-        ingredientBreakdown: calculation.ingredients
+        ingredientBreakdown: calculation.ingredients.map(ing => ({
+          name: ing.name,
+          quantity: ing.amount,
+          unit: ing.unit,
+          calories: ing.calories
+        }))
       });
     } catch (error) {
       alert('Error en el cálculo: ' + (error as Error).message);
