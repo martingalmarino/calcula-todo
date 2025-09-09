@@ -96,19 +96,22 @@ export default function FrazioniClientIT() {
         return
       }
 
+      const fraction1 = { numerator: num1, denominator: den1 }
+      const fraction2 = { numerator: num2, denominator: den2 }
+
       let result: FractionResult
       switch (operation) {
         case 'add':
-          result = add(num1, den1, num2, den2)
+          result = add(fraction1, fraction2)
           break
         case 'subtract':
-          result = subtract(num1, den1, num2, den2)
+          result = subtract(fraction1, fraction2)
           break
         case 'multiply':
-          result = multiply(num1, den1, num2, den2)
+          result = multiply(fraction1, fraction2)
           break
         case 'divide':
-          result = divide(num1, den1, num2, den2)
+          result = divide(fraction1, fraction2)
           break
       }
       setResults(result)
@@ -130,7 +133,11 @@ export default function FrazioniClientIT() {
         }
         
         const result = toDecimal(num, den)
-        setResults({ decimal: result, numerator: num, denominator: den })
+        setResults({ 
+          result: { numerator: num, denominator: den }, 
+          decimal: result, 
+          steps: [`${num}/${den} = ${result}`] 
+        })
       } else {
         const decimal = parseFloat(decimalInput)
         
@@ -320,25 +327,19 @@ export default function FrazioniClientIT() {
                       <CardTitle className="text-lg">Risultato</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-2">
-                      {results.numerator !== undefined && results.denominator !== undefined && (
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-blue-600">
-                            {results.numerator}/{results.denominator}
-                          </div>
-                          {results.decimal !== undefined && (
-                            <div className="text-lg text-gray-600">
-                              = {results.decimal}
-                            </div>
-                          )}
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-600">
+                          {results.result.numerator}/{results.result.denominator}
                         </div>
-                      )}
-                      {results.decimal !== undefined && results.numerator === undefined && (
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-blue-600">
-                            {results.decimal}
-                          </div>
+                        <div className="text-lg text-gray-600">
+                          = {results.decimal}
                         </div>
-                      )}
+                        {results.steps && results.steps.length > 0 && (
+                          <div className="text-sm text-gray-500 mt-2">
+                            {results.steps.join(' → ')}
+                          </div>
+                        )}
+                      </div>
                     </CardContent>
                   </Card>
                 )}

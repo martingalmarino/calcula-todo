@@ -1,7 +1,7 @@
 "use client"
 
 import { CategoryPageLayout } from '@/components/CategoryPageLayout'
-import { Calculator, BookOpen, Users, Divide, Percent, Zap, X, Triangle, TrendingUp, BarChart3, Hash, FunctionSquare } from 'lucide-react'
+import { Calculator, BookOpen, Users, Divide, Percent, Zap, X, Triangle, TrendingUp } from 'lucide-react'
 
 // Configuración específica para matemáticas italianas
 const matematicasClusterIT = {
