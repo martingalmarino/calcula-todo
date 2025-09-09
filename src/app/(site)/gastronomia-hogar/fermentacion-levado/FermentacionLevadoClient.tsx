@@ -125,6 +125,21 @@ export default function FermentacionLevadoClient() {
     setResult(null);
   };
 
+  const faqItems = [
+    {
+      question: "¿Por qué es importante la temperatura en la fermentación?",
+      answer: "La temperatura afecta la velocidad de fermentación. Temperaturas más altas aceleran el proceso pero pueden afectar el sabor. Temperaturas más bajas producen mejor sabor pero requieren más tiempo."
+    },
+    {
+      question: "¿Cuál es la diferencia entre tipos de levadura?",
+      answer: "Levadura fresca: más sabor, fermentación más lenta. Levadura seca: más práctica, fermentación estándar. Levadura instantánea: más rápida, ideal para panes rápidos."
+    },
+    {
+      question: "¿Puedo acelerar la fermentación?",
+      answer: "Sí, aumentando la temperatura o la cantidad de levadura, pero esto puede afectar el sabor. Es mejor planificar con tiempo y usar fermentación lenta para mejores resultados."
+    }
+  ];
+
   return (
     <>
       <script

@@ -152,6 +152,21 @@ export default function ConsumoElectricoClient() {
     setResult(null);
   };
 
+  const faqItems = [
+    {
+      question: "¿Cómo puedo reducir mi consumo eléctrico?",
+      answer: "Usa electrodomésticos eficientes, desconecta equipos en standby, optimiza la temperatura del aire acondicionado y usa iluminación LED."
+    },
+    {
+      question: "¿Qué electrodomésticos consumen más energía?",
+      answer: "Los que más consumen son: aire acondicionado, calentadores eléctricos, secadoras, hornos eléctricos y refrigeradores antiguos."
+    },
+    {
+      question: "¿Los electrodomésticos consumen energía cuando están apagados?",
+      answer: "Sí, muchos electrodomésticos consumen energía en modo standby. Usa regletas con interruptor para desconectar completamente los equipos que no uses."
+    }
+  ];
+
   return (
     <>
       <script

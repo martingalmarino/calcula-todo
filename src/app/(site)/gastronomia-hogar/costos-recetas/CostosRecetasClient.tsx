@@ -177,6 +177,21 @@ export default function CostosRecetasClient() {
     setResult(null);
   };
 
+  const faqItems = [
+    {
+      question: "¿Cómo obtengo precios actualizados de ingredientes?",
+      answer: "Revisa los precios en supermercados locales, tiendas online o usa precios promedio de tu área. Los precios pueden variar según la temporada y ubicación."
+    },
+    {
+      question: "¿Es más económico cocinar en casa?",
+      answer: "Generalmente sí, especialmente para comidas familiares. La calculadora te permite comparar el costo casero vs. alternativas comerciales para tomar decisiones informadas."
+    },
+    {
+      question: "¿Qué hacer si no conozco el precio exacto?",
+      answer: "Usa precios aproximados basados en tu experiencia de compras. La calculadora te dará una estimación útil para planificar tu presupuesto de cocina."
+    }
+  ];
+
   return (
     <>
       <script

@@ -144,6 +144,21 @@ export default function ConversionTemperaturasClient() {
     setResult(null);
   };
 
+  const faqItems = [
+    {
+      question: "¿Qué es Gas Mark?",
+      answer: "Gas Mark es una escala de temperatura usada en hornos de gas británicos. Va del 1 al 9, donde Gas Mark 1 es aproximadamente 140°C y Gas Mark 9 es aproximadamente 250°C."
+    },
+    {
+      question: "¿Cómo ajusto la temperatura según el tipo de horno?",
+      answer: "Para hornos con ventilador, reduce 20°C. Para hornos de convección, reduce 10-15°C. Para hornos de gas, puede que necesites ajustar ligeramente hacia arriba."
+    },
+    {
+      question: "¿Cuál es la temperatura ideal para diferentes alimentos?",
+      answer: "Panes: 200-230°C, Pasteles: 170-190°C, Galletas: 180-200°C, Pizza: 220-250°C, Carne: 160-200°C según el corte y cocción deseada."
+    }
+  ];
+
   const swapUnits = () => {
     const tempFrom = fromUnit;
     const tempTo = toUnit;

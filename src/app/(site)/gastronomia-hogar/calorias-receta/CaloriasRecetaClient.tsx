@@ -232,6 +232,21 @@ export default function CaloriasRecetaClient() {
     setResult(null);
   };
 
+  const faqItems = [
+    {
+      question: "¿Cómo calculo las calorías de ingredientes que no están en la base de datos?",
+      answer: "Puedes buscar los valores nutricionales en etiquetas de productos o bases de datos nutricionales online, y usar la opción de agregar ingredientes personalizados."
+    },
+    {
+      question: "¿Las calorías mostradas son exactas?",
+      answer: "Los valores son aproximados basados en tablas nutricionales estándar. Para mayor precisión, consulta las etiquetas específicas de tus ingredientes."
+    },
+    {
+      question: "¿Puedo guardar mis recetas calculadas?",
+      answer: "Actualmente puedes copiar los resultados al portapapeles. En futuras versiones se agregará la funcionalidad de guardado."
+    }
+  ];
+
   return (
     <>
       <script
