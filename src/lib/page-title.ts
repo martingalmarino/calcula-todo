@@ -58,4 +58,10 @@ export const calculatorTitles: Record<string, string> = {
   '/curiosas/besos-calorias/': 'Calculadora de Besos Quemacalorías - Calorías Quemadas por Besos y Abrazos',
   '/curiosas/tiempo-peliculas/': 'Calculadora de Tiempo de Vida en Películas - Cuántos Años Dedicamos al Cine',
   '/curiosas/nivel-friolento/': 'Calculadora de Nivel de Friolento - Ciudades Ideales para tu Temperatura',
+  '/curiosas/edad-mascota/': 'Calculadora de Edad de tu Mascota - Convierte Años Humanos a Años Perro y Gato',
+  '/curiosas/cerveza-fiesta/': 'Calculadora de Cerveza por Fiesta - Cuántos Litros Necesitas para tu Evento',
+  '/curiosas/tiempo-transporte/': 'Calculadora de Tiempo en Transporte Público - Cuántos Días de Vida Gastas Viajando',
+  '/curiosas/expectativa-animales/': 'Calculadora de Expectativa de Vida en Animales - Tu Edad en Vidas de Tortuga, Colibrí y Mosca',
+  '/curiosas/calculadora-amor/': 'Calculadora de Amor - Compatibilidad entre Nombres (Divertido y Viral)',
+  '/curiosas/tiempo-netflix/': 'Calculadora de Tiempo en Netflix - Cuántas Temporadas Viste y Qué Podrías Haber Hecho',
 }

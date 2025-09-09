@@ -318,7 +318,7 @@ export const SITE: SiteConfig = {
     curiosas: {
       label: 'Curiosas',
       href: '/curiosas/',
-      description: 'Calculadoras divertidas y curiosas para descubrir datos sorprendentes sobre café, pizza, comida chatarra, besos, películas y más.',
+      description: 'Calculadoras divertidas y curiosas para descubrir datos sorprendentes sobre café, pizza, comida chatarra, besos, películas, mascotas, cerveza, transporte y más.',
       calculators: [
         {
           label: 'Café vs. Ahorro',
@@ -367,6 +367,54 @@ export const SITE: SiteConfig = {
           icon: 'thermometer',
           category: 'clima',
           keywords: ['temperatura', 'clima', 'ciudades', 'friolento', 'cómodo']
+        },
+        {
+          label: 'Edad de tu Mascota',
+          href: '/curiosas/edad-mascota/',
+          description: 'Convierte años humanos a años perro o años gato con tablas científicas',
+          icon: 'dog',
+          category: 'mascotas',
+          keywords: ['mascotas', 'perros', 'gatos', 'edad', 'años humanos', 'años perro', 'años gato']
+        },
+        {
+          label: 'Cerveza por Fiesta',
+          href: '/curiosas/cerveza-fiesta/',
+          description: 'Calcula cuántos litros de cerveza necesitas para tu fiesta según invitados y consumo',
+          icon: 'beer',
+          category: 'fiesta',
+          keywords: ['cerveza', 'fiesta', 'litros', 'invitados', 'consumo', 'costo']
+        },
+        {
+          label: 'Tiempo en Transporte',
+          href: '/curiosas/tiempo-transporte/',
+          description: 'Calcula cuántos días y años de vida gastas en transporte público',
+          icon: 'bus',
+          category: 'transporte',
+          keywords: ['transporte', 'público', 'tiempo', 'vida', 'días', 'años', 'viaje']
+        },
+        {
+          label: 'Expectativa de Vida Animales',
+          href: '/curiosas/expectativa-animales/',
+          description: 'Tu edad expresada en vidas de tortuga, años de colibrí o días de mosca',
+          icon: 'turtle',
+          category: 'animales',
+          keywords: ['animales', 'tortuga', 'colibrí', 'mosca', 'expectativa vida', 'comparación']
+        },
+        {
+          label: 'Calculadora de Amor',
+          href: '/curiosas/calculadora-amor/',
+          description: 'Calcula el porcentaje de compatibilidad entre dos nombres (divertido y viral)',
+          icon: 'heart',
+          category: 'amor',
+          keywords: ['amor', 'compatibilidad', 'nombres', 'pareja', 'porcentaje', 'viral']
+        },
+        {
+          label: 'Tiempo en Netflix',
+          href: '/curiosas/tiempo-netflix/',
+          description: 'Calcula cuántas temporadas viste, años de vida dedicados y qué podrías haber hecho',
+          icon: 'tv',
+          category: 'streaming',
+          keywords: ['netflix', 'streaming', 'series', 'temporadas', 'tiempo', 'vida']
         }
       ]
     }

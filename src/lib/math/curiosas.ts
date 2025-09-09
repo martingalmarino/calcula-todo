@@ -202,3 +202,259 @@ export function encontrarCiudadesIdeal(temperaturaIdeal: number, tolerancia: num
     totalCiudadesIdeal: ciudadesIdeal.length
   };
 }
+
+/**
+ * Convierte años humanos a años de mascota (perro o gato)
+ * @param añosHumanos - Edad en años humanos
+ * @param tipoMascota - Tipo de mascota ('perro' o 'gato')
+ * @returns Objeto con edad convertida y descripción
+ */
+export function convertirEdadMascota(añosHumanos: number, tipoMascota: 'perro' | 'gato'): {
+  edadMascota: number;
+  descripcion: string;
+  etapa: string;
+} {
+  let edadMascota: number;
+  let etapa: string;
+
+  if (tipoMascota === 'perro') {
+    // Fórmula científica aproximada para perros
+    if (añosHumanos <= 2) {
+      edadMascota = añosHumanos * 10.5;
+    } else {
+      edadMascota = 21 + (añosHumanos - 2) * 4;
+    }
+
+    if (edadMascota < 15) etapa = 'cachorro';
+    else if (edadMascota < 35) etapa = 'adulto joven';
+    else if (edadMascota < 60) etapa = 'adulto';
+    else etapa = 'senior';
+  } else {
+    // Fórmula para gatos
+    if (añosHumanos <= 1) {
+      edadMascota = añosHumanos * 15;
+    } else if (añosHumanos <= 2) {
+      edadMascota = 15 + (añosHumanos - 1) * 9;
+    } else {
+      edadMascota = 24 + (añosHumanos - 2) * 4;
+    }
+
+    if (edadMascota < 15) etapa = 'gatito';
+    else if (edadMascota < 30) etapa = 'adulto joven';
+    else if (edadMascota < 60) etapa = 'adulto';
+    else etapa = 'senior';
+  }
+
+  const descripcion = `Tu ${tipoMascota} de ${añosHumanos} años humanos tiene aproximadamente ${Math.round(edadMascota)} años de ${tipoMascota} (etapa: ${etapa})`;
+
+  return {
+    edadMascota: Math.round(edadMascota),
+    descripcion,
+    etapa
+  };
+}
+
+/**
+ * Calcula la cantidad de cerveza necesaria para una fiesta
+ * @param invitados - Número de invitados
+ * @param nivelConsumo - Nivel de consumo (1=bajo, 2=moderado, 3=alto)
+ * @param duracionHoras - Duración de la fiesta en horas
+ * @param precioLitro - Precio por litro de cerveza
+ * @returns Objeto con cálculos de cerveza
+ */
+export function calcularCervezaFiesta(
+  invitados: number, 
+  nivelConsumo: number, 
+  duracionHoras: number, 
+  precioLitro: number
+): {
+  litrosNecesarios: number;
+  costoTotal: number;
+  tiempoTerminacion: number;
+  mensaje: string;
+} {
+  // Consumo por persona por hora según nivel
+  const consumoPorHora = {
+    1: 0.3, // Bajo: 300ml por hora
+    2: 0.5, // Moderado: 500ml por hora
+    3: 0.8  // Alto: 800ml por hora
+  };
+
+  const litrosNecesarios = invitados * duracionHoras * consumoPorHora[nivelConsumo as keyof typeof consumoPorHora];
+  const costoTotal = litrosNecesarios * precioLitro;
+  const tiempoTerminacion = duracionHoras; // Asumiendo que se consume durante toda la fiesta
+
+  const niveles = ['bajo', 'moderado', 'alto'];
+  const mensaje = `Para ${invitados} invitados con consumo ${niveles[nivelConsumo - 1]} durante ${duracionHoras}h, necesitas ${litrosNecesarios.toFixed(1)} litros (costo: $${costoTotal.toFixed(0)})`;
+
+  return {
+    litrosNecesarios: Math.round(litrosNecesarios * 10) / 10,
+    costoTotal: Math.round(costoTotal),
+    tiempoTerminacion,
+    mensaje
+  };
+}
+
+/**
+ * Calcula el tiempo de vida gastado en transporte público
+ * @param minutosDiarios - Minutos diarios en transporte
+ * @param diasLaborales - Días laborales por año (por defecto 250)
+ * @param añosTrabajo - Años trabajando (por defecto 40)
+ * @returns Objeto con tiempo calculado
+ */
+export function calcularTiempoTransporte(
+  minutosDiarios: number, 
+  diasLaborales: number = 250, 
+  añosTrabajo: number = 40
+): {
+  minutosTotales: number;
+  horasTotales: number;
+  diasTotales: number;
+  añosTotales: number;
+  porcentajeVida: number;
+  mensaje: string;
+} {
+  const minutosTotales = minutosDiarios * diasLaborales * añosTrabajo;
+  const horasTotales = minutosTotales / 60;
+  const diasTotales = horasTotales / 24;
+  const añosTotales = diasTotales / 365;
+  const porcentajeVida = (añosTotales / añosTrabajo) * 100;
+
+  const mensaje = `En ${añosTrabajo} años de trabajo, gastarás ${Math.round(diasTotales)} días (${añosTotales.toFixed(1)} años) en transporte público`;
+
+  return {
+    minutosTotales,
+    horasTotales: Math.round(horasTotales),
+    diasTotales: Math.round(diasTotales),
+    añosTotales: Math.round(añosTotales * 10) / 10,
+    porcentajeVida: Math.round(porcentajeVida * 10) / 10,
+    mensaje
+  };
+}
+
+/**
+ * Convierte edad humana a expectativa de vida de animales
+ * @param edadHumana - Edad en años humanos
+ * @param animal - Tipo de animal ('tortuga', 'colibri', 'mosca')
+ * @returns Objeto con comparación
+ */
+export function convertirEdadAnimales(edadHumana: number, animal: 'tortuga' | 'colibri' | 'mosca'): {
+  vidasAnimal: number;
+  descripcion: string;
+  expectativaAnimal: number;
+} {
+  const expectativas = {
+    tortuga: 150, // años
+    colibri: 5,   // años
+    mosca: 0.02   // años (7 días)
+  };
+
+  const expectativaAnimal = expectativas[animal];
+  const vidasAnimal = edadHumana / expectativaAnimal;
+
+  let descripcion: string;
+  if (animal === 'tortuga') {
+    descripcion = `Tu edad de ${edadHumana} años equivale a ${vidasAnimal.toFixed(2)} vidas de tortuga`;
+  } else if (animal === 'colibri') {
+    descripcion = `Tu edad de ${edadHumana} años equivale a ${vidasAnimal.toFixed(1)} años de colibrí`;
+  } else {
+    descripcion = `Tu edad de ${edadHumana} años equivale a ${Math.round(vidasAnimal)} días de mosca`;
+  }
+
+  return {
+    vidasAnimal: Math.round(vidasAnimal * 100) / 100,
+    descripcion,
+    expectativaAnimal
+  };
+}
+
+/**
+ * Calcula compatibilidad de amor entre dos nombres (algoritmo divertido)
+ * @param nombre1 - Primer nombre
+ * @param nombre2 - Segundo nombre
+ * @returns Objeto con porcentaje y mensaje
+ */
+export function calcularCompatibilidadAmor(nombre1: string, nombre2: string): {
+  porcentaje: number;
+  mensaje: string;
+  nivel: string;
+} {
+  // Algoritmo "científico" basado en caracteres y posiciones
+  const n1 = nombre1.toLowerCase().replace(/\s/g, '');
+  const n2 = nombre2.toLowerCase().replace(/\s/g, '');
+  
+  let score = 0;
+  
+  // Suma de códigos ASCII
+  for (let i = 0; i < n1.length; i++) {
+    score += n1.charCodeAt(i);
+  }
+  for (let i = 0; i < n2.length; i++) {
+    score += n2.charCodeAt(i);
+  }
+  
+  // Factor de longitud
+  const factorLongitud = Math.abs(n1.length - n2.length) + 1;
+  
+  // Cálculo final
+  let porcentaje = (score % 100) / factorLongitud;
+  if (porcentaje > 100) porcentaje = 100 - (porcentaje % 100);
+  if (porcentaje < 10) porcentaje = 10 + (score % 20);
+  
+  let nivel: string;
+  if (porcentaje >= 90) nivel = 'Soulmates';
+  else if (porcentaje >= 80) nivel = 'Muy Compatibles';
+  else if (porcentaje >= 70) nivel = 'Compatibles';
+  else if (porcentaje >= 60) nivel = 'Moderadamente Compatibles';
+  else if (porcentaje >= 50) nivel = 'Neutrales';
+  else if (porcentaje >= 40) nivel = 'Poco Compatibles';
+  else nivel = 'Incompatibles';
+
+  const mensaje = `${nombre1} y ${nombre2} tienen un ${Math.round(porcentaje)}% de compatibilidad (${nivel})`;
+
+  return {
+    porcentaje: Math.round(porcentaje),
+    mensaje,
+    nivel
+  };
+}
+
+/**
+ * Calcula estadísticas de tiempo en Netflix
+ * @param horasSemanales - Horas semanales viendo Netflix
+ * @param añosViendo - Años viendo Netflix
+ * @returns Objeto con estadísticas
+ */
+export function calcularTiempoNetflix(horasSemanales: number, añosViendo: number): {
+  horasTotales: number;
+  diasTotales: number;
+  temporadasVistas: number;
+  seriesCompletas: number;
+  actividadesAlternativas: string[];
+  mensaje: string;
+} {
+  const horasTotales = horasSemanales * 52 * añosViendo;
+  const diasTotales = horasTotales / 24;
+  const temporadasVistas = Math.round(horasTotales / 8); // 8 horas por temporada promedio
+  const seriesCompletas = Math.round(temporadasVistas / 3); // 3 temporadas por serie promedio
+
+  const actividadesAlternativas = [
+    `Leer ${Math.round(horasTotales / 2)} libros`,
+    `Aprender ${Math.round(horasTotales / 40)} idiomas nuevos`,
+    `Hacer ${Math.round(horasTotales / 3)} viajes de fin de semana`,
+    `Escribir ${Math.round(horasTotales / 10)} novelas`,
+    `Hacer ejercicio ${Math.round(horasTotales / 1.5)} horas`,
+    `Trabajar en ${Math.round(horasTotales / 20)} proyectos personales`
+  ];
+
+  const mensaje = `En ${añosViendo} años has visto ${temporadasVistas} temporadas (${seriesCompletas} series completas) en ${Math.round(diasTotales)} días de Netflix`;
+
+  return {
+    horasTotales: Math.round(horasTotales),
+    diasTotales: Math.round(diasTotales),
+    temporadasVistas,
+    seriesCompletas,
+    actividadesAlternativas,
+    mensaje
+  };
+}

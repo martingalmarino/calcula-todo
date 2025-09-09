@@ -1,6 +1,6 @@
 "use client";
 
-import { Calculator, Coffee, Pizza, Heart, Tv, Thermometer } from 'lucide-react';
+import { Calculator, Coffee, Pizza, Heart, Tv, Thermometer, Dog, Beer, Bus, Turtle } from 'lucide-react';
 import { Container } from '@/components/Container';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -20,7 +20,11 @@ export function CuriosasClient() {
     'pizza': Pizza,
     'heart': Heart,
     'tv': Tv,
-    'thermometer': Thermometer
+    'thermometer': Thermometer,
+    'dog': Dog,
+    'beer': Beer,
+    'bus': Bus,
+    'turtle': Turtle
   };
 
   return (
