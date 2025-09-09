@@ -4,8 +4,7 @@ import { useState } from 'react';
 import { Calculator, HardDrive, Download, Clock, Palette, Shield, Zap } from 'lucide-react';
 import { Container } from '@/components/Container';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Chip } from '@/components/Chip';
-import { ChipsContainer } from '@/components/ChipsContainer';
+import { Button } from '@/components/ui/button';
 import { jsonLdCollection } from '@/lib/seo';
 
 const iconMap = {
@@ -143,16 +142,19 @@ export function TecnologiaClient() {
 
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Filtrar por Categoría</h2>
-            <ChipsContainer>
+            <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
-                <Chip
+                <Button
                   key={category.value}
-                  label={category.label}
-                  isActive={selectedCategory === category.value}
+                  variant={selectedCategory === category.value ? "default" : "outline"}
+                  size="sm"
                   onClick={() => setSelectedCategory(category.value)}
-                />
+                  className={selectedCategory === category.value ? "bg-blue-600 text-white" : ""}
+                >
+                  {category.label}
+                </Button>
               ))}
-            </ChipsContainer>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
