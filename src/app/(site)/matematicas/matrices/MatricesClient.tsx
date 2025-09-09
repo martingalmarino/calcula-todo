@@ -97,7 +97,7 @@ export default function MatricesClient() {
     }
   }
 
-  const handleExampleClick = (values: Record<string, unknown>) => {
+  const handleExampleClick = (_values: Record<string, unknown>) => {
     // Implementar ejemplos si es necesario
   }
 

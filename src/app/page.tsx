@@ -2,8 +2,6 @@ import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
-import { SITE } from '@/lib/site.config'
-import Link from 'next/link'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadoras Online Gratuitas',

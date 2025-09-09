@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { Calculator, Zap, Square, Box } from 'lucide-react'
+import { Calculator } from 'lucide-react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
@@ -18,8 +18,6 @@ import {
   pow,
   powerOfTen,
   toScientificNotation,
-  type PowerResult,
-  type RootResult
 } from '@/lib/math/powerRoot'
 
 export default function PotenciasRaicesClient() {

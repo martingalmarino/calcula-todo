@@ -86,27 +86,27 @@ export default function ValorFuturoPresenteClient() {
     }
   };
 
-  const examplesFV = [
-    {
-      label: 'Inversión de $10,000 al 8% anual por 5 años',
-      values: { valorPresente: '10000', tasaAnual: '8', tiempoAnos: '5' }
-    },
-    {
-      label: 'Ahorro de $5,000 al 6% anual por 10 años',
-      values: { valorPresente: '5000', tasaAnual: '6', tiempoAnos: '10' }
-    }
-  ];
+  // const examplesFV = [
+  //   {
+  //     label: 'Inversión de $10,000 al 8% anual por 5 años',
+  //     values: { valorPresente: '10000', tasaAnual: '8', tiempoAnos: '5' }
+  //   },
+  //   {
+  //     label: 'Ahorro de $5,000 al 6% anual por 10 años',
+  //     values: { valorPresente: '5000', tasaAnual: '6', tiempoAnos: '10' }
+  //   }
+  // ];
 
-  const examplesPV = [
-    {
-      label: 'Meta de $20,000 al 7% anual en 3 años',
-      values: { valorFuturo: '20000', tasaAnual: '7', tiempoAnos: '3' }
-    },
-    {
-      label: 'Objetivo de $50,000 al 5% anual en 8 años',
-      values: { valorFuturo: '50000', tasaAnual: '5', tiempoAnos: '8' }
-    }
-  ];
+  // const examplesPV = [
+  //   {
+  //     label: 'Meta de $20,000 al 7% anual en 3 años',
+  //     values: { valorFuturo: '20000', tasaAnual: '7', tiempoAnos: '3' }
+  //   },
+  //   {
+  //     label: 'Objetivo de $50,000 al 5% anual en 8 años',
+  //     values: { valorFuturo: '50000', tasaAnual: '5', tiempoAnos: '8' }
+  //   }
+  // ];
 
   const faqItems = [
     {
@@ -133,21 +133,21 @@ export default function ValorFuturoPresenteClient() {
     description: calc.description
   }));
 
-  const handleExampleClickFV = (values: Record<string, unknown>) => {
-    setValorPresente(values.valorPresente as string);
-    setTasaAnual(values.tasaAnual as string);
-    setTiempoAnos(values.tiempoAnos as string);
-    setResultadoFV(null);
-    setError(null);
-  };
+  // const handleExampleClickFV = (values: Record<string, unknown>) => {
+  //   setValorPresente(values.valorPresente as string);
+  //   setTasaAnual(values.tasaAnual as string);
+  //   setTiempoAnos(values.tiempoAnos as string);
+  //   setResultadoFV(null);
+  //   setError(null);
+  // };
 
-  const handleExampleClickPV = (values: Record<string, unknown>) => {
-    setValorFuturo(values.valorFuturo as string);
-    setTasaAnual(values.tasaAnual as string);
-    setTiempoAnos(values.tiempoAnos as string);
-    setResultadoPV(null);
-    setError(null);
-  };
+  // const handleExampleClickPV = (values: Record<string, unknown>) => {
+  //   setValorFuturo(values.valorFuturo as string);
+  //   setTasaAnual(values.tasaAnual as string);
+  //   setTiempoAnos(values.tiempoAnos as string);
+  //   setResultadoPV(null);
+  //   setError(null);
+  // };
 
   const breadcrumbs = getBreadcrumbs('/finanzas/valor-futuro-presente/');
 
