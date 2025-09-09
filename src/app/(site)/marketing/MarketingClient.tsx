@@ -24,7 +24,11 @@ export function MarketingClient() {
             name: 'Calculadoras de Marketing',
             description: marketingCluster.description,
             url: '/marketing/',
-            category: 'marketing'
+            calculators: calculators.map(calc => ({
+              name: calc.label,
+              url: calc.href,
+              description: calc.description
+            }))
           }))
         }}
       />
