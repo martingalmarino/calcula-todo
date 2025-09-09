@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { buildMeta } from '@/lib/seo';
-import { BesosCaloriasClient } from './BesosCaloriasClient';
+import BesosCaloriasClient from './BesosCaloriasClient';
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Besos Quemacalorías - Calorías Quemadas por Besos y Abrazos',
