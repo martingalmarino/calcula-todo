@@ -100,7 +100,12 @@ export default function CostosRecetasClient() {
       setResult({
         totalCost: calculation.totalCost,
         costPerServing: calculation.costPerServing,
-        ingredientDetails: calculation.ingredients,
+        ingredientDetails: calculation.ingredients.map(ing => ({
+          name: ing.name,
+          amount: ing.amount,
+          unit: ing.unit,
+          cost: ing.totalCost
+        })),
         savings: calculation.savings ? {
           amount: calculation.savings.savings,
           percentage: calculation.savings.savingsPercent
