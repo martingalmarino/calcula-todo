@@ -41,6 +41,20 @@ export interface ClickTestResult {
   averageTime: number; // tiempo promedio entre clicks en ms
 }
 
+export interface TipCalculationResult {
+  billAmount: number;
+  tipPercentage: number;
+  tipAmount: number;
+  totalAmount: number;
+  perPersonAmount: number;
+  peopleCount: number;
+  breakdown: {
+    bill: number;
+    tip: number;
+    total: number;
+  };
+}
+
 /**
  * Convierte una nota numérica a escala de letras
  */
@@ -232,5 +246,44 @@ export function calculateClickStats(clicks: number, timeElapsed: number): ClickT
     timeElapsed: Math.round(timeElapsed * 100) / 100,
     cps: Math.round(cps * 100) / 100,
     averageTime: Math.round(averageTime * 100) / 100
+  };
+}
+
+/**
+ * Calcula propinas y división de cuenta
+ */
+export function calculateTip(
+  billAmount: number,
+  tipPercentage: number,
+  peopleCount: number = 1
+): TipCalculationResult {
+  if (billAmount <= 0) {
+    throw new Error('El monto de la cuenta debe ser mayor a 0');
+  }
+
+  if (tipPercentage < 0 || tipPercentage > 100) {
+    throw new Error('El porcentaje de propina debe estar entre 0 y 100');
+  }
+
+  if (peopleCount <= 0) {
+    throw new Error('El número de personas debe ser mayor a 0');
+  }
+
+  const tipAmount = (billAmount * tipPercentage) / 100;
+  const totalAmount = billAmount + tipAmount;
+  const perPersonAmount = totalAmount / peopleCount;
+
+  return {
+    billAmount: Math.round(billAmount * 100) / 100,
+    tipPercentage: Math.round(tipPercentage * 100) / 100,
+    tipAmount: Math.round(tipAmount * 100) / 100,
+    totalAmount: Math.round(totalAmount * 100) / 100,
+    perPersonAmount: Math.round(perPersonAmount * 100) / 100,
+    peopleCount,
+    breakdown: {
+      bill: Math.round(billAmount * 100) / 100,
+      tip: Math.round(tipAmount * 100) / 100,
+      total: Math.round(totalAmount * 100) / 100
+    }
   };
 }

@@ -35,6 +35,7 @@ export const calculatorTitles: Record<string, string> = {
   '/otras/contador-palabras/': 'Contador de Palabras y Caracteres Online',
   '/otras/numeros-romanos/': 'Conversor de Números Romanos - Romano a Arábigo',
   '/otras/contador-clicks/': 'Contador de Clicks - CPS Test Online',
+  '/otras/calculadora-propinas/': 'Calculadora de Propinas - Calcular Propina y Dividir Cuenta',
   '/calendario/dias-entre-fechas/': 'Calculadora de Días entre Fechas - Contador de Días',
   '/calendario/calculadora-edad/': 'Calculadora de Edad - Calcular Edad Exacta',
   '/calendario/sumar-restar-dias/': 'Sumar y Restar Días a una Fecha - Calculadora de Fechas',
