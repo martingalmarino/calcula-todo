@@ -33,4 +33,9 @@ export const calculatorTitles: Record<string, string> = {
   '/otras/contador-palabras/': 'Contador de Palabras y Caracteres Online',
   '/otras/numeros-romanos/': 'Conversor de Números Romanos - Romano a Arábigo',
   '/otras/contador-clicks/': 'Contador de Clicks - CPS Test Online',
+  '/calendario/dias-entre-fechas/': 'Calculadora de Días entre Fechas - Contador de Días',
+  '/calendario/calculadora-edad/': 'Calculadora de Edad - Calcular Edad Exacta',
+  '/calendario/sumar-restar-dias/': 'Sumar y Restar Días a una Fecha - Calculadora de Fechas',
+  '/calendario/horas-minutos/': 'Calculadora de Horas y Minutos - Suma y Resta de Tiempo',
+  '/calendario/dias-vacaciones/': 'Calculadora de Días de Vacaciones - Días Laborables',
 }
