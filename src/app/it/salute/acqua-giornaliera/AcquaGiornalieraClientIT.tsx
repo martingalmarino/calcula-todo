@@ -1,0 +1,250 @@
+"use client"
+
+import { useState } from 'react'
+import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { calculateDailyWater } from '@/lib/math/health'
+
+export default function AcquaGiornalieraClientIT() {
+  const [weight, setWeight] = useState('')
+  const [age, setAge] = useState('')
+  const [gender, setGender] = useState('')
+  const [activity, setActivity] = useState('')
+  const [climate, setClimate] = useState('')
+  const [result, setResult] = useState<any>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  const handleCalculate = () => {
+    setError(null)
+    
+    const weightNum = parseFloat(weight)
+    const ageNum = parseInt(age)
+    
+    if (!weight || !age || !gender || !activity || !climate) {
+      setError('Inserisci tutti i campi richiesti')
+      return
+    }
+    
+    if (weightNum <= 0 || ageNum <= 0) {
+      setError('Peso ed età devono essere valori positivi')
+      return
+    }
+    
+    if (ageNum < 1 || ageNum > 120) {
+      setError('L\'età deve essere tra 1 e 120 anni')
+      return
+    }
+    
+    if (weightNum < 5 || weightNum > 300) {
+      setError('Il peso deve essere tra 5 e 300 kg')
+      return
+    }
+    
+    try {
+      const waterResult = calculateDailyWater(weightNum, ageNum, gender as 'male' | 'female', activity, climate, 'it')
+      setResult(waterResult)
+    } catch (err) {
+      setError('Errore nel calcolo dell\'acqua giornaliera raccomandata')
+    }
+  }
+
+  const handleExample = (example: string) => {
+    const examples: { [key: string]: { weight: string; age: string; gender: string; activity: string; climate: string } } = {
+      'uomo_attivo': { weight: '75', age: '30', gender: 'male', activity: 'moderate', climate: 'temperate' },
+      'donna_sedentaria': { weight: '65', age: '25', gender: 'female', activity: 'sedentary', climate: 'temperate' },
+      'uomo_sportivo': { weight: '80', age: '28', gender: 'male', activity: 'high', climate: 'hot' },
+      'donna_anziana': { weight: '70', age: '60', gender: 'female', activity: 'light', climate: 'temperate' }
+    }
+    
+    const exampleData = examples[example]
+    if (exampleData) {
+      setWeight(exampleData.weight)
+      setAge(exampleData.age)
+      setGender(exampleData.gender)
+      setActivity(exampleData.activity)
+      setClimate(exampleData.climate)
+    }
+  }
+
+  const examples = [
+    { label: 'Uomo Attivo', value: 'uomo_attivo', description: '75 kg, 30 anni, attività moderata' },
+    { label: 'Donna Sedentaria', value: 'donna_sedentaria', description: '65 kg, 25 anni, attività leggera' },
+    { label: 'Uomo Sportivo', value: 'uomo_sportivo', description: '80 kg, 28 anni, attività intensa' },
+    { label: 'Donna Anziana', value: 'donna_anziana', description: '70 kg, 60 anni, attività leggera' }
+  ]
+
+  const faqItems = [
+    {
+      question: 'Quanta acqua dovrei bere al giorno?',
+      answer: 'La quantità di acqua giornaliera dipende da peso, età, sesso, livello di attività fisica e clima. Generalmente si raccomandano 2-3 litri al giorno per un adulto.'
+    },
+    {
+      question: 'Come viene calcolata la raccomandazione?',
+      answer: 'Il calcolo considera il peso corporeo (35ml per kg), l\'età (meno acqua per gli anziani), il sesso (gli uomini hanno bisogno di più acqua), l\'attività fisica e il clima.'
+    },
+    {
+      question: 'Cosa succede se non bevo abbastanza acqua?',
+      answer: 'La disidratazione può causare stanchezza, mal di testa, difficoltà di concentrazione, pelle secca e problemi digestivi. È importante mantenere una corretta idratazione.'
+    },
+    {
+      question: 'Posso bere altri liquidi oltre all\'acqua?',
+      answer: 'Sì, tè, caffè, succhi di frutta e altri liquidi contribuiscono all\'idratazione, ma l\'acqua rimane la scelta migliore per una corretta idratazione.'
+    }
+  ]
+
+  return (
+    <CalculatorLayout
+      title="Calcolatrice Acqua Giornaliera Raccomandata"
+      description="Calcola la quantità di acqua giornaliera raccomandata per la tua salute"
+      examples={examples}
+      onExampleClick={handleExample}
+      faqItems={faqItems}
+    >
+      <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="weight" className="block text-sm font-medium text-gray-700 mb-2">
+              Peso (kg)
+            </label>
+            <Input
+              id="weight"
+              type="number"
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+              placeholder="Es. 70"
+              min="5"
+              max="300"
+              step="0.1"
+            />
+          </div>
+          <div>
+            <label htmlFor="age" className="block text-sm font-medium text-gray-700 mb-2">
+              Età (anni)
+            </label>
+            <Input
+              id="age"
+              type="number"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+              placeholder="Es. 30"
+              min="1"
+              max="120"
+            />
+          </div>
+          <div>
+            <label htmlFor="gender" className="block text-sm font-medium text-gray-700 mb-2">
+              Sesso
+            </label>
+            <Select value={gender} onValueChange={setGender}>
+              <SelectTrigger>
+                <SelectValue placeholder="Seleziona sesso" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="male">Maschio</SelectItem>
+                <SelectItem value="female">Femmina</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <label htmlFor="activity" className="block text-sm font-medium text-gray-700 mb-2">
+              Livello di Attività
+            </label>
+            <Select value={activity} onValueChange={setActivity}>
+              <SelectTrigger>
+                <SelectValue placeholder="Seleziona attività" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="sedentary">Sedentario</SelectItem>
+                <SelectItem value="light">Leggera</SelectItem>
+                <SelectItem value="moderate">Moderata</SelectItem>
+                <SelectItem value="high">Intensa</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="md:col-span-2">
+            <label htmlFor="climate" className="block text-sm font-medium text-gray-700 mb-2">
+              Clima
+            </label>
+            <Select value={climate} onValueChange={setClimate}>
+              <SelectTrigger>
+                <SelectValue placeholder="Seleziona clima" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="temperate">Temperato</SelectItem>
+                <SelectItem value="hot">Caldo</SelectItem>
+                <SelectItem value="cold">Freddo</SelectItem>
+                <SelectItem value="humid">Umido</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+
+        <Button onClick={handleCalculate} className="w-full">
+          Calcola Acqua Giornaliera
+        </Button>
+
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+            {error}
+          </div>
+        )}
+
+        {result && (
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Risultato Acqua Giornaliera</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 mb-2">
+                  {result.dailyWater.toFixed(0)} ml
+                </div>
+                <div className="text-lg font-semibold text-gray-800 mb-2">
+                  {result.dailyWaterLiters.toFixed(1)} litri
+                </div>
+                <div className="text-gray-600 mb-4">
+                  {result.description}
+                </div>
+              </div>
+              
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-blue-900 mb-2">Raccomandazioni:</h4>
+                <p className="text-blue-800">{result.recommendation}</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div className="flex justify-between">
+                  <span>Peso:</span>
+                  <span className="font-medium">{weight} kg</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Età:</span>
+                  <span className="font-medium">{age} anni</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Sesso:</span>
+                  <span className="font-medium">{gender === 'male' ? 'Maschio' : 'Femmina'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Attività:</span>
+                  <span className="font-medium">{activity}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Clima:</span>
+                  <span className="font-medium">{climate}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Acqua giornaliera:</span>
+                  <span className="font-medium">{result.dailyWater.toFixed(0)} ml</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+      </div>
+    </CalculatorLayout>
+  )
+}

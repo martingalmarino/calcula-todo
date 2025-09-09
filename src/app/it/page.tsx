@@ -121,29 +121,29 @@ export default function ItalianHomePage() {
                   </ChipsContainer>
                 </div>
 
-                {/* Salud Section */}
+                {/* Salute Section */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">🏥</span>
                     <h3 className="text-blue-900 text-xl font-bold">Salute</h3>
                   </div>
                   <ChipsContainer>
-                    <Chip href="/it/salud/imc/" icon="heart-pulse" ariaLabel="Indice di Massa Corporea (IMC)">
+                    <Chip href="/it/salute/imc/" icon="heart-pulse" ariaLabel="Indice di Massa Corporea (IMC)">
                       Indice di Massa Corporea (IMC)
                     </Chip>
-                    <Chip href="/it/salud/tmb/" icon="flame" ariaLabel="Tasso Metabolico Basale (TMB)">
+                    <Chip href="/it/salute/tmb/" icon="flame" ariaLabel="Tasso Metabolico Basale (TMB)">
                       Tasso Metabolico Basale (TMB)
                     </Chip>
-                    <Chip href="/it/salud/grasa-corporal/" icon="percent" ariaLabel="Percentuale di Grasso Corporeo">
+                    <Chip href="/it/salute/grasso-corporeo/" icon="percent" ariaLabel="Percentuale di Grasso Corporeo">
                       Percentuale di Grasso Corporeo
                     </Chip>
-                    <Chip href="/it/salud/pafi/" icon="users-round" ariaLabel="Calcolatrice PaFi">
+                    <Chip href="/it/salute/pafi/" icon="users-round" ariaLabel="Calcolatrice PaFi">
                       Calcolatrice PaFi
                     </Chip>
-                    <Chip href="/it/salud/agua-diaria/" icon="droplets" ariaLabel="Acqua Giornaliera Raccomandata">
+                    <Chip href="/it/salute/acqua-giornaliera/" icon="droplets" ariaLabel="Acqua Giornaliera Raccomandata">
                       Acqua Giornaliera Raccomandata
                     </Chip>
-                    <Chip href="/it/salud/ovulacion/" icon="calendar-heart" ariaLabel="Calcolatrice di Ovulazione">
+                    <Chip href="/it/salute/ovulazione/" icon="calendar-heart" ariaLabel="Calcolatrice di Ovulazione">
                       Calcolatrice di Ovulazione
                     </Chip>
                   </ChipsContainer>
