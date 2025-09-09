@@ -115,6 +115,9 @@ export default function HomePage() {
                     <Chip href="/calendario/dias-vacaciones/" icon="calendar-days" ariaLabel="Días de Vacaciones">
                       Días de Vacaciones
                     </Chip>
+                    <Chip href="/calendario/conversor-fechas/" icon="calendar-range" ariaLabel="Conversor de Fechas">
+                      Conversor de Fechas
+                    </Chip>
                   </ChipsContainer>
                 </div>
 
@@ -137,6 +140,12 @@ export default function HomePage() {
                     <Chip href="/salud/pafi/" icon="users-round" ariaLabel="Calculadora PaFi">
                       Calculadora PaFi
                     </Chip>
+                    <Chip href="/salud/agua-diaria/" icon="droplets" ariaLabel="Agua Diaria Recomendada">
+                      Agua Diaria Recomendada
+                    </Chip>
+                    <Chip href="/salud/ovulacion/" icon="calendar-heart" ariaLabel="Calculadora de Ovulación">
+                      Calculadora de Ovulación
+                    </Chip>
                   </ChipsContainer>
                 </div>
 
@@ -158,6 +167,12 @@ export default function HomePage() {
                     </Chip>
                     <Chip href="/geometria/cuadrado/" icon="square" ariaLabel="Área y Perímetro del Cuadrado">
                       Área y Perímetro del Cuadrado
+                    </Chip>
+                    <Chip href="/geometria/rombo/" icon="diamond" ariaLabel="Área y Perímetro del Rombo">
+                      Área y Perímetro del Rombo
+                    </Chip>
+                    <Chip href="/geometria/trapecio/" icon="hexagon" ariaLabel="Área del Trapecio">
+                      Área del Trapecio
                     </Chip>
                   </ChipsContainer>
                 </div>
@@ -183,6 +198,9 @@ export default function HomePage() {
                     </Chip>
                     <Chip href="/otras/contador-clicks/" icon="mouse-pointer" ariaLabel="Contador de Clicks (CPS Test)">
                       Contador de Clicks (CPS Test)
+                    </Chip>
+                    <Chip href="/otras/calculadora-propinas/" icon="receipt" ariaLabel="Calculadora de Propinas">
+                      Calculadora de Propinas
                     </Chip>
                   </ChipsContainer>
                 </div>
