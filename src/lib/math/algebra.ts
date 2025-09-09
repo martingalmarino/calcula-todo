@@ -2,6 +2,8 @@
  * Utilidades para álgebra
  */
 
+import { getMathTranslations, type Language } from '../translations/math';
+
 export interface LinearResult {
   x: number;
   formula: string;
@@ -27,12 +29,14 @@ export interface System2x2Result {
 /**
  * Resuelve una ecuación lineal ax + b = 0
  */
-export function solveLinear(a: number, b: number): LinearResult {
+export function solveLinear(a: number, b: number, language: Language = 'es'): LinearResult {
+  const t = getMathTranslations(language);
+  
   if (a === 0) {
     if (b === 0) {
-      throw new Error('La ecuación 0x + 0 = 0 tiene infinitas soluciones');
+      throw new Error(t.errors.equationInfiniteSolutions);
     } else {
-      throw new Error('La ecuación 0x + b = 0 no tiene solución');
+      throw new Error(t.errors.equationNoSolution);
     }
   }
   
@@ -51,9 +55,11 @@ export function solveLinear(a: number, b: number): LinearResult {
 /**
  * Resuelve una ecuación cuadrática ax² + bx + c = 0
  */
-export function solveQuadratic(a: number, b: number, c: number): QuadraticResult {
+export function solveQuadratic(a: number, b: number, c: number, language: Language = 'es'): QuadraticResult {
+  const t = getMathTranslations(language);
+  
   if (a === 0) {
-    throw new Error('El coeficiente a no puede ser cero en una ecuación cuadrática');
+    throw new Error(t.errors.coefficientACannotBeZero);
   }
   
   const discriminant = b * b - 4 * a * c;
@@ -112,11 +118,12 @@ export function solveQuadratic(a: number, b: number, c: number): QuadraticResult
  * ax + by = e
  * cx + dy = f
  */
-export function solveSystem2x2(a: number, b: number, c: number, d: number, e: number, f: number): System2x2Result {
+export function solveSystem2x2(a: number, b: number, c: number, d: number, e: number, f: number, language: Language = 'es'): System2x2Result {
+  const t = getMathTranslations(language);
   const determinant = a * d - b * c;
   
   if (determinant === 0) {
-    throw new Error('El sistema no tiene solución única (determinante = 0)');
+    throw new Error(t.errors.systemNoUniqueSolution);
   }
   
   const x = (e * d - b * f) / determinant;
@@ -143,15 +150,16 @@ export function solveSystem2x2(a: number, b: number, c: number, d: number, e: nu
 /**
  * Factoriza una ecuación cuadrática
  */
-export function factorQuadratic(a: number, b: number, c: number): { factors: string; steps: string[] } | null {
+export function factorQuadratic(a: number, b: number, c: number, language: Language = 'es'): { factors: string; steps: string[] } | null {
+  const t = getMathTranslations(language);
   if (a === 0) return null;
   
   const discriminant = b * b - 4 * a * c;
   
   if (discriminant < 0) {
     return {
-      factors: 'No se puede factorizar (raíces complejas)',
-      steps: ['El discriminante es negativo, no hay factorización real']
+      factors: t.algebra.cannotFactorize,
+      steps: [t.algebra.discriminantNegative]
     };
   }
   
@@ -183,7 +191,8 @@ export function factorQuadratic(a: number, b: number, c: number): { factors: str
 /**
  * Calcula el vértice de una parábola
  */
-export function vertexOfParabola(a: number, b: number, c: number): { x: number; y: number; steps: string[] } {
+export function vertexOfParabola(a: number, b: number, c: number, language: Language = 'es'): { x: number; y: number; steps: string[] } {
+  const t = getMathTranslations(language);
   const x = -b / (2 * a);
   const y = a * x * x + b * x + c;
   
@@ -200,19 +209,20 @@ export function vertexOfParabola(a: number, b: number, c: number): { x: number; 
 /**
  * Evalúa una expresión algebraica simple
  */
-export function evaluateExpression(expression: string, x: number): number {
+export function evaluateExpression(expression: string, x: number, language: Language = 'es'): number {
+  const t = getMathTranslations(language);
   // Reemplazar x con el valor dado
   const expr = expression.replace(/x/g, x.toString());
   
   // Evaluar la expresión (solo para expresiones simples y seguras)
   try {
     // Solo permitir operaciones matemáticas básicas
-    if (!/^[0-9+\-*/().\s]+$/.test(expr)) {
-      throw new Error('Expresión no válida');
-    }
+  if (!/^[0-9+\-*/().\s]+$/.test(expr)) {
+    throw new Error(t.errors.invalidExpression);
+  }
     
     return Function(`"use strict"; return (${expr})`)();
   } catch {
-    throw new Error('Error al evaluar la expresión');
+    throw new Error(t.errors.errorEvaluatingExpression);
   }
 }

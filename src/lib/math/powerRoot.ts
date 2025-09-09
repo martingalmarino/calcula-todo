@@ -2,6 +2,8 @@
  * Utilidades para potencias y raíces
  */
 
+import { getMathTranslations, type Language } from '../translations/math';
+
 export interface PowerResult {
   result: number;
   formula: string;
@@ -57,9 +59,11 @@ export function pow(base: number, exponent: number): PowerResult {
 /**
  * Calcula una raíz n-ésima
  */
-export function root(value: number, index: number): RootResult {
+export function root(value: number, index: number, language: Language = 'es'): RootResult {
+  const t = getMathTranslations(language);
+  
   if (index === 0) {
-    throw new Error('El índice de la raíz no puede ser cero');
+    throw new Error(t.errors.indexCannotBeZero);
   }
   
   if (value < 0 && index % 2 === 0) {

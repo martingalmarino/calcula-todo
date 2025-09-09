@@ -79,7 +79,7 @@ export default function PotenzeRadiciClientIT() {
             setError('Non è possibile calcolare la radice pari di un numero negativo')
             return
           }
-          result = root(number, n)
+          result = root(number, n, 'it')
           break
         case 'power':
           if (!powerValues.base || !powerValues.exponent) {

@@ -53,7 +53,7 @@ export default function AlgebraClientIT() {
         return
       }
 
-      const result = solveLinear(a, b)
+      const result = solveLinear(a, b, 'it')
       setResults(result)
       setError(null)
     } catch {
@@ -77,7 +77,7 @@ export default function AlgebraClientIT() {
         return
       }
 
-      const result = solveQuadratic(a, b, c)
+      const result = solveQuadratic(a, b, c, 'it')
       setResults(result)
       setError(null)
     } catch {
@@ -99,7 +99,7 @@ export default function AlgebraClientIT() {
         return
       }
 
-      const result = solveSystem2x2(a1, b1, c1, a2, b2, c2)
+      const result = solveSystem2x2(a1, b1, c1, a2, b2, c2, 'it')
       setResults(result)
       setError(null)
     } catch {
@@ -118,7 +118,7 @@ export default function AlgebraClientIT() {
         return
       }
 
-      const result = factorQuadratic(a, b, c)
+      const result = factorQuadratic(a, b, c, 'it')
       setResults(result)
       setError(null)
     } catch {
@@ -142,7 +142,7 @@ export default function AlgebraClientIT() {
         return
       }
 
-      const result = vertexOfParabola(a, b, c)
+      const result = vertexOfParabola(a, b, c, 'it')
       setResults(result)
       setError(null)
     } catch {
