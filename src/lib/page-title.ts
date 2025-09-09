@@ -40,4 +40,10 @@ export const calculatorTitles: Record<string, string> = {
   '/calendario/sumar-restar-dias/': 'Sumar y Restar Días a una Fecha - Calculadora de Fechas',
   '/calendario/horas-minutos/': 'Calculadora de Horas y Minutos - Suma y Resta de Tiempo',
   '/calendario/dias-vacaciones/': 'Calculadora de Días de Vacaciones - Días Laborables',
+  '/finanzas/interes-simple/': 'Calculadora de Interés Simple - Préstamos y Deudas',
+  '/finanzas/depreciacion-vehiculos/': 'Calculadora de Depreciación de Vehículos - Valor Residual',
+  '/finanzas/hipoteca/': 'Calculadora de Hipoteca - Préstamo Hipotecario',
+  '/finanzas/ipc/': 'Calculadora del IPC - Índice de Precios al Consumidor',
+  '/finanzas/ahorro-objetivo/': 'Calculadora de Ahorro Objetivo - Meta Financiera',
+  '/finanzas/valor-futuro-presente/': 'Calculadora de Valor Futuro y Presente - FV y PV',
 }

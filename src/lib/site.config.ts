@@ -55,6 +55,7 @@ export const SITE: SiteConfig = {
   nav: [
     { label: 'Inicio', href: '/' },
     { label: 'Matemáticas', href: '/matematicas/' },
+    { label: 'Finanzas', href: '/finanzas/' },
     { label: 'Blog', href: '/blog/' },
     { label: 'Acerca', href: '/acerca/' },
     { label: 'Contacto', href: '/contacto/' },
@@ -199,6 +200,61 @@ export const SITE: SiteConfig = {
           label: 'Matriz Inversa',
           href: '/matematicas/matrices/inversa/',
           description: 'Calcular la matriz inversa'
+        }
+      ]
+    },
+    finanzas: {
+      label: 'Finanzas',
+      href: '/finanzas/',
+      description: 'Calculadoras financieras para interés simple, hipotecas, depreciación de vehículos, IPC, ahorro objetivo y valor futuro/presente.',
+      calculators: [
+        {
+          label: 'Interés Simple',
+          href: '/finanzas/interes-simple/',
+          description: 'Calcular interés simple para préstamos cortos, descuentos y deudas básicas',
+          icon: 'interest',
+          category: 'interés',
+          keywords: ['interés simple', 'préstamos', 'descuentos', 'deudas', 'capital', 'tasa']
+        },
+        {
+          label: 'Depreciación de Vehículos',
+          href: '/finanzas/depreciacion-vehiculos/',
+          description: 'Calcular la depreciación de vehículos usando métodos estándar del mercado',
+          icon: 'depreciation',
+          category: 'depreciación',
+          keywords: ['depreciación', 'vehículos', 'automóviles', 'valor residual', 'vida útil']
+        },
+        {
+          label: 'Hipoteca',
+          href: '/finanzas/hipoteca/',
+          description: 'Calcular hipotecas con desglose mensual de capital e intereses',
+          icon: 'mortgage',
+          category: 'hipoteca',
+          keywords: ['hipoteca', 'préstamo hipotecario', 'capital', 'intereses', 'cuota mensual']
+        },
+        {
+          label: 'IPC',
+          href: '/finanzas/ipc/',
+          description: 'Calcular el Índice de Precios al Consumidor y poder adquisitivo',
+          icon: 'inflation',
+          category: 'inflación',
+          keywords: ['IPC', 'inflación', 'poder adquisitivo', 'precios', 'consumo']
+        },
+        {
+          label: 'Ahorro Objetivo',
+          href: '/finanzas/ahorro-objetivo/',
+          description: 'Calcular cuánto ahorrar mensualmente para alcanzar una meta financiera',
+          icon: 'savings',
+          category: 'ahorro',
+          keywords: ['ahorro', 'objetivo', 'meta financiera', 'planificación', 'inversión']
+        },
+        {
+          label: 'Valor Futuro y Presente',
+          href: '/finanzas/valor-futuro-presente/',
+          description: 'Calcular valor futuro (FV) y valor presente (PV) para comparar inversiones',
+          icon: 'future-value',
+          category: 'valor temporal',
+          keywords: ['valor futuro', 'valor presente', 'FV', 'PV', 'inversiones', 'tasa de descuento']
         }
       ]
     }
