@@ -342,14 +342,14 @@ export function calculateRecipeCost(
 
   let totalCost = 0;
   const ingredientDetails = ingredients.map(ingredient => {
-    const totalCost = ingredient.amount * ingredient.pricePerUnit;
-    totalCost += totalCost;
+    const ingredientCost = ingredient.amount * ingredient.pricePerUnit;
+    totalCost += ingredientCost;
     return {
       name: ingredient.name,
       amount: ingredient.amount,
       unit: ingredient.unit,
       pricePerUnit: ingredient.pricePerUnit,
-      totalCost: Math.round(totalCost * 100) / 100
+      totalCost: Math.round(ingredientCost * 100) / 100
     };
   });
 
