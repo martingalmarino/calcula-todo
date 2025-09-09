@@ -80,9 +80,15 @@ export function CalculatorLayout({
       {/* Main Content - Mobile First */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="calculator-tabs">
-          <TabsTrigger value="calculator" className="calculator-tab">Calculadora</TabsTrigger>
-          <TabsTrigger value="examples" className="calculator-tab">Ejemplos</TabsTrigger>
-          <TabsTrigger value="help" className="calculator-tab">Ayuda</TabsTrigger>
+          <TabsTrigger value="calculator" className="calculator-tab">
+            {isItalian ? 'Calcolatrice' : 'Calculadora'}
+          </TabsTrigger>
+          <TabsTrigger value="examples" className="calculator-tab">
+            {isItalian ? 'Esempi' : 'Ejemplos'}
+          </TabsTrigger>
+          <TabsTrigger value="help" className="calculator-tab">
+            {isItalian ? 'Aiuto' : 'Ayuda'}
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="calculator" className="space-y-6 mt-8">
@@ -92,10 +98,13 @@ export function CalculatorLayout({
                 <div className="p-2 bg-blue-100 rounded-lg">
                   <Lightbulb className="h-5 w-5 text-blue-600" />
                 </div>
-                Calculadora
+                {isItalian ? 'Calcolatrice' : 'Calculadora'}
               </CardTitle>
               <CardDescription className="text-base text-gray-600">
-                Ingresa los valores y obtén el resultado con explicación paso a paso
+                {isItalian 
+                  ? 'Inserisci i valori e ottieni il risultato con spiegazione passo-passo'
+                  : 'Ingresa los valores y obtén el resultado con explicación paso a paso'
+                }
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6 p-6">
@@ -105,11 +114,11 @@ export function CalculatorLayout({
               <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-100">
                 <Button onClick={handleCopyResult} className="calculator-action-button flex-1">
                   <Copy className="h-4 w-4 mr-2" />
-                  Copiar resultado
+                  {isItalian ? 'Copia risultato' : 'Copiar resultado'}
                 </Button>
                 <Button onClick={handleShare} className="calculator-action-button flex-1">
                   <Share2 className="h-4 w-4 mr-2" />
-                  Compartir
+                  {isItalian ? 'Condividi' : 'Compartir'}
                 </Button>
               </div>
             </CardContent>
@@ -122,7 +131,7 @@ export function CalculatorLayout({
                 <div className="flex items-start gap-3">
                   <HelpCircle className="h-5 w-5 text-amber-600 mt-0.5" />
                   <div className="text-sm text-amber-800">
-                    <strong>Nota:</strong> {disclaimer}
+                    <strong>{isItalian ? 'Nota:' : 'Nota:'}</strong> {disclaimer}
                   </div>
                 </div>
               </CardContent>
@@ -137,10 +146,13 @@ export function CalculatorLayout({
                 <div className="p-2 bg-green-100 rounded-lg">
                   <Lightbulb className="h-5 w-5 text-green-600" />
                 </div>
-                Ejemplos Rápidos
+                {isItalian ? 'Esempi Rapidi' : 'Ejemplos Rápidos'}
               </CardTitle>
               <CardDescription className="text-base text-gray-600">
-                Haz clic en un ejemplo para autocompletar la calculadora
+                {isItalian 
+                  ? 'Clicca su un esempio per autocompletare la calcolatrice'
+                  : 'Haz clic en un ejemplo para autocompletar la calculadora'
+                }
               </CardDescription>
             </CardHeader>
             <CardContent className="p-6">
