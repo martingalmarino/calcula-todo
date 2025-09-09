@@ -84,8 +84,9 @@ export function CategoryPageLayout({
   const getIcon = (calculator: CalculatorType) => {
     const href = calculator.href
     const customIcon = customIcons[href]
-    if (customIcon) {
-      return <customIcon className="h-6 w-6" />
+    if (customIcon && href in customIcons) {
+      const IconComponent = customIcon
+      return <IconComponent className="h-6 w-6" />
     }
     return <Calculator className="h-6 w-6" />
   }
