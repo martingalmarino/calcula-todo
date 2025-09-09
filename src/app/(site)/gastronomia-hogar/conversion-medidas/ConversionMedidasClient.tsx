@@ -5,7 +5,7 @@ import { Calculator, Scale, Info, ArrowRight } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { Card } from '@/components/Card';
+import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
