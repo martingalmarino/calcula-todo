@@ -55,7 +55,8 @@ export function CuriosasClient() {
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Descubre datos sorprendentes y divertidos con nuestras calculadoras curiosas. 
-              Desde cuánto ahorrarías dejando el café hasta en qué ciudades estarías cómodo.
+              Desde cuánto ahorrarías dejando el café hasta la edad de tu mascota, compatibilidad de amor, 
+              tiempo en Netflix y mucho más.
             </p>
           </div>
 
@@ -63,7 +64,7 @@ export function CuriosasClient() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-purple-600 mb-2">6</div>
+                <div className="text-3xl font-bold text-purple-600 mb-2">12</div>
                 <div className="text-gray-600">Calculadoras Divertidas</div>
               </CardContent>
             </Card>
