@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Clock, Plus, Minus, AlertCircle } from 'lucide-react'
-import { addSubtractTime, convertTime, type TimeResult } from '@/lib/math/calendar'
+import { calculateTimeOperation, type TimeCalculationResult } from '@/lib/math/calendar'
 import { jsonLdCalculator } from '@/lib/seo'
 
 export default function OreMinutiClientIT() {
@@ -18,7 +18,7 @@ export default function OreMinutiClientIT() {
   const [hours2, setHours2] = useState('')
   const [minutes2, setMinutes2] = useState('')
   const [totalMinutes, setTotalMinutes] = useState('')
-  const [result, setResult] = useState<TimeResult | null>(null)
+  const [result, setResult] = useState<TimeCalculationResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleAddTime = () => {
@@ -40,7 +40,10 @@ export default function OreMinutiClientIT() {
         return
       }
 
-      const result = addSubtractTime(h1, m1, h2, m2, 'add')
+      const time1 = `${h1.toString().padStart(2, '0')}:${m1.toString().padStart(2, '0')}`
+      const time2 = `${h2.toString().padStart(2, '0')}:${m2.toString().padStart(2, '0')}`
+      
+      const result = calculateTimeOperation(time1, time2, 'add')
       setResult(result)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore nel calcolo del tempo')
@@ -66,7 +69,10 @@ export default function OreMinutiClientIT() {
         return
       }
 
-      const result = addSubtractTime(h1, m1, h2, m2, 'subtract')
+      const time1 = `${h1.toString().padStart(2, '0')}:${m1.toString().padStart(2, '0')}`
+      const time2 = `${h2.toString().padStart(2, '0')}:${m2.toString().padStart(2, '0')}`
+      
+      const result = calculateTimeOperation(time1, time2, 'subtract')
       setResult(result)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore nel calcolo del tempo')
@@ -88,7 +94,20 @@ export default function OreMinutiClientIT() {
         return
       }
 
-      const result = convertTime(minutes)
+      const hours = Math.floor(minutes / 60)
+      const remainingMinutes = minutes % 60
+      
+      const result: TimeCalculationResult = {
+        hours,
+        minutes: remainingMinutes,
+        totalMinutes: minutes,
+        totalHours: Math.round((minutes / 60) * 100) / 100,
+        breakdown: {
+          operation: 'Conversione',
+          time1: `${minutes} minuti`,
+          time2: ''
+        }
+      }
       setResult(result)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore nella conversione del tempo')

@@ -8,14 +8,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Plane, AlertCircle } from 'lucide-react'
-import { calculateVacationDays, type VacationResult } from '@/lib/math/calendar'
+import { calculateVacationDays, type VacationDaysResult } from '@/lib/math/calendar'
 import { jsonLdCalculator } from '@/lib/seo'
 
 export default function GiorniVacanzaClientIT() {
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
   const [includeWeekends, setIncludeWeekends] = useState(true)
-  const [results, setResults] = useState<VacationResult | null>(null)
+  const [results, setResults] = useState<VacationDaysResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleCalculate = () => {
@@ -27,7 +27,7 @@ export default function GiorniVacanzaClientIT() {
     }
 
     try {
-      const result = calculateVacationDays(startDate, endDate, includeWeekends)
+      const result = calculateVacationDays(startDate, endDate)
       setResults(result)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore nel calcolo dei giorni di vacanza')
@@ -177,7 +177,7 @@ export default function GiorniVacanzaClientIT() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
                         <div className="p-3 bg-blue-50 rounded-lg">
                           <div className="text-xl font-bold text-blue-600 mb-1">
-                            {results.weekdays}
+                            {results.workingDays}
                           </div>
                           <div className="text-sm text-muted-foreground">
                             Giorni Lavorativi
@@ -185,7 +185,7 @@ export default function GiorniVacanzaClientIT() {
                         </div>
                         <div className="p-3 bg-purple-50 rounded-lg">
                           <div className="text-xl font-bold text-purple-600 mb-1">
-                            {results.weekends}
+                            {results.weekendDays}
                           </div>
                           <div className="text-sm text-muted-foreground">
                             Weekend
@@ -198,11 +198,11 @@ export default function GiorniVacanzaClientIT() {
                         <div className="space-y-2 text-sm">
                           <div className="flex justify-between">
                             <span>Data di inizio:</span>
-                            <span className="font-medium">{results.breakdown.startDate}</span>
+                            <span className="font-medium">{results.startDate}</span>
                           </div>
                           <div className="flex justify-between">
                             <span>Data di fine:</span>
-                            <span className="font-medium">{results.breakdown.endDate}</span>
+                            <span className="font-medium">{results.endDate}</span>
                           </div>
                           <div className="flex justify-between">
                             <span>Giorni totali:</span>

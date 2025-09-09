@@ -9,7 +9,52 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Calendar, AlertCircle } from 'lucide-react'
-import { convertDateFormat, type DateFormatResult } from '@/lib/math/calendar'
+// Función simple para conversión de fechas
+interface DateFormatResult {
+  originalDate: string;
+  originalFormat: string;
+  convertedDate: string;
+  convertedFormat: string;
+}
+
+function convertDateFormat(dateStr: string, format: 'european' | 'american' | 'iso'): DateFormatResult {
+  const date = new Date(dateStr);
+  
+  if (isNaN(date.getTime())) {
+    throw new Error('Data non valida');
+  }
+  
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+  
+  let convertedDate: string;
+  let convertedFormat: string;
+  
+  switch (format) {
+    case 'european':
+      convertedDate = `${day}/${month}/${year}`;
+      convertedFormat = 'DD/MM/YYYY';
+      break;
+    case 'american':
+      convertedDate = `${month}/${day}/${year}`;
+      convertedFormat = 'MM/DD/YYYY';
+      break;
+    case 'iso':
+      convertedDate = `${year}-${month}-${day}`;
+      convertedFormat = 'YYYY-MM-DD';
+      break;
+    default:
+      throw new Error('Formato non supportato');
+  }
+  
+  return {
+    originalDate: dateStr,
+    originalFormat: 'YYYY-MM-DD',
+    convertedDate,
+    convertedFormat
+  };
+}
 import { jsonLdCalculator } from '@/lib/seo'
 
 export default function ConvertitoreDateClientIT() {
