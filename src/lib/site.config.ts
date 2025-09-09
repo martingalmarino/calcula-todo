@@ -56,6 +56,7 @@ export const SITE: SiteConfig = {
     { label: 'Inicio', href: '/' },
     { label: 'Matemáticas', href: '/matematicas/' },
     { label: 'Finanzas', href: '/finanzas/' },
+    { label: 'Marketing', href: '/marketing/' },
     { label: 'Blog', href: '/blog/' },
     { label: 'Acerca', href: '/acerca/' },
     { label: 'Contacto', href: '/contacto/' },
@@ -255,6 +256,61 @@ export const SITE: SiteConfig = {
           icon: 'future-value',
           category: 'valor temporal',
           keywords: ['valor futuro', 'valor presente', 'FV', 'PV', 'inversiones', 'tasa de descuento']
+        }
+      ]
+    },
+    marketing: {
+      label: 'Marketing',
+      href: '/marketing/',
+      description: 'Calculadoras de marketing para CAC, LTV, conversión, presupuesto, CPC/CPM y ROI de campañas.',
+      calculators: [
+        {
+          label: 'CAC (Costo de Adquisición)',
+          href: '/marketing/cac/',
+          description: 'Calcular el costo de adquisición de cliente dividiendo inversión total entre nuevos clientes',
+          icon: 'users',
+          category: 'adquisición',
+          keywords: ['CAC', 'costo adquisición', 'cliente', 'marketing', 'ventas', 'startup']
+        },
+        {
+          label: 'LTV (Lifetime Value)',
+          href: '/marketing/ltv/',
+          description: 'Estimar el valor total de un cliente en el tiempo basado en ticket promedio y frecuencia',
+          icon: 'trending-up',
+          category: 'valor cliente',
+          keywords: ['LTV', 'lifetime value', 'valor cliente', 'ticket promedio', 'frecuencia']
+        },
+        {
+          label: 'Conversión',
+          href: '/marketing/conversion/',
+          description: 'Calcular tasas de conversión entre visitantes, leads y ventas en cada etapa',
+          icon: 'target',
+          category: 'conversión',
+          keywords: ['conversión', 'tasa conversión', 'leads', 'ventas', 'embudo']
+        },
+        {
+          label: 'Presupuesto de Marketing',
+          href: '/marketing/presupuesto/',
+          description: 'Definir cuánto invertir en marketing basado en ingresos totales (5-10% recomendado)',
+          icon: 'dollar-sign',
+          category: 'presupuesto',
+          keywords: ['presupuesto', 'marketing', 'inversión', 'ingresos', 'porcentaje']
+        },
+        {
+          label: 'CPC / CPM',
+          href: '/marketing/cpc-cpm/',
+          description: 'Calcular costo por clic (CPC) y costo por mil impresiones (CPM) para campañas publicitarias',
+          icon: 'mouse-pointer',
+          category: 'publicidad',
+          keywords: ['CPC', 'CPM', 'costo clic', 'impresiones', 'Google Ads', 'Meta Ads']
+        },
+        {
+          label: 'ROI en Marketing',
+          href: '/marketing/roi/',
+          description: 'Medir el retorno de inversión de campañas de marketing y publicidad',
+          icon: 'bar-chart-3',
+          category: 'ROI',
+          keywords: ['ROI', 'retorno inversión', 'marketing', 'campañas', 'publicidad']
         }
       ]
     }

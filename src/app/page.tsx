@@ -136,6 +136,34 @@ export default function HomePage() {
                   </ChipsContainer>
                 </div>
 
+                {/* Marketing Section */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">📈</span>
+                    <h3 className="text-blue-900 text-xl font-bold">Marketing</h3>
+                  </div>
+                  <ChipsContainer>
+                    <Chip href="/marketing/cac/" icon="users" ariaLabel="CAC (Costo de Adquisición)">
+                      CAC (Costo de Adquisición)
+                    </Chip>
+                    <Chip href="/marketing/ltv/" icon="trending-up" ariaLabel="LTV (Lifetime Value)">
+                      LTV (Lifetime Value)
+                    </Chip>
+                    <Chip href="/marketing/conversion/" icon="target" ariaLabel="Conversión">
+                      Conversión
+                    </Chip>
+                    <Chip href="/marketing/presupuesto/" icon="dollar-sign" ariaLabel="Presupuesto de Marketing">
+                      Presupuesto de Marketing
+                    </Chip>
+                    <Chip href="/marketing/cpc-cpm/" icon="mouse-pointer" ariaLabel="CPC / CPM">
+                      CPC / CPM
+                    </Chip>
+                    <Chip href="/marketing/roi/" icon="bar-chart-3" ariaLabel="ROI en Marketing">
+                      ROI en Marketing
+                    </Chip>
+                  </ChipsContainer>
+                </div>
+
                 {/* Finanzas Section */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">

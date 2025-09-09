@@ -46,4 +46,10 @@ export const calculatorTitles: Record<string, string> = {
   '/finanzas/ipc/': 'Calculadora del IPC - Índice de Precios al Consumidor',
   '/finanzas/ahorro-objetivo/': 'Calculadora de Ahorro Objetivo - Meta Financiera',
   '/finanzas/valor-futuro-presente/': 'Calculadora de Valor Futuro y Presente - FV y PV',
+  '/marketing/cac/': 'Calculadora de CAC - Costo de Adquisición de Cliente',
+  '/marketing/ltv/': 'Calculadora de LTV - Lifetime Value del Cliente',
+  '/marketing/conversion/': 'Calculadora de Conversión - Tasas de Conversión por Etapas',
+  '/marketing/presupuesto/': 'Calculadora de Presupuesto de Marketing - Inversión Recomendada',
+  '/marketing/cpc-cpm/': 'Calculadora de CPC/CPM - Costo por Clic e Impresiones',
+  '/marketing/roi/': 'Calculadora de ROI en Marketing - Retorno de Inversión',
 }
