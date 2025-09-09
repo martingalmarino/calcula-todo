@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Calculator, Heart, Zap, Apple, Walking } from 'lucide-react';
+import { Calculator, Heart, Zap } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -291,7 +291,7 @@ export default function BesosCaloriasClient() {
                         <p>• <strong>Beneficios extra:</strong> Además de quemar calorías, estas actividades liberan endorfinas y reducen el estrés</p>
                         <p>• <strong>Ejercicio emocional:</strong> Los besos intensos pueden aumentar el ritmo cardíaco como un ejercicio ligero</p>
                         <p>• <strong>Risas saludables:</strong> 10 minutos de risa pueden quemar hasta 20 calorías y mejorar el sistema inmunológico</p>
-                        <p>• <strong>Abrazos terapéuticos:</strong> Los abrazos liberan oxitocina, la "hormona del amor"</p>
+                        <p>• <strong>Abrazos terapéuticos:</strong> Los abrazos liberan oxitocina, la &quot;hormona del amor&quot;</p>
                       </div>
                     </div>
                   </CardContent>

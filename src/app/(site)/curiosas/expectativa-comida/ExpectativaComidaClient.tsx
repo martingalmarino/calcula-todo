@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Calculator, Heart, AlertTriangle, Clock, TrendingDown } from 'lucide-react';
+import { Calculator, Heart, AlertTriangle, TrendingDown } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
