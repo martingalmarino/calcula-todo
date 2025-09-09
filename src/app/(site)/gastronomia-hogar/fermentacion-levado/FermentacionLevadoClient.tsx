@@ -140,6 +140,21 @@ export default function FermentacionLevadoClient() {
     }
   ];
 
+  const relatedLinks = [
+    {
+      label: "Calculadora de Calorías por Receta",
+      href: "/gastronomia-hogar/calorias-receta/"
+    },
+    {
+      label: "Calculadora de Costos de Recetas",
+      href: "/gastronomia-hogar/costos-recetas/"
+    },
+    {
+      label: "Conversión de Medidas de Cocina",
+      href: "/gastronomia-hogar/conversion-medidas/"
+    }
+  ];
+
   return (
     <>
       <script

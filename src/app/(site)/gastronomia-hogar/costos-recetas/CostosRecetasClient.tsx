@@ -192,6 +192,21 @@ export default function CostosRecetasClient() {
     }
   ];
 
+  const relatedLinks = [
+    {
+      label: "Calculadora de Calorías por Receta",
+      href: "/gastronomia-hogar/calorias-receta/"
+    },
+    {
+      label: "Conversión de Medidas de Cocina",
+      href: "/gastronomia-hogar/conversion-medidas/"
+    },
+    {
+      label: "Conversión de Temperaturas",
+      href: "/gastronomia-hogar/conversion-temperaturas/"
+    }
+  ];
+
   return (
     <>
       <script

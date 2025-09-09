@@ -167,6 +167,21 @@ export default function ConsumoElectricoClient() {
     }
   ];
 
+  const relatedLinks = [
+    {
+      label: "Calculadora de Costos de Recetas",
+      href: "/gastronomia-hogar/costos-recetas/"
+    },
+    {
+      label: "Conversión de Medidas de Cocina",
+      href: "/gastronomia-hogar/conversion-medidas/"
+    },
+    {
+      label: "Conversión de Temperaturas",
+      href: "/gastronomia-hogar/conversion-temperaturas/"
+    }
+  ];
+
   return (
     <>
       <script
