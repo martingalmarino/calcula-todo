@@ -417,6 +417,61 @@ export const SITE: SiteConfig = {
           keywords: ['netflix', 'streaming', 'series', 'temporadas', 'tiempo', 'vida']
         }
       ]
+    },
+    tecnologia: {
+      label: 'Tecnología',
+      href: '/tecnologia/',
+      description: 'Herramientas especializadas en tecnología para desarrolladores, diseñadores y técnicos. Convierte unidades, analiza rendimiento, maneja colores y más.',
+      calculators: [
+        {
+          label: 'Conversión de Almacenamiento',
+          href: '/tecnologia/conversion-almacenamiento/',
+          description: 'Convierte entre KB, MB, GB, TB con base decimal y binaria',
+          icon: 'hard-drive',
+          category: 'conversion',
+          keywords: ['almacenamiento', 'conversión', 'KB', 'MB', 'GB', 'TB', 'bytes']
+        },
+        {
+          label: 'Velocidad de Descarga',
+          href: '/tecnologia/velocidad-descarga/',
+          description: 'Convierte Mbps a MB/s y calcula tiempo de descarga',
+          icon: 'download',
+          category: 'internet',
+          keywords: ['velocidad', 'descarga', 'Mbps', 'MB/s', 'internet', 'banda ancha']
+        },
+        {
+          label: 'Uptime/Downtime',
+          href: '/tecnologia/uptime-downtime/',
+          description: 'Calcula porcentaje de disponibilidad y tiempo de caída',
+          icon: 'clock',
+          category: 'servicios',
+          keywords: ['uptime', 'downtime', 'disponibilidad', 'servicios', 'hosting']
+        },
+        {
+          label: 'Conversión de Colores',
+          href: '/tecnologia/conversion-colores/',
+          description: 'Convierte entre HEX, RGB, CMYK y HSL con vista previa',
+          icon: 'palette',
+          category: 'diseño',
+          keywords: ['colores', 'HEX', 'RGB', 'CMYK', 'HSL', 'diseño', 'desarrollo']
+        },
+        {
+          label: 'Análisis de Contraseñas',
+          href: '/tecnologia/analisis-contraseñas/',
+          description: 'Analiza fortaleza y entropía de contraseñas',
+          icon: 'shield',
+          category: 'seguridad',
+          keywords: ['contraseñas', 'seguridad', 'entropía', 'hash', 'crackeo']
+        },
+        {
+          label: 'Análisis de Latencia',
+          href: '/tecnologia/analisis-latencia/',
+          description: 'Analiza ping y tiempo de respuesta para gaming y apps',
+          icon: 'zap',
+          category: 'redes',
+          keywords: ['latencia', 'ping', 'tiempo respuesta', 'gaming', 'redes']
+        }
+      ]
     }
   },
   social: {
