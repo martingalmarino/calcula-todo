@@ -85,7 +85,11 @@ export default function InteresSimpleClient() {
     }
   ]
 
-  const relatedLinks = getRelatedCalculators('/finanzas/interes-simple/')
+  const relatedLinks = getRelatedCalculators('finanzas', 'interes-simple').map(calc => ({
+    label: calc.label,
+    href: calc.href,
+    description: calc.description
+  }))
 
   const handleExampleClick = (values: Record<string, unknown>) => {
     setCapital(values.capital as string)

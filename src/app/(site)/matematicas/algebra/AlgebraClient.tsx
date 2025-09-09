@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbs } from '@/lib/site.config'
 import { 
   solveLinear,
   solveQuadratic,
