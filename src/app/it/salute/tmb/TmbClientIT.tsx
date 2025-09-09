@@ -49,7 +49,7 @@ export default function TmbClientIT() {
     }
     
     try {
-      const tmbResult = calculateTMB(weightNum, heightNum, ageNum, gender as 'male' | 'female', 'it')
+      const tmbResult = calculateTMB(weightNum, heightNum, ageNum, gender as 'male' | 'female')
       setResult(tmbResult)
     } catch (err) {
       setError('Errore nel calcolo del TMB')
@@ -193,13 +193,17 @@ export default function TmbClientIT() {
                   Tasso Metabolico Basale
                 </div>
                 <div className="text-gray-600 mb-4">
-                  {result.description}
+                  Tasso metabolico basale calcolato
                 </div>
               </div>
               
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h4 className="font-semibold text-blue-900 mb-2">Informazioni:</h4>
-                <p className="text-blue-800">{result.recommendation}</p>
+                <ul className="text-blue-800 text-sm space-y-1">
+                  {result.recommendations.map((rec: string, index: number) => (
+                    <li key={index}>• {rec}</li>
+                  ))}
+                </ul>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
@@ -225,7 +229,7 @@ export default function TmbClientIT() {
                 </div>
                 <div className="flex justify-between">
                   <span>Formula:</span>
-                  <span className="font-medium">Harris-Benedict</span>
+                  <span className="font-medium">{result.method}</span>
                 </div>
               </div>
             </CardContent>

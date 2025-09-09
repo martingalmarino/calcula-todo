@@ -29,7 +29,7 @@ export default function OvulazioneClientIT() {
     }
     
     try {
-      const ovulationResult = calculateOvulation(lastPeriod, cycleLengthNum, 'it')
+      const ovulationResult = calculateOvulation(lastPeriod, cycleLengthNum)
       setResult(ovulationResult)
     } catch (err) {
       setError('Errore nel calcolo dell\'ovulazione')
@@ -132,19 +132,19 @@ export default function OvulazioneClientIT() {
             <CardContent className="space-y-4">
               <div className="text-center">
                 <div className="text-2xl font-bold text-blue-600 mb-2">
-                  {result.ovulationDate}
+                  {result.nextOvulation}
                 </div>
                 <div className="text-lg font-semibold text-gray-800 mb-2">
                   Giorno di Ovulazione
                 </div>
                 <div className="text-gray-600 mb-4">
-                  {result.description}
+                  Calcolo basato sul ciclo mestruale
                 </div>
               </div>
               
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h4 className="font-semibold text-blue-900 mb-2">Periodo Fertile:</h4>
-                <p className="text-blue-800">{result.fertilePeriod}</p>
+                <p className="text-blue-800">Dal {result.fertileWindow.start} al {result.fertileWindow.end}</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
@@ -158,19 +158,15 @@ export default function OvulazioneClientIT() {
                 </div>
                 <div className="flex justify-between">
                   <span>Giorno ovulazione:</span>
-                  <span className="font-medium">{result.ovulationDate}</span>
+                  <span className="font-medium">{result.nextOvulation}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Prossimo ciclo:</span>
                   <span className="font-medium">{result.nextPeriod}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Giorni fertili:</span>
-                  <span className="font-medium">{result.fertileDays}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Durata fase luteale:</span>
-                  <span className="font-medium">{result.lutealPhase} giorni</span>
+                  <span>Durata ciclo:</span>
+                  <span className="font-medium">{result.cycleLength} giorni</span>
                 </div>
               </div>
 

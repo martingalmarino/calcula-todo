@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { calculateDailyWater } from '@/lib/math/health'
+import { calculateWaterIntake } from '@/lib/math/health'
 
 export default function AcquaGiornalieraClientIT() {
   const [weight, setWeight] = useState('')
@@ -23,7 +23,7 @@ export default function AcquaGiornalieraClientIT() {
     const weightNum = parseFloat(weight)
     const ageNum = parseInt(age)
     
-    if (!weight || !age || !gender || !activity || !climate) {
+    if (!weight || !age || !activity) {
       setError('Inserisci tutti i campi richiesti')
       return
     }
@@ -44,7 +44,7 @@ export default function AcquaGiornalieraClientIT() {
     }
     
     try {
-      const waterResult = calculateDailyWater(weightNum, ageNum, gender as 'male' | 'female', activity, climate, 'it')
+      const waterResult = calculateWaterIntake(weightNum, ageNum, activity as 'low' | 'moderate' | 'high')
       setResult(waterResult)
     } catch (err) {
       setError('Errore nel calcolo dell\'acqua giornaliera raccomandata')
@@ -52,20 +52,18 @@ export default function AcquaGiornalieraClientIT() {
   }
 
   const handleExample = (example: string) => {
-    const examples: { [key: string]: { weight: string; age: string; gender: string; activity: string; climate: string } } = {
-      'uomo_attivo': { weight: '75', age: '30', gender: 'male', activity: 'moderate', climate: 'temperate' },
-      'donna_sedentaria': { weight: '65', age: '25', gender: 'female', activity: 'sedentary', climate: 'temperate' },
-      'uomo_sportivo': { weight: '80', age: '28', gender: 'male', activity: 'high', climate: 'hot' },
-      'donna_anziana': { weight: '70', age: '60', gender: 'female', activity: 'light', climate: 'temperate' }
+    const examples: { [key: string]: { weight: string; age: string; activity: string } } = {
+      'uomo_attivo': { weight: '75', age: '30', activity: 'moderate' },
+      'donna_sedentaria': { weight: '65', age: '25', activity: 'low' },
+      'uomo_sportivo': { weight: '80', age: '28', activity: 'high' },
+      'donna_anziana': { weight: '70', age: '60', activity: 'low' }
     }
     
     const exampleData = examples[example]
     if (exampleData) {
       setWeight(exampleData.weight)
       setAge(exampleData.age)
-      setGender(exampleData.gender)
       setActivity(exampleData.activity)
-      setClimate(exampleData.climate)
     }
   }
 
@@ -104,7 +102,7 @@ export default function AcquaGiornalieraClientIT() {
       faqItems={faqItems}
     >
       <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <label htmlFor="weight" className="block text-sm font-medium text-gray-700 mb-2">
               Peso (kg)
@@ -135,20 +133,6 @@ export default function AcquaGiornalieraClientIT() {
             />
           </div>
           <div>
-            <label htmlFor="gender" className="block text-sm font-medium text-gray-700 mb-2">
-              Sesso
-            </label>
-            <Select value={gender} onValueChange={setGender}>
-              <SelectTrigger>
-                <SelectValue placeholder="Seleziona sesso" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="male">Maschio</SelectItem>
-                <SelectItem value="female">Femmina</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div>
             <label htmlFor="activity" className="block text-sm font-medium text-gray-700 mb-2">
               Livello di Attività
             </label>
@@ -157,26 +141,9 @@ export default function AcquaGiornalieraClientIT() {
                 <SelectValue placeholder="Seleziona attività" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="sedentary">Sedentario</SelectItem>
-                <SelectItem value="light">Leggera</SelectItem>
+                <SelectItem value="low">Leggera</SelectItem>
                 <SelectItem value="moderate">Moderata</SelectItem>
                 <SelectItem value="high">Intensa</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="md:col-span-2">
-            <label htmlFor="climate" className="block text-sm font-medium text-gray-700 mb-2">
-              Clima
-            </label>
-            <Select value={climate} onValueChange={setClimate}>
-              <SelectTrigger>
-                <SelectValue placeholder="Seleziona clima" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="temperate">Temperato</SelectItem>
-                <SelectItem value="hot">Caldo</SelectItem>
-                <SelectItem value="cold">Freddo</SelectItem>
-                <SelectItem value="humid">Umido</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -203,16 +170,20 @@ export default function AcquaGiornalieraClientIT() {
                   {result.dailyWater.toFixed(0)} ml
                 </div>
                 <div className="text-lg font-semibold text-gray-800 mb-2">
-                  {result.dailyWaterLiters.toFixed(1)} litri
+                  {(result.dailyWater / 1000).toFixed(1)} litri
                 </div>
                 <div className="text-gray-600 mb-4">
-                  {result.description}
+                  Acqua giornaliera raccomandata
                 </div>
               </div>
               
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h4 className="font-semibold text-blue-900 mb-2">Raccomandazioni:</h4>
-                <p className="text-blue-800">{result.recommendation}</p>
+                <ul className="text-blue-800 text-sm space-y-1">
+                  {result.recommendations.map((rec: string, index: number) => (
+                    <li key={index}>• {rec}</li>
+                  ))}
+                </ul>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
@@ -225,20 +196,20 @@ export default function AcquaGiornalieraClientIT() {
                   <span className="font-medium">{age} anni</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Sesso:</span>
-                  <span className="font-medium">{gender === 'male' ? 'Maschio' : 'Femmina'}</span>
-                </div>
-                <div className="flex justify-between">
                   <span>Attività:</span>
                   <span className="font-medium">{activity}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Clima:</span>
-                  <span className="font-medium">{climate}</span>
-                </div>
-                <div className="flex justify-between">
                   <span>Acqua giornaliera:</span>
                   <span className="font-medium">{result.dailyWater.toFixed(0)} ml</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Vasi (250ml):</span>
+                  <span className="font-medium">{result.glasses}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Bottiglie (500ml):</span>
+                  <span className="font-medium">{result.bottles}</span>
                 </div>
               </div>
             </CardContent>

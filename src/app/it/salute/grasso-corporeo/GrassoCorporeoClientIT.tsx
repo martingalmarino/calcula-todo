@@ -56,7 +56,7 @@ export default function GrassoCorporeoClientIT() {
     }
     
     try {
-      const bodyFatResult = calculateBodyFat(weightNum, heightNum, ageNum, gender as 'male' | 'female', waistNum, 'it')
+      const bodyFatResult = calculateBodyFat(weightNum, heightNum, ageNum, gender as 'male' | 'female')
       setResult(bodyFatResult)
     } catch (err) {
       setError('Errore nel calcolo della percentuale di grasso corporeo')
@@ -210,7 +210,7 @@ export default function GrassoCorporeoClientIT() {
             <CardContent className="space-y-4">
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-600 mb-2">
-                  {result.bodyFatPercentage.toFixed(1)}%
+                  {result.bodyFat.toFixed(1)}%
                 </div>
                 <div className="text-lg font-semibold text-gray-800 mb-2">
                   {result.category}
@@ -222,7 +222,11 @@ export default function GrassoCorporeoClientIT() {
               
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h4 className="font-semibold text-blue-900 mb-2">Informazioni:</h4>
-                <p className="text-blue-800">{result.recommendation}</p>
+                <ul className="text-blue-800 text-sm space-y-1">
+                  {result.recommendations.map((rec: string, index: number) => (
+                    <li key={index}>• {rec}</li>
+                  ))}
+                </ul>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
@@ -248,7 +252,7 @@ export default function GrassoCorporeoClientIT() {
                 </div>
                 <div className="flex justify-between">
                   <span>Percentuale grasso:</span>
-                  <span className="font-medium">{result.bodyFatPercentage.toFixed(1)}%</span>
+                  <span className="font-medium">{result.bodyFat.toFixed(1)}%</span>
                 </div>
               </div>
             </CardContent>

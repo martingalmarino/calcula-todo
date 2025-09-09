@@ -52,7 +52,7 @@ export default function PafiClientIT() {
     }
     
     try {
-      const pafiResult = calculatePaFi(systolicNum, diastolicNum, heartRateNum, 'it')
+      const pafiResult = calculatePaFi(systolicNum, diastolicNum, heartRateNum)
       setResult(pafiResult)
     } catch (err) {
       setError('Errore nel calcolo dell\'indice PaFi')
@@ -173,7 +173,7 @@ export default function PafiClientIT() {
             <CardContent className="space-y-4">
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-600 mb-2">
-                  {result.pafiIndex.toFixed(2)}
+                  {result.pafi.toFixed(2)}
                 </div>
                 <div className="text-lg font-semibold text-gray-800 mb-2">
                   {result.category}
@@ -185,7 +185,7 @@ export default function PafiClientIT() {
               
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h4 className="font-semibold text-blue-900 mb-2">Informazioni:</h4>
-                <p className="text-blue-800">{result.recommendation}</p>
+                <p className="text-blue-800">{result.interpretation}</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
@@ -202,12 +202,8 @@ export default function PafiClientIT() {
                   <span className="font-medium">{heartRate} bpm</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Pressione arteriosa media:</span>
-                  <span className="font-medium">{result.meanArterialPressure.toFixed(1)} mmHg</span>
-                </div>
-                <div className="flex justify-between">
                   <span>Indice PaFi:</span>
-                  <span className="font-medium">{result.pafiIndex.toFixed(2)}</span>
+                  <span className="font-medium">{result.pafi.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Valutazione:</span>
