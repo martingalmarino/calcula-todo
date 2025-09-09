@@ -4,6 +4,7 @@ import ContadorClicksClient from './ContadorClicksClient'
 
 export const metadata: Metadata = buildMeta({
   description: 'Contador de clicks online gratuito - CPS Test. Mide tu velocidad de clicks por segundo. Herramienta para gamers y pruebas de velocidad de mouse.',
+  canonical: '/otras/contador-clicks/',
   autoTitle: true,
 })
 

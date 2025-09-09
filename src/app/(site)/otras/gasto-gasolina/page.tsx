@@ -4,6 +4,7 @@ import GastoGasolinaClient from './GastoGasolinaClient'
 
 export const metadata: Metadata = buildMeta({
   description: 'Calculadora de gasto de gasolina online gratuita. Calcula el costo de combustible por kilómetro, litros consumidos y gasto total. Herramienta para planificar viajes.',
+  canonical: '/otras/gasto-gasolina/',
   autoTitle: true,
 })
 
