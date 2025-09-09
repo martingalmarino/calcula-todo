@@ -295,7 +295,21 @@ body {
 }
 
 /* Mobile First Button Styles - Standardized */
-/* Los estilos de .calculator-button están definidos en src/styles/globals.css */
+.calculator-button {
+  @apply w-full text-white font-medium;
+  @apply transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  @apply flex items-center justify-center gap-2;
+  @apply px-6 py-3 rounded-[10px];
+  background-color: #0284C7;
+  border: 1px solid #0284C7;
+}
+
+.calculator-button:hover {
+  background-color: #0369A1;
+  border-color: #0369A1;
+  box-shadow: 0 4px 12px rgba(3, 105, 161, 0.3);
+}
 
 /* Mobile First Label Styles */
 .calculator-label {
