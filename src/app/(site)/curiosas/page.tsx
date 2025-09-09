@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { buildMeta } from '@/lib/seo';
-import CuriosasClient from './CuriosasClient';
+import { CuriosasClient } from './CuriosasClient';
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadoras Curiosas - Datos Sorprendentes y Divertidos',
