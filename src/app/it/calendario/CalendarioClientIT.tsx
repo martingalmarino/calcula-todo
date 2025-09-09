@@ -11,40 +11,58 @@ const calendarioClusterIT = {
   href: '/it/calendario',
   calculators: [
     {
+      label: 'Contatore di Giorni tra Date',
       title: 'Contatore di Giorni tra Date',
       description: 'Calcola la differenza esatta in giorni tra due date qualsiasi',
       href: '/it/calendario/contatore-giorni-date',
-      icon: Calendar
+      icon: Calendar,
+      category: 'Calendario',
+      keywords: ['giorni', 'date', 'calendario', 'differenza', 'contatore']
     },
     {
+      label: 'Calcolatrice dell\'Età',
       title: 'Calcolatrice dell\'Età',
       description: 'Scopri la tua età esatta in anni, mesi e giorni',
       href: '/it/calendario/calcolatrice-eta',
-      icon: User
+      icon: User,
+      category: 'Calendario',
+      keywords: ['età', 'anni', 'mesi', 'giorni', 'nascita', 'calcolo']
     },
     {
+      label: 'Aggiungi/Sottrai Giorni a una Data',
       title: 'Aggiungi/Sottrai Giorni a una Data',
       description: 'Aggiungi o sottrai giorni a una data specifica',
       href: '/it/calendario/aggiungi-sottrai-giorni',
-      icon: Plus
+      icon: Plus,
+      category: 'Calendario',
+      keywords: ['giorni', 'data', 'aggiungi', 'sottrai', 'calendario']
     },
     {
+      label: 'Calcolatrice di Ore e Minuti',
       title: 'Calcolatrice di Ore e Minuti',
       description: 'Calcola, somma e converti ore e minuti facilmente',
       href: '/it/calendario/ore-minuti',
-      icon: Clock
+      icon: Clock,
+      category: 'Calendario',
+      keywords: ['ore', 'minuti', 'tempo', 'calcolo', 'conversione']
     },
     {
+      label: 'Giorni di Vacanza',
       title: 'Giorni di Vacanza',
       description: 'Calcola i giorni di vacanza e ferie lavorative',
       href: '/it/calendario/giorni-vacanza',
-      icon: Plane
+      icon: Plane,
+      category: 'Calendario',
+      keywords: ['vacanza', 'ferie', 'giorni', 'lavorativi', 'calendario']
     },
     {
+      label: 'Convertitore di Date',
       title: 'Convertitore di Date',
       description: 'Converte date tra diversi formati e calendari',
       href: '/it/calendario/convertitore-date',
-      icon: Calendar
+      icon: Calendar,
+      category: 'Calendario',
+      keywords: ['date', 'formato', 'conversione', 'europeo', 'americano']
     }
   ]
 }

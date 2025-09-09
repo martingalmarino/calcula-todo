@@ -191,7 +191,7 @@ export function factorQuadratic(a: number, b: number, c: number, language: Langu
 /**
  * Calcula el vértice de una parábola
  */
-export function vertexOfParabola(a: number, b: number, c: number, _language: Language = 'es'): { x: number; y: number; steps: string[] } {
+export function vertexOfParabola(a: number, b: number, c: number): { x: number; y: number; steps: string[] } {
   const x = -b / (2 * a);
   const y = a * x * x + b * x + c;
   
