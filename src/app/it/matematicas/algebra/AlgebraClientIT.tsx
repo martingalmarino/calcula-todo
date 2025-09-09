@@ -142,7 +142,7 @@ export default function AlgebraClientIT() {
         return
       }
 
-      const result = vertexOfParabola(a, b, c, 'it')
+      const result = vertexOfParabola(a, b, c)
       setResults(result)
       setError(null)
     } catch {
