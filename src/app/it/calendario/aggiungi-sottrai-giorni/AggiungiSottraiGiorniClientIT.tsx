@@ -210,11 +210,11 @@ export default function AggiungiSottraiGiorniClientIT() {
                             <div className="space-y-2 text-sm">
                               <div className="flex justify-between">
                                 <span>Data base:</span>
-                                <span className="font-medium">{addResult.breakdown.baseDate}</span>
+                                <span className="font-medium">{addResult.originalDate}</span>
                               </div>
                               <div className="flex justify-between">
                                 <span>Giorni aggiunti:</span>
-                                <span className="font-medium">{addResult.breakdown.daysAdded}</span>
+                                <span className="font-medium">{addResult.days}</span>
                               </div>
                               <div className="flex justify-between">
                                 <span>Data risultante:</span>
@@ -300,11 +300,11 @@ export default function AggiungiSottraiGiorniClientIT() {
                             <div className="space-y-2 text-sm">
                               <div className="flex justify-between">
                                 <span>Data base:</span>
-                                <span className="font-medium">{subtractResult.breakdown.baseDate}</span>
+                                <span className="font-medium">{subtractResult.originalDate}</span>
                               </div>
                               <div className="flex justify-between">
                                 <span>Giorni sottratti:</span>
-                                <span className="font-medium">{subtractResult.breakdown.daysAdded}</span>
+                                <span className="font-medium">{subtractResult.days}</span>
                               </div>
                               <div className="flex justify-between">
                                 <span>Data risultante:</span>
