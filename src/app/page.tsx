@@ -149,6 +149,34 @@ export default function HomePage() {
                   </ChipsContainer>
                 </div>
 
+                {/* Finanzas Section */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">💰</span>
+                    <h3 className="text-blue-900 text-xl font-bold">Finanzas</h3>
+                  </div>
+                  <ChipsContainer>
+                    <Chip href="/finanzas/interes-simple/" icon="trending-up" ariaLabel="Interés Simple">
+                      Interés Simple
+                    </Chip>
+                    <Chip href="/finanzas/depreciacion-vehiculos/" icon="car" ariaLabel="Depreciación de Vehículos">
+                      Depreciación de Vehículos
+                    </Chip>
+                    <Chip href="/finanzas/hipoteca/" icon="home" ariaLabel="Calculadora de Hipoteca">
+                      Calculadora de Hipoteca
+                    </Chip>
+                    <Chip href="/finanzas/ipc/" icon="bar-chart-3" ariaLabel="Calculadora del IPC">
+                      Calculadora del IPC
+                    </Chip>
+                    <Chip href="/finanzas/ahorro-objetivo/" icon="piggy-bank" ariaLabel="Ahorro Objetivo">
+                      Ahorro Objetivo
+                    </Chip>
+                    <Chip href="/finanzas/valor-futuro-presente/" icon="calculator" ariaLabel="Valor Futuro y Presente">
+                      Valor Futuro y Presente
+                    </Chip>
+                  </ChipsContainer>
+                </div>
+
                 {/* Geometría Section */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
