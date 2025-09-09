@@ -31,7 +31,7 @@ export default function OvulazioneClientIT() {
     try {
       const ovulationResult = calculateOvulation(lastPeriod, cycleLengthNum)
       setResult(ovulationResult)
-    } catch (err) {
+    } catch {
       setError('Errore nel calcolo dell\'ovulazione')
     }
   }

@@ -72,11 +72,26 @@ const customIcons = {
 }
 
 // Estadísticas personalizadas
-const customStats = {
-  totalCalculators: 6,
-  categories: ['Salute', 'Benessere', 'Medicina'],
-  lastUpdated: '2024'
-}
+const customStats = [
+  {
+    icon: Calculator,
+    value: '6',
+    label: 'Calcolatrici Disponibili',
+    color: 'blue' as const
+  },
+  {
+    icon: Heart,
+    value: '100%',
+    label: 'Traduzione Italiana',
+    color: 'green' as const
+  },
+  {
+    icon: Users,
+    value: '2024',
+    label: 'Ultimo Aggiornamento',
+    color: 'purple' as const
+  }
+]
 
 // FAQ personalizadas
 const faqItems = [
