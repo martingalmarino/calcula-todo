@@ -141,35 +141,39 @@ export default function CostosRecetasClient() {
 
   const examples = [
     {
-      name: 'Pizza Margherita Casera',
-      ingredients: [
-        { name: 'Harina de trigo', amount: 300, unit: 'g', pricePerUnit: 0.8 },
-        { name: 'Tomate triturado', amount: 200, unit: 'g', pricePerUnit: 1.2 },
-        { name: 'Queso mozzarella', amount: 150, unit: 'g', pricePerUnit: 2.5 },
-        { name: 'Aceite de oliva', amount: 20, unit: 'ml', pricePerUnit: 0.05 },
-        { name: 'Sal', amount: 5, unit: 'g', pricePerUnit: 0.1 }
-      ],
-      servings: 4,
-      storeAlternative: 12
+      label: 'Pizza Margherita Casera',
+      values: {
+        ingredients: [
+          { name: 'Harina de trigo', amount: 300, unit: 'g', pricePerUnit: 0.8 },
+          { name: 'Tomate triturado', amount: 200, unit: 'g', pricePerUnit: 1.2 },
+          { name: 'Queso mozzarella', amount: 150, unit: 'g', pricePerUnit: 2.5 },
+          { name: 'Aceite de oliva', amount: 20, unit: 'ml', pricePerUnit: 0.05 },
+          { name: 'Sal', amount: 5, unit: 'g', pricePerUnit: 0.1 }
+        ],
+        servings: 4,
+        storeAlternative: 12
+      }
     },
     {
-      name: 'Pasta con Pollo',
-      ingredients: [
-        { name: 'Pasta', amount: 400, unit: 'g', pricePerUnit: 1.5 },
-        { name: 'Pechuga de pollo', amount: 300, unit: 'g', pricePerUnit: 3.2 },
-        { name: 'Tomate', amount: 300, unit: 'g', pricePerUnit: 1.0 },
-        { name: 'Cebolla', amount: 100, unit: 'g', pricePerUnit: 0.8 },
-        { name: 'Ajo', amount: 10, unit: 'g', pricePerUnit: 0.2 }
-      ],
-      servings: 4,
-      storeAlternative: 15
+      label: 'Pasta con Pollo',
+      values: {
+        ingredients: [
+          { name: 'Pasta', amount: 400, unit: 'g', pricePerUnit: 1.5 },
+          { name: 'Pechuga de pollo', amount: 300, unit: 'g', pricePerUnit: 3.2 },
+          { name: 'Tomate', amount: 300, unit: 'g', pricePerUnit: 1.0 },
+          { name: 'Cebolla', amount: 100, unit: 'g', pricePerUnit: 0.8 },
+          { name: 'Ajo', amount: 10, unit: 'g', pricePerUnit: 0.2 }
+        ],
+        servings: 4,
+        storeAlternative: 15
+      }
     }
   ];
 
   const handleExampleClick = (example: typeof examples[0]) => {
-    setIngredients(example.ingredients);
-    setServings(example.servings);
-    setStoreAlternative(example.storeAlternative);
+    setIngredients(example.values.ingredients);
+    setServings(example.values.servings);
+    setStoreAlternative(example.values.storeAlternative);
     setResult(null);
   };
 

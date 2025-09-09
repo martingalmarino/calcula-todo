@@ -123,6 +123,35 @@ export default function ConsumoElectricoClient() {
     return { rating: 'Alto Consumo', color: 'text-red-600', bg: 'bg-red-50' };
   };
 
+  const examples = [
+    {
+      label: 'Refrigerador Estándar',
+      values: {
+        power: 150,
+        hoursPerDay: 24,
+        daysPerMonth: 30,
+        costPerKwh: 0.15
+      }
+    },
+    {
+      label: 'Aire Acondicionado',
+      values: {
+        power: 2000,
+        hoursPerDay: 8,
+        daysPerMonth: 30,
+        costPerKwh: 0.15
+      }
+    }
+  ];
+
+  const handleExampleClick = (example: typeof examples[0]) => {
+    setPower(example.values.power);
+    setHoursPerDay(example.values.hoursPerDay);
+    setDaysPerMonth(example.values.daysPerMonth);
+    setCostPerKwh(example.values.costPerKwh);
+    setResult(null);
+  };
+
   return (
     <>
       <script

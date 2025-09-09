@@ -102,6 +102,29 @@ export default function FermentacionLevadoClient() {
     return 'Muy cálido - Riesgo de sobrefermentación';
   };
 
+  const examples = [
+    {
+      label: 'Pan Blanco Básico',
+      values: {
+        temperature: 25,
+        yeastType: 'dry'
+      }
+    },
+    {
+      label: 'Brioche',
+      values: {
+        temperature: 26,
+        yeastType: 'fresh'
+      }
+    }
+  ];
+
+  const handleExampleClick = (example: typeof examples[0]) => {
+    setTemperature(example.values.temperature);
+    setYeastType(example.values.yeastType);
+    setResult(null);
+  };
+
   return (
     <>
       <script

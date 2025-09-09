@@ -118,6 +118,32 @@ export default function ConversionTemperaturasClient() {
     setResult(null);
   };
 
+  const examples = [
+    {
+      label: 'Horno para Pan',
+      values: {
+        inputValue: 200,
+        fromUnit: 'C',
+        toUnit: 'F'
+      }
+    },
+    {
+      label: 'Horno para Pasteles',
+      values: {
+        inputValue: 180,
+        fromUnit: 'C',
+        toUnit: 'Gas Mark'
+      }
+    }
+  ];
+
+  const handleExampleClick = (example: typeof examples[0]) => {
+    setInputValue(example.values.inputValue);
+    setFromUnit(example.values.fromUnit);
+    setToUnit(example.values.toUnit);
+    setResult(null);
+  };
+
   const swapUnits = () => {
     const tempFrom = fromUnit;
     const tempTo = toUnit;

@@ -191,29 +191,33 @@ export default function CaloriasRecetaClient() {
 
   const examples = [
     {
-      name: 'Pizza Margherita',
-      ingredients: [
-        { name: 'Harina de trigo', quantity: 300, unit: 'g' },
-        { name: 'Tomate', quantity: 200, unit: 'g' },
-        { name: 'Queso mozzarella', quantity: 150, unit: 'g' },
-        { name: 'Aceite de oliva', quantity: 20, unit: 'ml' }
-      ],
-      servings: 4
+      label: 'Pizza Margherita',
+      values: {
+        ingredients: [
+          { name: 'Harina de trigo', quantity: 300, unit: 'g' },
+          { name: 'Tomate', quantity: 200, unit: 'g' },
+          { name: 'Queso mozzarella', quantity: 150, unit: 'g' },
+          { name: 'Aceite de oliva', quantity: 20, unit: 'ml' }
+        ],
+        servings: 4
+      }
     },
     {
-      name: 'Pasta con Pollo',
-      ingredients: [
-        { name: 'Pasta', quantity: 400, unit: 'g' },
-        { name: 'Pollo (pechuga)', quantity: 300, unit: 'g' },
-        { name: 'Tomate', quantity: 300, unit: 'g' },
-        { name: 'Cebolla', quantity: 100, unit: 'g' }
-      ],
-      servings: 4
+      label: 'Pasta con Pollo',
+      values: {
+        ingredients: [
+          { name: 'Pasta', quantity: 400, unit: 'g' },
+          { name: 'Pollo (pechuga)', quantity: 300, unit: 'g' },
+          { name: 'Tomate', quantity: 300, unit: 'g' },
+          { name: 'Cebolla', quantity: 100, unit: 'g' }
+        ],
+        servings: 4
+      }
     }
   ];
 
   const handleExampleClick = (example: typeof examples[0]) => {
-    const exampleIngredients = example.ingredients.map(ing => {
+    const exampleIngredients = example.values.ingredients.map(ing => {
       const dbIngredient = ingredientsDatabase.find(db => db.name === ing.name);
       return {
         name: ing.name,
@@ -224,7 +228,7 @@ export default function CaloriasRecetaClient() {
     });
     
     setIngredients(exampleIngredients);
-    setServings(example.servings);
+    setServings(example.values.servings);
     setResult(null);
   };
 
