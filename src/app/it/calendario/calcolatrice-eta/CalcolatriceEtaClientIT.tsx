@@ -29,14 +29,14 @@ export default function CalcolatriceEtaClientIT() {
       const result = calculateAge(birthDate, currentDate || undefined)
       setResults(result)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Errore nel calcolo dell\'età')
+      setError(err instanceof Error ? err.message : 'Errore nel calcolo dell&apos;età')
     }
   }
 
   const breadcrumbs = [
     { label: 'Home', href: '/it' },
     { label: 'Calendario', href: '/it/calendario' },
-    { label: 'Calcolatrice dell\'Età', href: '/it/calendario/calcolatrice-eta' }
+    { label: 'Calcolatrice dell&apos;Età', href: '/it/calendario/calcolatrice-eta' }
   ]
 
   const examples = [
@@ -52,12 +52,12 @@ export default function CalcolatriceEtaClientIT() {
 
   const faqItems = [
     {
-      question: 'Come viene calcolata l\'età esatta?',
+      question: 'Come viene calcolata l&apos;età esatta?',
       answer: 'Si calcola la differenza tra la data di nascita e la data attuale, considerando anni, mesi e giorni esatti.'
     },
     {
       question: 'Posso usare una data specifica?',
-      answer: 'Sì, puoi calcolare l\'età in qualsiasi data specifica, non solo la data attuale.'
+      answer: 'Sì, puoi calcolare l&apos;età in qualsiasi data specifica, non solo la data attuale.'
     },
     {
       question: 'Sono considerati gli anni bisestili?',
@@ -75,7 +75,7 @@ export default function CalcolatriceEtaClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLdCalculator({
-            name: 'Calcolatrice dell\'Età - Calcolare Età Esatta',
+            name: 'Calcolatrice dell&apos;Età - Calcolare Età Esatta',
             description: 'Calcola la tua età esatta in anni, mesi e giorni dalla tua data di nascita',
             url: '/it/calendario/calcolatrice-eta/',
             category: 'Calendario'
@@ -88,7 +88,7 @@ export default function CalcolatriceEtaClientIT() {
         
         <div className="py-8">
           <CalculatorLayout
-            title="Calcolatrice dell\'Età - Calcolare Età Esatta"
+            title="Calcolatrice dell&apos;Età - Calcolare Età Esatta"
             description="Calcola la tua età esatta in anni, mesi e giorni dalla tua data di nascita"
             examples={examples}
             faqItems={faqItems}
@@ -100,7 +100,7 @@ export default function CalcolatriceEtaClientIT() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <User className="h-5 w-5" />
-                  Calcolatrice dell\'Età
+                  Calcolatrice dell&apos;Età
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
