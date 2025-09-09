@@ -48,9 +48,6 @@ export default function HomePage() {
             {/* Additional Categories Section - New Responsive Design */}
             <div className="mt-20 bg-gray-50 py-16 -mx-4 px-4">
               <div className="max-w-7xl mx-auto">
-                <h2 className="text-blue-900 text-2xl font-bold text-center mb-12">
-                  Más Calculadoras por Categoría
-                </h2>
               
               {/* Categories Grid - Responsive */}
               <div className="space-y-12">
