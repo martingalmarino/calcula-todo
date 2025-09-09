@@ -30,6 +30,25 @@ export interface PaFiResult {
   interpretation: string;
 }
 
+export interface WaterIntakeResult {
+  dailyWater: number;
+  glasses: number;
+  bottles: number;
+  category: string;
+  recommendations: string[];
+}
+
+export interface OvulationResult {
+  nextOvulation: string;
+  fertileWindow: {
+    start: string;
+    end: string;
+  };
+  nextPeriod: string;
+  cycleLength: number;
+  recommendations: string[];
+}
+
 /**
  * Calcula el Índice de Masa Corporal (IMC)
  */
@@ -225,5 +244,115 @@ export function calculatePaFi(systolicBP: number, diastolicBP: number, heartRate
     category,
     description,
     interpretation
+  };
+}
+
+/**
+ * Calcula la ingesta diaria recomendada de agua
+ */
+export function calculateWaterIntake(weight: number, age: number, activityLevel: 'low' | 'moderate' | 'high'): WaterIntakeResult {
+  if (weight <= 0 || age <= 0) {
+    throw new Error('El peso y la edad deben ser valores positivos');
+  }
+
+  // Fórmula básica: 35ml por kg de peso corporal
+  let baseWater = weight * 35;
+
+  // Ajuste por edad
+  if (age < 18) {
+    baseWater *= 0.9; // 10% menos para menores de 18
+  } else if (age > 65) {
+    baseWater *= 0.8; // 20% menos para mayores de 65
+  }
+
+  // Ajuste por nivel de actividad
+  let activityMultiplier = 1;
+  switch (activityLevel) {
+    case 'low':
+      activityMultiplier = 1;
+      break;
+    case 'moderate':
+      activityMultiplier = 1.2;
+      break;
+    case 'high':
+      activityMultiplier = 1.5;
+      break;
+  }
+
+  const dailyWater = Math.round(baseWater * activityMultiplier);
+  const glasses = Math.round(dailyWater / 250); // 250ml por vaso
+  const bottles = Math.round(dailyWater / 500); // 500ml por botella
+
+  let category: string;
+  if (dailyWater < 2000) {
+    category = 'Baja';
+  } else if (dailyWater < 3000) {
+    category = 'Moderada';
+  } else {
+    category = 'Alta';
+  }
+
+  const recommendations = [
+    'Bebe agua a lo largo del día, no toda de una vez.',
+    'Aumenta la ingesta en días calurosos o durante ejercicio.',
+    'La sed es un indicador tardío de deshidratación.',
+    'El color de la orina debe ser claro o amarillo pálido.',
+    'Consulta con un médico si tienes condiciones especiales.'
+  ];
+
+  return {
+    dailyWater,
+    glasses,
+    bottles,
+    category,
+    recommendations
+  };
+}
+
+/**
+ * Calcula la ovulación y días fértiles
+ */
+export function calculateOvulation(lastPeriod: string, cycleLength: number): OvulationResult {
+  if (cycleLength < 21 || cycleLength > 35) {
+    throw new Error('La duración del ciclo debe estar entre 21 y 35 días');
+  }
+
+  const lastPeriodDate = new Date(lastPeriod);
+  if (isNaN(lastPeriodDate.getTime())) {
+    throw new Error('Fecha de último período inválida');
+  }
+
+  // Calcular próxima ovulación (14 días antes del próximo período)
+  const nextPeriodDate = new Date(lastPeriodDate);
+  nextPeriodDate.setDate(nextPeriodDate.getDate() + cycleLength);
+
+  const ovulationDate = new Date(nextPeriodDate);
+  ovulationDate.setDate(ovulationDate.getDate() - 14);
+
+  // Ventana fértil (5 días antes de la ovulación + día de ovulación)
+  const fertileStart = new Date(ovulationDate);
+  fertileStart.setDate(fertileStart.getDate() - 5);
+
+  const fertileEnd = new Date(ovulationDate);
+  fertileEnd.setDate(fertileEnd.getDate() + 1);
+
+  const recommendations = [
+    'La ventana fértil incluye 5 días antes de la ovulación y el día de ovulación.',
+    'El espermatozoide puede vivir hasta 5 días en el tracto reproductivo.',
+    'El óvulo vive aproximadamente 24 horas después de la ovulación.',
+    'Para concebir, ten relaciones sexuales durante la ventana fértil.',
+    'Para evitar embarazo, abstente o usa protección durante la ventana fértil.',
+    'Estos cálculos son estimaciones. Consulta con un ginecólogo para mayor precisión.'
+  ];
+
+  return {
+    nextOvulation: ovulationDate.toLocaleDateString('es-ES'),
+    fertileWindow: {
+      start: fertileStart.toLocaleDateString('es-ES'),
+      end: fertileEnd.toLocaleDateString('es-ES')
+    },
+    nextPeriod: nextPeriodDate.toLocaleDateString('es-ES'),
+    cycleLength,
+    recommendations
   };
 }

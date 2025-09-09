@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Pill } from '@/components/Pill'
-import { Heart, Activity, Scale, Zap } from 'lucide-react'
+import { Heart, Activity, Scale, Zap, Droplets, Calendar } from 'lucide-react'
 import Link from 'next/link'
 
 export default function SaludClient() {
@@ -42,6 +42,22 @@ export default function SaludClient() {
       icon: <Zap className="h-6 w-6" />,
       href: '/salud/pafi',
       category: 'cardiovascular'
+    },
+    {
+      id: 'agua-diaria',
+      title: 'Agua Diaria',
+      description: 'Ingesta recomendada de agua - Hidratación saludable',
+      icon: <Droplets className="h-6 w-6" />,
+      href: '/salud/agua-diaria',
+      category: 'hidratacion'
+    },
+    {
+      id: 'ovulacion',
+      title: 'Ovulación',
+      description: 'Días fértiles y ciclo menstrual - Planificación familiar',
+      icon: <Calendar className="h-6 w-6" />,
+      href: '/salud/ovulacion',
+      category: 'reproductivo'
     }
   ]
 
@@ -50,7 +66,9 @@ export default function SaludClient() {
     { id: 'peso', label: 'Peso' },
     { id: 'metabolismo', label: 'Metabolismo' },
     { id: 'composicion', label: 'Composición' },
-    { id: 'cardiovascular', label: 'Cardiovascular' }
+    { id: 'cardiovascular', label: 'Cardiovascular' },
+    { id: 'hidratacion', label: 'Hidratación' },
+    { id: 'reproductivo', label: 'Reproductivo' }
   ]
 
   const filteredCalculators = activeCategory === 'todas' 
