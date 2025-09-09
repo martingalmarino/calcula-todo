@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
 import { LanguageSelector } from '@/components/LanguageSelector'
-import { buildMeta, jsonLdWebSite } from '@/lib/seo'
+import { buildMeta } from '@/lib/seo'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calcolatrici Online Gratuite',
@@ -108,8 +108,8 @@ export default function ItalianHomePage() {
                     <Chip href="/it/calendario/dias-entre-fechas/" icon="calendar" ariaLabel="Contatore di Giorni tra Date">
                       Contatore di Giorni tra Date
                     </Chip>
-                    <Chip href="/it/calendario/calculadora-edad/" icon="user-round" ariaLabel="Calcolatrice dell'Età">
-                      Calcolatrice dell'Età
+                    <Chip href="/it/calendario/calculadora-edad/" icon="user-round" ariaLabel="Calcolatrice dell&apos;Età">
+                      Calcolatrice dell&apos;Età
                     </Chip>
                     <Chip href="/it/calendario/sumar-restar-dias/" icon="plus-minus" ariaLabel="Aggiungi/Sottrai Giorni a una Data">
                       Aggiungi/Sottrai Giorni a una Data
@@ -189,8 +189,8 @@ export default function ItalianHomePage() {
                     <h3 className="text-blue-900 text-xl font-bold">Curiose</h3>
                   </div>
                   <ChipsContainer>
-                    <Chip href="/it/curiosas/cafe-ahorro/" icon="coffee" ariaLabel="Caffè vs. Risparmio">
-                      Caffè vs. Risparmio
+                    <Chip href="/it/curiosas/cafe-ahorro/" icon="coffee" ariaLabel="Caff&egrave; vs. Risparmio">
+                      Caff&egrave; vs. Risparmio
                     </Chip>
                     <Chip href="/it/curiosas/pizza-persona/" icon="pizza" ariaLabel="Pizza per Persona">
                       Pizza per Persona
@@ -226,8 +226,8 @@ export default function ItalianHomePage() {
                     <Chip href="/it/finanzas/hipoteca/" icon="home" ariaLabel="Calcolatrice di Mutuo">
                       Calcolatrice di Mutuo
                     </Chip>
-                    <Chip href="/it/finanzas/ipc/" icon="bar-chart-3" ariaLabel="Calcolatrice dell'IPC">
-                      Calcolatrice dell'IPC
+                    <Chip href="/it/finanzas/ipc/" icon="bar-chart-3" ariaLabel="Calcolatrice dell&apos;IPC">
+                      Calcolatrice dell&apos;IPC
                     </Chip>
                     <Chip href="/it/finanzas/ahorro-objetivo/" icon="piggy-bank" ariaLabel="Risparmio Obiettivo">
                       Risparmio Obiettivo

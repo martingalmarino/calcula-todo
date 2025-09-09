@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Menu, X, Calculator, Globe, ChevronDown } from "lucide-react"
+import { Menu, X, Calculator, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/Container"
 import { LanguageSelector } from "@/components/LanguageSelector"

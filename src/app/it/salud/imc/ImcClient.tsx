@@ -10,7 +10,6 @@ import { Button } from '@/components/ui/button'
 import { Scale, AlertCircle } from 'lucide-react'
 import { calculateIMC, type IMCResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function IMCClientIT() {
   const [weight, setWeight] = useState('')
