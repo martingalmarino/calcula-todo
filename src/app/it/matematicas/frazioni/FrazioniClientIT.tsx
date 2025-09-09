@@ -76,7 +76,7 @@ export default function FrazioniClientIT() {
         return
       }
 
-      const result = simplify(num, den)
+      const result = simplify(num, den, 'it')
       setResults(result)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore nel calcolo')
@@ -102,16 +102,16 @@ export default function FrazioniClientIT() {
       let result: FractionResult
       switch (operation) {
         case 'add':
-          result = add(fraction1, fraction2)
+          result = add(fraction1, fraction2, 'it')
           break
         case 'subtract':
-          result = subtract(fraction1, fraction2)
+          result = subtract(fraction1, fraction2, 'it')
           break
         case 'multiply':
-          result = multiply(fraction1, fraction2)
+          result = multiply(fraction1, fraction2, 'it')
           break
         case 'divide':
-          result = divide(fraction1, fraction2)
+          result = divide(fraction1, fraction2, 'it')
           break
       }
       setResults(result)
@@ -132,7 +132,7 @@ export default function FrazioniClientIT() {
           return
         }
         
-        const result = toDecimal(num, den)
+        const result = toDecimal(num, den, 'it')
         setResults({ 
           result: { numerator: num, denominator: den }, 
           decimal: result, 
@@ -146,7 +146,7 @@ export default function FrazioniClientIT() {
           return
         }
         
-        const result = fromDecimal(decimal)
+        const result = fromDecimal(decimal, 6, 'it')
         setResults(result)
       }
     } catch (err) {
