@@ -132,7 +132,10 @@ export default function ConversionTemperaturasClient() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CalculatorLayout>
+      <CalculatorLayout
+        title="Conversión de Temperaturas"
+        description="Convierte entre grados Celsius, Fahrenheit y Gas Mark para cocinar y hornear."
+      >
         <Container>
           <Breadcrumbs items={breadcrumbs} />
           

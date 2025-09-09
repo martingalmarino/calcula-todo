@@ -108,7 +108,10 @@ export default function FermentacionLevadoClient() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CalculatorLayout>
+      <CalculatorLayout
+        title="Calculadora de Fermentación y Tiempos de Levado"
+        description="Calcula los tiempos de fermentación y levado para panes y masas según temperatura y tipo de levadura."
+      >
         <Container>
           <Breadcrumbs items={breadcrumbs} />
           

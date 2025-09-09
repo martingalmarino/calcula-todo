@@ -174,7 +174,10 @@ export default function CostosRecetasClient() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CalculatorLayout>
+      <CalculatorLayout
+        title="Calculadora de Costos de Recetas"
+        description="Calcula el costo total y por porción de tus recetas con análisis detallado de ingredientes."
+      >
         <Container>
           <Breadcrumbs items={breadcrumbs} />
           

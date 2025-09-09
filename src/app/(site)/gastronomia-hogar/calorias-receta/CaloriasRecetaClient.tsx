@@ -234,7 +234,10 @@ export default function CaloriasRecetaClient() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CalculatorLayout>
+      <CalculatorLayout
+        title="Calculadora de Calorías por Receta"
+        description="Calcula las calorías totales y por porción de tus recetas con análisis nutricional completo."
+      >
         <Container>
           <Breadcrumbs items={breadcrumbs} />
           

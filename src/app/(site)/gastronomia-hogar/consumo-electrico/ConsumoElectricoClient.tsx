@@ -129,7 +129,10 @@ export default function ConsumoElectricoClient() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CalculatorLayout>
+      <CalculatorLayout
+        title="Calculadora de Consumo Eléctrico de Electrodomésticos"
+        description="Calcula el consumo eléctrico y costo de tus electrodomésticos para optimizar tu factura de luz."
+      >
         <Container>
           <Breadcrumbs items={breadcrumbs} />
           
