@@ -1,127 +1,76 @@
 "use client"
 
-import { useState } from 'react'
-import { CardCalculator } from '@/components/CardCalculator'
-import { Pill } from '@/components/Pill'
+import { CategoryPageLayout } from '@/components/CategoryPageLayout'
+import { SITE } from '@/lib/site.config'
+import { Calculator, BookOpen, Users, Divide, Percent, Zap, X, Triangle, TrendingUp, BarChart3, Hash, Function } from 'lucide-react'
 
-interface Calculator {
-  label: string
-  description: string
-  href: string
-  category: string
-}
+const matematicasCluster = SITE.clusters.matematicas
 
-interface MatematicasClientProps {
-  calculators: Calculator[]
-}
+export function MatematicasClient() {
+  const customIcons = {
+    '/matematicas/fracciones/': Divide,
+    '/matematicas/porcentajes/': Percent,
+    '/matematicas/potencias-raices/': Zap,
+    '/matematicas/algebra/': X,
+    '/matematicas/trigonometria/': Triangle,
+    '/matematicas/derivadas/': TrendingUp,
+    '/matematicas/integrales/': Function,
+    '/matematicas/matrices/': BarChart3,
+    '/matematicas/combinatoria/': Hash,
+    '/matematicas/progresiones/': TrendingUp,
+    '/matematicas/logaritmos/': Function
+  }
 
-export function MatematicasClient({ calculators }: MatematicasClientProps) {
-  // Estado para el filtrado
-  const [activeFilter, setActiveFilter] = useState<string>('todas')
-
-  // Agrupar calculadoras por categoría
-  const calculatorsByCategory = calculators.reduce((acc, calc) => {
-    if (!acc[calc.category]) {
-      acc[calc.category] = []
+  const customStats = [
+    {
+      icon: Calculator,
+      value: matematicasCluster.calculators.length.toString(),
+      label: 'Calculadoras Disponibles',
+      color: 'blue' as const
+    },
+    {
+      icon: BookOpen,
+      value: '6+',
+      label: 'Categorías Matemáticas',
+      color: 'green' as const
+    },
+    {
+      icon: Users,
+      value: '100%',
+      label: 'Gratuito',
+      color: 'purple' as const
     }
-    acc[calc.category].push(calc)
-    return acc
-  }, {} as Record<string, Calculator[]>)
+  ]
 
-  // Filtrar calculadoras según la categoría activa
-  const filteredCalculators = activeFilter === 'todas' 
-    ? calculators 
-    : calculators.filter(calc => calc.category === activeFilter)
+  const faqItems = [
+    {
+      question: "¿Son gratuitas todas las calculadoras?",
+      answer: "Sí, todas nuestras calculadoras matemáticas son completamente gratuitas. No requieren registro ni tienen límites de uso."
+    },
+    {
+      question: "¿Cómo funcionan las explicaciones paso a paso?",
+      answer: "Cada calculadora muestra el proceso completo de resolución, incluyendo las fórmulas utilizadas y cada paso del cálculo para que puedas entender cómo se llega al resultado."
+    },
+    {
+      question: "¿Puedo usar estas calculadoras en mi tarea o examen?",
+      answer: "Nuestras calculadoras son herramientas educativas. Te recomendamos verificar con tu profesor si está permitido su uso en tareas o exámenes específicos."
+    },
+    {
+      question: "¿Qué tipos de problemas matemáticos puedo resolver?",
+      answer: "Ofrecemos calculadoras para aritmética básica, álgebra, trigonometría, cálculo, álgebra lineal, combinatoria, progresiones y logaritmos. Cubrimos desde nivel básico hasta universitario."
+    },
+    {
+      question: "¿Los resultados son precisos?",
+      answer: "Sí, utilizamos algoritmos matemáticos precisos y probados. Sin embargo, para cálculos críticos siempre recomendamos verificar los resultados manualmente."
+    }
+  ]
 
   return (
-    <>
-      {/* Category Pills - Mejorado con nuevo branding */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
-        <Pill 
-          active={activeFilter === 'todas'}
-          onClick={() => setActiveFilter('todas')}
-          size="lg"
-          className="cursor-pointer"
-        >
-          Todas
-        </Pill>
-        {Object.keys(calculatorsByCategory).map((category) => (
-          <Pill 
-            key={category}
-            active={activeFilter === category}
-            onClick={() => setActiveFilter(category)}
-            size="lg"
-            className="cursor-pointer"
-          >
-            {category.charAt(0).toUpperCase() + category.slice(1)}
-          </Pill>
-        ))}
-      </div>
-
-      {/* Calculators by Category - Mejorado con nuevo branding */}
-      {activeFilter === 'todas' ? (
-        Object.entries(calculatorsByCategory).map(([category, categoryCalculators]) => (
-          <section key={category} className="mb-16">
-            <div className="text-center mb-8">
-              <h2 className="text-4xl font-bold mb-4 capitalize text-blue-600">
-                {category}
-              </h2>
-              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {categoryCalculators.map((calculator) => (
-                <CardCalculator
-                  key={calculator.href}
-                  title={calculator.label}
-                  description={calculator.description}
-                  href={calculator.href}
-                />
-              ))}
-            </div>
-          </section>
-        ))
-      ) : (
-        <section className="mb-16">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold mb-4 capitalize text-blue-600">
-              {activeFilter}
-            </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredCalculators.map((calculator) => (
-              <CardCalculator
-                key={calculator.href}
-                title={calculator.label}
-                description={calculator.description}
-                href={calculator.href}
-              />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* All Calculators Grid - Solo mostrar cuando no hay filtro activo */}
-      {activeFilter === 'todas' && (
-        <section className="mb-16">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold mb-4 text-blue-600">
-              Todas las Calculadoras
-            </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {calculators.map((calculator) => (
-              <CardCalculator
-                key={calculator.href}
-                title={calculator.label}
-                description={calculator.description}
-                href={calculator.href}
-              />
-            ))}
-          </div>
-        </section>
-      )}
-    </>
+    <CategoryPageLayout
+      category={matematicasCluster}
+      customIcons={customIcons}
+      customStats={customStats}
+      faqItems={faqItems}
+    />
   )
 }

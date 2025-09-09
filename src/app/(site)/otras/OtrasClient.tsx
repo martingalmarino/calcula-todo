@@ -1,138 +1,71 @@
 "use client"
 
-import { useState } from 'react'
-import { Container } from '@/components/Container'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Pill } from '@/components/Pill'
-import { GraduationCap, Fuel, Type, Hash, MousePointer } from 'lucide-react'
-import Link from 'next/link'
+import { CategoryPageLayout } from '@/components/CategoryPageLayout'
+import { SITE } from '@/lib/site.config'
+import { Calculator, GraduationCap, Fuel, Type, Hash, MousePointer, DollarSign, Users } from 'lucide-react'
+
+const otrasCluster = SITE.clusters.otras
 
 export default function OtrasClient() {
-  const [activeCategory, setActiveCategory] = useState('todas')
+  const customIcons = {
+    '/otras/escala-notas/': GraduationCap,
+    '/otras/gasto-gasolina/': Fuel,
+    '/otras/contador-palabras/': Type,
+    '/otras/numeros-romanos/': Hash,
+    '/otras/contador-clicks/': MousePointer,
+    '/otras/calculadora-propinas/': DollarSign
+  }
 
-  const calculators = [
+  const customStats = [
     {
-      id: 'escala-notas',
-      title: 'Escala de Notas',
-      description: 'Convierte puntuaciones a escala A, B, C, D, F',
-      icon: <GraduationCap className="h-6 w-6" />,
-      href: '/otras/escala-notas',
-      category: 'educacion'
+      icon: Calculator,
+      value: otrasCluster.calculators.length.toString(),
+      label: 'Calculadoras Disponibles',
+      color: 'blue' as const
     },
     {
-      id: 'gasto-gasolina',
-      title: 'Gasto Gasolina',
-      description: 'Calcula el costo de combustible por kilómetro',
-      icon: <Fuel className="h-6 w-6" />,
-      href: '/otras/gasto-gasolina',
-      category: 'transporte'
+      icon: Type,
+      value: '6',
+      label: 'Herramientas Útiles',
+      color: 'green' as const
     },
     {
-      id: 'contador-palabras',
-      title: 'Contador de Palabras',
-      description: 'Cuenta palabras, caracteres y tiempo de lectura',
-      icon: <Type className="h-6 w-6" />,
-      href: '/otras/contador-palabras',
-      category: 'texto'
-    },
-    {
-      id: 'numeros-romanos',
-      title: 'Números Romanos',
-      description: 'Convierte entre números arábigos y romanos',
-      icon: <Hash className="h-6 w-6" />,
-      href: '/otras/numeros-romanos',
-      category: 'conversion'
-    },
-    {
-      id: 'contador-clicks',
-      title: 'Contador de Clicks',
-      description: 'CPS Test - Mide tu velocidad de clicks',
-      icon: <MousePointer className="h-6 w-6" />,
-      href: '/otras/contador-clicks',
-      category: 'juegos'
+      icon: Users,
+      value: '100%',
+      label: 'Gratuito',
+      color: 'purple' as const
     }
   ]
 
-  const categories = [
-    { id: 'todas', label: 'Todas' },
-    { id: 'educacion', label: 'Educación' },
-    { id: 'transporte', label: 'Transporte' },
-    { id: 'texto', label: 'Texto' },
-    { id: 'conversion', label: 'Conversión' },
-    { id: 'juegos', label: 'Juegos' }
+  const faqItems = [
+    {
+      question: "¿Cómo funciona la calculadora de propinas?",
+      answer: "Ingresa el monto de la cuenta y el porcentaje de propina deseado. La calculadora te mostrará la propina exacta y el total a pagar."
+    },
+    {
+      question: "¿Puedo contar palabras y caracteres en tiempo real?",
+      answer: "Sí, nuestra calculadora cuenta automáticamente palabras, caracteres (con y sin espacios) mientras escribes tu texto."
+    },
+    {
+      question: "¿Cómo convierto números romanos?",
+      answer: "Puedes convertir tanto de números arábigos a romanos como de romanos a arábigos. Soporta números del 1 al 3999."
+    },
+    {
+      question: "¿Qué es el contador de clicks (CPS)?",
+      answer: "Es una herramienta para medir tu velocidad de clicks por segundo, útil para juegos y pruebas de destreza."
+    },
+    {
+      question: "¿Cómo calculo el gasto de gasolina?",
+      answer: "Ingresa la distancia, el consumo de combustible por kilómetro y el precio por litro para obtener el costo total del viaje."
+    }
   ]
 
-  const filteredCalculators = activeCategory === 'todas' 
-    ? calculators 
-    : calculators.filter(calc => calc.category === activeCategory)
-
   return (
-    <div className="min-h-screen bg-background">
-      <Container>
-        <div className="py-8">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-blue-600 mb-4">
-              Otras Calculadoras
-            </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Herramientas útiles para el día a día: educación, transporte, texto, conversión y más.
-            </p>
-          </div>
-
-          {/* Filtros por categoría */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {categories.map((category) => (
-              <Pill
-                key={category.id}
-                active={activeCategory === category.id}
-                onClick={() => setActiveCategory(category.id)}
-              >
-                {category.label}
-              </Pill>
-            ))}
-          </div>
-
-          {/* Grid de calculadoras */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {filteredCalculators.map((calculator) => (
-              <Link key={calculator.id} href={calculator.href}>
-                <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">
-                  <CardHeader className="text-center">
-                    <div className="mx-auto mb-4 p-3 bg-blue-100 rounded-full w-fit group-hover:bg-blue-200 transition-colors">
-                      {calculator.icon}
-                    </div>
-                    <CardTitle className="text-lg">{calculator.title}</CardTitle>
-                    <CardDescription className="text-sm">
-                      {calculator.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <div className="text-blue-600 font-medium group-hover:text-blue-700">
-                      Usar →
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="text-center bg-blue-50 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">
-              ¿Necesitas una calculadora específica?
-            </h2>
-            <p className="text-gray-700 mb-6">
-              Si no encuentras la calculadora que buscas, contáctanos y la agregaremos.
-            </p>
-            <Link 
-              href="/contacto"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Contactar
-            </Link>
-          </div>
-        </div>
-      </Container>
-    </div>
+    <CategoryPageLayout
+      category={otrasCluster}
+      customIcons={customIcons}
+      customStats={customStats}
+      faqItems={faqItems}
+    />
   )
 }

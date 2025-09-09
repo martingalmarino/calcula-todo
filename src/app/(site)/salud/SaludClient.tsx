@@ -1,147 +1,71 @@
 "use client"
 
-import { useState } from 'react'
-import { Container } from '@/components/Container'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Pill } from '@/components/Pill'
-import { Heart, Activity, Scale, Zap, Droplets, Calendar } from 'lucide-react'
-import Link from 'next/link'
+import { CategoryPageLayout } from '@/components/CategoryPageLayout'
+import { SITE } from '@/lib/site.config'
+import { Calculator, Heart, Activity, Scale, Zap, Droplets, Calendar, Users } from 'lucide-react'
+
+const saludCluster = SITE.clusters.salud
 
 export default function SaludClient() {
-  const [activeCategory, setActiveCategory] = useState('todas')
+  const customIcons = {
+    '/salud/imc/': Scale,
+    '/salud/tmb/': Activity,
+    '/salud/grasa-corporal/': Heart,
+    '/salud/pafi/': Zap,
+    '/salud/agua-diaria/': Droplets,
+    '/salud/ovulacion/': Calendar
+  }
 
-  const calculators = [
+  const customStats = [
     {
-      id: 'imc',
-      title: 'Calculadora de IMC',
-      description: 'Índice de Masa Corporal - Evalúa tu peso ideal',
-      icon: <Scale className="h-6 w-6" />,
-      href: '/salud/imc',
-      category: 'peso'
+      icon: Calculator,
+      value: saludCluster.calculators.length.toString(),
+      label: 'Calculadoras Disponibles',
+      color: 'blue' as const
     },
     {
-      id: 'tmb',
-      title: 'Calculadora de TMB',
-      description: 'Tasa Metabólica Basal - Calorías que quemas en reposo',
-      icon: <Activity className="h-6 w-6" />,
-      href: '/salud/tmb',
-      category: 'metabolismo'
+      icon: Heart,
+      value: '6',
+      label: 'Herramientas de Salud',
+      color: 'green' as const
     },
     {
-      id: 'grasa-corporal',
-      title: 'Grasa Corporal',
-      description: 'Porcentaje de grasa corporal - Composición corporal',
-      icon: <Heart className="h-6 w-6" />,
-      href: '/salud/grasa-corporal',
-      category: 'composicion'
-    },
-    {
-      id: 'pafi',
-      title: 'Calculadora PaFi',
-      description: 'Presión arterial y frecuencia cardíaca - Salud cardiovascular',
-      icon: <Zap className="h-6 w-6" />,
-      href: '/salud/pafi',
-      category: 'cardiovascular'
-    },
-    {
-      id: 'agua-diaria',
-      title: 'Agua Diaria',
-      description: 'Ingesta recomendada de agua - Hidratación saludable',
-      icon: <Droplets className="h-6 w-6" />,
-      href: '/salud/agua-diaria',
-      category: 'hidratacion'
-    },
-    {
-      id: 'ovulacion',
-      title: 'Ovulación',
-      description: 'Días fértiles y ciclo menstrual - Planificación familiar',
-      icon: <Calendar className="h-6 w-6" />,
-      href: '/salud/ovulacion',
-      category: 'reproductivo'
+      icon: Users,
+      value: '100%',
+      label: 'Gratuito',
+      color: 'purple' as const
     }
   ]
 
-  const categories = [
-    { id: 'todas', label: 'Todas' },
-    { id: 'peso', label: 'Peso' },
-    { id: 'metabolismo', label: 'Metabolismo' },
-    { id: 'composicion', label: 'Composición' },
-    { id: 'cardiovascular', label: 'Cardiovascular' },
-    { id: 'hidratacion', label: 'Hidratación' },
-    { id: 'reproductivo', label: 'Reproductivo' }
+  const faqItems = [
+    {
+      question: "¿Son precisas las calculadoras de salud?",
+      answer: "Nuestras calculadoras utilizan fórmulas médicas estándar y reconocidas. Sin embargo, son herramientas informativas y no reemplazan la consulta médica profesional."
+    },
+    {
+      question: "¿Puedo usar estos resultados para diagnóstico médico?",
+      answer: "No. Estas calculadoras son solo herramientas informativas. Siempre consulta con un profesional de la salud para diagnósticos y tratamientos médicos."
+    },
+    {
+      question: "¿Qué incluye la calculadora de IMC?",
+      answer: "La calculadora de IMC evalúa tu índice de masa corporal y te proporciona información sobre tu categoría de peso según estándares médicos internacionales."
+    },
+    {
+      question: "¿Cómo funciona la calculadora de TMB?",
+      answer: "La Tasa Metabólica Basal calcula las calorías que tu cuerpo quema en reposo, considerando factores como edad, peso, altura y género."
+    },
+    {
+      question: "¿Son confiables los cálculos de ovulación?",
+      answer: "La calculadora de ovulación proporciona estimaciones basadas en ciclos regulares. Para planificación familiar, consulta siempre con un ginecólogo."
+    }
   ]
 
-  const filteredCalculators = activeCategory === 'todas' 
-    ? calculators 
-    : calculators.filter(calc => calc.category === activeCategory)
-
   return (
-    <div className="min-h-screen bg-background">
-      <Container>
-        <div className="py-8">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-blue-600 mb-4">
-              Calculadoras de Salud
-            </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Herramientas médicas online para evaluar tu salud: IMC, TMB, grasa corporal y más.
-            </p>
-          </div>
-
-          {/* Filtros por categoría */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {categories.map((category) => (
-              <Pill
-                key={category.id}
-                active={activeCategory === category.id}
-                onClick={() => setActiveCategory(category.id)}
-              >
-                {category.label}
-              </Pill>
-            ))}
-          </div>
-
-          {/* Grid de calculadoras */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {filteredCalculators.map((calculator) => (
-              <Link key={calculator.id} href={calculator.href}>
-                <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">
-                  <CardHeader className="text-center">
-                    <div className="mx-auto mb-4 p-3 bg-blue-100 rounded-full w-fit group-hover:bg-blue-200 transition-colors">
-                      {calculator.icon}
-                    </div>
-                    <CardTitle className="text-lg">{calculator.title}</CardTitle>
-                    <CardDescription className="text-sm">
-                      {calculator.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <div className="text-blue-600 font-medium group-hover:text-blue-700">
-                      Calcular →
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="text-center bg-blue-50 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">
-              ¿Necesitas una calculadora específica?
-            </h2>
-            <p className="text-gray-700 mb-6">
-              Si no encuentras la calculadora que buscas, contáctanos y la agregaremos.
-            </p>
-            <Link 
-              href="/contacto"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Contactar
-            </Link>
-          </div>
-        </div>
-      </Container>
-    </div>
+    <CategoryPageLayout
+      category={saludCluster}
+      customIcons={customIcons}
+      customStats={customStats}
+      faqItems={faqItems}
+    />
   )
 }
