@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { Calculator } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
+import { Container } from '@/components/Container';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -163,15 +165,18 @@ export default function ValorFuturoPresenteClient() {
         }}
       />
       
-      <CalculatorLayout
-        title="Calculadora de Valor Futuro y Presente"
-        description="Calcula el valor futuro (FV) y valor presente (PV) para comparar inversiones y evaluar el valor temporal del dinero."
-        examples={[]}
-        faqItems={faqItems}
-        onExampleClick={() => {}}
-        breadcrumbs={breadcrumbs}
-        relatedLinks={relatedLinks}
-      >
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Calculadora de Valor Futuro y Presente"
+            description="Calcula el valor futuro (FV) y valor presente (PV) para comparar inversiones y evaluar el valor temporal del dinero."
+            examples={[]}
+            faqItems={faqItems}
+            onExampleClick={() => {}}
+            relatedLinks={relatedLinks}
+          >
         <Tabs defaultValue="valor-futuro" className="w-full">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="valor-futuro">Valor Futuro (FV)</TabsTrigger>
@@ -318,7 +323,9 @@ export default function ValorFuturoPresenteClient() {
             </Card>
           </TabsContent>
         </Tabs>
-      </CalculatorLayout>
+          </CalculatorLayout>
+        </div>
+      </Container>
     </div>
   );
 }

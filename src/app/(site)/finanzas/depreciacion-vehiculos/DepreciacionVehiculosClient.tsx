@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { Calculator } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
+import { Container } from '@/components/Container';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -121,15 +123,18 @@ export default function DepreciacionVehiculosClient() {
         }}
       />
       
-      <CalculatorLayout
-        title="Calculadora de Depreciación de Vehículos"
-        description="Calcula la depreciación anual y mensual de tu vehículo usando el método lineal estándar."
-        examples={examples}
-        faqItems={faqItems}
-        onExampleClick={handleExampleClick}
-        breadcrumbs={breadcrumbs}
-        relatedLinks={relatedLinks}
-      >
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Calculadora de Depreciación de Vehículos"
+            description="Calcula la depreciación anual y mensual de tu vehículo usando el método lineal estándar."
+            examples={examples}
+            faqItems={faqItems}
+            onExampleClick={handleExampleClick}
+            relatedLinks={relatedLinks}
+          >
         <div className="grid gap-4">
           <div>
             <Label htmlFor="valorInicial">Valor Inicial del Vehículo ($)</Label>
@@ -216,8 +221,10 @@ export default function DepreciacionVehiculosClient() {
               </CardContent>
             </Card>
           )}
+          </div>
+        </CalculatorLayout>
         </div>
-      </CalculatorLayout>
+      </Container>
     </div>
   );
 }
