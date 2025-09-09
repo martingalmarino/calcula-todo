@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { buildMeta } from '@/lib/seo'
-import { AcquaGiornalieraClientIT } from './AcquaGiornalieraClientIT'
+import AcquaGiornalieraClientIT from './AcquaGiornalieraClientIT'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calcolatrice Acqua Giornaliera Raccomandata',

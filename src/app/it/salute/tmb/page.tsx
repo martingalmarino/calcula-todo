@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { buildMeta } from '@/lib/seo'
-import { TmbClientIT } from './TmbClientIT'
+import TmbClientIT from './TmbClientIT'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calcolatrice Tasso Metabolico Basale (TMB)',

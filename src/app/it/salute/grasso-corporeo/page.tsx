@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { buildMeta } from '@/lib/seo'
-import { GrassoCorporeoClientIT } from './GrassoCorporeoClientIT'
+import GrassoCorporeoClientIT from './GrassoCorporeoClientIT'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calcolatrice Percentuale di Grasso Corporeo',

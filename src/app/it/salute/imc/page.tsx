@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { buildMeta } from '@/lib/seo'
-import { ImcClientIT } from './ImcClientIT'
+import ImcClientIT from './ImcClientIT'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calcolatrice Indice di Massa Corporea (IMC)',

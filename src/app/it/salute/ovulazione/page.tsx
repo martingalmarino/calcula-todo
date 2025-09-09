@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { buildMeta } from '@/lib/seo'
-import { OvulazioneClientIT } from './OvulazioneClientIT'
+import OvulazioneClientIT from './OvulazioneClientIT'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calcolatrice di Ovulazione',

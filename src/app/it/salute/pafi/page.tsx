@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { buildMeta } from '@/lib/seo'
-import { PafiClientIT } from './PafiClientIT'
+import PafiClientIT from './PafiClientIT'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calcolatrice PaFi',
