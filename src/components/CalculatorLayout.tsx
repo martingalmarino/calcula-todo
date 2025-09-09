@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Copy, Share2, Lightbulb, HelpCircle, Calculator } from "lucide-react"
+import { usePathname } from 'next/navigation'
 
 interface Example {
   label: string
