@@ -5,12 +5,12 @@ import { Calculator, Plus, Trash2, Share2, Info } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { Card } from '@/components/Card';
+import { CardCalculator as Card } from '@/components/CardCalculator';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { jsonLdCalculator } from '@/lib/seo';
-import { getBreadcrumbs } from '@/lib/breadcrumbs';
+import { getBreadcrumbs } from '@/lib/getBreadcrumbs';
 import { calculateRecipeCalories } from '@/lib/math/gastronomy';
 import { FAQ } from '@/components/FAQ';
 
@@ -119,8 +119,23 @@ export default function CaloriasRecetaClient() {
         caloriesPerUnit: ing.caloriesPerUnit
       }));
 
-      const calculation = calculateRecipeCalories(ingredientsWithCalories, servings);
-      setResult(calculation);
+      const calculation = calculateRecipeCalories(ingredientsWithCalories.map(ing => ({
+        name: ing.name,
+        amount: ing.quantity,
+        unit: ing.unit
+      })), servings);
+      
+      // Convertir el resultado al formato esperado
+      setResult({
+        totalCalories: calculation.totalCalories,
+        caloriesPerServing: calculation.caloriesPerServing,
+        macronutrientsPerServing: {
+          protein: calculation.macronutrients.proteins / servings,
+          carbs: calculation.macronutrients.carbohydrates / servings,
+          fat: calculation.macronutrients.fats / servings
+        },
+        ingredientBreakdown: calculation.ingredients
+      });
     } catch (error) {
       alert('Error en el cálculo: ' + (error as Error).message);
     }

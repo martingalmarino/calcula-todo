@@ -5,13 +5,13 @@ import { DollarSign, Plus, Trash2, Download, TrendingUp, TrendingDown } from 'lu
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { Card } from '@/components/Card';
+import { CardCalculator as Card } from '@/components/CardCalculator';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { jsonLdCalculator } from '@/lib/seo';
-import { getBreadcrumbs } from '@/lib/breadcrumbs';
-import { calculateRecipeCosts } from '@/lib/math/gastronomy';
+import { getBreadcrumbs } from '@/lib/getBreadcrumbs';
+import { calculateRecipeCost } from '@/lib/math/gastronomy';
 import { FAQ } from '@/components/FAQ';
 
 const breadcrumbs = getBreadcrumbs('/gastronomia-hogar/costos-recetas/');
@@ -80,8 +80,18 @@ export default function CostosRecetasClient() {
         return;
       }
 
-      const calculation = calculateRecipeCosts(validIngredients, servings, storeAlternative);
-      setResult(calculation);
+      const calculation = calculateRecipeCost(validIngredients, servings, storeAlternative > 0 ? { name: 'Alternativa Comercial', price: storeAlternative } : undefined);
+      
+      // Convertir el resultado al formato esperado
+      setResult({
+        totalCost: calculation.totalCost,
+        costPerServing: calculation.costPerServing,
+        ingredientDetails: calculation.ingredients,
+        savings: calculation.savings ? {
+          amount: calculation.savings.savings,
+          percentage: calculation.savings.savingsPercent
+        } : undefined
+      });
     } catch (error) {
       alert('Error en el cálculo: ' + (error as Error).message);
     }

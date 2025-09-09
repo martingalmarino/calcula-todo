@@ -5,14 +5,14 @@ import { Calculator, Scale, Info, ArrowRight } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { CardCalculator as Card } from '@/components/CardCalculator';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { convertKitchenMeasure } from '@/lib/math/gastronomy';
-import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config';
+import { getBreadcrumbs } from '@/lib/getBreadcrumbs';
 import { jsonLdCalculator } from '@/lib/seo';
 
 export default function ConversionMedidasClient() {
@@ -95,11 +95,7 @@ export default function ConversionMedidasClient() {
     }
   ];
 
-  const relatedLinks = getRelatedCalculators('gastronomiaHogar', 'conversion-medidas').map(calc => ({
-    label: calc.label,
-    href: calc.href,
-    description: calc.description
-  }));
+  const relatedLinks = [];
 
   const handleExampleClick = (values: Record<string, unknown>) => {
     setValue(values.value as string);
@@ -240,13 +236,12 @@ export default function ConversionMedidasClient() {
 
               {resultado && (
                 <Card className="mt-4 bg-green-50 border-green-200">
-                  <CardHeader>
-                    <CardTitle className="text-green-700 flex items-center gap-2">
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-green-700 flex items-center gap-2 mb-4">
                       <Scale className="h-5 w-5" />
                       Resultado de la Conversión
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
+                    </h3>
+                    <div className="space-y-4">
                     <div className="bg-white p-4 rounded-lg border">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-blue-600 mb-2">
@@ -292,7 +287,8 @@ export default function ConversionMedidasClient() {
                         Las conversiones por volumen pueden variar según cómo se mida (nivelado, compactado, etc.).
                       </AlertDescription>
                     </Alert>
-                  </CardContent>
+                    </div>
+                  </div>
                 </Card>
               )}
             </div>

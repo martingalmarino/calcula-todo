@@ -5,12 +5,12 @@ import { Thermometer, Info, Copy, Check } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { Card } from '@/components/Card';
+import { CardCalculator as Card } from '@/components/CardCalculator';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { jsonLdCalculator } from '@/lib/seo';
-import { getBreadcrumbs } from '@/lib/breadcrumbs';
+import { getBreadcrumbs } from '@/lib/getBreadcrumbs';
 import { convertTemperature } from '@/lib/math/gastronomy';
 import { FAQ } from '@/components/FAQ';
 
@@ -58,8 +58,40 @@ export default function ConversionTemperaturasClient() {
         return;
       }
 
-      const calculation = convertTemperature(inputValue, fromUnit, toUnit);
-      setResult(calculation);
+      const unitMap: Record<string, 'celsius' | 'fahrenheit' | 'gasmark'> = {
+        'C': 'celsius',
+        'F': 'fahrenheit',
+        'GM': 'gasmark'
+      };
+      const calculation = convertTemperature(inputValue, unitMap[fromUnit]);
+      
+      // Convertir el resultado al formato esperado
+      let resultValue: number;
+      let resultUnit: string;
+      
+      switch (toUnit) {
+        case 'C':
+          resultValue = calculation.celsius;
+          resultUnit = 'C';
+          break;
+        case 'F':
+          resultValue = calculation.fahrenheit;
+          resultUnit = 'F';
+          break;
+        case 'GM':
+          resultValue = calculation.gasMark;
+          resultUnit = 'GM';
+          break;
+        default:
+          resultValue = calculation.celsius;
+          resultUnit = 'C';
+      }
+      
+      setResult({
+        value: resultValue,
+        unit: resultUnit,
+        description: calculation.description
+      });
     } catch (error) {
       alert('Error en el cálculo: ' + (error as Error).message);
     }

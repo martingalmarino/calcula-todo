@@ -5,12 +5,12 @@ import { Zap, TrendingUp, TrendingDown, Info, Calculator } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { Card } from '@/components/Card';
+import { CardCalculator as Card } from '@/components/CardCalculator';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { jsonLdCalculator } from '@/lib/seo';
-import { getBreadcrumbs } from '@/lib/breadcrumbs';
+import { getBreadcrumbs } from '@/lib/getBreadcrumbs';
 import { calculateElectricityConsumption } from '@/lib/math/gastronomy';
 import { FAQ } from '@/components/FAQ';
 
@@ -88,8 +88,16 @@ export default function ConsumoElectricoClient() {
         return;
       }
 
-      const calculation = calculateElectricityConsumption(power, hoursPerDay, daysPerMonth, costPerKWh);
-      setResult(calculation);
+      const calculation = calculateElectricityConsumption(power, hoursPerDay * daysPerMonth, costPerKWh);
+      
+      // Convertir el resultado al formato esperado
+      setResult({
+        monthlyKWh: calculation.consumption,
+        monthlyCost: calculation.cost,
+        yearlyCost: calculation.cost * 12,
+        dailyKWh: calculation.consumption / daysPerMonth,
+        dailyCost: calculation.cost / daysPerMonth
+      });
     } catch (error) {
       alert('Error en el cálculo: ' + (error as Error).message);
     }

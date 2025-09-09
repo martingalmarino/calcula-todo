@@ -5,13 +5,13 @@ import { Clock, Thermometer, Info, Timer } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { Card } from '@/components/Card';
+import { CardCalculator as Card } from '@/components/CardCalculator';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { jsonLdCalculator } from '@/lib/seo';
-import { getBreadcrumbs } from '@/lib/breadcrumbs';
-import { estimateFermentationTime } from '@/lib/math/gastronomy';
+import { getBreadcrumbs } from '@/lib/getBreadcrumbs';
+import { calculateFermentation } from '@/lib/math/gastronomy';
 import { FAQ } from '@/components/FAQ';
 
 const breadcrumbs = getBreadcrumbs('/gastronomia-hogar/fermentacion-levado/');
@@ -49,8 +49,16 @@ export default function FermentacionLevadoClient() {
         return;
       }
 
-      const calculation = estimateFermentationTime(temperature, yeastType);
-      setResult(calculation);
+      const calculation = calculateFermentation(temperature, yeastType, 1000);
+      
+      // Convertir el resultado al formato esperado
+      setResult({
+        estimatedTime: calculation.fermentationTime * 60, // convertir horas a minutos
+        minTime: (calculation.fermentationTime * 0.8) * 60, // 80% del tiempo
+        maxTime: (calculation.fermentationTime * 1.2) * 60, // 120% del tiempo
+        yeastType: calculation.yeastType,
+        tips: calculation.tips
+      });
     } catch (error) {
       alert('Error en el cálculo: ' + (error as Error).message);
     }
