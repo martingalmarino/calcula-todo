@@ -473,58 +473,58 @@ export const SITE: SiteConfig = {
         }
       ]
     },
-    gastronomiaHogar: {
-      label: 'Gastronomía y Hogar',
-      href: '/gastronomia-hogar/',
-      description: 'Herramientas especializadas para cocina, nutrición y hogar. Convierte medidas, calcula calorías, costos y más para tus recetas y electrodomésticos.',
+    geometria: {
+      label: 'Geometría',
+      href: '/geometria/',
+      description: 'Calculadoras geométricas para calcular áreas, perímetros y propiedades de figuras planas como círculos, rectángulos, triángulos, cuadrados, rombos y trapecios.',
       calculators: [
         {
-          label: 'Conversión de Medidas',
-          href: '/gastronomia-hogar/conversion-medidas/',
-          description: 'Convierte entre gramos, tazas, ml, cucharadas y cucharaditas',
-          icon: 'scale',
-          category: 'cocina',
-          keywords: ['medidas', 'conversión', 'gramos', 'tazas', 'ml', 'cucharadas']
+          label: 'Área y Perímetro del Círculo',
+          href: '/geometria/circulo/',
+          description: 'Calcula el área, perímetro, diámetro y radio de un círculo',
+          icon: 'circle',
+          category: 'figuras circulares',
+          keywords: ['círculo', 'área', 'perímetro', 'radio', 'diámetro', 'circunferencia']
         },
         {
-          label: 'Calorías por Receta',
-          href: '/gastronomia-hogar/calorias-receta/',
-          description: 'Calcula calorías totales y por porción de tus recetas',
-          icon: 'chef-hat',
-          category: 'nutricion',
-          keywords: ['calorías', 'recetas', 'nutrición', 'macronutrientes', 'porciones']
+          label: 'Área y Perímetro del Rectángulo',
+          href: '/geometria/rectangulo/',
+          description: 'Calcula el área y perímetro de un rectángulo conociendo sus dimensiones',
+          icon: 'rectangle-horizontal',
+          category: 'cuadriláteros',
+          keywords: ['rectángulo', 'área', 'perímetro', 'largo', 'ancho', 'dimensiones']
         },
         {
-          label: 'Conversión de Temperaturas',
-          href: '/gastronomia-hogar/conversion-temperaturas/',
-          description: 'Convierte entre °C, °F y Gas Mark para hornos',
-          icon: 'thermometer',
-          category: 'cocina',
-          keywords: ['temperatura', 'celsius', 'fahrenheit', 'gas mark', 'horno']
+          label: 'Área del Triángulo',
+          href: '/geometria/triangulo/',
+          description: 'Calcula el área de un triángulo con base y altura o usando la fórmula de Herón',
+          icon: 'triangle',
+          category: 'triángulos',
+          keywords: ['triángulo', 'área', 'base', 'altura', 'fórmula herón', 'lados']
         },
         {
-          label: 'Costos de Recetas',
-          href: '/gastronomia-hogar/costos-recetas/',
-          description: 'Calcula el costo total y por porción de tus recetas',
-          icon: 'dollar-sign',
-          category: 'finanzas',
-          keywords: ['costos', 'recetas', 'presupuesto', 'ahorro', 'porciones']
+          label: 'Área y Perímetro del Cuadrado',
+          href: '/geometria/cuadrado/',
+          description: 'Calcula el área y perímetro de un cuadrado conociendo su lado',
+          icon: 'square',
+          category: 'cuadriláteros',
+          keywords: ['cuadrado', 'área', 'perímetro', 'lado', 'figuras regulares']
         },
         {
-          label: 'Fermentación y Levado',
-          href: '/gastronomia-hogar/fermentacion-levado/',
-          description: 'Calcula tiempos de fermentación para pan y masas',
-          icon: 'clock',
-          category: 'panaderia',
-          keywords: ['fermentación', 'levado', 'pan', 'masas', 'levadura']
+          label: 'Área y Perímetro del Rombo',
+          href: '/geometria/rombo/',
+          description: 'Calcula el área y perímetro de un rombo conociendo sus diagonales o lado y diagonal',
+          icon: 'diamond',
+          category: 'cuadriláteros',
+          keywords: ['rombo', 'área', 'perímetro', 'diagonales', 'lado', 'paralelogramo']
         },
         {
-          label: 'Consumo Eléctrico',
-          href: '/gastronomia-hogar/consumo-electrico/',
-          description: 'Calcula consumo y costo de electrodomésticos',
-          icon: 'zap',
-          category: 'hogar',
-          keywords: ['consumo', 'eléctrico', 'electrodomésticos', 'kWh', 'costo']
+          label: 'Área del Trapecio',
+          href: '/geometria/trapecio/',
+          description: 'Calcula el área de un trapecio conociendo sus bases y altura',
+          icon: 'hexagon',
+          category: 'cuadriláteros',
+          keywords: ['trapecio', 'área', 'bases', 'altura', 'lados paralelos']
         }
       ]
     }
@@ -626,6 +626,18 @@ export function getBreadcrumbs(pathname: string): Array<{ label: string; href: s
     breadcrumbs.push({ 
       label: 'Matemáticas', 
       href: '/matematicas/',
+      current: isCategoryPage
+    });
+    
+    if (isCategoryPage) return breadcrumbs;
+  }
+  
+  // Agregar categoría si estamos en geometría
+  if (pathname.startsWith('/geometria')) {
+    const isCategoryPage = pathname === '/geometria/';
+    breadcrumbs.push({ 
+      label: 'Geometría', 
+      href: '/geometria/',
       current: isCategoryPage
     });
     

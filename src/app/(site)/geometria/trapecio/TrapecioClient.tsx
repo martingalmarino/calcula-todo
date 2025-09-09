@@ -253,7 +253,7 @@ export default function TrapecioClient() {
                       </>
                     )}
 
-                    <Button onClick={handleCalculate} className="w-full">
+                    <Button onClick={handleCalculate} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-200">
                       <Calculator className="w-4 h-4 mr-2" />
                       Calcular
                     </Button>
