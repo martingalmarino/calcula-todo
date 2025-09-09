@@ -26,21 +26,21 @@ const jsonLd = jsonLdCalculator({
 const yeastTypes = [
   { value: 'dry', label: 'Levadura Seca (Instantánea)' },
   { value: 'fresh', label: 'Levadura Fresca' },
-  { value: 'sourdough', label: 'Masa Madre (Sourdough)' }
+  { value: 'instant', label: 'Levadura Instantánea' }
 ];
 
 const breadTypes = [
   { name: 'Pan Blanco Básico', temp: 25, yeast: 'dry', time: 60 },
   { name: 'Pan Integral', temp: 24, yeast: 'dry', time: 75 },
   { name: 'Brioche', temp: 26, yeast: 'fresh', time: 90 },
-  { name: 'Sourdough', temp: 22, yeast: 'sourdough', time: 240 },
+  { name: 'Pan de Masa Madre', temp: 22, yeast: 'instant', time: 240 },
   { name: 'Pizza', temp: 25, yeast: 'dry', time: 45 },
   { name: 'Croissants', temp: 20, yeast: 'fresh', time: 120 }
 ];
 
 export default function FermentacionLevadoClient() {
   const [temperature, setTemperature] = useState<number>(25);
-  const [yeastType, setYeastType] = useState<'dry' | 'fresh' | 'sourdough'>('dry');
+  const [yeastType, setYeastType] = useState<'dry' | 'fresh' | 'instant'>('dry');
   const [result, setResult] = useState<{
     estimatedTime: number;
     minTime: number;
@@ -73,7 +73,7 @@ export default function FermentacionLevadoClient() {
 
   const handleBreadTypeClick = (bread: typeof breadTypes[0]) => {
     setTemperature(bread.temp);
-    setYeastType(bread.yeast as 'dry' | 'fresh' | 'sourdough');
+    setYeastType(bread.yeast as 'dry' | 'fresh' | 'instant');
     setResult(null);
   };
 
@@ -156,7 +156,7 @@ export default function FermentacionLevadoClient() {
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Tipo de Levadura
                       </label>
-                      <Select value={yeastType} onValueChange={(value: 'dry' | 'fresh' | 'sourdough') => setYeastType(value)}>
+                      <Select value={yeastType} onValueChange={(value: 'dry' | 'fresh' | 'instant') => setYeastType(value)}>
                         <SelectTrigger>
                           <SelectValue />
                         </SelectTrigger>
