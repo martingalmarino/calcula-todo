@@ -115,7 +115,8 @@ export default function AhorroObjetivoClient() {
           __html: JSON.stringify(jsonLdCalculator({
             name: 'Calculadora de Ahorro Objetivo',
             description: 'Calcula cuánto ahorrar mensualmente para alcanzar tu meta financiera con intereses',
-            url: '/finanzas/ahorro-objetivo/'
+            url: '/finanzas/ahorro-objetivo/',
+            category: 'finanzas'
           }))
         }}
       />

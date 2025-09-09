@@ -115,7 +115,8 @@ export default function DepreciacionVehiculosClient() {
           __html: JSON.stringify(jsonLdCalculator({
             name: 'Calculadora de Depreciación de Vehículos',
             description: 'Calcula la depreciación anual y mensual de vehículos usando el método lineal',
-            url: '/finanzas/depreciacion-vehiculos/'
+            url: '/finanzas/depreciacion-vehiculos/',
+            category: 'finanzas'
           }))
         }}
       />

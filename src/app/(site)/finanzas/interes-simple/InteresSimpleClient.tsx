@@ -106,7 +106,7 @@ export default function InteresSimpleClient() {
             name: 'Calculadora de Interés Simple',
             description: 'Calcula el interés simple para préstamos cortos, descuentos y deudas básicas',
             url: '/finanzas/interes-simple/',
-            category: 'Finanzas'
+            category: 'finanzas'
           }))
         }}
       />

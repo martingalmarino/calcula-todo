@@ -122,7 +122,8 @@ export default function HipotecaClient() {
           __html: JSON.stringify(jsonLdCalculator({
             name: 'Calculadora de Hipoteca',
             description: 'Calcula cuotas mensuales, intereses totales y cronograma de pagos para préstamos hipotecarios',
-            url: '/finanzas/hipoteca/'
+            url: '/finanzas/hipoteca/',
+            category: 'finanzas'
           }))
         }}
       />

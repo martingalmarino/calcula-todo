@@ -157,7 +157,8 @@ export default function ValorFuturoPresenteClient() {
           __html: JSON.stringify(jsonLdCalculator({
             name: 'Calculadora de Valor Futuro y Presente',
             description: 'Calcula FV y PV para comparar inversiones y evaluar el valor temporal del dinero',
-            url: '/finanzas/valor-futuro-presente/'
+            url: '/finanzas/valor-futuro-presente/',
+            category: 'finanzas'
           }))
         }}
       />

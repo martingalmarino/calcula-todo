@@ -110,7 +110,8 @@ export default function IPCClient() {
           __html: JSON.stringify(jsonLdCalculator({
             name: 'Calculadora del IPC',
             description: 'Calcula el poder adquisitivo, variación del IPC y pérdida de valor por inflación',
-            url: '/finanzas/ipc/'
+            url: '/finanzas/ipc/',
+            category: 'finanzas'
           }))
         }}
       />
