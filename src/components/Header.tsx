@@ -5,6 +5,7 @@ import { useState } from "react"
 import { Menu, X, Calculator, Globe, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/Container"
+import { LanguageSelector } from "@/components/LanguageSelector"
 
 const navigationItems = [
   { label: "Finanzas", href: "/finanzas", hasDropdown: true },
@@ -46,11 +47,7 @@ export function Header() {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
             {/* Language Selector */}
-            <div className="flex items-center space-x-1 text-white">
-              <Globe className="h-4 w-4" />
-              <span className="text-sm">ES</span>
-              <ChevronDown className="h-4 w-4" />
-            </div>
+            <LanguageSelector />
           </div>
 
           {/* Mobile Menu Button */}
