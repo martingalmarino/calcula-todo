@@ -8,37 +8,48 @@ const matematicasClusterIT = {
   label: 'Matematica',
   description: 'Calcolatrici matematiche online gratuite per risolvere problemi di algebra, geometria, trigonometria e molto altro. Risultati precisi e spiegazioni dettagliate.',
   href: '/it/matematicas',
-  keywords: ['calcolatrici matematica', 'algebra', 'geometria', 'trigonometria', 'derivate', 'frazioni', 'percentuali'],
   calculators: [
     {
       label: 'Calcolatrice di Frazioni',
       description: 'Calcola operazioni con frazioni: somma, sottrazione, moltiplicazione e divisione',
-      href: '/it/matematicas/frazioni'
+      href: '/it/matematicas/frazioni',
+      category: 'Matematica',
+      keywords: ['frazioni', 'operazioni', 'semplifica', 'somma', 'sottrazione', 'moltiplicazione', 'divisione']
     },
     {
       label: 'Calcolatrice di Percentuali',
       description: 'Calcola percentuali, sconti, aumenti e rapporti percentuali',
-      href: '/it/matematicas/percentuali'
+      href: '/it/matematicas/percentuali',
+      category: 'Matematica',
+      keywords: ['percentuali', 'sconti', 'aumenti', 'variazione', 'calcolo percentuale']
     },
     {
       label: 'Calcolatrice di Potenze e Radici',
       description: 'Calcola potenze, radici quadrate, cubiche e n-esime',
-      href: '/it/matematicas/potenze-e-radici'
+      href: '/it/matematicas/potenze-e-radici',
+      category: 'Matematica',
+      keywords: ['potenze', 'radici', 'esponenti', 'radice quadrata', 'radice cubica']
     },
     {
       label: 'Calcolatrice di Algebra',
       description: 'Risolvi equazioni lineari, quadratiche e sistemi di equazioni',
-      href: '/it/matematicas/algebra'
+      href: '/it/matematicas/algebra',
+      category: 'Matematica',
+      keywords: ['algebra', 'equazioni', 'lineari', 'quadratiche', 'sistemi']
     },
     {
       label: 'Calcolatrice di Trigonometria',
       description: 'Calcola seno, coseno, tangente e funzioni trigonometriche inverse',
-      href: '/it/matematicas/trigonometria'
+      href: '/it/matematicas/trigonometria',
+      category: 'Matematica',
+      keywords: ['trigonometria', 'seno', 'coseno', 'tangente', 'angoli']
     },
     {
       label: 'Calcolatrice di Derivate',
       description: 'Calcola derivate di funzioni polinomiali, trigonometriche e logaritmiche',
-      href: '/it/matematicas/derivate'
+      href: '/it/matematicas/derivate',
+      category: 'Matematica',
+      keywords: ['derivate', 'calcolo differenziale', 'funzioni', 'polinomiali', 'trigonometriche']
     }
   ]
 }
