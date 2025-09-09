@@ -89,13 +89,13 @@ export default function TrianguloClient() {
     }
   ];
 
-  const handleExampleClick = (example: typeof examples[0]) => {
-    setInputType(example.values.inputType);
-    setBase(example.values.base || '');
-    setHeight(example.values.height || '');
-    setSide1(example.values.side1 || '');
-    setSide2(example.values.side2 || '');
-    setSide3(example.values.side3 || '');
+  const handleExampleClick = (values: Record<string, unknown>) => {
+    setInputType(values.inputType as 'base-height' | 'three-sides');
+    setBase((values.base as string) || '');
+    setHeight((values.height as string) || '');
+    setSide1((values.side1 as string) || '');
+    setSide2((values.side2 as string) || '');
+    setSide3((values.side3 as string) || '');
     setResult(null);
     setError(null);
   };

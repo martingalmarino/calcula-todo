@@ -88,9 +88,9 @@ export default function CirculoClient() {
     }
   ];
 
-  const handleExampleClick = (example: typeof examples[0]) => {
-    setInputValue(example.values.inputValue);
-    setInputType(example.values.inputType);
+  const handleExampleClick = (values: Record<string, unknown>) => {
+    setInputValue(values.inputValue as string);
+    setInputType(values.inputType as 'radius' | 'diameter' | 'area');
     setResult(null);
     setError(null);
   };

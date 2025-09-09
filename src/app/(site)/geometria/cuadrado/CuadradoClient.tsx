@@ -88,9 +88,9 @@ export default function CuadradoClient() {
     }
   ];
 
-  const handleExampleClick = (example: typeof examples[0]) => {
-    setInputType(example.values.inputType);
-    setInputValue(example.values.inputValue);
+  const handleExampleClick = (values: Record<string, unknown>) => {
+    setInputType(values.inputType as 'side' | 'area' | 'perimeter');
+    setInputValue(values.inputValue as string);
     setResult(null);
     setError(null);
   };

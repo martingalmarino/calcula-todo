@@ -113,11 +113,11 @@ export default function RectanguloClient() {
     }
   ];
 
-  const handleExampleClick = (example: typeof examples[0]) => {
-    setInputType(example.values.inputType);
-    setLength(example.values.length);
-    setWidth(example.values.width || '');
-    setKnownValue(example.values.knownValue || '');
+  const handleExampleClick = (values: Record<string, unknown>) => {
+    setInputType(values.inputType as 'dimensions' | 'area' | 'perimeter');
+    setLength(values.length as string);
+    setWidth((values.width as string) || '');
+    setKnownValue((values.knownValue as string) || '');
     setResult(null);
     setError(null);
   };

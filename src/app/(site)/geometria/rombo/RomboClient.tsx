@@ -85,11 +85,11 @@ export default function RomboClient() {
     }
   ];
 
-  const handleExampleClick = (example: typeof examples[0]) => {
-    setInputType(example.values.inputType);
-    setDiagonal1(example.values.diagonal1);
-    setDiagonal2(example.values.diagonal2 || '');
-    setSide(example.values.side || '');
+  const handleExampleClick = (values: Record<string, unknown>) => {
+    setInputType(values.inputType as 'diagonals' | 'side-diagonal');
+    setDiagonal1(values.diagonal1 as string);
+    setDiagonal2((values.diagonal2 as string) || '');
+    setSide((values.side as string) || '');
     setResult(null);
     setError(null);
   };

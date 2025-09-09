@@ -89,11 +89,11 @@ export default function TrapecioClient() {
     }
   ];
 
-  const handleExampleClick = (example: typeof examples[0]) => {
-    setInputType(example.values.inputType);
-    setBase1(example.values.base1);
-    setBase2(example.values.base2);
-    setHeight(example.values.height);
+  const handleExampleClick = (values: Record<string, unknown>) => {
+    setInputType(values.inputType as 'bases-height' | 'area');
+    setBase1(values.base1 as string);
+    setBase2(values.base2 as string);
+    setHeight(values.height as string);
     setResult(null);
     setError(null);
   };
