@@ -15,7 +15,6 @@ const calendarioClusterIT = {
       title: 'Contatore di Giorni tra Date',
       description: 'Calcola la differenza esatta in giorni tra due date qualsiasi',
       href: '/it/calendario/contatore-giorni-date',
-      icon: Calendar,
       category: 'Calendario',
       keywords: ['giorni', 'date', 'calendario', 'differenza', 'contatore']
     },
@@ -24,7 +23,6 @@ const calendarioClusterIT = {
       title: 'Calcolatrice dell\'Età',
       description: 'Scopri la tua età esatta in anni, mesi e giorni',
       href: '/it/calendario/calcolatrice-eta',
-      icon: User,
       category: 'Calendario',
       keywords: ['età', 'anni', 'mesi', 'giorni', 'nascita', 'calcolo']
     },
@@ -33,7 +31,6 @@ const calendarioClusterIT = {
       title: 'Aggiungi/Sottrai Giorni a una Data',
       description: 'Aggiungi o sottrai giorni a una data specifica',
       href: '/it/calendario/aggiungi-sottrai-giorni',
-      icon: Plus,
       category: 'Calendario',
       keywords: ['giorni', 'data', 'aggiungi', 'sottrai', 'calendario']
     },
@@ -42,7 +39,6 @@ const calendarioClusterIT = {
       title: 'Calcolatrice di Ore e Minuti',
       description: 'Calcola, somma e converti ore e minuti facilmente',
       href: '/it/calendario/ore-minuti',
-      icon: Clock,
       category: 'Calendario',
       keywords: ['ore', 'minuti', 'tempo', 'calcolo', 'conversione']
     },
@@ -51,7 +47,6 @@ const calendarioClusterIT = {
       title: 'Giorni di Vacanza',
       description: 'Calcola i giorni di vacanza e ferie lavorative',
       href: '/it/calendario/giorni-vacanza',
-      icon: Plane,
       category: 'Calendario',
       keywords: ['vacanza', 'ferie', 'giorni', 'lavorativi', 'calendario']
     },
@@ -60,7 +55,6 @@ const calendarioClusterIT = {
       title: 'Convertitore di Date',
       description: 'Converte date tra diversi formati e calendari',
       href: '/it/calendario/convertitore-date',
-      icon: Calendar,
       category: 'Calendario',
       keywords: ['date', 'formato', 'conversione', 'europeo', 'americano']
     }
