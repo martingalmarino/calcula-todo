@@ -1,7 +1,7 @@
 "use client"
 
 import { CategoryPageLayout } from '@/components/CategoryPageLayout'
-import { Heart, Flame, Percent, Users, Droplets, CalendarHeart } from 'lucide-react'
+import { Heart, Flame, Percent, Users, Droplets, CalendarHeart, Calculator } from 'lucide-react'
 
 // Definir la categoría salute en italiano
 const saluteClusterIT = {
