@@ -2,7 +2,7 @@
 
 import { CategoryPageLayout } from '@/components/CategoryPageLayout'
 import { SITE } from '@/lib/site.config'
-import { Calculator, BookOpen, Users, Divide, Percent, Zap, X, Triangle, TrendingUp, BarChart3, Hash, Function } from 'lucide-react'
+import { Calculator, BookOpen, Users, Divide, Percent, Zap, X, Triangle, TrendingUp, BarChart3, Hash, FunctionSquare } from 'lucide-react'
 
 const matematicasCluster = SITE.clusters.matematicas
 
@@ -14,11 +14,11 @@ export function MatematicasClient() {
     '/matematicas/algebra/': X,
     '/matematicas/trigonometria/': Triangle,
     '/matematicas/derivadas/': TrendingUp,
-    '/matematicas/integrales/': Function,
+    '/matematicas/integrales/': FunctionSquare,
     '/matematicas/matrices/': BarChart3,
     '/matematicas/combinatoria/': Hash,
     '/matematicas/progresiones/': TrendingUp,
-    '/matematicas/logaritmos/': Function
+    '/matematicas/logaritmos/': FunctionSquare
   }
 
   const customStats = [
