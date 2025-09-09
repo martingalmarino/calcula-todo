@@ -70,10 +70,10 @@ export default function CalendarioClient() {
       <Container>
         <div className="py-8">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-foreground mb-4">
+            <h1 className="text-4xl font-bold text-blue-600 mb-4">
               Calculadoras de Calendario
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Herramientas útiles para trabajar con fechas, tiempo y calendarios. Calcula edades, diferencias de fechas, horas y días de vacaciones.
             </p>
           </div>
@@ -97,7 +97,7 @@ export default function CalendarioClient() {
               <Link key={calculator.id} href={calculator.href}>
                 <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">
                   <CardHeader className="text-center">
-                    <div className="mx-auto mb-4 p-3 bg-red-100 rounded-full w-fit group-hover:bg-red-200 transition-colors">
+                    <div className="mx-auto mb-4 p-3 bg-blue-100 rounded-full w-fit group-hover:bg-blue-200 transition-colors">
                       {calculator.icon}
                     </div>
                     <CardTitle className="text-lg">{calculator.title}</CardTitle>
@@ -106,7 +106,7 @@ export default function CalendarioClient() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-center">
-                    <div className="text-red-600 font-medium group-hover:text-red-700">
+                    <div className="text-blue-600 font-medium group-hover:text-blue-700">
                       Usar →
                     </div>
                   </CardContent>
@@ -116,16 +116,16 @@ export default function CalendarioClient() {
           </div>
 
           {/* CTA */}
-          <div className="text-center bg-red-50 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">
+          <div className="text-center bg-blue-50 rounded-lg p-8">
+            <h2 className="text-2xl font-bold text-blue-900 mb-4">
               ¿Necesitas una calculadora específica?
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-gray-700 mb-6">
               Si no encuentras la calculadora de calendario que buscas, contáctanos y la agregaremos.
             </p>
             <Link 
               href="/contacto"
-              className="inline-flex items-center px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Contactar
             </Link>

@@ -101,8 +101,8 @@ export default function MatematicasPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <Card className="text-center calculator-card">
               <CardHeader>
-                <div className="mx-auto w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                  <Calculator className="h-6 w-6 text-red-600" />
+                <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <Calculator className="h-6 w-6 text-blue-600" />
                 </div>
                 <CardTitle className="text-2xl text-gray-900">{calculators.length}</CardTitle>
                 <CardDescription className="text-gray-600">Calculadoras Disponibles</CardDescription>
@@ -111,8 +111,8 @@ export default function MatematicasPage() {
             
             <Card className="text-center calculator-card">
               <CardHeader>
-                <div className="mx-auto w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                  <BookOpen className="h-6 w-6 text-red-600" />
+                <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <BookOpen className="h-6 w-6 text-blue-600" />
                 </div>
                 <CardTitle className="text-2xl text-gray-900">6+</CardTitle>
                 <CardDescription className="text-gray-600">Categorías Matemáticas</CardDescription>
@@ -121,8 +121,8 @@ export default function MatematicasPage() {
             
             <Card className="text-center calculator-card">
               <CardHeader>
-                <div className="mx-auto w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6 text-red-600" />
+                <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <Users className="h-6 w-6 text-blue-600" />
                 </div>
                 <CardTitle className="text-2xl text-gray-900">100%</CardTitle>
                 <CardDescription className="text-gray-600">Gratuito</CardDescription>

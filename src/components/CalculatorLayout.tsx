@@ -67,10 +67,10 @@ export function CalculatorLayout({
       {/* Header - Mobile First */}
       <div className="text-center space-y-3">
         <div className="flex items-center justify-center gap-2 mb-2">
-          <Calculator className="h-6 w-6 text-red-600" />
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{title}</h1>
+          <Calculator className="h-6 w-6 text-blue-600" />
+          <h1 className="text-2xl md:text-3xl font-bold text-blue-600">{title}</h1>
         </div>
-        <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-sm md:text-base text-gray-700 max-w-2xl mx-auto leading-relaxed">
           {description}
         </p>
       </div>
@@ -87,7 +87,7 @@ export function CalculatorLayout({
           <Card className="calculator-card">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Lightbulb className="h-5 w-5 text-yellow-500" />
+                <Lightbulb className="h-5 w-5 text-blue-500" />
                 Calculadora
               </CardTitle>
               <CardDescription className="text-sm">
