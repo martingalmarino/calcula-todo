@@ -11,10 +11,10 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { 
-  calculatePercentage,
-  calculatePercentageOf,
-  calculatePercentageChange,
-  calculateOriginalValue,
+  percentageOfNumber,
+  percentageOf,
+  variationPercent,
+  originalValueAfterIncrease,
   type PercentageResult
 } from '@/lib/math/percentage'
 
@@ -72,7 +72,7 @@ export default function PercentualiClientIT() {
         return
       }
 
-      const result = calculatePercentage(value, percentage)
+      const result = percentageOfNumber(percentage, value)
       setResults(result)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore nel calcolo')
@@ -90,7 +90,7 @@ export default function PercentualiClientIT() {
         return
       }
 
-      const result = calculatePercentageOf(part, total)
+      const result = percentageOf(part, total)
       setResults(result)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore nel calcolo')
@@ -108,7 +108,7 @@ export default function PercentualiClientIT() {
         return
       }
 
-      const result = calculatePercentageChange(original, final)
+      const result = variationPercent(original, final)
       setResults(result)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore nel calcolo')
@@ -126,7 +126,7 @@ export default function PercentualiClientIT() {
         return
       }
 
-      const result = calculateOriginalValue(final, percentage)
+      const result = originalValueAfterIncrease(final, percentage)
       setResults(result)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore nel calcolo')
@@ -305,18 +305,14 @@ export default function PercentualiClientIT() {
                     <CardContent className="space-y-2">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-blue-600">
-                          {results.result}
+                          {results.result.toFixed(2)}
                         </div>
-                        {results.percentage && (
-                          <div className="text-lg text-gray-600">
-                            {results.percentage}%
-                          </div>
-                        )}
-                        {results.explanation && (
-                          <div className="text-sm text-gray-500 mt-2">
-                            {results.explanation}
-                          </div>
-                        )}
+                        <div className="text-sm text-gray-500 mt-2">
+                          Formula: {results.formula}
+                        </div>
+                        <div className="text-sm text-gray-500 mt-1">
+                          {results.steps.join(' → ')}
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
