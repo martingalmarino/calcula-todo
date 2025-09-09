@@ -78,7 +78,7 @@ export function HeaderItalian() {
                   {item.label}
                 </Link>
               ))}
-              <div className="px-3 py-2">
+              <div className="px-3 py-2 border-t border-white/20 mt-2 pt-4">
                 <LanguageSelector />
               </div>
             </div>
