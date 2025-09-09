@@ -21,9 +21,6 @@ export const metadata: Metadata = buildMeta({
 })
 
 export default function HomePage() {
-  // Obtener todas las calculadoras de matemáticas
-  const mathCalculators = SITE.clusters.matematicas.calculators
-
   return (
     <>
       <script
@@ -47,41 +44,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Calculator Links Grid - Similar to the reference image */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              
-              {/* Left Column */}
-              <div className="space-y-4">
-                {mathCalculators.slice(0, 5).map((calculator) => (
-                  <Link 
-                    key={calculator.href}
-                    href={calculator.href} 
-                    className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-all duration-200 group relative overflow-hidden"
-                  >
-                    {/* Línea lateral izquierda */}
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-600 group-hover:bg-blue-500 transition-colors duration-200"></div>
-                    <span className="text-gray-700 text-lg font-bold ml-2">Calculadora de {calculator.label}</span>
-                    <span className="text-gray-400 text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
-                  </Link>
-                ))}
-              </div>
-
-              {/* Right Column */}
-              <div className="space-y-4">
-                {mathCalculators.slice(5, 10).map((calculator) => (
-                  <Link 
-                    key={calculator.href}
-                    href={calculator.href} 
-                    className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition-all duration-200 group relative overflow-hidden"
-                  >
-                    {/* Línea lateral izquierda */}
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-600 group-hover:bg-blue-500 transition-colors duration-200"></div>
-                    <span className="text-gray-700 text-lg font-bold ml-2">Calculadora de {calculator.label}</span>
-                    <span className="text-gray-400 text-xl font-bold group-hover:translate-x-1 transition-transform">→</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
 
             {/* Additional Categories Section - New Responsive Design */}
             <div className="mt-20 bg-gray-50 py-16 -mx-4 px-4">
@@ -92,6 +54,34 @@ export default function HomePage() {
               
               {/* Categories Grid - Responsive */}
               <div className="space-y-12">
+                
+                {/* Matemáticas Section */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">🧮</span>
+                    <h3 className="text-blue-900 text-xl font-bold">Matemáticas</h3>
+                  </div>
+                  <ChipsContainer>
+                    <Chip href="/matematicas/fracciones/" icon="divide" ariaLabel="Calculadora de Fracciones">
+                      Calculadora de Fracciones
+                    </Chip>
+                    <Chip href="/matematicas/porcentajes/" icon="percent" ariaLabel="Calculadora de Porcentajes">
+                      Calculadora de Porcentajes
+                    </Chip>
+                    <Chip href="/matematicas/potencias-raices/" icon="zap" ariaLabel="Calculadora de Potencias y Raíces">
+                      Calculadora de Potencias y Raíces
+                    </Chip>
+                    <Chip href="/matematicas/algebra/" icon="x" ariaLabel="Calculadora de Álgebra">
+                      Calculadora de Álgebra
+                    </Chip>
+                    <Chip href="/matematicas/trigonometria/" icon="triangle" ariaLabel="Calculadora de Trigonometría">
+                      Calculadora de Trigonometría
+                    </Chip>
+                    <Chip href="/matematicas/derivadas/" icon="trending-up" ariaLabel="Calculadora de Derivadas">
+                      Calculadora de Derivadas
+                    </Chip>
+                  </ChipsContainer>
+                </div>
                 
                 {/* Calendario Section */}
                 <div className="category-section-new">
