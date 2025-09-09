@@ -52,9 +52,12 @@ export interface OvulationResult {
 /**
  * Calcula el Índice de Masa Corporal (IMC)
  */
-export function calculateIMC(weight: number, height: number): IMCResult {
+export function calculateIMC(weight: number, height: number, language: 'es' | 'it' = 'es'): IMCResult {
   if (weight <= 0 || height <= 0) {
-    throw new Error('El peso y la altura deben ser valores positivos');
+    const errorMessage = language === 'it' 
+      ? 'Il peso e l\'altezza devono essere valori positivi'
+      : 'El peso y la altura deben ser valores positivos';
+    throw new Error(errorMessage);
   }
 
   const heightInMeters = height / 100; // Convertir cm a metros
@@ -64,22 +67,44 @@ export function calculateIMC(weight: number, height: number): IMCResult {
   let description: string;
   let recommendation: string;
 
-  if (imc < 18.5) {
-    category = 'Bajo peso';
-    description = 'Tu IMC indica bajo peso.';
-    recommendation = 'Consulta con un profesional de la salud para evaluar tu estado nutricional.';
-  } else if (imc < 25) {
-    category = 'Peso normal';
-    description = 'Tu IMC está dentro del rango normal.';
-    recommendation = 'Mantén una dieta equilibrada y ejercicio regular.';
-  } else if (imc < 30) {
-    category = 'Sobrepeso';
-    description = 'Tu IMC indica sobrepeso.';
-    recommendation = 'Considera ajustar tu dieta y aumentar la actividad física.';
+  if (language === 'it') {
+    // Traducciones italianas
+    if (imc < 18.5) {
+      category = 'Sottopeso';
+      description = 'Il tuo IMC indica sottopeso.';
+      recommendation = 'Consulta un professionista della salute per valutare il tuo stato nutrizionale.';
+    } else if (imc < 25) {
+      category = 'Peso normale';
+      description = 'Il tuo IMC è nel range normale.';
+      recommendation = 'Mantieni una dieta equilibrata e esercizio regolare.';
+    } else if (imc < 30) {
+      category = 'Sovrappeso';
+      description = 'Il tuo IMC indica sovrappeso.';
+      recommendation = 'Considera di aggiustare la tua dieta e aumentare l\'attività fisica.';
+    } else {
+      category = 'Obesità';
+      description = 'Il tuo IMC indica obesità.';
+      recommendation = 'È importante consultare un professionista della salute per un piano di trattamento.';
+    }
   } else {
-    category = 'Obesidad';
-    description = 'Tu IMC indica obesidad.';
-    recommendation = 'Es importante consultar con un profesional de la salud para un plan de tratamiento.';
+    // Traducciones españolas (por defecto)
+    if (imc < 18.5) {
+      category = 'Bajo peso';
+      description = 'Tu IMC indica bajo peso.';
+      recommendation = 'Consulta con un profesional de la salud para evaluar tu estado nutricional.';
+    } else if (imc < 25) {
+      category = 'Peso normal';
+      description = 'Tu IMC está dentro del rango normal.';
+      recommendation = 'Mantén una dieta equilibrada y ejercicio regular.';
+    } else if (imc < 30) {
+      category = 'Sobrepeso';
+      description = 'Tu IMC indica sobrepeso.';
+      recommendation = 'Considera ajustar tu dieta y aumentar la actividad física.';
+    } else {
+      category = 'Obesidad';
+      description = 'Tu IMC indica obesidad.';
+      recommendation = 'Es importante consultar con un profesional de la salud para un plan de tratamiento.';
+    }
   }
 
   return {

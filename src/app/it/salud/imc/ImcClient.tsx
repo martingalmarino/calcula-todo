@@ -34,7 +34,7 @@ export default function IMCClientIT() {
         return
       }
 
-      const result = calculateIMC(weightNum, heightNum)
+      const result = calculateIMC(weightNum, heightNum, 'it')
       setResults(result)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore nel calcolo dell\'IMC')
