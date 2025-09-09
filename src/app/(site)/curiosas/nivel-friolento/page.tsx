@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { buildMeta } from '@/lib/seo';
-import { NivelFriolentoClient } from './NivelFriolentoClient';
+import NivelFriolentoClient from './NivelFriolentoClient';
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Nivel de Friolento - Ciudades Ideales para tu Temperatura',

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { buildMeta } from '@/lib/seo';
-import { TiempoPeliculasClient } from './TiempoPeliculasClient';
+import TiempoPeliculasClient from './TiempoPeliculasClient';
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Tiempo de Vida en Películas - Cuántos Años Dedicamos al Cine',

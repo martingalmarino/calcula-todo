@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { buildMeta } from '@/lib/seo';
-import { PizzaPersonaClient } from './PizzaPersonaClient';
+import PizzaPersonaClient from './PizzaPersonaClient';
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Pizza por Persona - Cuántas Pizzas Necesitas',
