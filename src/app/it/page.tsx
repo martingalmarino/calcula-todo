@@ -100,22 +100,22 @@ export default function ItalianHomePage() {
                     <h3 className="text-blue-900 text-xl font-bold">Calendario</h3>
                   </div>
                   <ChipsContainer>
-                    <Chip href="/it/calendario/dias-entre-fechas/" icon="calendar" ariaLabel="Contatore di Giorni tra Date">
+                    <Chip href="/it/calendario/contatore-giorni-date/" icon="calendar" ariaLabel="Contatore di Giorni tra Date">
                       Contatore di Giorni tra Date
                     </Chip>
-                    <Chip href="/it/calendario/calculadora-edad/" icon="user-round" ariaLabel="Calcolatrice dell&apos;Età">
+                    <Chip href="/it/calendario/calcolatrice-eta/" icon="user-round" ariaLabel="Calcolatrice dell&apos;Età">
                       Calcolatrice dell&apos;Età
                     </Chip>
-                    <Chip href="/it/calendario/sumar-restar-dias/" icon="plus-minus" ariaLabel="Aggiungi/Sottrai Giorni a una Data">
+                    <Chip href="/it/calendario/aggiungi-sottrai-giorni/" icon="plus-minus" ariaLabel="Aggiungi/Sottrai Giorni a una Data">
                       Aggiungi/Sottrai Giorni a una Data
                     </Chip>
-                    <Chip href="/it/calendario/horas-minutos/" icon="clock-8" ariaLabel="Calcolatrice di Ore e Minuti">
+                    <Chip href="/it/calendario/ore-minuti/" icon="clock-8" ariaLabel="Calcolatrice di Ore e Minuti">
                       Calcolatrice di Ore e Minuti
                     </Chip>
-                    <Chip href="/it/calendario/dias-vacaciones/" icon="calendar-days" ariaLabel="Giorni di Vacanza">
+                    <Chip href="/it/calendario/giorni-vacanza/" icon="calendar-days" ariaLabel="Giorni di Vacanza">
                       Giorni di Vacanza
                     </Chip>
-                    <Chip href="/it/calendario/conversor-fechas/" icon="calendar-range" ariaLabel="Convertitore di Date">
+                    <Chip href="/it/calendario/convertitore-date/" icon="calendar-range" ariaLabel="Convertitore di Date">
                       Convertitore di Date
                     </Chip>
                   </ChipsContainer>
