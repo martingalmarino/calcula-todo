@@ -48,7 +48,11 @@ export default function ConversionTemperaturasClient() {
   const [inputValue, setInputValue] = useState<number>(180);
   const [fromUnit, setFromUnit] = useState<'C' | 'F' | 'GM'>('C');
   const [toUnit, setToUnit] = useState<'C' | 'F' | 'GM'>('F');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    value: number;
+    unit: string;
+    description: string;
+  } | null>(null);
   const [copied, setCopied] = useState(false);
 
   const calculate = () => {

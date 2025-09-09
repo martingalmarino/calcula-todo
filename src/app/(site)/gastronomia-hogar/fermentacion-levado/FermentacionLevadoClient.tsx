@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Clock, Thermometer, Info, Timer } from 'lucide-react';
+import { Clock, Thermometer, Timer } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -40,7 +40,13 @@ const breadTypes = [
 export default function FermentacionLevadoClient() {
   const [temperature, setTemperature] = useState<number>(25);
   const [yeastType, setYeastType] = useState<'dry' | 'fresh' | 'sourdough'>('dry');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    estimatedTime: number;
+    minTime: number;
+    maxTime: number;
+    yeastType: string;
+    tips: string[];
+  } | null>(null);
 
   const calculate = () => {
     try {

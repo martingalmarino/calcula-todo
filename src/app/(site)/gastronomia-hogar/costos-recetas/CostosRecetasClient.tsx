@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { DollarSign, Plus, Trash2, Download, TrendingUp, TrendingDown } from 'lucide-react';
+import { DollarSign, Plus, Trash2, Download, TrendingDown } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -46,7 +46,20 @@ export default function CostosRecetasClient() {
   ]);
   const [servings, setServings] = useState<number>(4);
   const [storeAlternative, setStoreAlternative] = useState<number>(0);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    totalCost: number;
+    costPerServing: number;
+    ingredientDetails: Array<{
+      name: string;
+      amount: number;
+      unit: string;
+      cost: number;
+    }>;
+    savings?: {
+      amount: number;
+      percentage: number;
+    };
+  } | null>(null);
 
   const addIngredient = () => {
     setIngredients([...ingredients, { name: '', amount: 0, unit: 'g', pricePerUnit: 0 }]);
@@ -58,7 +71,7 @@ export default function CostosRecetasClient() {
     }
   };
 
-  const updateIngredient = (index: number, field: keyof Ingredient, value: any) => {
+  const updateIngredient = (index: number, field: keyof Ingredient, value: string | number) => {
     const updated = [...ingredients];
     updated[index] = { ...updated[index], [field]: value };
     setIngredients(updated);
@@ -104,8 +117,8 @@ export default function CostosRecetasClient() {
       `📊 Costo Total: $${result.totalCost}\n` +
       `👥 Porciones: ${servings}\n` +
       `🍽️ Costo por Porción: $${result.costPerServing}\n\n` +
-      `📋 Desglose de Ingredientes:\n${result.ingredientDetails.map((ing: any) => 
-        `• ${ing.name}: ${ing.amount}${ing.unit} - $${ing.totalCost}`
+      `📋 Desglose de Ingredientes:\n${result.ingredientDetails.map((ing) => 
+        `• ${ing.name}: ${ing.amount}${ing.unit} - $${ing.cost}`
       ).join('\n')}\n\n` +
       `${result.savings ? `💡 Ahorro vs Comercial: $${result.savings.amount} (${result.savings.percentage}%)` : ''}`;
 
@@ -347,13 +360,13 @@ export default function CostosRecetasClient() {
                         <div className="bg-gray-50 p-4 rounded-lg">
                           <h4 className="font-semibold text-gray-800 mb-3">Desglose por Ingrediente</h4>
                           <div className="space-y-2">
-                            {result.ingredientDetails.map((ing: any, index: number) => (
+                            {result.ingredientDetails.map((ing, index: number) => (
                               <div key={index} className="flex justify-between items-center text-sm">
                                 <span className="text-gray-700">
                                   {ing.name} ({ing.amount}{ing.unit})
                                 </span>
                                 <span className="font-medium text-gray-900">
-                                  ${ing.totalCost}
+                                  ${ing.cost}
                                 </span>
                               </div>
                             ))}

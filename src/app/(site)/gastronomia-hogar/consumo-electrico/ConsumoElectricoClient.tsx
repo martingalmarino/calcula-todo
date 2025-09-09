@@ -1,14 +1,13 @@
 "use client";
 
 import { useState } from 'react';
-import { Zap, TrendingUp, TrendingDown, Info, Calculator } from 'lucide-react';
+import { Zap, Calculator } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CardCalculator as Card } from '@/components/CardCalculator';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { jsonLdCalculator } from '@/lib/seo';
 import { getBreadcrumbs } from '@/lib/site.config';
 import { calculateElectricityConsumption } from '@/lib/math/gastronomy';
@@ -79,7 +78,13 @@ export default function ConsumoElectricoClient() {
   const [hoursPerDay, setHoursPerDay] = useState<number>(2);
   const [daysPerMonth, setDaysPerMonth] = useState<number>(30);
   const [costPerKWh, setCostPerKWh] = useState<number>(0.15);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    monthlyKWh: number;
+    monthlyCost: number;
+    yearlyCost: number;
+    dailyKWh: number;
+    dailyCost: number;
+  } | null>(null);
 
   const calculate = () => {
     try {

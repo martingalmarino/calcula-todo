@@ -64,12 +64,28 @@ interface Ingredient {
   caloriesPerUnit: number;
 }
 
+interface RecipeResult {
+  totalCalories: number;
+  caloriesPerServing: number;
+  macronutrientsPerServing: {
+    protein: number;
+    carbs: number;
+    fat: number;
+  };
+  ingredientBreakdown: Array<{
+    name: string;
+    quantity: number;
+    unit: string;
+    calories: number;
+  }>;
+}
+
 export default function CaloriasRecetaClient() {
   const [ingredients, setIngredients] = useState<Ingredient[]>([
     { name: '', quantity: 0, unit: 'g', caloriesPerUnit: 0 }
   ]);
   const [servings, setServings] = useState<number>(4);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<RecipeResult | null>(null);
 
   const addIngredient = () => {
     setIngredients([...ingredients, { name: '', quantity: 0, unit: 'g', caloriesPerUnit: 0 }]);
@@ -81,7 +97,7 @@ export default function CaloriasRecetaClient() {
     }
   };
 
-  const updateIngredient = (index: number, field: keyof Ingredient, value: any) => {
+  const updateIngredient = (index: number, field: keyof Ingredient, value: string | number) => {
     const updated = [...ingredients];
     updated[index] = { ...updated[index], [field]: value };
     
@@ -152,7 +168,7 @@ export default function CaloriasRecetaClient() {
       `• Proteínas: ${result.macronutrientsPerServing.protein}g\n` +
       `• Carbohidratos: ${result.macronutrientsPerServing.carbs}g\n` +
       `• Grasas: ${result.macronutrientsPerServing.fat}g\n\n` +
-      `Ingredientes:\n${result.ingredientBreakdown.map((ing: any) => 
+      `Ingredientes:\n${result.ingredientBreakdown.map((ing) => 
         `• ${ing.name}: ${ing.quantity}${ing.unit} (${ing.calories} cal)`
       ).join('\n')}`;
 

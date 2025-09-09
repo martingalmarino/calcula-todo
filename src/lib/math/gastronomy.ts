@@ -314,7 +314,7 @@ export function convertTemperature(
       throw new Error('Unidad de temperatura no válida');
   }
 
-  gasMark = celsiusToGasMark(celsius);
+  const gasMark = celsiusToGasMark(celsius);
 
   const description = getTemperatureDescription(celsius);
   const bakingTips = getBakingTips(celsius);
