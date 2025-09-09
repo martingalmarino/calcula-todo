@@ -5,7 +5,7 @@ import { Zap, Calculator } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { CardCalculator as Card } from '@/components/CardCalculator';
+import { Card } from '@/components/Card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { jsonLdCalculator } from '@/lib/seo';
