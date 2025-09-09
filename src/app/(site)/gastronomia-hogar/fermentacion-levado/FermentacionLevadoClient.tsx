@@ -108,22 +108,22 @@ export default function FermentacionLevadoClient() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CalculatorLayout
-        title="Calculadora de Fermentación y Tiempos de Levado"
-        description="Calcula los tiempos de fermentación y levado para panes y masas según temperatura y tipo de levadura."
-      >
-        <Container>
-          <Breadcrumbs items={breadcrumbs} />
-          
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h1 className="text-4xl md:text-5xl font-bold text-blue-600 mb-4">
-                Calculadora de Fermentación y Tiempos de Levado
-              </h1>
-              <p className="text-lg text-gray-600">
-                Calcula los tiempos de fermentación y levado para panes y masas según temperatura y tipo de levadura
-              </p>
-            </div>
+      <Container>
+        <div className="py-8">
+          <Breadcrumbs 
+            items={breadcrumbs} 
+            className="mb-8"
+          />
+
+          <CalculatorLayout
+            title="Calculadora de Fermentación y Tiempos de Levado"
+            description="Calcula los tiempos de fermentación y levado para panes y masas según temperatura y tipo de levadura."
+            examples={examples}
+            faqItems={faqItems}
+            relatedLinks={relatedLinks}
+            onExampleClick={handleExampleClick}
+          >
+            <div className="max-w-4xl mx-auto">
 
             <div className="grid md:grid-cols-2 gap-8">
               <Card>
@@ -337,9 +337,10 @@ export default function FermentacionLevadoClient() {
                 }
               ]}
             />
-          </div>
-        </Container>
-      </CalculatorLayout>
+            </div>
+          </CalculatorLayout>
+        </div>
+      </Container>
     </>
   );
 }

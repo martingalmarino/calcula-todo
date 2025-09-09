@@ -132,22 +132,22 @@ export default function ConversionTemperaturasClient() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CalculatorLayout
-        title="Conversión de Temperaturas"
-        description="Convierte entre grados Celsius, Fahrenheit y Gas Mark para cocinar y hornear."
-      >
-        <Container>
-          <Breadcrumbs items={breadcrumbs} />
-          
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h1 className="text-4xl md:text-5xl font-bold text-blue-600 mb-4">
-                Conversión de Temperaturas
-              </h1>
-              <p className="text-lg text-gray-600">
-                Convierte entre grados Celsius, Fahrenheit y Gas Mark para cocinar y hornear
-              </p>
-            </div>
+      <Container>
+        <div className="py-8">
+          <Breadcrumbs 
+            items={breadcrumbs} 
+            className="mb-8"
+          />
+
+          <CalculatorLayout
+            title="Conversión de Temperaturas"
+            description="Convierte entre grados Celsius, Fahrenheit y Gas Mark para cocinar y hornear."
+            examples={examples}
+            faqItems={faqItems}
+            relatedLinks={relatedLinks}
+            onExampleClick={handleExampleClick}
+          >
+            <div className="max-w-4xl mx-auto">
 
             <div className="grid md:grid-cols-2 gap-8">
               <Card>
@@ -345,9 +345,10 @@ export default function ConversionTemperaturasClient() {
                 }
               ]}
             />
-          </div>
-        </Container>
-      </CalculatorLayout>
+            </div>
+          </CalculatorLayout>
+        </div>
+      </Container>
     </>
   );
 }

@@ -144,9 +144,11 @@ export default function ConversionMedidasClient() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
-        
         <div className="py-8">
+          <Breadcrumbs 
+            items={breadcrumbs} 
+            className="mb-8"
+          />
           <CalculatorLayout
             title="Conversión de Medidas de Cocina"
             description="Convierte cantidades entre gramos, mililitros, tazas, cucharadas y cucharaditas. Incluye selector de ingrediente para conversiones precisas."
