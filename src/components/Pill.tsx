@@ -21,17 +21,17 @@ export function Pill({
   
   const variantClasses = {
     default: active 
-      ? "bg-primary text-primary-foreground hover:bg-primary/90" 
-      : "bg-primary/10 text-primary hover:bg-primary/20",
+      ? "bg-blue-600 text-white hover:bg-blue-700 border border-blue-600" 
+      : "bg-gray-50 text-blue-900 border border-gray-100 hover:bg-blue-100 hover:border-blue-600",
     secondary: active
-      ? "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-      : "bg-secondary/50 text-secondary-foreground hover:bg-secondary/70",
+      ? "bg-blue-600 text-white hover:bg-blue-700 border border-blue-600"
+      : "bg-gray-50 text-blue-900 border border-gray-100 hover:bg-blue-100 hover:border-blue-600",
     outline: active
-      ? "border-2 border-primary bg-primary/10 text-primary"
-      : "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+      ? "bg-blue-600 text-white hover:bg-blue-700 border border-blue-600"
+      : "bg-gray-50 text-blue-900 border border-gray-100 hover:bg-blue-100 hover:border-blue-600",
     destructive: active
-      ? "bg-destructive text-destructive-foreground hover:bg-destructive/90"
-      : "bg-destructive/10 text-destructive hover:bg-destructive/20"
+      ? "bg-blue-600 text-white hover:bg-blue-700 border border-blue-600"
+      : "bg-gray-50 text-blue-900 border border-gray-100 hover:bg-blue-100 hover:border-blue-600"
   }
   
   const sizeClasses = {

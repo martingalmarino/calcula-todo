@@ -181,7 +181,7 @@ export default function ContadorClicksClient() {
                   <div 
                     className={`w-full h-64 rounded-lg border-2 border-dashed flex items-center justify-center text-center transition-colors ${
                       isRunning 
-                        ? 'bg-red-50 border-red-300 hover:bg-red-100 cursor-pointer' 
+                        ? 'bg-gray-50 border-gray-100 hover:bg-blue-100 hover:border-blue-600 cursor-pointer' 
                         : 'bg-gray-50 border-gray-300'
                     }`}
                     onClick={handleClick}
