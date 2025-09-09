@@ -25,13 +25,18 @@ interface CategoryPageLayoutProps {
     question: string
     answer: string
   }>
+  breadcrumbs?: Array<{
+    label: string
+    href: string
+  }>
 }
 
 export function CategoryPageLayout({ 
   category, 
   customIcons = {}, 
   customStats,
-  faqItems 
+  faqItems,
+  breadcrumbs: customBreadcrumbs
 }: CategoryPageLayoutProps) {
   const calculators = category.calculators
   const pathname = usePathname()
@@ -115,7 +120,7 @@ export function CategoryPageLayout({
       <Container>
         <div className="py-8">
           {/* Breadcrumbs */}
-          <Breadcrumbs items={getBreadcrumbs(category.href)} />
+          <Breadcrumbs items={customBreadcrumbs || getBreadcrumbs(category.href)} />
 
           {/* Header */}
           <div className="text-center space-y-8 mb-16">

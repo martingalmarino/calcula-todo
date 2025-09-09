@@ -104,12 +104,18 @@ export function MatematicasClientIT() {
     }
   ]
 
+  const breadcrumbs = [
+    { label: 'Home', href: '/it' },
+    { label: 'Matematica', href: '/it/matematicas' }
+  ]
+
   return (
     <CategoryPageLayout
       category={matematicasClusterIT}
       customIcons={customIcons}
       customStats={customStats}
       faqItems={faqItems}
+      breadcrumbs={breadcrumbs}
     />
   )
 }
