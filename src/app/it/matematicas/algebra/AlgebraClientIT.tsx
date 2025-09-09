@@ -205,7 +205,7 @@ export default function AlgebraClientIT() {
             examples={examples}
             faqItems={faqItems}
             onExampleClick={(values) => {
-              if (values.a !== undefined && values.b !== undefined && values.c !== undefined) {
+              if (values.a !== undefined && values.a !== null && values.b !== undefined && values.b !== null && values.c !== undefined && values.c !== null) {
                 if (activeTab === 'linear') {
                   setLinearInputs({ a: values.a.toString(), b: values.b.toString(), c: values.c.toString() })
                 } else if (activeTab === 'quadratic') {
@@ -215,7 +215,7 @@ export default function AlgebraClientIT() {
                 } else if (activeTab === 'vertex') {
                   setVertexInputs({ a: values.a.toString(), b: values.b.toString(), c: values.c.toString() })
                 }
-              } else if (values.a1 !== undefined) {
+              } else if (values.a1 !== undefined && values.a1 !== null && values.b1 !== undefined && values.b1 !== null && values.c1 !== undefined && values.c1 !== null && values.a2 !== undefined && values.a2 !== null && values.b2 !== undefined && values.b2 !== null && values.c2 !== undefined && values.c2 !== null) {
                 setSystemInputs({
                   a1: values.a1.toString(), b1: values.b1.toString(), c1: values.c1.toString(),
                   a2: values.a2.toString(), b2: values.b2.toString(), c2: values.c2.toString()
