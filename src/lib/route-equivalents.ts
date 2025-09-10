@@ -27,31 +27,37 @@ export const routeEquivalents: RouteEquivalent[] = [
   {
     es: '/matematicas/fracciones/',
     it: '/it/matematicas/frazioni/',
+    pt: '/pt/matematica/fracoes/',
     category: 'matematicas'
   },
   {
     es: '/matematicas/porcentajes/',
     it: '/it/matematicas/percentuali/',
+    pt: '/pt/matematica/percentuais/',
     category: 'matematicas'
   },
   {
     es: '/matematicas/potencias-raices/',
     it: '/it/matematicas/potenze-e-radici/',
+    pt: '/pt/matematica/potencias-e-raizes/',
     category: 'matematicas'
   },
   {
     es: '/matematicas/algebra/',
     it: '/it/matematicas/algebra/',
+    pt: '/pt/matematica/algebra/',
     category: 'matematicas'
   },
   {
     es: '/matematicas/trigonometria/',
     it: '/it/matematicas/trigonometria/',
+    pt: '/pt/matematica/trigonometria/',
     category: 'matematicas'
   },
   {
     es: '/matematicas/derivadas/',
     it: '/it/matematicas/derivate/',
+    pt: '/pt/matematica/derivadas/',
     category: 'matematicas'
   },
   
@@ -59,6 +65,7 @@ export const routeEquivalents: RouteEquivalent[] = [
   {
     es: '/salud/imc/',
     it: '/it/salud/imc/',
+    pt: '/pt/saude/imc/',
     category: 'salud'
   },
   
@@ -66,11 +73,13 @@ export const routeEquivalents: RouteEquivalent[] = [
   {
     es: '/matematicas/',
     it: '/it/matematicas/',
+    pt: '/pt/matematica/',
     category: 'categorias'
   },
   {
     es: '/salud/',
     it: '/it/salud/',
+    pt: '/pt/saude/',
     category: 'categorias'
   }
 ];
