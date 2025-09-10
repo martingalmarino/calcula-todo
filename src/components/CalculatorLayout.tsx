@@ -82,13 +82,13 @@ export function CalculatorLayout({
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="calculator-tabs">
           <TabsTrigger value="calculator" className="calculator-tab">
-            {isItalian ? 'Calcolatrice' : 'Calculadora'}
+            {isItalian ? 'Calcolatrice' : isPortuguese ? 'Calculadora' : 'Calculadora'}
           </TabsTrigger>
           <TabsTrigger value="examples" className="calculator-tab">
-            {isItalian ? 'Esempi' : 'Ejemplos'}
+            {isItalian ? 'Esempi' : isPortuguese ? 'Exemplos' : 'Ejemplos'}
           </TabsTrigger>
           <TabsTrigger value="help" className="calculator-tab">
-            {isItalian ? 'Aiuto' : 'Ayuda'}
+            {isItalian ? 'Aiuto' : isPortuguese ? 'Ajuda' : 'Ayuda'}
           </TabsTrigger>
         </TabsList>
 
@@ -99,12 +99,14 @@ export function CalculatorLayout({
                 <div className="p-2 bg-blue-100 rounded-lg">
                   <Lightbulb className="h-5 w-5 text-blue-600" />
                 </div>
-                {isItalian ? 'Calcolatrice' : 'Calculadora'}
+                {isItalian ? 'Calcolatrice' : isPortuguese ? 'Calculadora' : 'Calculadora'}
               </CardTitle>
               <CardDescription className="text-base text-gray-600">
                 {isItalian 
                   ? 'Inserisci i valori e ottieni il risultato con spiegazione passo-passo'
-                  : 'Ingresa los valores y obtén el resultado con explicación paso a paso'
+                  : isPortuguese 
+                    ? 'Insira os valores e obtenha o resultado com explicação passo a passo'
+                    : 'Ingresa los valores y obtén el resultado con explicación paso a paso'
                 }
               </CardDescription>
             </CardHeader>

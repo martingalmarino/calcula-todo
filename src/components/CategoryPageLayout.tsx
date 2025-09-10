@@ -48,19 +48,19 @@ export function CategoryPageLayout({
     {
       icon: Calculator,
       value: calculators.length.toString(),
-      label: 'Calculadoras Disponibles',
+      label: isItalian ? 'Calcolatrici Disponibili' : isPortuguese ? 'Calculadoras Disponíveis' : 'Calculadoras Disponibles',
       color: 'blue' as const
     },
     {
       icon: Calculator,
       value: '100%',
-      label: 'Gratuitas',
+      label: isItalian ? 'Gratuite' : isPortuguese ? 'Gratuitas' : 'Gratuitas',
       color: 'green' as const
     },
     {
       icon: Calculator,
-      value: 'Precisas',
-      label: 'Cálculos',
+      value: isItalian ? 'Precise' : isPortuguese ? 'Precisas' : 'Precisas',
+      label: isItalian ? 'Calcoli' : isPortuguese ? 'Cálculos' : 'Cálculos',
       color: 'purple' as const
     }
   ]
@@ -112,7 +112,11 @@ export function CategoryPageLayout({
             calculators: calculators.map(calc => ({
               name: calc.label,
               url: calc.href,
-              description: `Calculadora de ${calc.label.toLowerCase()} - ${category.description}`
+              description: isItalian 
+                ? `Calcolatrice di ${calc.label.toLowerCase()} - ${category.description}`
+                : isPortuguese 
+                  ? `Calculadora de ${calc.label.toLowerCase()} - ${category.description}`
+                  : `Calculadora de ${calc.label.toLowerCase()} - ${category.description}`
             }))
           }))
         }}
@@ -174,7 +178,7 @@ export function CategoryPageLayout({
                 <CardContent className="pt-0">
                   <Button asChild className="w-full calculator-button">
                     <Link href={calculator.href}>
-                      {isItalian ? 'Usa Calcolatrice' : 'Usar Calculadora'}
+                      {isItalian ? 'Usa Calcolatrice' : isPortuguese ? 'Usar Calculadora' : 'Usar Calculadora'}
                     </Link>
                   </Button>
                 </CardContent>
