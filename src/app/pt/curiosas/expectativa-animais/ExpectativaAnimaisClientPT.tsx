@@ -232,7 +232,10 @@ export default function ExpectativaAnimaisClientPT() {
                 <Card className="mt-4 bg-green-50 border-green-200">
                   <CardHeader>
                     <CardTitle className="text-green-700 flex items-center gap-2">
-                      {getAnimalIcon(animal) && <getAnimalIcon(animal) className="h-5 w-5" />}
+                      {(() => {
+                        const IconComponent = getAnimalIcon(animal);
+                        return IconComponent ? <IconComponent className="h-5 w-5" /> : null;
+                      })()}
                       Resultado da Comparação
                     </CardTitle>
                   </CardHeader>
