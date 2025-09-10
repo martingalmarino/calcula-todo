@@ -46,7 +46,6 @@ export default function BudgetClientIT() {
     }
 
     try {
-      const result = calcularPresupuestoMarketing(budget, 100/canal)
       setResultado({
         budgetTotal: budget,
         canales: canal,

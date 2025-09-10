@@ -176,7 +176,7 @@ export default function ROIClientIT() {
                             {resultado.roiPorcentaje.toFixed(1)}%
                           </div>
                           <div className="text-lg font-semibold text-gray-800 mb-2">
-                            Ritorno sull'Investimento
+                            Ritorno sull&apos;Investimento
                           </div>
                         </div>
                         
