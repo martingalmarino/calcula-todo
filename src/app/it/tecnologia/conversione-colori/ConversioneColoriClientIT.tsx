@@ -26,7 +26,7 @@ export default function ConversioneColoriClientIT() {
     }
 
     try {
-      const colorResult = convertColor(hexInput)
+      const colorResult = convertColor(hexInput, 'hex')
       setResult(colorResult)
       
       if (!colorResult.isValid) {

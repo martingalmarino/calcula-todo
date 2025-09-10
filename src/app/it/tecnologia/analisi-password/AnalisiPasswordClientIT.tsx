@@ -7,7 +7,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Shield, AlertCircle, CheckCircle, XCircle, Info, Eye, EyeOff } from 'lucide-react'
+import { Shield, AlertCircle, Info, Eye, EyeOff } from 'lucide-react'
 import { analyzePasswordEntropy, type PasswordEntropyResult } from '@/lib/math/technology'
 import { jsonLdCalculator } from '@/lib/seo'
 
@@ -108,16 +108,6 @@ export default function AnalisiPasswordClientIT() {
     }
   }
 
-  const getStrengthBg = (strength: string) => {
-    switch (strength.toLowerCase()) {
-      case 'molto debole': return 'bg-red-50 border-red-200'
-      case 'debole': return 'bg-orange-50 border-orange-200'
-      case 'media': return 'bg-yellow-50 border-yellow-200'
-      case 'forte': return 'bg-blue-50 border-blue-200'
-      case 'molto forte': return 'bg-green-50 border-green-200'
-      default: return 'bg-gray-50 border-gray-200'
-    }
-  }
 
   return (
     <div className="min-h-screen bg-background">
