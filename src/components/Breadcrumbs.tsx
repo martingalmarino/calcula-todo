@@ -19,8 +19,9 @@ interface BreadcrumbsProps {
 export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
   const pathname = usePathname()
   const isItalian = pathname.startsWith('/it')
-  const homeHref = isItalian ? '/it' : '/'
-  const homeLabel = isItalian ? 'Home' : 'Inicio'
+  const isPortuguese = pathname.startsWith('/pt')
+  const homeHref = isItalian ? '/it' : isPortuguese ? '/pt' : '/'
+  const homeLabel = isItalian ? 'Home' : isPortuguese ? 'Início' : 'Inicio'
 
   return (
     <nav 
