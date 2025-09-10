@@ -221,10 +221,10 @@ export default function IMCClientPT() {
               <div className="p-4 bg-blue-50 rounded-lg">
                 <h4 className="font-semibold text-blue-800 mb-2">Categorias de IMC:</h4>
                 <ul className="space-y-1 text-blue-700">
-                  <li>• <strong>Abaixo do peso:</strong> IMC < 18.5</li>
+                  <li>• <strong>Abaixo do peso:</strong> IMC &lt; 18.5</li>
                   <li>• <strong>Peso normal:</strong> IMC 18.5 - 24.9</li>
                   <li>• <strong>Sobrepeso:</strong> IMC 25 - 29.9</li>
-                  <li>• <strong>Obesidade:</strong> IMC ≥ 30</li>
+                  <li>• <strong>Obesidade:</strong> IMC &gt;= 30</li>
                 </ul>
               </div>
               <div className="p-4 bg-green-50 rounded-lg">

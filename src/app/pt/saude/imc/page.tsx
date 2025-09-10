@@ -66,7 +66,7 @@ export default function IMCPage() {
               },
               {
                 question: 'Quais são as categorias de IMC?',
-                answer: 'Abaixo do peso (< 18.5), Peso normal (18.5-24.9), Sobrepeso (25-29.9) e Obesidade (≥ 30).'
+                answer: 'Abaixo do peso (&lt; 18.5), Peso normal (18.5-24.9), Sobrepeso (25-29.9) e Obesidade (&gt;= 30).'
               },
               {
                 question: 'O IMC é preciso para todos?',
