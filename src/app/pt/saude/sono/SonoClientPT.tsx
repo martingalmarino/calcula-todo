@@ -93,75 +93,69 @@ export default function SonoClientPT() {
               setHoraDormir(values.horaDormir as string)
             }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Moon className="h-5 w-5" />
-                  Calculadora de Sono
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Hora que deseja dormir
-                  </label>
-                  <Input
-                    type="time"
-                    value={horaDormir}
-                    onChange={(e) => setHoraDormir(e.target.value)}
-                    className="w-full"
-                  />
-                </div>
-                
-                <Button 
-                  onClick={handleCalculate} 
-                  className="w-full calculator-button"
-                >
-                  <Moon className="h-4 w-4 mr-2" />
+            <div className="grid gap-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Hora que deseja dormir
+                </label>
+                <Input
+                  type="time"
+                  value={horaDormir}
+                  onChange={(e) => setHoraDormir(e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              
+              <div className="mt-4">
+                <Button onClick={handleCalculate} className="calculator-button">
+                  <Moon className="h-4 w-4" />
                   Calcular Ciclos de Sono
                 </Button>
+              </div>
 
-                {error && (
-                  <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                    <AlertCircle className="h-4 w-4" />
-                    <span className="text-sm">{error}</span>
-                  </div>
-                )}
+              {error && (
+                <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                  <AlertCircle className="h-4 w-4" />
+                  <span className="text-sm">{error}</span>
+                </div>
+              )}
 
-                {resultado && (
-                  <Card className="mt-4">
-                    <CardHeader>
-                      <CardTitle className="text-lg">Horários Ideais para Acordar</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-blue-600 mb-2">
-                          {resultado.wakeUpTime}
-                        </div>
-                        <div className="text-lg font-semibold text-foreground">
-                          Horário Ideal para Acordar
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          {resultado.sleepCycles} ciclos de sono
-                        </div>
+              {resultado && (
+                <Card className="mt-4 bg-purple-50 border-purple-200">
+                  <CardHeader>
+                    <CardTitle className="text-purple-700 flex items-center gap-2">
+                      <Moon className="h-5 w-5" />
+                      Horários Ideais para Acordar
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-purple-600 mb-2">
+                        {resultado.wakeUpTime}
                       </div>
-                      
-                      <div className="space-y-2">
-                        <p className="text-sm text-muted-foreground">
-                          <strong>Hora de dormir:</strong> {resultado.bedTime}
-                        </p>
-                        <div className="space-y-1">
-                          <p className="text-sm font-medium text-foreground">Recomendações:</p>
-                          {resultado.recommendations.map((rec, index) => (
-                            <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
-                          ))}
-                        </div>
+                      <div className="text-lg font-semibold text-foreground">
+                        Horário Ideal para Acordar
                       </div>
-                    </CardContent>
-                  </Card>
-                )}
-              </CardContent>
-            </Card>
+                      <div className="text-sm text-muted-foreground">
+                        {resultado.sleepCycles} ciclos de sono
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground">
+                        <strong>Hora de dormir:</strong> {resultado.bedTime}
+                      </p>
+                      <div className="space-y-1">
+                        <p className="text-sm font-medium text-foreground">Recomendações:</p>
+                        {resultado.recommendations.map((rec, index) => (
+                          <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
           </CalculatorLayout>
         </div>
       </Container>

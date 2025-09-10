@@ -137,128 +137,122 @@ export default function ExercicioClientPT() {
               setIntensidade(values.intensidade as string)
             }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Dumbbell className="h-5 w-5" />
-                  Calculadora de Exercício
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Peso (kg)
-                    </label>
-                    <Input
-                      type="number"
-                      placeholder="Ex: 70"
-                      value={peso}
-                      onChange={(e) => setPeso(e.target.value)}
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Duração (minutos)
-                    </label>
-                    <Input
-                      type="number"
-                      placeholder="Ex: 30"
-                      value={duracao}
-                      onChange={(e) => setDuracao(e.target.value)}
-                      className="w-full"
-                    />
-                  </div>
+            <div className="grid gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Peso (kg)
+                  </label>
+                  <Input
+                    type="number"
+                    placeholder="Ex: 70"
+                    value={peso}
+                    onChange={(e) => setPeso(e.target.value)}
+                    className="w-full"
+                  />
                 </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Tipo de Exercício
-                    </label>
-                    <Select value={exercicio} onValueChange={setExercicio}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Selecione o exercício" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="caminhada">Caminhada</SelectItem>
-                        <SelectItem value="corrida">Corrida</SelectItem>
-                        <SelectItem value="ciclismo">Ciclismo</SelectItem>
-                        <SelectItem value="natacao">Natação</SelectItem>
-                        <SelectItem value="musculacao">Musculação</SelectItem>
-                        <SelectItem value="yoga">Yoga</SelectItem>
-                        <SelectItem value="danca">Dança</SelectItem>
-                        <SelectItem value="futebol">Futebol</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Intensidade
-                    </label>
-                    <Select value={intensidade} onValueChange={setIntensidade}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Selecione a intensidade" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="leve">Leve</SelectItem>
-                        <SelectItem value="moderada">Moderada</SelectItem>
-                        <SelectItem value="intensa">Intensa</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Duração (minutos)
+                  </label>
+                  <Input
+                    type="number"
+                    placeholder="Ex: 30"
+                    value={duracao}
+                    onChange={(e) => setDuracao(e.target.value)}
+                    className="w-full"
+                  />
                 </div>
-                
-                <Button 
-                  onClick={handleCalculate} 
-                  className="w-full calculator-button"
-                >
-                  <Dumbbell className="h-4 w-4 mr-2" />
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Tipo de Exercício
+                  </label>
+                  <Select value={exercicio} onValueChange={setExercicio}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione o exercício" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="caminhada">Caminhada</SelectItem>
+                      <SelectItem value="corrida">Corrida</SelectItem>
+                      <SelectItem value="ciclismo">Ciclismo</SelectItem>
+                      <SelectItem value="natacao">Natação</SelectItem>
+                      <SelectItem value="musculacao">Musculação</SelectItem>
+                      <SelectItem value="yoga">Yoga</SelectItem>
+                      <SelectItem value="danca">Dança</SelectItem>
+                      <SelectItem value="futebol">Futebol</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Intensidade
+                  </label>
+                  <Select value={intensidade} onValueChange={setIntensidade}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione a intensidade" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="leve">Leve</SelectItem>
+                      <SelectItem value="moderada">Moderada</SelectItem>
+                      <SelectItem value="intensa">Intensa</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              
+              <div className="mt-4">
+                <Button onClick={handleCalculate} className="calculator-button">
+                  <Dumbbell className="h-4 w-4" />
                   Calcular Calorias Queimadas
                 </Button>
+              </div>
 
-                {error && (
-                  <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                    <AlertCircle className="h-4 w-4" />
-                    <span className="text-sm">{error}</span>
-                  </div>
-                )}
+              {error && (
+                <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                  <AlertCircle className="h-4 w-4" />
+                  <span className="text-sm">{error}</span>
+                </div>
+              )}
 
-                {resultado && (
-                  <Card className="mt-4">
-                    <CardHeader>
-                      <CardTitle className="text-lg">Resultado</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-orange-600 mb-2">
-                          {resultado.caloriesBurned} kcal
-                        </div>
-                        <div className="text-lg font-semibold text-foreground">
-                          Calorias Queimadas
-                        </div>
+              {resultado && (
+                <Card className="mt-4 bg-orange-50 border-orange-200">
+                  <CardHeader>
+                    <CardTitle className="text-orange-700 flex items-center gap-2">
+                      <Dumbbell className="h-5 w-5" />
+                      Resultado do Exercício
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-orange-600 mb-2">
+                        {resultado.caloriesBurned} kcal
                       </div>
-                      
-                      <div className="space-y-2">
-                        <p className="text-sm text-muted-foreground">
-                          <strong>Duração:</strong> {resultado.duration} minutos
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          <strong>Intensidade:</strong> {resultado.intensity}
-                        </p>
-                        <div className="space-y-1">
-                          <p className="text-sm font-medium text-foreground">Recomendações:</p>
-                          {resultado.recommendations.map((rec, index) => (
-                            <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
-                          ))}
-                        </div>
+                      <div className="text-lg font-semibold text-foreground">
+                        Calorias Queimadas
                       </div>
-                    </CardContent>
-                  </Card>
-                )}
-              </CardContent>
-            </Card>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground">
+                        <strong>Duração:</strong> {resultado.duration} minutos
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        <strong>Intensidade:</strong> {resultado.intensity}
+                      </p>
+                      <div className="space-y-1">
+                        <p className="text-sm font-medium text-foreground">Recomendações:</p>
+                        {resultado.recommendations.map((rec, index) => (
+                          <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
           </CalculatorLayout>
         </div>
       </Container>

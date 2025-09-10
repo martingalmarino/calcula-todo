@@ -113,84 +113,77 @@ export default function IMCClientPT() {
               setAltura(values.altura as string)
             }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Activity className="h-5 w-5" />
-                  Calculadora de IMC
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Peso (kg)
-                    </label>
-                    <Input
-                      type="number"
-                      placeholder="Ex: 70"
-                      value={peso}
-                      onChange={(e) => setPeso(e.target.value)}
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Altura (cm)
-                    </label>
-                    <Input
-                      type="number"
-                      placeholder="Ex: 175"
-                      value={altura}
-                      onChange={(e) => setAltura(e.target.value)}
-                      className="w-full"
-                    />
-                  </div>
-                </div>
-                
-                <Button 
-                  onClick={handleCalculate} 
-                  className="w-full calculator-button"
-                >
-                  <Activity className="h-4 w-4 mr-2" />
+            <div className="grid gap-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Peso (kg)
+                </label>
+                <Input
+                  type="number"
+                  placeholder="Ex: 70"
+                  value={peso}
+                  onChange={(e) => setPeso(e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Altura (cm)
+                </label>
+                <Input
+                  type="number"
+                  placeholder="Ex: 175"
+                  value={altura}
+                  onChange={(e) => setAltura(e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              
+              <div className="mt-4">
+                <Button onClick={handleCalculate} className="calculator-button">
+                  <Activity className="h-4 w-4" />
                   Calcular IMC
                 </Button>
+              </div>
 
-                {error && (
-                  <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                    <AlertCircle className="h-4 w-4" />
-                    <span className="text-sm">{error}</span>
-                  </div>
-                )}
+              {error && (
+                <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                  <AlertCircle className="h-4 w-4" />
+                  <span className="text-sm">{error}</span>
+                </div>
+              )}
 
-                {resultado && (
-                  <Card className="mt-4">
-                    <CardHeader>
-                      <CardTitle className="text-lg">Resultado</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-red-600 mb-2">
-                          {resultado.imc}
-                        </div>
-                        <div className="text-lg font-semibold text-foreground">
-                          {resultado.category}
-                        </div>
+              {resultado && (
+                <Card className="mt-4 bg-blue-50 border-blue-200">
+                  <CardHeader>
+                    <CardTitle className="text-blue-700 flex items-center gap-2">
+                      <Activity className="h-5 w-5" />
+                      Resultado do IMC
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-blue-600 mb-2">
+                        {resultado.imc}
                       </div>
-                      
-                      <div className="space-y-2">
-                        <p className="text-sm text-muted-foreground">
-                          {resultado.description}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          {resultado.recommendation}
-                        </p>
+                      <div className="text-lg font-semibold text-foreground">
+                        {resultado.category}
                       </div>
-                    </CardContent>
-                  </Card>
-                )}
-              </CardContent>
-            </Card>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground">
+                        {resultado.description}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {resultado.recommendation}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
           </CalculatorLayout>
         </div>
       </Container>

@@ -142,141 +142,138 @@ export default function CaloriasClientPT() {
               setAtividade(values.atividade as string)
             }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Flame className="h-5 w-5" />
-                  Calculadora de Calorias
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Peso (kg)
-                    </label>
-                    <Input
-                      type="number"
-                      placeholder="Ex: 70"
-                      value={peso}
-                      onChange={(e) => setPeso(e.target.value)}
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Altura (cm)
-                    </label>
-                    <Input
-                      type="number"
-                      placeholder="Ex: 175"
-                      value={altura}
-                      onChange={(e) => setAltura(e.target.value)}
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Idade (anos)
-                    </label>
-                    <Input
-                      type="number"
-                      placeholder="Ex: 30"
-                      value={idade}
-                      onChange={(e) => setIdade(e.target.value)}
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Sexo
-                    </label>
-                    <Select value={sexo} onValueChange={setSexo}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Selecione o sexo" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="masculino">Masculino</SelectItem>
-                        <SelectItem value="feminino">Feminino</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-                
+            <div className="grid gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    Nível de Atividade
+                    Peso (kg)
                   </label>
-                  <Select value={atividade} onValueChange={setAtividade}>
+                  <Input
+                    type="number"
+                    placeholder="Ex: 70"
+                    value={peso}
+                    onChange={(e) => setPeso(e.target.value)}
+                    className="w-full"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Altura (cm)
+                  </label>
+                  <Input
+                    type="number"
+                    placeholder="Ex: 175"
+                    value={altura}
+                    onChange={(e) => setAltura(e.target.value)}
+                    className="w-full"
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Idade (anos)
+                  </label>
+                  <Input
+                    type="number"
+                    placeholder="Ex: 30"
+                    value={idade}
+                    onChange={(e) => setIdade(e.target.value)}
+                    className="w-full"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Sexo
+                  </label>
+                  <Select value={sexo} onValueChange={setSexo}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Selecione o nível de atividade" />
+                      <SelectValue placeholder="Selecione o sexo" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="sedentario">Sedentário</SelectItem>
-                      <SelectItem value="leve">Levemente ativo</SelectItem>
-                      <SelectItem value="moderado">Moderadamente ativo</SelectItem>
-                      <SelectItem value="intenso">Muito ativo</SelectItem>
-                      <SelectItem value="extremo">Extremamente ativo</SelectItem>
+                      <SelectItem value="masculino">Masculino</SelectItem>
+                      <SelectItem value="feminino">Feminino</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
-                
-                <Button 
-                  onClick={handleCalculate} 
-                  className="w-full calculator-button"
-                >
-                  <Flame className="h-4 w-4 mr-2" />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Nível de Atividade
+                </label>
+                <Select value={atividade} onValueChange={setAtividade}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Selecione o nível de atividade" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="sedentario">Sedentário</SelectItem>
+                    <SelectItem value="leve">Levemente ativo</SelectItem>
+                    <SelectItem value="moderado">Moderadamente ativo</SelectItem>
+                    <SelectItem value="intenso">Muito ativo</SelectItem>
+                    <SelectItem value="extremo">Extremamente ativo</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div className="mt-4">
+                <Button onClick={handleCalculate} className="calculator-button">
+                  <Flame className="h-4 w-4" />
                   Calcular Calorias
                 </Button>
+              </div>
 
-                {error && (
-                  <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                    <AlertCircle className="h-4 w-4" />
-                    <span className="text-sm">{error}</span>
-                  </div>
-                )}
+              {error && (
+                <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                  <AlertCircle className="h-4 w-4" />
+                  <span className="text-sm">{error}</span>
+                </div>
+              )}
 
-                {resultado && (
-                  <Card className="mt-4">
-                    <CardHeader>
-                      <CardTitle className="text-lg">Resultado</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-blue-600 mb-2">
-                            {resultado.tmb} kcal
-                          </div>
-                          <div className="text-sm font-semibold text-foreground">
-                            TMB (Taxa Metabólica Basal)
-                          </div>
+              {resultado && (
+                <Card className="mt-4 bg-orange-50 border-orange-200">
+                  <CardHeader>
+                    <CardTitle className="text-orange-700 flex items-center gap-2">
+                      <Flame className="h-5 w-5" />
+                      Resultado das Calorias
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-600 mb-2">
+                          {resultado.tmb} kcal
                         </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-green-600 mb-2">
-                            {resultado.totalCalories} kcal
-                          </div>
-                          <div className="text-sm font-semibold text-foreground">
-                            Calorias Totais Diárias
-                          </div>
+                        <div className="text-sm font-semibold text-foreground">
+                          TMB (Taxa Metabólica Basal)
                         </div>
                       </div>
-                      
-                      <div className="space-y-2">
-                        <p className="text-sm text-muted-foreground">
-                          <strong>Nível de atividade:</strong> {resultado.activityLevel}
-                        </p>
-                        <div className="space-y-1">
-                          <p className="text-sm font-medium text-foreground">Recomendações:</p>
-                          {resultado.recommendations.map((rec, index) => (
-                            <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
-                          ))}
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-green-600 mb-2">
+                          {resultado.totalCalories} kcal
+                        </div>
+                        <div className="text-sm font-semibold text-foreground">
+                          Calorias Totais Diárias
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                )}
-              </CardContent>
-            </Card>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground">
+                        <strong>Nível de atividade:</strong> {resultado.activityLevel}
+                      </p>
+                      <div className="space-y-1">
+                        <p className="text-sm font-medium text-foreground">Recomendações:</p>
+                        {resultado.recommendations.map((rec, index) => (
+                          <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
           </CalculatorLayout>
         </div>
       </Container>

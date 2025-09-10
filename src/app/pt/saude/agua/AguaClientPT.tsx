@@ -130,140 +130,134 @@ export default function AguaClientPT() {
               setClima(values.clima as string)
             }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Droplets className="h-5 w-5" />
-                  Calculadora de Água
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Peso (kg)
-                    </label>
-                    <Input
-                      type="number"
-                      placeholder="Ex: 70"
-                      value={peso}
-                      onChange={(e) => setPeso(e.target.value)}
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Idade (anos)
-                    </label>
-                    <Input
-                      type="number"
-                      placeholder="Ex: 30"
-                      value={idade}
-                      onChange={(e) => setIdade(e.target.value)}
-                      className="w-full"
-                    />
-                  </div>
+            <div className="grid gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Peso (kg)
+                  </label>
+                  <Input
+                    type="number"
+                    placeholder="Ex: 70"
+                    value={peso}
+                    onChange={(e) => setPeso(e.target.value)}
+                    className="w-full"
+                  />
                 </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Nível de Atividade
-                    </label>
-                    <Select value={atividade} onValueChange={setAtividade}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Selecione o nível de atividade" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="sedentario">Sedentário</SelectItem>
-                        <SelectItem value="leve">Levemente ativo</SelectItem>
-                        <SelectItem value="moderado">Moderadamente ativo</SelectItem>
-                        <SelectItem value="intenso">Muito ativo</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Clima
-                    </label>
-                    <Select value={clima} onValueChange={setClima}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Selecione o clima" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="frio">Frio</SelectItem>
-                        <SelectItem value="normal">Normal</SelectItem>
-                        <SelectItem value="quente">Quente</SelectItem>
-                        <SelectItem value="muito_quente">Muito quente</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Idade (anos)
+                  </label>
+                  <Input
+                    type="number"
+                    placeholder="Ex: 30"
+                    value={idade}
+                    onChange={(e) => setIdade(e.target.value)}
+                    className="w-full"
+                  />
                 </div>
-                
-                <Button 
-                  onClick={handleCalculate} 
-                  className="w-full calculator-button"
-                >
-                  <Droplets className="h-4 w-4 mr-2" />
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Nível de Atividade
+                  </label>
+                  <Select value={atividade} onValueChange={setAtividade}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione o nível de atividade" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="sedentario">Sedentário</SelectItem>
+                      <SelectItem value="leve">Levemente ativo</SelectItem>
+                      <SelectItem value="moderado">Moderadamente ativo</SelectItem>
+                      <SelectItem value="intenso">Muito ativo</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Clima
+                  </label>
+                  <Select value={clima} onValueChange={setClima}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione o clima" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="frio">Frio</SelectItem>
+                      <SelectItem value="normal">Normal</SelectItem>
+                      <SelectItem value="quente">Quente</SelectItem>
+                      <SelectItem value="muito_quente">Muito quente</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              
+              <div className="mt-4">
+                <Button onClick={handleCalculate} className="calculator-button">
+                  <Droplets className="h-4 w-4" />
                   Calcular Ingestão de Água
                 </Button>
+              </div>
 
-                {error && (
-                  <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                    <AlertCircle className="h-4 w-4" />
-                    <span className="text-sm">{error}</span>
-                  </div>
-                )}
+              {error && (
+                <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                  <AlertCircle className="h-4 w-4" />
+                  <span className="text-sm">{error}</span>
+                </div>
+              )}
 
-                {resultado && (
-                  <Card className="mt-4">
-                    <CardHeader>
-                      <CardTitle className="text-lg">Resultado</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-blue-600 mb-2">
-                            {resultado.dailyWater} ml
-                          </div>
-                          <div className="text-sm font-semibold text-foreground">
-                            Água por dia
-                          </div>
+              {resultado && (
+                <Card className="mt-4 bg-blue-50 border-blue-200">
+                  <CardHeader>
+                    <CardTitle className="text-blue-700 flex items-center gap-2">
+                      <Droplets className="h-5 w-5" />
+                      Resultado da Ingestão de Água
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-600 mb-2">
+                          {resultado.dailyWater} ml
                         </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-green-600 mb-2">
-                            {resultado.glasses} copos
-                          </div>
-                          <div className="text-sm font-semibold text-foreground">
-                            Copos de 250ml
-                          </div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-purple-600 mb-2">
-                            {resultado.bottles} garrafas
-                          </div>
-                          <div className="text-sm font-semibold text-foreground">
-                            Garrafas de 500ml
-                          </div>
+                        <div className="text-sm font-semibold text-foreground">
+                          Água por dia
                         </div>
                       </div>
-                      
-                      <div className="space-y-2">
-                        <p className="text-sm text-muted-foreground">
-                          <strong>Categoria:</strong> {resultado.category}
-                        </p>
-                        <div className="space-y-1">
-                          <p className="text-sm font-medium text-foreground">Recomendações:</p>
-                          {resultado.recommendations.map((rec, index) => (
-                            <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
-                          ))}
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-green-600 mb-2">
+                          {resultado.glasses} copos
+                        </div>
+                        <div className="text-sm font-semibold text-foreground">
+                          Copos de 250ml
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                )}
-              </CardContent>
-            </Card>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-purple-600 mb-2">
+                          {resultado.bottles} garrafas
+                        </div>
+                        <div className="text-sm font-semibold text-foreground">
+                          Garrafas de 500ml
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground">
+                        <strong>Categoria:</strong> {resultado.category}
+                      </p>
+                      <div className="space-y-1">
+                        <p className="text-sm font-medium text-foreground">Recomendações:</p>
+                        {resultado.recommendations.map((rec, index) => (
+                          <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
           </CalculatorLayout>
         </div>
       </Container>
