@@ -289,6 +289,34 @@ export default function ItalianHomePage() {
                   </ChipsContainer>
                 </div>
 
+                {/* Sezione Marketing */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">📈</span>
+                    <h3 className="text-blue-900 text-xl font-bold">Marketing</h3>
+                  </div>
+                  <ChipsContainer>
+                    <Chip href="/it/marketing/cac/" icon="target" ariaLabel="CAC - Costo di Acquisizione">
+                      CAC - Costo di Acquisizione
+                    </Chip>
+                    <Chip href="/it/marketing/ltv/" icon="trending-up" ariaLabel="LTV - Lifetime Value">
+                      LTV - Lifetime Value
+                    </Chip>
+                    <Chip href="/it/marketing/conversione/" icon="bar-chart-3" ariaLabel="Conversione">
+                      Conversione
+                    </Chip>
+                    <Chip href="/it/marketing/budget/" icon="dollar-sign" ariaLabel="Budget di Marketing">
+                      Budget di Marketing
+                    </Chip>
+                    <Chip href="/it/marketing/cpc-cpm/" icon="calculator" ariaLabel="CPC / CPM">
+                      CPC / CPM
+                    </Chip>
+                    <Chip href="/it/marketing/roi/" icon="users" ariaLabel="ROI in Marketing">
+                      ROI in Marketing
+                    </Chip>
+                  </ChipsContainer>
+                </div>
+
                 {/* Otras Calculadoras Section */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
