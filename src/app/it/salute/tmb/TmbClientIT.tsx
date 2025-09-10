@@ -1,12 +1,17 @@
 "use client"
 
 import { useState } from 'react'
+import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Flame, AlertCircle } from 'lucide-react'
 import { calculateTMB, TMBResult } from '@/lib/math/health'
+import { jsonLdCalculator } from '@/lib/seo'
+import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function TmbClientIT() {
   const [weight, setWeight] = useState('')
@@ -63,6 +68,8 @@ export default function TmbClientIT() {
     if (example.gender) setGender(example.gender as string)
   }
 
+  const breadcrumbs = getBreadcrumbs('/it/salute/tmb')
+
   const examples = [
     { label: 'Uomo Adulto', values: { weight: '75', height: '180', age: '30', gender: 'male' } },
     { label: 'Donna Adulta', values: { weight: '65', height: '165', age: '25', gender: 'female' } },
@@ -90,14 +97,39 @@ export default function TmbClientIT() {
   ]
 
   return (
-    <CalculatorLayout
-      title="Calcolatrice Tasso Metabolico Basale (TMB)"
-      description="Calcola il tuo tasso metabolico basale per scoprire quante calorie bruci a riposo"
-      examples={examples}
-      onExampleClick={handleExample}
-      faqItems={faqItems}
-    >
-      <div className="space-y-6">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdCalculator({
+            name: 'Calcolatrice TMB - Tasso Metabolico Basale',
+            description: 'Calcola il tuo tasso metabolico basale per conoscere quante calorie bruci a riposo',
+            url: '/it/salute/tmb/',
+            category: 'Salute'
+          }))
+        }}
+      />
+      
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Calcolatrice Tasso Metabolico Basale (TMB)"
+            description="Calcola il tuo tasso metabolico basale per conoscere quante calorie bruci a riposo"
+            examples={examples}
+            onExampleClick={handleExample}
+            faqItems={faqItems}
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Flame className="h-5 w-5" />
+                  Calcolatrice TMB
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label htmlFor="weight" className="block text-sm font-medium text-gray-700 mb-2">
@@ -225,7 +257,12 @@ export default function TmbClientIT() {
             </CardContent>
           </Card>
         )}
+              </div>
+            </CardContent>
+          </Card>
+        </CalculatorLayout>
       </div>
-    </CalculatorLayout>
-  )
+    </Container>
+  </>
+)
 }

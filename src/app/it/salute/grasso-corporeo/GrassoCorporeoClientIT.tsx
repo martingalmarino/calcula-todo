@@ -1,12 +1,17 @@
 "use client"
 
 import { useState } from 'react'
+import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Percent, AlertCircle } from 'lucide-react'
 import { calculateBodyFat, BodyFatResult } from '@/lib/math/health'
+import { jsonLdCalculator } from '@/lib/seo'
+import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function GrassoCorporeoClientIT() {
   const [weight, setWeight] = useState('')
@@ -71,6 +76,8 @@ export default function GrassoCorporeoClientIT() {
     if (example.waist) setWaist(example.waist as string)
   }
 
+  const breadcrumbs = getBreadcrumbs('/it/salute/grasso-corporeo')
+
   const examples = [
     { label: 'Uomo Adulto', values: { weight: '75', height: '180', age: '30', gender: 'male', waist: '85' } },
     { label: 'Donna Adulta', values: { weight: '65', height: '165', age: '25', gender: 'female', waist: '75' } },
@@ -98,14 +105,39 @@ export default function GrassoCorporeoClientIT() {
   ]
 
   return (
-    <CalculatorLayout
-      title="Calcolatrice Percentuale di Grasso Corporeo"
-      description="Stima la percentuale di grasso corporeo per monitorare la composizione corporea"
-      examples={examples}
-      onExampleClick={handleExample}
-      faqItems={faqItems}
-    >
-      <div className="space-y-6">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdCalculator({
+            name: 'Calcolatrice Percentuale di Grasso Corporeo',
+            description: 'Stima la percentuale di grasso corporeo per monitorare la composizione corporea',
+            url: '/it/salute/grasso-corporeo/',
+            category: 'Salute'
+          }))
+        }}
+      />
+      
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Calcolatrice Percentuale di Grasso Corporeo"
+            description="Stima la percentuale di grasso corporeo per monitorare la composizione corporea"
+            examples={examples}
+            onExampleClick={handleExample}
+            faqItems={faqItems}
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Percent className="h-5 w-5" />
+                  Calcolatrice Grasso Corporeo
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label htmlFor="weight" className="block text-sm font-medium text-gray-700 mb-2">
@@ -248,7 +280,12 @@ export default function GrassoCorporeoClientIT() {
             </CardContent>
           </Card>
         )}
+              </div>
+            </CardContent>
+          </Card>
+        </CalculatorLayout>
       </div>
-    </CalculatorLayout>
-  )
+    </Container>
+  </>
+)
 }
