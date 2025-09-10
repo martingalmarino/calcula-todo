@@ -8,7 +8,7 @@ import { Container } from "@/components/Container"
 import { LanguageSelector } from "@/components/LanguageSelector"
 
 const navigationItems = [
-  { label: "Finanze", href: "/it/finanzas", hasDropdown: true },
+  { label: "Finanze", href: "/it/finanze", hasDropdown: true },
   { label: "Salute", href: "/it/salute", hasDropdown: true },
   { label: "Matematica", href: "/it/matematicas", hasDropdown: true },
   { label: "Curiose", href: "/it/curiosas", hasDropdown: true },

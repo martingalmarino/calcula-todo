@@ -178,29 +178,29 @@ export default function ItalianHomePage() {
                   </ChipsContainer>
                 </div>
 
-                {/* Finanzas Section */}
+                {/* Finanze Section */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">💰</span>
                     <h3 className="text-blue-900 text-xl font-bold">Finanze</h3>
                   </div>
                   <ChipsContainer>
-                    <Chip href="/it/finanzas/interes-simple/" icon="trending-up" ariaLabel="Interesse Semplice">
+                    <Chip href="/it/finanze/interesse-semplice/" icon="trending-up" ariaLabel="Interesse Semplice">
                       Interesse Semplice
                     </Chip>
-                    <Chip href="/it/finanzas/depreciacion-vehiculos/" icon="car" ariaLabel="Deprezzamento Veicoli">
+                    <Chip href="/it/finanze/deprezzamento-veicoli/" icon="car" ariaLabel="Deprezzamento Veicoli">
                       Deprezzamento Veicoli
                     </Chip>
-                    <Chip href="/it/finanzas/hipoteca/" icon="home" ariaLabel="Calcolatrice di Mutuo">
+                    <Chip href="/it/finanze/calcolatrice-mutuo/" icon="home" ariaLabel="Calcolatrice di Mutuo">
                       Calcolatrice di Mutuo
                     </Chip>
-                    <Chip href="/it/finanzas/ipc/" icon="bar-chart-3" ariaLabel="Calcolatrice dell&apos;IPC">
+                    <Chip href="/it/finanze/calcolatrice-ipc/" icon="bar-chart-3" ariaLabel="Calcolatrice dell&apos;IPC">
                       Calcolatrice dell&apos;IPC
                     </Chip>
-                    <Chip href="/it/finanzas/ahorro-objetivo/" icon="piggy-bank" ariaLabel="Risparmio Obiettivo">
+                    <Chip href="/it/finanze/risparmio-obiettivo/" icon="piggy-bank" ariaLabel="Risparmio Obiettivo">
                       Risparmio Obiettivo
                     </Chip>
-                    <Chip href="/it/finanzas/valor-futuro-presente/" icon="calculator" ariaLabel="Valore Futuro e Presente">
+                    <Chip href="/it/finanze/valore-futuro-presente/" icon="calculator" ariaLabel="Valore Futuro e Presente">
                       Valore Futuro e Presente
                     </Chip>
                   </ChipsContainer>
