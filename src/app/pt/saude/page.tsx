@@ -40,7 +40,6 @@ export default function SaudePage() {
   return (
     <CategoryPageLayout
       category={{
-        name: 'Saúde',
         label: 'Saúde',
         description: 'Calculadoras de saúde para monitorar seu bem-estar físico e mental',
         href: '/pt/saude/',

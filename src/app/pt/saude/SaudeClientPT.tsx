@@ -4,7 +4,6 @@ import { Heart, Activity, Droplets, Moon, Dumbbell, Target, Users, Clock, Trendi
 
 export function SaudeClientPT() {
   const saudeCluster = {
-    name: 'Saúde',
     label: 'Saúde',
     description: 'Calculadoras de saúde para monitorar seu bem-estar físico e mental',
     href: '/pt/saude/',
