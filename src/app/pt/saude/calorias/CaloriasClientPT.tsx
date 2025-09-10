@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Flame, Calculator, Copy, Share } from 'lucide-react'
+import { Flame, Calculator } from 'lucide-react'
 import { calculateCalories, type CaloriesResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
 
@@ -267,18 +267,6 @@ export default function CaloriasClientPT() {
                 </Card>
               )}
 
-              {resultado && (
-                <div className="flex gap-2 mt-4">
-                  <Button variant="outline" size="sm">
-                    <Copy className="h-4 w-4 mr-2" />
-                    Copiar resultado
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    <Share className="h-4 w-4 mr-2" />
-                    Compartilhar
-                  </Button>
-                </div>
-              )}
             </div>
           </CalculatorLayout>
         </div>

@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Moon, Calculator, Copy, Share } from 'lucide-react'
+import { Moon, Calculator } from 'lucide-react'
 import { calculateSleep, type SleepResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
 
@@ -164,18 +164,6 @@ export default function SonoClientPT() {
                 </Card>
               )}
 
-              {resultado && (
-                <div className="flex gap-2 mt-4">
-                  <Button variant="outline" size="sm">
-                    <Copy className="h-4 w-4 mr-2" />
-                    Copiar resultado
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    <Share className="h-4 w-4 mr-2" />
-                    Compartilhar
-                  </Button>
-                </div>
-              )}
             </div>
           </CalculatorLayout>
         </div>
