@@ -61,12 +61,12 @@ export function SaudeClientPT() {
   }
 
   const customIcons = {
-    'activity': Activity,
-    'target': Target,
-    'flame': TrendingUp,
-    'droplets': Droplets,
-    'moon': Moon,
-    'dumbbell': Dumbbell
+    '/pt/saude/imc/': Activity,
+    '/pt/saude/peso-ideal/': Target,
+    '/pt/saude/calorias/': TrendingUp,
+    '/pt/saude/agua/': Droplets,
+    '/pt/saude/sono/': Moon,
+    '/pt/saude/exercicio/': Dumbbell
   }
 
   const stats = [
