@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Calculator, Dog, Cat, Heart } from 'lucide-react';
+import { Calculator, Dog, Cat } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { convertirEdadMascota } from '@/lib/math/curiosas';
 import { jsonLdCalculator } from '@/lib/seo';
@@ -126,9 +127,6 @@ export default function IdadeAnimalClientPT() {
     }
   };
 
-  const getAnimalIcon = (tipo: string) => {
-    return tipo === 'perro' ? Dog : Cat;
-  };
 
   const getAnimalName = (tipo: string) => {
     return tipo === 'perro' ? 'Cachorro' : 'Gato';
