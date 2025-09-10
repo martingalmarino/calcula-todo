@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config'
+// import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config'
 import { calcularInteresSimple } from '@/lib/math/finance'
 
 export default function InteresseSempliceClientIT() {

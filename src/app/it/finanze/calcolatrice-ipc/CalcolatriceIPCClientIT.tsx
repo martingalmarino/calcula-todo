@@ -187,7 +187,7 @@ export default function CalcolatriceIPCClientIT() {
                 <CardHeader>
                   <CardTitle className="text-blue-700 flex items-center gap-2">
                     <TrendingUp className="h-5 w-5" />
-                    Risultati dell'Analisi IPC
+                    Risultati dell&apos;Analisi IPC
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -215,14 +215,14 @@ export default function CalcolatriceIPCClientIT() {
                       <div className="bg-white p-4 rounded-lg border">
                         <div className="flex items-center gap-2 mb-2">
                           <DollarSign className="h-4 w-4 text-green-600" />
-                          <p className="text-sm text-gray-600">Potere d'Acquisto Attuale</p>
+                          <p className="text-sm text-gray-600">Potere d&apos;Acquisto Attuale</p>
                         </div>
                         <p className="text-2xl font-bold text-green-600">€{resultado.poderAdquisitivo.toLocaleString()}</p>
                       </div>
                       <div className="bg-white p-4 rounded-lg border">
                         <div className="flex items-center gap-2 mb-2">
                           <AlertTriangle className="h-4 w-4 text-red-600" />
-                          <p className="text-sm text-gray-600">Perdita di Potere d'Acquisto</p>
+                          <p className="text-sm text-gray-600">Perdita di Potere d&apos;Acquisto</p>
                         </div>
                         <p className="text-2xl font-bold text-red-600">€{resultado.perdidaPoderAdquisitivo.toLocaleString()}</p>
                       </div>
@@ -232,9 +232,9 @@ export default function CalcolatriceIPCClientIT() {
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h4 className="font-medium text-gray-800 mb-2">Interpretazione:</h4>
                     <p className="text-sm text-gray-600">
-                      Con un'inflazione del {resultado.variacionIPC.toFixed(2)}%, 
-                      i tuoi €{resultado.monto.toLocaleString()} hanno oggi lo stesso potere d'acquisto 
-                      di €{resultado.poderAdquisitivo.toLocaleString()} nell'anno iniziale.
+                      Con un&apos;inflazione del {resultado.variacionIPC.toFixed(2)}%, 
+                      i tuoi €{resultado.monto.toLocaleString()} hanno oggi lo stesso potere d&apos;acquisto 
+                      di €{resultado.poderAdquisitivo.toLocaleString()} nell&apos;anno iniziale.
                     </p>
                   </div>
                 </CardContent>
