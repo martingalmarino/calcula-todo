@@ -51,7 +51,7 @@ export function CalculatorLayout({
 
   const handleCopyResult = () => {
     // Implementar lógica de copiado
-    console.log("Copiar resultado")
+    console.log(isItalian ? "Copia risultato" : "Copiar resultado")
   }
 
   const handleShare = () => {
@@ -216,10 +216,10 @@ export function CalculatorLayout({
                   <div className="p-2 bg-orange-100 rounded-lg">
                     <Calculator className="h-5 w-5 text-orange-600" />
                   </div>
-                  Calculadoras Relacionadas
+                  {isItalian ? 'Calcolatrici Correlate' : 'Calculadoras Relacionadas'}
                 </CardTitle>
                 <CardDescription className="text-base text-gray-600">
-                  Otras calculadoras que podrían interesarte
+                  {isItalian ? 'Altre calcolatrici che potrebbero interessarti' : 'Otras calculadoras que podrían interesarte'}
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6">
