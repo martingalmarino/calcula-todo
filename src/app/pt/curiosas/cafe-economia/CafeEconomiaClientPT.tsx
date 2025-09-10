@@ -59,7 +59,16 @@ export default function CafeEconomiaClientPT() {
 
     try {
       const resultado = calcularAhorroCafe(precoCafeNum, anosNum, taxaJurosNum);
-      setResultado(resultado);
+      setResultado({
+        precoCafe: resultado.precioCafe,
+        anos: resultado.años,
+        taxaJuros: resultado.tasaInteres,
+        ahorroDiario: resultado.ahorroDiario,
+        ahorroAnual: resultado.ahorroAnual,
+        ahorroTotal: resultado.ahorroTotal,
+        ahorroSinInteres: resultado.ahorroSinInteres,
+        gananciaInteres: resultado.gananciaInteres
+      });
     } catch {
       setError('Erro ao calcular a economia. Verifique os valores inseridos.');
     }

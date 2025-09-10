@@ -52,7 +52,11 @@ export default function IdadeAnimalClientPT() {
 
     try {
       const resultado = convertirEdadMascota(anosHumanosNum, tipoAnimal as 'perro' | 'gato');
-      setResultado(resultado);
+      setResultado({
+        idadeAnimal: resultado.edadMascota,
+        descricao: resultado.descripcion,
+        etapa: resultado.etapa
+      });
     } catch {
       setError('Erro ao calcular a idade do animal. Verifique os valores inseridos.');
     }

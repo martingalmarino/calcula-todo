@@ -39,7 +39,11 @@ export default function CalculadoraAmorClientPT() {
 
     try {
       const resultado = calcularCompatibilidadAmor(nome1.trim(), nome2.trim());
-      setResultado(resultado);
+      setResultado({
+        porcentagem: resultado.porcentaje,
+        mensagem: resultado.mensaje,
+        nivel: resultado.nivel
+      });
     } catch {
       setError('Erro ao calcular a compatibilidade. Verifique os nomes inseridos.');
     }

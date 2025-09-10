@@ -63,7 +63,12 @@ export default function CervejaFestaClientPT() {
 
     try {
       const resultado = calcularCervezaFiesta(convidadosNum, nivelConsumoNum, duracaoHorasNum, precoLitroNum);
-      setResultado(resultado);
+      setResultado({
+        litrosNecessarios: resultado.litrosNecessarios,
+        custoTotal: resultado.costoTotal,
+        tempoTerminacao: resultado.tiempoTerminacion,
+        mensagem: resultado.mensaje
+      });
     } catch {
       setError('Erro ao calcular a quantidade de cerveja. Verifique os valores inseridos.');
     }

@@ -52,7 +52,11 @@ export default function ExpectativaAnimaisClientPT() {
 
     try {
       const resultado = convertirEdadAnimales(idadeHumanaNum, animal as 'tortuga' | 'colibri' | 'mosca');
-      setResultado(resultado);
+      setResultado({
+        vidasAnimal: resultado.vidasAnimal,
+        descricao: resultado.descripcion,
+        expectativaAnimal: resultado.expectativaAnimal
+      });
     } catch {
       setError('Erro ao calcular a expectativa. Verifique os valores inseridos.');
     }
