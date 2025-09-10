@@ -67,12 +67,12 @@ export function HeaderItalian() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-blue-800 rounded-lg mt-2">
+            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-white/20">
               {navigationItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-3 py-2 text-white text-sm font-medium hover:bg-blue-700 rounded-md transition-colors"
+                  className="block px-3 py-2 text-base font-medium text-white hover:text-blue-400 hover:bg-white/10 rounded-md transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
