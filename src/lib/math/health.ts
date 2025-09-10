@@ -52,11 +52,13 @@ export interface OvulationResult {
 /**
  * Calcula el Índice de Masa Corporal (IMC)
  */
-export function calculateIMC(weight: number, height: number, language: 'es' | 'it' = 'es'): IMCResult {
+export function calculateIMC(weight: number, height: number, language: 'es' | 'it' | 'pt' = 'es'): IMCResult {
   if (weight <= 0 || height <= 0) {
     const errorMessage = language === 'it' 
       ? 'Il peso e l\'altezza devono essere valori positivi'
-      : 'El peso y la altura deben ser valores positivos';
+      : language === 'pt'
+        ? 'O peso e a altura devem ser valores positivos'
+        : 'El peso y la altura deben ser valores positivos';
     throw new Error(errorMessage);
   }
 
@@ -85,6 +87,25 @@ export function calculateIMC(weight: number, height: number, language: 'es' | 'i
       category = 'Obesità';
       description = 'Il tuo IMC indica obesità.';
       recommendation = 'È importante consultare un professionista della salute per un piano di trattamento.';
+    }
+  } else if (language === 'pt') {
+    // Traducciones portuguesas
+    if (imc < 18.5) {
+      category = 'Abaixo do peso';
+      description = 'Seu IMC indica abaixo do peso.';
+      recommendation = 'Consulte um profissional de saúde para avaliar seu estado nutricional.';
+    } else if (imc < 25) {
+      category = 'Peso normal';
+      description = 'Seu IMC está dentro da faixa normal.';
+      recommendation = 'Mantenha uma dieta equilibrada e exercício regular.';
+    } else if (imc < 30) {
+      category = 'Sobrepeso';
+      description = 'Seu IMC indica sobrepeso.';
+      recommendation = 'Considere ajustar sua dieta e aumentar a atividade física.';
+    } else {
+      category = 'Obesidade';
+      description = 'Seu IMC indica obesidade.';
+      recommendation = 'É importante consultar um profissional de saúde para um plano de tratamento.';
     }
   } else {
     // Traducciones españolas (por defecto)
@@ -378,6 +399,319 @@ export function calculateOvulation(lastPeriod: string, cycleLength: number): Ovu
     },
     nextPeriod: nextPeriodDate.toLocaleDateString('es-ES'),
     cycleLength,
+    recommendations
+  };
+}
+
+// Interfaces para las nuevas funciones
+export interface IdealWeightResult {
+  idealWeight: number;
+  range: {
+    min: number;
+    max: number;
+  };
+  method: string;
+  recommendations: string[];
+}
+
+export interface CaloriesResult {
+  tmb: number;
+  totalCalories: number;
+  activityLevel: string;
+  recommendations: string[];
+}
+
+export interface SleepResult {
+  sleepCycles: number;
+  wakeUpTime: string;
+  bedTime: string;
+  recommendations: string[];
+}
+
+export interface ExerciseResult {
+  caloriesBurned: number;
+  duration: number;
+  intensity: string;
+  recommendations: string[];
+}
+
+/**
+ * Calcula el peso ideal usando la fórmula de Devine
+ */
+export function calculateIdealWeight(height: number, gender: 'male' | 'female', language: 'es' | 'it' | 'pt' = 'es'): IdealWeightResult {
+  if (height <= 0) {
+    const errorMessage = language === 'it' 
+      ? 'L\'altezza deve essere un valore positivo'
+      : language === 'pt'
+        ? 'A altura deve ser um valor positivo'
+        : 'La altura debe ser un valor positivo';
+    throw new Error(errorMessage);
+  }
+
+  const heightInInches = height / 2.54; // Convertir cm a pulgadas
+  let idealWeight: number;
+  let method: string;
+
+  if (gender === 'male') {
+    idealWeight = 50 + (2.3 * (heightInInches - 60));
+    method = language === 'it' 
+      ? 'Formula di Devine (Uomini)'
+      : language === 'pt'
+        ? 'Fórmula de Devine (Homens)'
+        : 'Fórmula de Devine (Hombres)';
+  } else {
+    idealWeight = 45.5 + (2.3 * (heightInInches - 60));
+    method = language === 'it' 
+      ? 'Formula di Devine (Donne)'
+      : language === 'pt'
+        ? 'Fórmula de Devine (Mulheres)'
+        : 'Fórmula de Devine (Mujeres)';
+  }
+
+  const range = {
+    min: Math.round(idealWeight * 0.9),
+    max: Math.round(idealWeight * 1.1)
+  };
+
+  const recommendations = language === 'it' 
+    ? [
+        'Il peso ideale è solo una stima basata su formule matematiche.',
+        'Considera la composizione corporea, massa muscolare e struttura ossea.',
+        'Consulta un nutrizionista per un piano personalizzato.',
+        'Il peso ideale può variare in base all\'età e al livello di attività.'
+      ]
+    : language === 'pt'
+      ? [
+          'O peso ideal é apenas uma estimativa baseada em fórmulas matemáticas.',
+          'Considere a composição corporal, massa muscular e estrutura óssea.',
+          'Consulte um nutricionista para um plano personalizado.',
+          'O peso ideal pode variar com base na idade e nível de atividade.'
+        ]
+      : [
+          'El peso ideal es solo una estimación basada en fórmulas matemáticas.',
+          'Considera la composición corporal, masa muscular y estructura ósea.',
+          'Consulta con un nutricionista para un plan personalizado.',
+          'El peso ideal puede variar según la edad y nivel de actividad.'
+        ];
+
+  return {
+    idealWeight: Math.round(idealWeight),
+    range,
+    method,
+    recommendations
+  };
+}
+
+/**
+ * Calcula las calorías diarias necesarias
+ */
+export function calculateCalories(weight: number, height: number, age: number, gender: 'male' | 'female', activityLevel: 'sedentary' | 'light' | 'moderate' | 'active' | 'very_active', language: 'es' | 'it' | 'pt' = 'es'): CaloriesResult {
+  if (weight <= 0 || height <= 0 || age <= 0) {
+    const errorMessage = language === 'it' 
+      ? 'Tutti i valori devono essere positivi'
+      : language === 'pt'
+        ? 'Todos os valores devem ser positivos'
+        : 'Todos los valores deben ser positivos';
+    throw new Error(errorMessage);
+  }
+
+  // Calcular TMB usando Mifflin-St Jeor
+  let tmb: number;
+  if (gender === 'male') {
+    tmb = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+  } else {
+    tmb = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+  }
+
+  // Factores de actividad
+  const activityFactors = {
+    sedentary: 1.2,
+    light: 1.375,
+    moderate: 1.55,
+    active: 1.725,
+    very_active: 1.9
+  };
+
+  const totalCalories = Math.round(tmb * activityFactors[activityLevel]);
+
+  const activityLevels = language === 'it' 
+    ? {
+        sedentary: 'Sedentario',
+        light: 'Leggero',
+        moderate: 'Moderato',
+        active: 'Attivo',
+        very_active: 'Molto attivo'
+      }
+    : language === 'pt'
+      ? {
+          sedentary: 'Sedentário',
+          light: 'Leve',
+          moderate: 'Moderado',
+          active: 'Ativo',
+          very_active: 'Muito ativo'
+        }
+      : {
+          sedentary: 'Sedentario',
+          light: 'Ligero',
+          moderate: 'Moderado',
+          active: 'Activo',
+          very_active: 'Muy activo'
+        };
+
+  const recommendations = language === 'it' 
+    ? [
+        'Le calorie totali includono TMB + attività fisica.',
+        'Per perdere peso, consuma 500 calorie in meno al giorno.',
+        'Per aumentare di peso, consuma 500 calorie in più al giorno.',
+        'Consulta un nutrizionista per un piano personalizzato.'
+      ]
+    : language === 'pt'
+      ? [
+          'As calorias totais incluem TMB + atividade física.',
+          'Para perder peso, consuma 500 calorias a menos por dia.',
+          'Para ganhar peso, consuma 500 calorias a mais por dia.',
+          'Consulte um nutricionista para um plano personalizado.'
+        ]
+      : [
+          'Las calorías totales incluyen TMB + actividad física.',
+          'Para perder peso, consume 500 calorías menos al día.',
+          'Para ganar peso, consume 500 calorías más al día.',
+          'Consulta con un nutricionista para un plan personalizado.'
+        ];
+
+  return {
+    tmb: Math.round(tmb),
+    totalCalories,
+    activityLevel: activityLevels[activityLevel],
+    recommendations
+  };
+}
+
+/**
+ * Calcula los ciclos de sueño
+ */
+export function calculateSleep(wakeUpTime: string, language: 'es' | 'it' | 'pt' = 'es'): SleepResult {
+  const wakeUp = new Date(`2000-01-01T${wakeUpTime}`);
+  if (isNaN(wakeUp.getTime())) {
+    const errorMessage = language === 'it' 
+      ? 'Ora di risveglio non valida'
+      : language === 'pt'
+        ? 'Horário de despertar inválido'
+        : 'Hora de despertar inválida';
+    throw new Error(errorMessage);
+  }
+
+  // Cada ciclo de sueño dura aproximadamente 90 minutos
+  const cycleDuration = 90; // minutos
+  const sleepCycles = 5; // ciclos recomendados
+
+  // Calcular hora de acostarse (5 ciclos antes)
+  const bedTime = new Date(wakeUp);
+  bedTime.setMinutes(bedTime.getMinutes() - (sleepCycles * cycleDuration));
+
+  const recommendations = language === 'it' 
+    ? [
+        'Ogni ciclo di sonno dura circa 90 minuti.',
+        '5 cicli completi (7.5 ore) sono ideali per la maggior parte delle persone.',
+        'Vai a letto alla stessa ora ogni sera per mantenere un ritmo regolare.',
+        'Evita schermi luminosi 1 ora prima di dormire.',
+        'Crea un ambiente fresco, buio e silenzioso per dormire.'
+      ]
+    : language === 'pt'
+      ? [
+          'Cada ciclo de sono dura aproximadamente 90 minutos.',
+          '5 ciclos completos (7.5 horas) são ideais para a maioria das pessoas.',
+          'Vá para a cama no mesmo horário todas as noites para manter um ritmo regular.',
+          'Evite telas brilhantes 1 hora antes de dormir.',
+          'Crie um ambiente fresco, escuro e silencioso para dormir.'
+        ]
+      : [
+          'Cada ciclo de sueño dura aproximadamente 90 minutos.',
+          '5 ciclos completos (7.5 horas) son ideales para la mayoría de personas.',
+          'Ve a la cama a la misma hora cada noche para mantener un ritmo regular.',
+          'Evita pantallas brillantes 1 hora antes de dormir.',
+          'Crea un ambiente fresco, oscuro y silencioso para dormir.'
+        ];
+
+  return {
+    sleepCycles,
+    wakeUpTime: wakeUp.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+    bedTime: bedTime.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+    recommendations
+  };
+}
+
+/**
+ * Calcula calorías quemadas en ejercicio
+ */
+export function calculateExercise(weight: number, duration: number, exerciseType: 'walking' | 'running' | 'cycling' | 'swimming' | 'weightlifting', intensity: 'low' | 'moderate' | 'high', language: 'es' | 'it' | 'pt' = 'es'): ExerciseResult {
+  if (weight <= 0 || duration <= 0) {
+    const errorMessage = language === 'it' 
+      ? 'Peso e durata devono essere valori positivi'
+      : language === 'pt'
+        ? 'Peso e duração devem ser valores positivos'
+        : 'El peso y la duración deben ser valores positivos';
+    throw new Error(errorMessage);
+  }
+
+  // METs (Metabolic Equivalent of Task) para diferentes ejercicios
+  const mets = {
+    walking: { low: 2.5, moderate: 3.5, high: 4.5 },
+    running: { low: 6.0, moderate: 8.0, high: 10.0 },
+    cycling: { low: 4.0, moderate: 6.0, high: 8.0 },
+    swimming: { low: 5.0, moderate: 7.0, high: 9.0 },
+    weightlifting: { low: 3.0, moderate: 5.0, high: 7.0 }
+  };
+
+  const met = mets[exerciseType][intensity];
+  const caloriesBurned = Math.round((met * weight * duration) / 60); // Convertir minutos a horas
+
+  const intensities = language === 'it' 
+    ? {
+        low: 'Bassa',
+        moderate: 'Moderata',
+        high: 'Alta'
+      }
+    : language === 'pt'
+      ? {
+          low: 'Baixa',
+          moderate: 'Moderada',
+          high: 'Alta'
+        }
+      : {
+          low: 'Baja',
+          moderate: 'Moderada',
+          high: 'Alta'
+        };
+
+  const recommendations = language === 'it' 
+    ? [
+        'Le calorie bruciate sono una stima basata su METs standard.',
+        'L\'intensità effettiva può variare in base alla forma fisica individuale.',
+        'Combina esercizio cardio e allenamento della forza per risultati ottimali.',
+        'Aumenta gradualmente l\'intensità per evitare lesioni.',
+        'Consulta un personal trainer per un programma personalizzato.'
+      ]
+    : language === 'pt'
+      ? [
+          'As calorias queimadas são uma estimativa baseada em METs padrão.',
+          'A intensidade real pode variar com base na forma física individual.',
+          'Combine exercício cardio e treinamento de força para resultados ótimos.',
+          'Aumente gradualmente a intensidade para evitar lesões.',
+          'Consulte um personal trainer para um programa personalizado.'
+        ]
+      : [
+          'Las calorías quemadas son una estimación basada en METs estándar.',
+          'La intensidad real puede variar según la forma física individual.',
+          'Combina ejercicio cardio y entrenamiento de fuerza para resultados óptimos.',
+          'Aumenta gradualmente la intensidad para evitar lesiones.',
+          'Consulta con un entrenador personal para un programa personalizado.'
+        ];
+
+  return {
+    caloriesBurned,
+    duration,
+    intensity: intensities[intensity],
     recommendations
   };
 }

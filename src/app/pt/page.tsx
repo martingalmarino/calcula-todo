@@ -181,22 +181,22 @@ export default function PortugueseHomePage() {
                     <h3 className="text-blue-900 text-xl font-bold">Saúde</h3>
                   </div>
                   <ChipsContainer>
-                    <Chip href="/pt/saude/calculadora-imc/" icon="activity" ariaLabel="Calculadora de IMC">
+                    <Chip href="/pt/saude/imc/" icon="activity" ariaLabel="Calculadora de IMC">
                       Calculadora de IMC
                     </Chip>
-                    <Chip href="/pt/saude/calculadora-peso-ideal/" icon="weight" ariaLabel="Calculadora de Peso Ideal">
+                    <Chip href="/pt/saude/peso-ideal/" icon="target" ariaLabel="Calculadora de Peso Ideal">
                       Calculadora de Peso Ideal
                     </Chip>
-                    <Chip href="/pt/saude/calculadora-calorias/" icon="flame" ariaLabel="Calculadora de Calorias">
+                    <Chip href="/pt/saude/calorias/" icon="flame" ariaLabel="Calculadora de Calorias">
                       Calculadora de Calorias
                     </Chip>
-                    <Chip href="/pt/saude/calculadora-agua/" icon="droplets" ariaLabel="Calculadora de Água">
+                    <Chip href="/pt/saude/agua/" icon="droplets" ariaLabel="Calculadora de Água">
                       Calculadora de Água
                     </Chip>
-                    <Chip href="/pt/saude/calculadora-sono/" icon="moon" ariaLabel="Calculadora de Sono">
+                    <Chip href="/pt/saude/sono/" icon="moon" ariaLabel="Calculadora de Sono">
                       Calculadora de Sono
                     </Chip>
-                    <Chip href="/pt/saude/calculadora-exercicio/" icon="dumbbell" ariaLabel="Calculadora de Exercício">
+                    <Chip href="/pt/saude/exercicio/" icon="dumbbell" ariaLabel="Calculadora de Exercício">
                       Calculadora de Exercício
                     </Chip>
                   </ChipsContainer>
