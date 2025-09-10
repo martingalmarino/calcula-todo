@@ -1,0 +1,294 @@
+"use client"
+
+import { useState } from 'react'
+import { Container } from '@/components/Container'
+import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Shield, AlertCircle, CheckCircle, XCircle, Info, Eye, EyeOff } from 'lucide-react'
+import { analyzePassword, type PasswordAnalysisResult } from '@/lib/math/technology'
+import { jsonLdCalculator } from '@/lib/seo'
+
+export default function AnalisiPasswordClientIT() {
+  const [password, setPassword] = useState('')
+  const [result, setResult] = useState<PasswordAnalysisResult | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [showPassword, setShowPassword] = useState(false)
+
+  const handleAnalyze = () => {
+    setError(null)
+    setResult(null)
+    
+    if (!password) {
+      setError('Inserisci una password da analizzare')
+      return
+    }
+
+    try {
+      const analysisResult = analyzePassword(password)
+      setResult(analysisResult)
+    } catch {
+      setError('Errore nell\'analisi della password.')
+    }
+  }
+
+  const breadcrumbs = [
+    { label: 'Home', href: '/it' },
+    { label: 'Tecnologia', href: '/it/tecnologia' },
+    { label: 'Analisi delle Password', href: '/it/tecnologia/analisi-password' }
+  ]
+
+  const examples = [
+    {
+      label: 'Password forte: MyP@ssw0rd2024!',
+      values: { password: 'MyP@ssw0rd2024!' }
+    },
+    {
+      label: 'Password media: Password123',
+      values: { password: 'Password123' }
+    },
+    {
+      label: 'Password debole: 123456',
+      values: { password: '123456' }
+    }
+  ]
+
+  const faqItems = [
+    {
+      question: 'Come viene valutata la forza di una password?',
+      answer: 'La forza viene valutata considerando lunghezza, complessità, uso di caratteri speciali, numeri, maiuscole e minuscole, e pattern comuni.'
+    },
+    {
+      question: 'Quali sono i criteri per una password sicura?',
+      answer: 'Una password sicura dovrebbe avere almeno 12 caratteri, includere maiuscole, minuscole, numeri e simboli speciali, ed evitare pattern comuni.'
+    },
+    {
+      question: 'Perché le password lunghe sono più sicure?',
+      answer: 'Le password lunghe aumentano esponenzialmente il numero di combinazioni possibili, rendendo gli attacchi brute force molto più difficili e lunghi.'
+    },
+    {
+      question: 'Cosa sono gli attacchi dizionario?',
+      answer: 'Gli attacchi dizionario provano password comuni e parole del dizionario. Evita password che contengono parole comuni o pattern prevedibili.'
+    }
+  ]
+
+  const relatedLinks = [
+    { label: 'Conversione di Colori', href: '/it/tecnologia/conversione-colori', description: 'Converte formati di colore' },
+    { label: 'Analisi della Latenza', href: '/it/tecnologia/analisi-latenza', description: 'Analizza la latenza di rete' },
+    { label: 'Uptime/Downtime', href: '/it/tecnologia/uptime-downtime', description: 'Calcola uptime e downtime' }
+  ]
+
+  const handleExampleClick = (values: Record<string, unknown>) => {
+    setPassword(values.password as string)
+    setResult(null)
+    setError(null)
+  }
+
+  const getStrengthColor = (strength: string) => {
+    switch (strength.toLowerCase()) {
+      case 'molto debole': return 'text-red-600'
+      case 'debole': return 'text-orange-600'
+      case 'media': return 'text-yellow-600'
+      case 'forte': return 'text-blue-600'
+      case 'molto forte': return 'text-green-600'
+      default: return 'text-gray-600'
+    }
+  }
+
+  const getStrengthBg = (strength: string) => {
+    switch (strength.toLowerCase()) {
+      case 'molto debole': return 'bg-red-50 border-red-200'
+      case 'debole': return 'bg-orange-50 border-orange-200'
+      case 'media': return 'bg-yellow-50 border-yellow-200'
+      case 'forte': return 'bg-blue-50 border-blue-200'
+      case 'molto forte': return 'bg-green-50 border-green-200'
+      default: return 'bg-gray-50 border-gray-200'
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdCalculator({
+            name: 'Analisi delle Password',
+            description: 'Analizza la sicurezza e la forza delle tue password',
+            url: '/it/tecnologia/analisi-password/',
+            category: 'Tecnologia'
+          }))
+        }}
+      />
+      
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Analisi delle Password"
+            description="Analizza la sicurezza e la forza delle tue password"
+            examples={examples}
+            faqItems={faqItems}
+            relatedLinks={relatedLinks}
+            onExampleClick={handleExampleClick}
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Shield className="h-5 w-5" />
+                  Analisi delle Password
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Password da Analizzare
+                  </label>
+                  <div className="relative">
+                    <Input
+                      type={showPassword ? 'text' : 'password'}
+                      placeholder="Inserisci la tua password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="w-full pr-10"
+                    />
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? (
+                        <EyeOff className="h-4 w-4" />
+                      ) : (
+                        <Eye className="h-4 w-4" />
+                      )}
+                    </Button>
+                  </div>
+                </div>
+                
+                <Button 
+                  onClick={handleAnalyze} 
+                  className="w-full calculator-button"
+                >
+                  <Shield className="h-4 w-4 mr-2" />
+                  Analizza Password
+                </Button>
+
+                {error && (
+                  <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                    <AlertCircle className="h-4 w-4" />
+                    <span className="text-sm">{error}</span>
+                  </div>
+                )}
+
+                {result && (
+                  <Card className="mt-4">
+                    <CardHeader>
+                      <CardTitle className="text-lg">Risultati dell&apos;Analisi</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="text-center">
+                        <div className={`text-3xl font-bold mb-2 ${getStrengthColor(result.strength)}`}>
+                          {result.strength}
+                        </div>
+                        <div className="text-lg font-semibold text-foreground mb-2">
+                          Punteggio: {result.score}/100
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div 
+                            className={`h-2 rounded-full transition-all duration-300 ${getStrengthColor(result.strength).replace('text-', 'bg-')}`}
+                            style={{ width: `${result.score}%` } as React.CSSProperties}
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="bg-blue-50 p-4 rounded-lg">
+                          <h4 className="font-medium text-blue-800 mb-2">Statistiche</h4>
+                          <div className="space-y-1 text-sm">
+                            <div className="flex justify-between">
+                              <span>Lunghezza:</span>
+                              <span className="font-medium">{result.length} caratteri</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Entropia:</span>
+                              <span className="font-medium">{result.entropy.toFixed(1)} bit</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Tempo di Cracking:</span>
+                              <span className="font-medium">{result.crackTime}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-green-50 p-4 rounded-lg">
+                          <h4 className="font-medium text-green-800 mb-2">Composizione</h4>
+                          <div className="space-y-1 text-sm">
+                            <div className="flex justify-between">
+                              <span>Maiuscole:</span>
+                              <span className="font-medium">{result.hasUppercase ? 'Sì' : 'No'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Minuscole:</span>
+                              <span className="font-medium">{result.hasLowercase ? 'Sì' : 'No'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Numeri:</span>
+                              <span className="font-medium">{result.hasNumbers ? 'Sì' : 'No'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Simboli:</span>
+                              <span className="font-medium">{result.hasSymbols ? 'Sì' : 'No'}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="bg-gray-50 rounded-lg p-4">
+                        <h4 className="font-medium mb-2">Raccomandazioni:</h4>
+                        <div className="space-y-2">
+                          {result.recommendations.map((rec, index) => (
+                            <div key={index} className="flex items-start gap-2 text-sm">
+                              {rec.type === 'warning' ? (
+                                <XCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
+                              ) : (
+                                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              )}
+                              <span className={rec.type === 'warning' ? 'text-red-700' : 'text-green-700'}>
+                                {rec.message}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <div className="flex items-start gap-2">
+                          <Info className="h-4 w-4 text-blue-600 mt-0.5" />
+                          <div className="text-sm text-blue-800">
+                            <p className="font-medium mb-1">Consigli per Password Sicure:</p>
+                            <ul className="list-disc list-inside space-y-1">
+                              <li>Usa almeno 12 caratteri</li>
+                              <li>Includi maiuscole, minuscole, numeri e simboli</li>
+                              <li>Evita informazioni personali</li>
+                              <li>Non riutilizzare password tra account</li>
+                              <li>Considera l&apos;uso di un gestore di password</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+              </CardContent>
+            </Card>
+          </CalculatorLayout>
+        </div>
+      </Container>
+    </div>
+  )
+}

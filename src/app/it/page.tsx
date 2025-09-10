@@ -318,6 +318,34 @@ export default function ItalianHomePage() {
                   </ChipsContainer>
                 </div>
 
+                {/* Tecnologia Section */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">💻</span>
+                    <h3 className="text-blue-900 text-xl font-bold">Tecnologia</h3>
+                  </div>
+                  <ChipsContainer>
+                    <Chip href="/it/tecnologia/conversione-archiviazione/" icon="hard-drive" ariaLabel="Conversione di Archiviazione">
+                      Conversione di Archiviazione
+                    </Chip>
+                    <Chip href="/it/tecnologia/velocita-download/" icon="download" ariaLabel="Velocità di Download">
+                      Velocità di Download
+                    </Chip>
+                    <Chip href="/it/tecnologia/uptime-downtime/" icon="clock" ariaLabel="Uptime/Downtime">
+                      Uptime/Downtime
+                    </Chip>
+                    <Chip href="/it/tecnologia/conversione-colori/" icon="palette" ariaLabel="Conversione di Colori">
+                      Conversione di Colori
+                    </Chip>
+                    <Chip href="/it/tecnologia/analisi-password/" icon="shield" ariaLabel="Analisi delle Password">
+                      Analisi delle Password
+                    </Chip>
+                    <Chip href="/it/tecnologia/analisi-latenza/" icon="zap" ariaLabel="Analisi della Latenza">
+                      Analisi della Latenza
+                    </Chip>
+                  </ChipsContainer>
+                </div>
+
               </div>
               </div>
             </div>
