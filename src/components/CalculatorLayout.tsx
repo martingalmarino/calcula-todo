@@ -117,11 +117,11 @@ export function CalculatorLayout({
               <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-100">
                 <Button onClick={handleCopyResult} className="calculator-action-button flex-1">
                   <Copy className="h-4 w-4 mr-2" />
-                  {isItalian ? 'Copia risultato' : 'Copiar resultado'}
+                  {isItalian ? 'Copia risultato' : isPortuguese ? 'Copiar resultado' : 'Copiar resultado'}
                 </Button>
                 <Button onClick={handleShare} className="calculator-action-button flex-1">
                   <Share2 className="h-4 w-4 mr-2" />
-                  {isItalian ? 'Condividi' : 'Compartir'}
+                  {isItalian ? 'Condividi' : isPortuguese ? 'Compartilhar' : 'Compartir'}
                 </Button>
               </div>
             </CardContent>
