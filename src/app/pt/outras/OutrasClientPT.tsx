@@ -66,24 +66,39 @@ export default function OutrasClientPT() {
 
 
   // Mapear as calculadoras para português
-  const calculatorsPT = outrasCluster.calculators.map(calc => ({
-    ...calc,
-    href: calc.href.replace('/otras/', '/pt/outras/'),
-    label: calc.label === 'Calculadora de Propinas' ? 'Calculadora de Gorjeta' : calc.label,
-    description: calc.description === 'Calcula la propina y el total a pagar en restaurantes' 
-      ? 'Calcula a gorjeta e o total a pagar em restaurantes'
-      : calc.description === 'Convierte puntuaciones numéricas a escala de calificaciones A, B, C, D, F'
-      ? 'Converte pontuações numéricas para escala de notas A, B, C, D, F'
-      : calc.description === 'Calcula el gasto de gasolina para un viaje'
-      ? 'Calcula o gasto de gasolina para uma viagem'
-      : calc.description === 'Cuenta palabras, caracteres, oraciones y párrafos en tiempo real'
-      ? 'Conta palavras, caracteres, frases e parágrafos em tempo real'
-      : calc.description === 'Convierte números arábigos a romanos y viceversa'
-      ? 'Converte números arábicos para romanos e vice-versa'
-      : calc.description === 'Mide tu velocidad de clics por segundo (CPS)'
-      ? 'Mede sua velocidade de cliques por segundo (CPS)'
-      : calc.description
-  }))
+  const calculatorsPT = outrasCluster.calculators.map(calc => {
+    let href = calc.href.replace('/otras/', '/pt/outras/')
+    
+    // Corrigir nomes das pastas para coincidir com as que realmente existem
+    if (href.includes('calculadora-propinas')) {
+      href = href.replace('calculadora-propinas', 'calculadora-gorjeta')
+    }
+    if (href.includes('contador-palabras')) {
+      href = href.replace('contador-palabras', 'contador-palavras')
+    }
+    if (href.includes('contador-clicks')) {
+      href = href.replace('contador-clicks', 'contador-cliques')
+    }
+    
+    return {
+      ...calc,
+      href,
+      label: calc.label === 'Calculadora de Propinas' ? 'Calculadora de Gorjeta' : calc.label,
+      description: calc.description === 'Calcula la propina y el total a pagar en restaurantes' 
+        ? 'Calcula a gorjeta e o total a pagar em restaurantes'
+        : calc.description === 'Convierte puntuaciones numéricas a escala de calificaciones A, B, C, D, F'
+        ? 'Converte pontuações numéricas para escala de notas A, B, C, D, F'
+        : calc.description === 'Calcula el gasto de gasolina para un viaje'
+        ? 'Calcula o gasto de gasolina para uma viagem'
+        : calc.description === 'Cuenta palabras, caracteres, oraciones y párrafos en tiempo real'
+        ? 'Conta palavras, caracteres, frases e parágrafos em tempo real'
+        : calc.description === 'Convierte números arábigos a romanos y viceversa'
+        ? 'Converte números arábicos para romanos e vice-versa'
+        : calc.description === 'Mide tu velocidad de clics por segundo (CPS)'
+        ? 'Mede sua velocidade de cliques por segundo (CPS)'
+        : calc.description
+    }
+  })
 
   // Criar objeto category para português
   const categoryPT = {
