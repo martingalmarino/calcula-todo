@@ -1,5 +1,6 @@
 "use client"
 
+import { CategoryPageLayout } from '@/components/CategoryPageLayout'
 import { Heart, Activity, Droplets, Moon, Dumbbell, Target, Users, Clock, TrendingUp } from 'lucide-react'
 
 export function SaudeClientPT() {
@@ -116,10 +117,12 @@ export function SaudeClientPT() {
     }
   ]
 
-  return {
-    saudeCluster,
-    customIcons,
-    stats,
-    faqItems
-  }
+  return (
+    <CategoryPageLayout
+      category={saudeCluster}
+      customIcons={customIcons}
+      customStats={stats}
+      faqItems={faqItems}
+    />
+  )
 }
