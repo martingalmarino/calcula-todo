@@ -41,7 +41,7 @@ export function FooterItalian() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/it/salud/" className="text-white/80 hover:text-white transition-colors">
+                  <Link href="/it/salute/" className="text-white/80 hover:text-white transition-colors">
                     Salute
                   </Link>
                 </li>
@@ -63,12 +63,12 @@ export function FooterItalian() {
               <h3 className="text-white font-semibold mb-4">Supporto</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/it/acerca/" className="text-white/80 hover:text-white transition-colors">
+                  <Link href="/it/chi-siamo/" className="text-white/80 hover:text-white transition-colors">
                     Chi Siamo
                   </Link>
                 </li>
                 <li>
-                  <Link href="/it/contacto/" className="text-white/80 hover:text-white transition-colors">
+                  <Link href="/it/contatto/" className="text-white/80 hover:text-white transition-colors">
                     Contatto
                   </Link>
                 </li>
@@ -78,12 +78,12 @@ export function FooterItalian() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/it/privacidad/" className="text-white/80 hover:text-white transition-colors">
+                  <Link href="/it/privacy/" className="text-white/80 hover:text-white transition-colors">
                     Politica di Privacy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/it/terminos/" className="text-white/80 hover:text-white transition-colors">
+                  <Link href="/it/termini/" className="text-white/80 hover:text-white transition-colors">
                     Termini di Utilizzo
                   </Link>
                 </li>
