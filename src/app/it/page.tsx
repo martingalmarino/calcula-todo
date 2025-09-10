@@ -318,7 +318,7 @@ export default function ItalianHomePage() {
                   </ChipsContainer>
                 </div>
 
-                {/* Tecnologia Section */}
+                {/* Tecnologia Section - Italian URLs */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">💻</span>
