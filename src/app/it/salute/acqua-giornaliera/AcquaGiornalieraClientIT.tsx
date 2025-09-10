@@ -169,7 +169,7 @@ export default function AcquaGiornalieraClientIT() {
           </div>
         </div>
 
-        <Button onClick={handleCalculate} className="w-full bg-blue-500 hover:bg-blue-600 text-white">
+        <Button onClick={handleCalculate} className="w-full bg-sky-600 hover:bg-sky-700 text-white border border-sky-600 rounded-[10px]">
           Calcola Acqua Giornaliera
         </Button>
 
