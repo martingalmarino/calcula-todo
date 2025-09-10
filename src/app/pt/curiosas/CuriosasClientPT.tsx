@@ -1,7 +1,7 @@
 "use client"
 
 import { CategoryPageLayout } from '@/components/CategoryPageLayout'
-import { Calculator, Coffee, Pizza, Heart, Tv, Thermometer, Dog, Beer, Bus, Turtle, Users } from 'lucide-react'
+import { Calculator, Coffee, Heart, Dog, Beer, Turtle, Users } from 'lucide-react'
 
 const curiosasCluster = {
   name: 'Curiosas',
@@ -68,18 +68,12 @@ const curiosasCluster = {
 
 export function CuriosasClientPT() {
   const customIcons = {
-    '/pt/curiosas/cafe-economia/': Coffee,
-    '/pt/curiosas/pizza-pessoa/': Pizza,
-    '/pt/curiosas/expectativa-comida/': Heart,
     '/pt/curiosas/beijos-calorias/': Heart,
-    '/pt/curiosas/tempo-filmes/': Tv,
-    '/pt/curiosas/nivel-friolento/': Thermometer,
-    '/pt/curiosas/idade-animal/': Dog,
-    '/pt/curiosas/cerveja-festa/': Beer,
-    '/pt/curiosas/tempo-transporte/': Bus,
-    '/pt/curiosas/expectativa-animais/': Turtle,
+    '/pt/curiosas/cafe-economia/': Coffee,
     '/pt/curiosas/calculadora-amor/': Heart,
-    '/pt/curiosas/tempo-netflix/': Tv
+    '/pt/curiosas/cerveja-festa/': Beer,
+    '/pt/curiosas/idade-animal/': Dog,
+    '/pt/curiosas/expectativa-animais/': Turtle
   }
 
   const customStats = [
