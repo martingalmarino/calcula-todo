@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import '../globals.css'
 import { HeaderPortuguese } from '@/components/HeaderPortuguese'
-import { Footer } from '@/components/Footer'
+import { FooterPortuguese } from '@/components/FooterPortuguese'
 import { AnalyticsProvider } from '@/lib/analytics'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -124,7 +124,7 @@ export default function PortugueseLayout({
             <main className="flex-1">
               {children}
             </main>
-            <Footer />
+            <FooterPortuguese />
           </div>
         </AnalyticsProvider>
         {/* Lucide Icons CDN */}
