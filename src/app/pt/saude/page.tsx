@@ -46,7 +46,6 @@ export default function SaudePage() {
         href: '/pt/saude/',
         calculators: [
           {
-            name: 'Calculadora de IMC',
             label: 'IMC',
             description: 'Calcule seu Índice de Massa Corporal e descubra sua categoria de peso',
             href: '/pt/saude/imc/',
@@ -55,7 +54,6 @@ export default function SaudePage() {
             keywords: ['IMC', 'peso', 'altura', 'massa corporal']
           },
           {
-            name: 'Calculadora de Peso Ideal',
             label: 'Peso Ideal',
             description: 'Descubra qual é o peso ideal para sua altura e tipo corporal',
             href: '/pt/saude/peso-ideal/',
@@ -64,7 +62,6 @@ export default function SaudePage() {
             keywords: ['peso ideal', 'altura', 'tipo corporal']
           },
           {
-            name: 'Calculadora de Calorias',
             label: 'Calorias',
             description: 'Calcule suas necessidades calóricas diárias baseadas em seu estilo de vida',
             href: '/pt/saude/calorias/',
@@ -73,7 +70,6 @@ export default function SaudePage() {
             keywords: ['calorias', 'TMB', 'metabolismo', 'dieta']
           },
           {
-            name: 'Calculadora de Água',
             label: 'Água',
             description: 'Descubra quanta água você deve beber por dia para manter-se hidratado',
             href: '/pt/saude/agua/',
@@ -82,7 +78,6 @@ export default function SaudePage() {
             keywords: ['água', 'hidratação', 'líquidos']
           },
           {
-            name: 'Calculadora de Sono',
             label: 'Sono',
             description: 'Calcule seus ciclos de sono e descubra os melhores horários para dormir',
             href: '/pt/saude/sono/',
@@ -91,7 +86,6 @@ export default function SaudePage() {
             keywords: ['sono', 'ciclos', 'descanso', 'horário']
           },
           {
-            name: 'Calculadora de Exercício',
             label: 'Exercício',
             description: 'Calcule calorias queimadas e intensidade de exercícios',
             href: '/pt/saude/exercicio/',
