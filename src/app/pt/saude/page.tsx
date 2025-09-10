@@ -20,7 +20,7 @@ const customStats = [
     icon: Heart,
     value: '6',
     label: 'Calculadoras de Saúde',
-    color: 'red' as const
+    color: 'purple' as const
   },
   {
     icon: Activity,
