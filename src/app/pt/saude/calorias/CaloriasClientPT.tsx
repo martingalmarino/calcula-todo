@@ -253,7 +253,7 @@ export default function CaloriasClientPT() {
                         </div>
                         <div className="text-center">
                           <div className="text-2xl font-bold text-green-600 mb-2">
-                            {resultado.caloriasTotais} kcal
+                            {resultado.totalCalories} kcal
                           </div>
                           <div className="text-sm font-semibold text-foreground">
                             Calorias Totais Diárias
@@ -263,11 +263,14 @@ export default function CaloriasClientPT() {
                       
                       <div className="space-y-2">
                         <p className="text-sm text-muted-foreground">
-                          <strong>Nível de atividade:</strong> {resultado.nivelAtividade}
+                          <strong>Nível de atividade:</strong> {resultado.activityLevel}
                         </p>
-                        <p className="text-sm text-muted-foreground">
-                          {resultado.recommendation}
-                        </p>
+                        <div className="space-y-1">
+                          <p className="text-sm font-medium text-foreground">Recomendações:</p>
+                          {resultado.recommendations.map((rec, index) => (
+                            <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
+                          ))}
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
