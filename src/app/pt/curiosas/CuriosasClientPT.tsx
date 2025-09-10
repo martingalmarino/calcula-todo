@@ -5,6 +5,7 @@ import { Calculator, Coffee, Pizza, Heart, Tv, Thermometer, Dog, Beer, Bus, Turt
 
 const curiosasCluster = {
   name: 'Curiosas',
+  label: 'Curiosas',
   description: 'Calculadoras divertidas e originais para descobrir coisas curiosas e inesperadas',
   href: '/pt/curiosas/',
   calculators: [
