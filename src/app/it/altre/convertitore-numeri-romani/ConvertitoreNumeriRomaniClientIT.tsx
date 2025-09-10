@@ -40,7 +40,7 @@ export default function ConvertitoreNumeriRomaniClientIT() {
       if (!conversionResult.isValid) {
         setError('Il numero deve essere compreso tra 1 e 3999')
       }
-    } catch (err) {
+    } catch {
       setError('Errore nella conversione')
     }
   }
@@ -61,7 +61,7 @@ export default function ConvertitoreNumeriRomaniClientIT() {
       if (!conversionResult.isValid) {
         setError('Numero romano non valido. Usa solo I, V, X, L, C, D, M')
       }
-    } catch (err) {
+    } catch {
       setError('Errore nella conversione')
     }
   }
@@ -123,7 +123,7 @@ export default function ConvertitoreNumeriRomaniClientIT() {
     { label: 'Calcolatrice di Mance', href: '/it/altre/calcolatrice-mance', description: 'Calcola le mance' }
   ]
 
-  const handleExampleClick = (values: any, type: 'arabic-to-roman' | 'roman-to-arabic') => {
+  const handleExampleClick = (values: Record<string, unknown>, type: 'arabic-to-roman' | 'roman-to-arabic') => {
     setConversionType(type)
     if (type === 'arabic-to-roman') {
       setArabicInput(values.arabicInput as string)

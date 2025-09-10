@@ -28,7 +28,11 @@ export default function ContatoreClickCPSClientIT() {
           setTimeElapsed(elapsed)
           
           if (elapsed >= testDuration) {
-            stopTest()
+            setIsRunning(false)
+            if (clicks > 0 && elapsed > 0) {
+              const stats = calculateClickStats(clicks, elapsed)
+              setResults(stats)
+            }
           }
         }
       }, 10) // Aggiorna ogni 10ms per precisione
@@ -44,7 +48,7 @@ export default function ContatoreClickCPSClientIT() {
         clearInterval(intervalRef.current)
       }
     }
-  }, [isRunning, testDuration])
+  }, [isRunning, testDuration, clicks])
 
   const startTest = () => {
     setIsRunning(true)
