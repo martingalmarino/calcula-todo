@@ -177,7 +177,7 @@ export default function PafiClientIT() {
           </div>
         </div>
 
-        <Button onClick={handleCalculate} className="w-full bg-primary-new hover:bg-primary-new/90 text-white shadow-lg hover:shadow-xl transition-all duration-200">
+        <Button onClick={handleCalculate} className="w-full">
           Calcola Indice PaFi
         </Button>
 
