@@ -14,7 +14,7 @@ const navigationItems = [
   { label: "Curiose", href: "/it/curiosas", hasDropdown: true },
   { label: "Geometria", href: "/it/geometria", hasDropdown: true },
   { label: "Calendario", href: "/it/calendario", hasDropdown: true },
-  { label: "Altre", href: "/it/otras", hasDropdown: true },
+  { label: "Altre", href: "/it/altre", hasDropdown: true },
 ]
 
 export function HeaderItalian() {

@@ -290,29 +290,29 @@ export default function ItalianHomePage() {
                   </ChipsContainer>
                 </div>
 
-                {/* Otras Calculadoras Section */}
+                {/* Altre Calcolatrici Section */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-2xl">🔧</span>
                     <h3 className="text-blue-900 text-xl font-bold">Altre Calcolatrici</h3>
                   </div>
                   <ChipsContainer>
-                    <Chip href="/it/otras/escala-notas/" icon="graduation-cap" ariaLabel="Scala di Voti">
+                    <Chip href="/it/altre/scala-di-voti/" icon="graduation-cap" ariaLabel="Scala di Voti">
                       Scala di Voti
                     </Chip>
-                    <Chip href="/it/otras/gasto-gasolina/" icon="fuel" ariaLabel="Spesa Benzina per Viaggi">
+                    <Chip href="/it/altre/spesa-benzina-viaggi/" icon="fuel" ariaLabel="Spesa Benzina per Viaggi">
                       Spesa Benzina per Viaggi
                     </Chip>
-                    <Chip href="/it/otras/contador-palabras/" icon="type" ariaLabel="Contatore di Parole e Caratteri">
+                    <Chip href="/it/altre/contatore-parole-caratteri/" icon="type" ariaLabel="Contatore di Parole e Caratteri">
                       Contatore di Parole e Caratteri
                     </Chip>
-                    <Chip href="/it/otras/numeros-romanos/" icon="hash" ariaLabel="Convertitore di Numeri Romani">
+                    <Chip href="/it/altre/convertitore-numeri-romani/" icon="hash" ariaLabel="Convertitore di Numeri Romani">
                       Convertitore di Numeri Romani
                     </Chip>
-                    <Chip href="/it/otras/contador-clicks/" icon="mouse-pointer" ariaLabel="Contatore di Click (CPS Test)">
+                    <Chip href="/it/altre/contatore-click-cps/" icon="mouse-pointer" ariaLabel="Contatore di Click (CPS Test)">
                       Contatore di Click (CPS Test)
                     </Chip>
-                    <Chip href="/it/otras/calculadora-propinas/" icon="receipt" ariaLabel="Calcolatrice di Mance">
+                    <Chip href="/it/altre/calcolatrice-mance/" icon="receipt" ariaLabel="Calcolatrice di Mance">
                       Calcolatrice di Mance
                     </Chip>
                   </ChipsContainer>
