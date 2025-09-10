@@ -54,7 +54,21 @@ export default function ExercicioClientPT() {
     }
 
     try {
-      const resultado = calculateExercise(pesoNum, duracaoNum, exercicio, intensidade, 'pt')
+      // Mapear tipo de exercício para o formato esperado pela função
+      let exerciseType: 'walking' | 'running' | 'cycling' | 'swimming' | 'weightlifting' = 'walking'
+      if (exercicio === 'caminhada') exerciseType = 'walking'
+      else if (exercicio === 'corrida') exerciseType = 'running'
+      else if (exercicio === 'ciclismo') exerciseType = 'cycling'
+      else if (exercicio === 'natacao') exerciseType = 'swimming'
+      else if (exercicio === 'musculacao') exerciseType = 'weightlifting'
+      
+      // Mapear intensidade para o formato esperado pela função
+      let intensity: 'low' | 'moderate' | 'high' = 'moderate'
+      if (intensidade === 'leve') intensity = 'low'
+      else if (intensidade === 'moderada') intensity = 'moderate'
+      else if (intensidade === 'intensa') intensity = 'high'
+      
+      const resultado = calculateExercise(pesoNum, duracaoNum, exerciseType, intensity, 'pt')
       setResultado(resultado)
     } catch {
       setError('Erro ao calcular as calorias queimadas. Verifique os valores inseridos.')
@@ -219,7 +233,7 @@ export default function ExercicioClientPT() {
                     <CardContent className="space-y-4">
                       <div className="text-center">
                         <div className="text-3xl font-bold text-orange-600 mb-2">
-                          {resultado.caloriasQueimadas} kcal
+                          {resultado.caloriesBurned} kcal
                         </div>
                         <div className="text-lg font-semibold text-foreground">
                           Calorias Queimadas
@@ -228,20 +242,17 @@ export default function ExercicioClientPT() {
                       
                       <div className="space-y-2">
                         <p className="text-sm text-muted-foreground">
-                          <strong>Exercício:</strong> {resultado.exercicio}
+                          <strong>Duração:</strong> {resultado.duration} minutos
                         </p>
                         <p className="text-sm text-muted-foreground">
-                          <strong>Intensidade:</strong> {resultado.intensidade}
+                          <strong>Intensidade:</strong> {resultado.intensity}
                         </p>
-                        <p className="text-sm text-muted-foreground">
-                          <strong>Duração:</strong> {resultado.duracao} minutos
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          {resultado.description}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          {resultado.recommendation}
-                        </p>
+                        <div className="space-y-1">
+                          <p className="text-sm font-medium text-foreground">Recomendações:</p>
+                          {resultado.recommendations.map((rec, index) => (
+                            <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
+                          ))}
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
