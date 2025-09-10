@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Users, AlertCircle } from 'lucide-react'
-import { calcularROI } from '@/lib/math/marketing'
+import { calcularROIMarketing } from '@/lib/math/marketing'
 import { jsonLdCalculator } from '@/lib/seo'
 import { getBreadcrumbs } from '@/lib/site.config'
 
@@ -47,8 +47,14 @@ export default function ROIClientIT() {
     }
 
     try {
-      const result = calcularROI(ingreso, inv)
-      setResultado(result)
+      const result = calcularROIMarketing(ingreso, inv)
+      setResultado({
+        ingresos: result.ingresos,
+        inversion: result.inversion,
+        ganancia: result.gananciaNeta,
+        roi: result.ratioROI,
+        roiPorcentaje: result.roi
+      })
     } catch {
       setError('Errore nel calcolo del ROI')
     }

@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { DollarSign, AlertCircle } from 'lucide-react'
-import { calcularBudget } from '@/lib/math/marketing'
+import { calcularPresupuestoMarketing } from '@/lib/math/marketing'
 import { jsonLdCalculator } from '@/lib/seo'
 import { getBreadcrumbs } from '@/lib/site.config'
 
@@ -46,8 +46,17 @@ export default function BudgetClientIT() {
     }
 
     try {
-      const result = calcularBudget(budget, canal)
-      setResultado(result)
+      const result = calcularPresupuestoMarketing(budget, 100/canal)
+      setResultado({
+        budgetTotal: budget,
+        canales: canal,
+        budgetPorCanal: budget / canal,
+        distribucion: Array.from({ length: canal }, (_, i) => ({
+          canal: `Canale ${i + 1}`,
+          porcentaje: 100 / canal,
+          presupuesto: budget / canal
+        }))
+      })
     } catch {
       setError('Errore nel calcolo del budget')
     }
