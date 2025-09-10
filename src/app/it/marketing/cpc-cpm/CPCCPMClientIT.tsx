@@ -56,7 +56,14 @@ export default function CPCCPMClientIT() {
 
     try {
       const result = calcularCPCCPM(costo, click, impresion)
-      setResultado(result)
+      setResultado({
+        costoTotal: result.inversionTotal,
+        clicks: result.clicks,
+        impresiones: result.impresiones,
+        cpc: result.cpc,
+        cpm: result.cpm,
+        ctr: result.ctr
+      })
     } catch {
       setError('Errore nel calcolo di CPC/CPM')
     }
