@@ -11,39 +11,57 @@ const curiosasCluster = {
   calculators: [
     {
       name: 'Beijos e Calorias',
+      label: 'Beijos e Calorias',
       description: 'Calcula as calorias queimadas por beijos, abraços e risadas',
       href: '/pt/curiosas/beijos-calorias/',
-      icon: 'heart'
+      icon: 'heart',
+      category: 'curiosas',
+      keywords: ['beijos', 'calorias', 'abraços', 'risadas']
     },
     {
       name: 'Café e Economia',
+      label: 'Café e Economia',
       description: 'Descubra quanto você pode economizar se parar de tomar café',
       href: '/pt/curiosas/cafe-economia/',
-      icon: 'coffee'
+      icon: 'coffee',
+      category: 'curiosas',
+      keywords: ['café', 'economia', 'poupança', 'juros']
     },
     {
       name: 'Calculadora do Amor',
+      label: 'Calculadora do Amor',
       description: 'Descubra a compatibilidade entre dois nomes',
       href: '/pt/curiosas/calculadora-amor/',
-      icon: 'heart'
+      icon: 'heart',
+      category: 'curiosas',
+      keywords: ['amor', 'compatibilidade', 'nomes', 'relacionamento']
     },
     {
       name: 'Cerveja e Festa',
+      label: 'Cerveja e Festa',
       description: 'Calcule quanta cerveja você precisa para sua festa',
       href: '/pt/curiosas/cerveja-festa/',
-      icon: 'beer'
+      icon: 'beer',
+      category: 'curiosas',
+      keywords: ['cerveja', 'festa', 'convidados', 'consumo']
     },
     {
       name: 'Idade do Animal',
+      label: 'Idade do Animal',
       description: 'Converta a idade humana para idade de animais de estimação',
       href: '/pt/curiosas/idade-animal/',
-      icon: 'dog'
+      icon: 'dog',
+      category: 'curiosas',
+      keywords: ['idade', 'animal', 'pet', 'cachorro', 'gato']
     },
     {
       name: 'Expectativa de Animais',
+      label: 'Expectativa de Animais',
       description: 'Compare sua idade com a expectativa de vida de diferentes animais',
       href: '/pt/curiosas/expectativa-animais/',
-      icon: 'turtle'
+      icon: 'turtle',
+      category: 'curiosas',
+      keywords: ['expectativa', 'vida', 'animais', 'tartaruga', 'colibri']
     }
   ]
 }
