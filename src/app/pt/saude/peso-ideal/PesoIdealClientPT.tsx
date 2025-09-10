@@ -46,7 +46,10 @@ export default function PesoIdealClientPT() {
     }
 
     try {
-      const resultado = calculateIdealWeight(alturaNum, sexo as 'masculino' | 'feminino', 'pt')
+      // Mapear sexo para o formato esperado pela função
+      const gender = sexo === 'masculino' ? 'male' : 'female'
+      
+      const resultado = calculateIdealWeight(alturaNum, gender, 'pt')
       setResultado(resultado)
     } catch {
       setError('Erro ao calcular o peso ideal. Verifique os valores inseridos.')
@@ -173,20 +176,26 @@ export default function PesoIdealClientPT() {
                     <CardContent className="space-y-4">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-blue-600 mb-2">
-                          {resultado.pesoIdealMin} - {resultado.pesoIdealMax} kg
+                          {resultado.range.min} - {resultado.range.max} kg
                         </div>
                         <div className="text-lg font-semibold text-foreground">
                           Peso Ideal
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          Peso ideal: {resultado.idealWeight} kg
                         </div>
                       </div>
                       
                       <div className="space-y-2">
                         <p className="text-sm text-muted-foreground">
-                          {resultado.description}
+                          <strong>Método:</strong> {resultado.method}
                         </p>
-                        <p className="text-sm text-muted-foreground">
-                          {resultado.recommendation}
-                        </p>
+                        <div className="space-y-1">
+                          <p className="text-sm font-medium text-foreground">Recomendações:</p>
+                          {resultado.recommendations.map((rec, index) => (
+                            <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
+                          ))}
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
