@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Film, AlertCircle } from 'lucide-react'
-import { calcularTiempoVidaPeliculas } from '@/lib/math/curiosas'
+import { calcularTiempoPeliculas } from '@/lib/math/curiosas'
 import { jsonLdCalculator } from '@/lib/seo'
 import { getBreadcrumbs } from '@/lib/site.config'
 
@@ -16,14 +16,15 @@ export default function TempoFilmClientIT() {
   const [edad, setEdad] = useState('')
   const [horasPorSemana, setHorasPorSemana] = useState('')
   const [resultado, setResultado] = useState<{
-    edad: number
-    horasPorSemana: number
-    horasPorAño: number
-    horasTotales: number
-    diasTotales: number
-    añosTotales: number
-    porcentajeVida: number
-    equivalenciaActividades: string[]
+    horasSemanales: number
+    edadActual: number
+    expectativaVida: number
+    horasAnuales: number
+    añosRestantes: number
+    horasTotalesVida: number
+    añosDedicados: number
+    peliculasCompletas: number
+    seriesCompletas: number
   } | null>(null)
   const [error, setError] = useState<string | null>(null)
 
@@ -50,7 +51,7 @@ export default function TempoFilmClientIT() {
     }
 
     try {
-      const result = calcularTiempoVidaPeliculas(age, horas)
+      const result = calcularTiempoPeliculas(horas, age)
       setResultado(result)
     } catch {
       setError('Errore nel calcolo del tempo nei film')
@@ -171,63 +172,61 @@ export default function TempoFilmClientIT() {
                       <CardContent className="space-y-4">
                         <div className="text-center">
                           <div className="text-3xl font-bold text-blue-600 mb-2">
-                            {resultado.diasTotales.toFixed(0)} giorni
+                            {resultado.añosDedicados.toFixed(1)} anni
                           </div>
                           <div className="text-lg font-semibold text-gray-800 mb-2">
-                            Tempo Totale Dedicato ai Film
+                            Anni Dedicati ai Film
                           </div>
                         </div>
                         
                         <div className="bg-blue-50 p-4 rounded-lg">
                           <h4 className="font-semibold text-blue-900 mb-2">Dettagli del Calcolo:</h4>
                           <p className="text-blue-800 text-sm">
-                            {resultado.horasPorSemana} ore/settimana × 52 settimane × {resultado.edad} anni = {resultado.horasTotales.toFixed(0)} ore totali
+                            {resultado.horasSemanales} ore/settimana × 52 settimane = {resultado.horasAnuales.toFixed(0)} ore/anno
                           </p>
                           <p className="text-blue-800 text-sm">
-                            {resultado.horasTotales.toFixed(0)} ore = {resultado.diasTotales.toFixed(0)} giorni = {resultado.añosTotales.toFixed(1)} anni
+                            {resultado.horasAnuales.toFixed(0)} ore/anno × {resultado.añosRestantes} anni = {resultado.horasTotalesVida.toFixed(0)} ore totali
                           </p>
                           <p className="text-blue-800 text-sm">
-                            Percentuale della vita: {resultado.porcentajeVida.toFixed(1)}%
+                            {resultado.horasTotalesVida.toFixed(0)} ore = {resultado.añosDedicados.toFixed(1)} anni di vita
                           </p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                           <div className="flex justify-between">
                             <span>Età Attuale:</span>
-                            <span className="font-medium">{resultado.edad} anni</span>
+                            <span className="font-medium">{resultado.edadActual} anni</span>
                           </div>
                           <div className="flex justify-between">
                             <span>Ore per Settimana:</span>
-                            <span className="font-medium">{resultado.horasPorSemana}</span>
+                            <span className="font-medium">{resultado.horasSemanales}</span>
                           </div>
                           <div className="flex justify-between">
                             <span>Ore per Anno:</span>
-                            <span className="font-medium">{resultado.horasPorAño.toFixed(0)}</span>
+                            <span className="font-medium">{resultado.horasAnuales.toFixed(0)}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Anni Restanti:</span>
+                            <span className="font-medium">{resultado.añosRestantes}</span>
                           </div>
                           <div className="flex justify-between">
                             <span>Ore Totali:</span>
-                            <span className="font-medium">{resultado.horasTotales.toFixed(0)}</span>
+                            <span className="font-medium">{resultado.horasTotalesVida.toFixed(0)}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span>Giorni Totali:</span>
-                            <span className="font-medium">{resultado.diasTotales.toFixed(0)}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span>Anni Totali:</span>
-                            <span className="font-medium">{resultado.añosTotales.toFixed(1)}</span>
+                            <span>Anni Dedicati:</span>
+                            <span className="font-medium">{resultado.añosDedicados.toFixed(1)}</span>
                           </div>
                         </div>
 
-                        {resultado.equivalenciaActividades.length > 0 && (
-                          <div className="bg-green-50 p-4 rounded-lg">
-                            <h4 className="font-semibold text-green-900 mb-2">Equivalenze:</h4>
-                            <ul className="text-green-800 text-sm space-y-1">
-                              {resultado.equivalenciaActividades.map((actividad, index) => (
-                                <li key={index}>• {actividad}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
+                        <div className="bg-green-50 p-4 rounded-lg">
+                          <h4 className="font-semibold text-green-900 mb-2">Equivalenze:</h4>
+                          <ul className="text-green-800 text-sm space-y-1">
+                            <li>• {resultado.peliculasCompletas} film completi (2 ore ciascuno)</li>
+                            <li>• {resultado.seriesCompletas} stagioni di serie (8 ore ciascuna)</li>
+                            <li>• {Math.round(resultado.horasTotalesVida / 24)} giorni consecutivi</li>
+                          </ul>
+                        </div>
                       </CardContent>
                     </Card>
                   )}

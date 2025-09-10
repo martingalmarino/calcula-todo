@@ -8,21 +8,22 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Heart, AlertCircle } from 'lucide-react'
-import { calcularExpectativaVidaComida } from '@/lib/math/curiosas'
+import { calcularImpactoComidaChatarra } from '@/lib/math/curiosas'
 import { jsonLdCalculator } from '@/lib/seo'
 import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function AspettativaVitaCiboClientIT() {
-  const [edad, setEdad] = useState('')
-  const [comidasChatarra, setComidasChatarra] = useState('')
+  const [hamburguesas, setHamburguesas] = useState('')
+  const [gaseosas, setGaseosas] = useState('')
+  const [pizzas, setPizzas] = useState('')
   const [resultado, setResultado] = useState<{
-    edad: number
-    comidasChatarra: number
-    expectativaVidaOriginal: number
-    expectativaVidaAjustada: number
+    hamburguesas: number
+    gaseosas: number
+    pizzas: number
+    diasPerdidosSemana: number
+    diasPerdidosAño: number
+    diasPerdidosVida: number
     añosPerdidos: number
-    diasPerdidos: number
-    comidasRestantes: number
   } | null>(null)
   const [error, setError] = useState<string | null>(null)
 
@@ -30,26 +31,27 @@ export default function AspettativaVitaCiboClientIT() {
     setError(null)
     setResultado(null)
 
-    const age = parseInt(edad)
-    const comidas = parseInt(comidasChatarra)
+    const hamb = parseInt(hamburguesas)
+    const gas = parseInt(gaseosas)
+    const piz = parseInt(pizzas)
 
-    if (!edad || !comidasChatarra) {
+    if (!hamburguesas || !gaseosas || !pizzas) {
       setError('Inserisci tutti i valori richiesti')
       return
     }
 
-    if (isNaN(age) || isNaN(comidas)) {
+    if (isNaN(hamb) || isNaN(gas) || isNaN(piz)) {
       setError('Inserisci valori numerici validi')
       return
     }
 
-    if (age < 0 || age > 120 || comidas < 0) {
-      setError('L\'età deve essere tra 0 e 120 anni e le pietanze non possono essere negative')
+    if (hamb < 0 || gas < 0 || piz < 0) {
+      setError('I valori non possono essere negativi')
       return
     }
 
     try {
-      const result = calcularExpectativaVidaComida(age, comidas)
+      const result = calcularImpactoComidaChatarra(hamb, gas, piz)
       setResultado(result)
     } catch {
       setError('Errore nel calcolo dell\'aspettativa di vita')
@@ -57,17 +59,18 @@ export default function AspettativaVitaCiboClientIT() {
   }
 
   const handleExample = (example: Record<string, unknown>) => {
-    if (example.edad) setEdad(example.edad as string)
-    if (example.comidasChatarra) setComidasChatarra(example.comidasChatarra as string)
+    if (example.hamburguesas) setHamburguesas(example.hamburguesas as string)
+    if (example.gaseosas) setGaseosas(example.gaseosas as string)
+    if (example.pizzas) setPizzas(example.pizzas as string)
   }
 
   const breadcrumbs = getBreadcrumbs('/it/curiosas/aspettativa-vita-cibo')
 
   const examples = [
-    { label: 'Giovane Adulto', values: { edad: '25', comidasChatarra: '50' } },
-    { label: 'Adulto Medio', values: { edad: '40', comidasChatarra: '200' } },
-    { label: 'Persona Attiva', values: { edad: '30', comidasChatarra: '30' } },
-    { label: 'Forte Consumatore', values: { edad: '35', comidasChatarra: '500' } }
+    { label: 'Consumo Moderato', values: { hamburguesas: '2', gaseosas: '3', pizzas: '1' } },
+    { label: 'Consumo Alto', values: { hamburguesas: '5', gaseosas: '7', pizzas: '3' } },
+    { label: 'Consumo Basso', values: { hamburguesas: '1', gaseosas: '1', pizzas: '0' } },
+    { label: 'Consumo Estremo', values: { hamburguesas: '10', gaseosas: '15', pizzas: '5' } }
   ]
 
   const faqItems = [
@@ -123,28 +126,40 @@ export default function AspettativaVitaCiboClientIT() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        Età Attuale
+                        Hamburger a Settimana
                       </label>
                       <Input
                         type="number"
-                        placeholder="Es: 30"
-                        value={edad}
-                        onChange={(e) => setEdad(e.target.value)}
+                        placeholder="Es: 2"
+                        value={hamburguesas}
+                        onChange={(e) => setHamburguesas(e.target.value)}
                         className="w-full"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        Pietanze Spazzatura Consumate
+                        Bibite Gassate a Settimana
                       </label>
                       <Input
                         type="number"
-                        placeholder="Es: 100"
-                        value={comidasChatarra}
-                        onChange={(e) => setComidasChatarra(e.target.value)}
+                        placeholder="Es: 3"
+                        value={gaseosas}
+                        onChange={(e) => setGaseosas(e.target.value)}
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Pizze a Settimana
+                      </label>
+                      <Input
+                        type="number"
+                        placeholder="Es: 1"
+                        value={pizzas}
+                        onChange={(e) => setPizzas(e.target.value)}
                         className="w-full"
                       />
                     </div>
@@ -169,20 +184,23 @@ export default function AspettativaVitaCiboClientIT() {
                       <CardContent className="space-y-4">
                         <div className="text-center">
                           <div className="text-3xl font-bold text-blue-600 mb-2">
-                            {resultado.expectativaVidaAjustada.toFixed(1)} anni
+                            {resultado.añosPerdidos.toFixed(1)} anni
                           </div>
                           <div className="text-lg font-semibold text-gray-800 mb-2">
-                            Aspettativa di Vita Aggiustata
+                            Anni di Vita Persi
                           </div>
                         </div>
                         
                         <div className="bg-blue-50 p-4 rounded-lg">
                           <h4 className="font-semibold text-blue-900 mb-2">Dettagli del Calcolo:</h4>
                           <p className="text-blue-800 text-sm">
-                            Aspettativa originale: {resultado.expectativaVidaOriginal.toFixed(1)} anni
+                            Hamburger: {resultado.hamburguesas} a settimana
                           </p>
                           <p className="text-blue-800 text-sm">
-                            Pietanze spazzatura: {resultado.comidasChatarra} (ogni pietanza riduce l\'aspettativa di vita)
+                            Bibite gassate: {resultado.gaseosas} a settimana
+                          </p>
+                          <p className="text-blue-800 text-sm">
+                            Pizze: {resultado.pizzas} a settimana
                           </p>
                           <p className="text-blue-800 text-sm">
                             Anni persi: {resultado.añosPerdidos.toFixed(1)} anni
@@ -191,28 +209,28 @@ export default function AspettativaVitaCiboClientIT() {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                           <div className="flex justify-between">
-                            <span>Età Attuale:</span>
-                            <span className="font-medium">{resultado.edad} anni</span>
+                            <span>Hamburger/Settimana:</span>
+                            <span className="font-medium">{resultado.hamburguesas}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span>Pietanze Spazzatura:</span>
-                            <span className="font-medium">{resultado.comidasChatarra}</span>
+                            <span>Bibite/Settimana:</span>
+                            <span className="font-medium">{resultado.gaseosas}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span>Aspettativa Originale:</span>
-                            <span className="font-medium">{resultado.expectativaVidaOriginal.toFixed(1)} anni</span>
+                            <span>Pizze/Settimana:</span>
+                            <span className="font-medium">{resultado.pizzas}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span>Aspettativa Aggiustata:</span>
-                            <span className="font-medium">{resultado.expectativaVidaAjustada.toFixed(1)} anni</span>
+                            <span>Giorni Persi/Settimana:</span>
+                            <span className="font-medium">{resultado.diasPerdidosSemana.toFixed(1)}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Giorni Persi/Anno:</span>
+                            <span className="font-medium">{resultado.diasPerdidosAño.toFixed(0)}</span>
                           </div>
                           <div className="flex justify-between">
                             <span>Anni Persi:</span>
-                            <span className="font-medium">{resultado.añosPerdidos.toFixed(1)} anni</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span>Giorni Persi:</span>
-                            <span className="font-medium">{resultado.diasPerdidos.toFixed(0)} giorni</span>
+                            <span className="font-medium">{resultado.añosPerdidos.toFixed(1)}</span>
                           </div>
                         </div>
                       </CardContent>

@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Target, AlertCircle } from 'lucide-react'
-import { calcularCaloriasBesoAbrazo } from '@/lib/math/curiosas'
+import { calcularCaloriasAfectivas } from '@/lib/math/curiosas'
 import { jsonLdCalculator } from '@/lib/seo'
 import { getBreadcrumbs } from '@/lib/site.config'
 
@@ -51,8 +51,19 @@ export default function BaciBruciaCalorieClientIT() {
     }
 
     try {
-      const result = calcularCaloriasBesoAbrazo(weight, beso, abrazo)
-      setResultado(result)
+      const resultBeso = calcularCaloriasAfectivas('besos', beso, 1)
+      const resultAbrazo = calcularCaloriasAfectivas('abrazos', abrazo, 1)
+      const caloriasTotal = resultBeso.caloriasQuemadas + resultAbrazo.caloriasQuemadas
+      
+      setResultado({
+        peso: weight,
+        minutosBeso: beso,
+        minutosAbrazo: abrazo,
+        caloriasBeso: resultBeso.caloriasQuemadas,
+        caloriasAbrazo: resultAbrazo.caloriasQuemadas,
+        caloriasTotal: caloriasTotal,
+        equivalenciaEjercicio: `${Math.round(caloriasTotal / 3)} minuti di camminata`
+      })
     } catch {
       setError('Errore nel calcolo delle calorie')
     }
