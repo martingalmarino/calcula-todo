@@ -97,9 +97,9 @@ export default function CalculadoraAmorClientPT() {
   };
 
   const breadcrumbs = [
-    { name: 'Início', href: '/pt/' },
-    { name: 'Curiosas', href: '/pt/curiosas/' },
-    { name: 'Calculadora do Amor', href: '/pt/curiosas/calculadora-amor/' }
+    { label: 'Início', href: '/pt/' },
+    { label: 'Curiosas', href: '/pt/curiosas/' },
+    { label: 'Calculadora do Amor', href: '/pt/curiosas/calculadora-amor/' }
   ];
 
   const getNivelColor = (nivel: string) => {

@@ -123,9 +123,9 @@ export default function CafeEconomiaClientPT() {
   };
 
   const breadcrumbs = [
-    { name: 'Início', href: '/pt/' },
-    { name: 'Curiosas', href: '/pt/curiosas/' },
-    { name: 'Café e Economia', href: '/pt/curiosas/cafe-economia/' }
+    { label: 'Início', href: '/pt/' },
+    { label: 'Curiosas', href: '/pt/curiosas/' },
+    { label: 'Café e Economia', href: '/pt/curiosas/cafe-economia/' }
   ];
 
   return (

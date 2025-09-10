@@ -124,9 +124,9 @@ export default function CervejaFestaClientPT() {
   };
 
   const breadcrumbs = [
-    { name: 'Início', href: '/pt/' },
-    { name: 'Curiosas', href: '/pt/curiosas/' },
-    { name: 'Cerveja e Festa', href: '/pt/curiosas/cerveja-festa/' }
+    { label: 'Início', href: '/pt/' },
+    { label: 'Curiosas', href: '/pt/curiosas/' },
+    { label: 'Cerveja e Festa', href: '/pt/curiosas/cerveja-festa/' }
   ];
 
   const getNivelConsumoDescription = (nivel: number) => {

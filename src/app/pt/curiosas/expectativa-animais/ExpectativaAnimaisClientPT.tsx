@@ -110,9 +110,9 @@ export default function ExpectativaAnimaisClientPT() {
   };
 
   const breadcrumbs = [
-    { name: 'Início', href: '/pt/' },
-    { name: 'Curiosas', href: '/pt/curiosas/' },
-    { name: 'Expectativa de Animais', href: '/pt/curiosas/expectativa-animais/' }
+    { label: 'Início', href: '/pt/' },
+    { label: 'Curiosas', href: '/pt/curiosas/' },
+    { label: 'Expectativa de Animais', href: '/pt/curiosas/expectativa-animais/' }
   ];
 
   const getAnimalIcon = (animal: string) => {

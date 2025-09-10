@@ -110,9 +110,9 @@ export default function IdadeAnimalClientPT() {
   };
 
   const breadcrumbs = [
-    { name: 'Início', href: '/pt/' },
-    { name: 'Curiosas', href: '/pt/curiosas/' },
-    { name: 'Idade do Animal', href: '/pt/curiosas/idade-animal/' }
+    { label: 'Início', href: '/pt/' },
+    { label: 'Curiosas', href: '/pt/curiosas/' },
+    { label: 'Idade do Animal', href: '/pt/curiosas/idade-animal/' }
   ];
 
   const getEtapaColor = (etapa: string) => {
