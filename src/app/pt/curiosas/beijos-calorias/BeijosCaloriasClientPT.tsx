@@ -60,7 +60,13 @@ export default function BeijosCaloriasClientPT() {
 
     try {
       const resultado = calcularCaloriasAfectivas(actividade, minutosNum, intensidadeNum);
-      setResultado(resultado);
+      setResultado({
+        atividade: resultado.actividad,
+        minutos: resultado.minutos,
+        intensidade: resultado.intensidad,
+        caloriasQuemadas: resultado.caloriasQuemadas,
+        equivalencias: resultado.equivalencias
+      });
     } catch {
       setError('Erro ao calcular as calorias. Verifique os valores inseridos.');
     }
