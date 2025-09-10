@@ -12,6 +12,7 @@ export default function MarketingClientIT() {
     calculators: [
       {
         title: 'CAC - Costo di Acquisizione',
+        label: 'CAC - Costo di Acquisizione',
         description: 'Calcola il costo di acquisizione del cliente per ottimizzare le tue campagne',
         href: '/it/marketing/cac',
         category: 'Marketing',
@@ -19,6 +20,7 @@ export default function MarketingClientIT() {
       },
       {
         title: 'LTV - Lifetime Value',
+        label: 'LTV - Lifetime Value',
         description: 'Calcola il valore a lungo termine di un cliente per la tua azienda',
         href: '/it/marketing/ltv',
         category: 'Marketing',
@@ -26,6 +28,7 @@ export default function MarketingClientIT() {
       },
       {
         title: 'Conversione',
+        label: 'Conversione',
         description: 'Analizza le tue conversioni e ottimizza il funnel di vendita',
         href: '/it/marketing/conversione',
         category: 'Marketing',
@@ -33,6 +36,7 @@ export default function MarketingClientIT() {
       },
       {
         title: 'Budget di Marketing',
+        label: 'Budget di Marketing',
         description: 'Pianifica e distribuisci il tuo budget pubblicitario in modo efficace',
         href: '/it/marketing/budget',
         category: 'Marketing',
@@ -40,6 +44,7 @@ export default function MarketingClientIT() {
       },
       {
         title: 'CPC / CPM',
+        label: 'CPC / CPM',
         description: 'Calcola il costo per click e per mille impressioni delle tue campagne',
         href: '/it/marketing/cpc-cpm',
         category: 'Marketing',
@@ -47,6 +52,7 @@ export default function MarketingClientIT() {
       },
       {
         title: 'ROI in Marketing',
+        label: 'ROI in Marketing',
         description: 'Misura il ritorno sull\'investimento delle tue campagne pubblicitarie',
         href: '/it/marketing/roi',
         category: 'Marketing',
