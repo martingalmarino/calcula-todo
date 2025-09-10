@@ -213,22 +213,22 @@ export default function ItalianHomePage() {
                     <h3 className="text-blue-900 text-xl font-bold">Geometria</h3>
                   </div>
                   <ChipsContainer>
-                    <Chip href="/it/geometria/circulo/" icon="circle" ariaLabel="Area e Perimetro del Cerchio">
+                    <Chip href="/it/geometria/cerchio/" icon="circle" ariaLabel="Area e Perimetro del Cerchio">
                       Area e Perimetro del Cerchio
                     </Chip>
-                    <Chip href="/it/geometria/rectangulo/" icon="rectangle-horizontal" ariaLabel="Area e Perimetro del Rettangolo">
+                    <Chip href="/it/geometria/rettangolo/" icon="rectangle-horizontal" ariaLabel="Area e Perimetro del Rettangolo">
                       Area e Perimetro del Rettangolo
                     </Chip>
-                    <Chip href="/it/geometria/triangulo/" icon="triangle" ariaLabel="Area del Triangolo">
+                    <Chip href="/it/geometria/triangolo/" icon="triangle" ariaLabel="Area del Triangolo">
                       Area del Triangolo
                     </Chip>
-                    <Chip href="/it/geometria/cuadrado/" icon="square" ariaLabel="Area e Perimetro del Quadrato">
+                    <Chip href="/it/geometria/quadrato/" icon="square" ariaLabel="Area e Perimetro del Quadrato">
                       Area e Perimetro del Quadrato
                     </Chip>
                     <Chip href="/it/geometria/rombo/" icon="diamond" ariaLabel="Area e Perimetro del Rombo">
                       Area e Perimetro del Rombo
                     </Chip>
-                    <Chip href="/it/geometria/trapecio/" icon="hexagon" ariaLabel="Area del Trapezio">
+                    <Chip href="/it/geometria/trapezio/" icon="hexagon" ariaLabel="Area del Trapezio">
                       Area del Trapezio
                     </Chip>
                   </ChipsContainer>
