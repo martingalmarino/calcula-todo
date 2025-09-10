@@ -41,6 +41,7 @@ export function CategoryPageLayout({
   const calculators = category.calculators
   const pathname = usePathname()
   const isItalian = pathname.startsWith('/it')
+  const isPortuguese = pathname.startsWith('/pt')
 
   // Stats por defecto si no se proporcionan personalizadas
   const defaultStats = [
@@ -188,16 +189,21 @@ export function CategoryPageLayout({
                 <Calculator className="h-10 w-10 text-white" />
               </div>
               <CardTitle className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
-                {isItalian ? 'Hai bisogno di una calcolatrice specifica?' : '¿Necesitas una calculadora específica?'}
+                {isItalian ? 'Hai bisogno di una calcolatrice specifica?' : isPortuguese ? 'Precisa de uma calculadora específica?' : '¿Necesitas una calculadora específica?'}
               </CardTitle>
               <CardDescription className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                {isItalian ? 'Se non trovi la calcolatrice che ti serve, contattaci e la aggiungeremo alla nostra collezione' : 'Si no encuentras la calculadora que necesitas, contáctanos y la agregaremos a nuestra colección'}
+                {isItalian 
+                  ? 'Se non trovi la calcolatrice che ti serve, contattaci e la aggiungeremo alla nostra collezione' 
+                  : isPortuguese 
+                    ? 'Se não encontrar a calculadora que precisa, entre em contato conosco e a adicionaremos à nossa coleção'
+                    : 'Si no encuentras la calculadora que necesitas, contáctanos y la agregaremos a nuestra colección'
+                }
               </CardDescription>
             </CardHeader>
             <CardContent>
               <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200">
-                <Link href={isItalian ? "/it/contacto/" : "/contacto/"}>
-                  {isItalian ? 'Richiedi Calcolatrice' : 'Solicitar Calculadora'}
+                <Link href={isItalian ? "/it/contacto/" : isPortuguese ? "/pt/contato/" : "/contacto/"}>
+                  {isItalian ? 'Richiedi Calcolatrice' : isPortuguese ? 'Solicitar Calculadora' : 'Solicitar Calculadora'}
                 </Link>
               </Button>
             </CardContent>
@@ -207,7 +213,7 @@ export function CategoryPageLayout({
           <div className="mt-16">
             <FAQ 
               items={faqItems} 
-              title={isItalian ? "Domande Frequenti" : "Preguntas Frecuentes"}
+              title={isItalian ? "Domande Frequenti" : isPortuguese ? "Perguntas Frequentes" : "Preguntas Frecuentes"}
             />
           </div>
         </div>
