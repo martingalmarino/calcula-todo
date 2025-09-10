@@ -214,7 +214,7 @@ export default function GrassoCorporeoClientIT() {
           </div>
         </div>
 
-        <Button onClick={handleCalculate} className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+        <Button onClick={handleCalculate} className="w-full bg-blue-500 hover:bg-blue-600 text-white">
           Calcola Percentuale Grasso
         </Button>
 
