@@ -11,7 +11,6 @@ const navigationItems = [
   { label: "Finanze", href: "/it/finanzas", hasDropdown: true },
   { label: "Salute", href: "/it/salute", hasDropdown: true },
   { label: "Matematica", href: "/it/matematicas", hasDropdown: true },
-  { label: "Marketing", href: "/it/marketing", hasDropdown: true },
   { label: "Curiose", href: "/it/curiosas", hasDropdown: true },
   { label: "Geometria", href: "/it/geometria", hasDropdown: true },
   { label: "Calendario", href: "/it/calendario", hasDropdown: true },
