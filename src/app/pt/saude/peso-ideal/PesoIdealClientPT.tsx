@@ -1,14 +1,17 @@
 "use client"
 
 import { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Container } from '@/components/Container'
+import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Target, Calculator, Info } from 'lucide-react'
+import { Target, AlertCircle } from 'lucide-react'
 import { calculateIdealWeight, type IdealWeightResult } from '@/lib/math/health'
+import { jsonLdCalculator } from '@/lib/seo'
+import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function PesoIdealClientPT() {
   const [altura, setAltura] = useState('')
@@ -24,218 +27,175 @@ export default function PesoIdealClientPT() {
 
     if (isNaN(alturaNum)) {
       setError('Por favor, insira uma altura válida.')
-      return;
+      return
     }
 
     if (alturaNum <= 0) {
       setError('A altura deve ser um valor positivo.')
-      return;
+      return
     }
 
     if (alturaNum < 100 || alturaNum > 250) {
       setError('A altura deve estar entre 100cm e 250cm.')
-      return;
+      return
     }
 
     if (!sexo) {
       setError('Por favor, selecione o sexo.')
-      return;
+      return
     }
 
     try {
-      const resultado = calculateIdealWeight(alturaNum, sexo as 'male' | 'female', 'pt');
-      setResultado(resultado);
+      const resultado = calculateIdealWeight(alturaNum, sexo as 'masculino' | 'feminino', 'pt')
+      setResultado(resultado)
     } catch {
-      setError('Erro ao calcular o peso ideal. Verifique os valores inseridos.');
+      setError('Erro ao calcular o peso ideal. Verifique os valores inseridos.')
     }
-  };
+  }
 
-  const handleExampleClick = (values: Record<string, unknown>) => {
-    setAltura(values.altura as string);
-    setSexo(values.sexo as string);
-    setResultado(null);
-    setError(null);
-  };
+  const breadcrumbs = getBreadcrumbs('/pt/saude/peso-ideal')
+
+  const examples = [
+    {
+      label: 'Exemplo: Homem de 175cm',
+      values: { altura: '175', sexo: 'masculino' }
+    },
+    {
+      label: 'Exemplo: Mulher de 165cm',
+      values: { altura: '165', sexo: 'feminino' }
+    }
+  ]
+
+  const faqItems = [
+    {
+      question: 'O que é o peso ideal?',
+      answer: 'O peso ideal é uma faixa de peso considerada saudável para uma determinada altura e sexo, baseada em fórmulas médicas reconhecidas.'
+    },
+    {
+      question: 'Como é calculado o peso ideal?',
+      answer: 'Utilizamos a fórmula de Devine, que considera altura e sexo para determinar a faixa de peso ideal.'
+    },
+    {
+      question: 'O peso ideal é o mesmo para todos?',
+      answer: 'Não, o peso ideal varia conforme altura, sexo, idade e composição corporal. É apenas uma referência geral.'
+    },
+    {
+      question: 'Devo me preocupar se estou fora do peso ideal?',
+      answer: 'O peso ideal é uma referência. Consulte um profissional de saúde para uma avaliação completa e personalizada.'
+    }
+  ]
 
   return (
-    <div className="space-y-6">
-      {/* Input Section */}
-      <Card className="calculator-card shadow-lg">
-        <CardHeader className="pb-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-t-lg">
-          <CardTitle className="flex items-center gap-3 text-xl">
-            <div className="p-2 bg-blue-100 rounded-lg">
-              <Target className="h-5 w-5 text-blue-600" />
-            </div>
-            Calculadora de Peso Ideal
-          </CardTitle>
-          <CardDescription className="text-base text-gray-600">
-            Insira sua altura e sexo para calcular seu peso ideal
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="p-6 space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <Label htmlFor="altura" className="text-base font-medium">
-                Altura (cm)
-              </Label>
-              <Input
-                id="altura"
-                type="number"
-                placeholder="Ex: 175"
-                value={altura}
-                onChange={(e) => setAltura(e.target.value)}
-                className="text-lg p-4"
-                min="100"
-                max="250"
-                step="0.1"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="sexo" className="text-base font-medium">
-                Sexo
-              </Label>
-              <Select value={sexo} onValueChange={setSexo}>
-                <SelectTrigger className="text-lg p-4">
-                  <SelectValue placeholder="Selecione o sexo" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="male">Masculino</SelectItem>
-                  <SelectItem value="female">Feminino</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          {error && (
-            <Alert className="border-red-200 bg-red-50">
-              <AlertDescription className="text-red-800">
-                {error}
-              </AlertDescription>
-            </Alert>
-          )}
-
-          <Button 
-            onClick={handleCalculate}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
-            disabled={!altura || !sexo}
+    <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdCalculator({
+            name: 'Calculadora de Peso Ideal',
+            description: 'Descubra qual é o peso ideal para sua altura e tipo corporal',
+            url: '/pt/saude/peso-ideal/',
+            category: 'Saúde'
+          }))
+        }}
+      />
+      
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Calculadora de Peso Ideal"
+            description="Descubra qual é o peso ideal para sua altura e tipo corporal"
+            examples={examples}
+            faqItems={faqItems}
+            onExampleClick={(values) => {
+              setAltura(values.altura as string)
+              setSexo(values.sexo as string)
+            }}
           >
-            <Calculator className="h-5 w-5 mr-2" />
-            Calcular Peso Ideal
-          </Button>
-        </CardContent>
-      </Card>
-
-      {/* Results Section */}
-      {resultado && (
-        <Card className="calculator-card shadow-lg border-2 border-blue-200">
-          <CardHeader className="pb-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-t-lg">
-            <CardTitle className="flex items-center gap-3 text-xl text-green-800">
-              <div className="p-2 bg-green-100 rounded-lg">
-                <Target className="h-5 w-5 text-green-600" />
-              </div>
-              Resultado do Peso Ideal
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="p-6 space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center p-6 bg-white rounded-lg border-2 border-gray-100">
-                <div className="text-4xl font-bold text-blue-600 mb-2">
-                  {resultado.idealWeight} kg
-                </div>
-                <div className="text-lg font-medium text-gray-700">
-                  Peso Ideal
-                </div>
-              </div>
-              <div className="text-center p-6 bg-white rounded-lg border-2 border-gray-100">
-                <div className="text-3xl font-bold text-green-600 mb-2">
-                  {resultado.range.min} kg
-                </div>
-                <div className="text-lg font-medium text-gray-700">
-                  Mínimo
-                </div>
-              </div>
-              <div className="text-center p-6 bg-white rounded-lg border-2 border-gray-100">
-                <div className="text-3xl font-bold text-orange-600 mb-2">
-                  {resultado.range.max} kg
-                </div>
-                <div className="text-lg font-medium text-gray-700">
-                  Máximo
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-                <div className="flex items-start gap-3">
-                  <Info className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Target className="h-5 w-5" />
+                  Calculadora de Peso Ideal
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-semibold text-blue-800 mb-2">Método Utilizado</h4>
-                    <p className="text-blue-700">{resultado.method}</p>
+                    <label className="block text-sm font-medium mb-2">
+                      Altura (cm)
+                    </label>
+                    <Input
+                      type="number"
+                      placeholder="Ex: 175"
+                      value={altura}
+                      onChange={(e) => setAltura(e.target.value)}
+                      className="w-full"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Sexo
+                    </label>
+                    <Select value={sexo} onValueChange={setSexo}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Selecione o sexo" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="masculino">Masculino</SelectItem>
+                        <SelectItem value="feminino">Feminino</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
-              </div>
+                
+                <Button 
+                  onClick={handleCalculate} 
+                  className="w-full calculator-button"
+                >
+                  <Target className="h-4 w-4 mr-2" />
+                  Calcular Peso Ideal
+                </Button>
 
-              <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-                <div className="flex items-start gap-3">
-                  <Info className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-green-800 mb-2">Recomendações</h4>
-                    <ul className="space-y-1 text-green-700">
-                      {resultado.recommendations.map((rec, index) => (
-                        <li key={index}>• {rec}</li>
-                      ))}
-                    </ul>
+                {error && (
+                  <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                    <AlertCircle className="h-4 w-4" />
+                    <span className="text-sm">{error}</span>
                   </div>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      )}
+                )}
 
-      {/* Information Section */}
-      <Card className="calculator-card shadow-lg">
-        <CardHeader className="pb-6 bg-gradient-to-r from-purple-50 to-violet-50 rounded-t-lg">
-          <CardTitle className="flex items-center gap-3 text-xl">
-            <div className="p-2 bg-purple-100 rounded-lg">
-              <Info className="h-5 w-5 text-purple-600" />
-            </div>
-            Sobre o Peso Ideal
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-6">
-          <div className="space-y-4 text-gray-700">
-            <p>
-              O <strong>peso ideal</strong> é uma estimativa do peso corporal considerado saudável 
-              para uma determinada altura e sexo, baseado em fórmulas matemáticas.
-            </p>
-            <p>
-              <strong>Fórmula de Devine:</strong> Esta calculadora usa a fórmula de Devine, 
-              que é amplamente utilizada na prática médica.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              <div className="p-4 bg-blue-50 rounded-lg">
-                <h4 className="font-semibold text-blue-800 mb-2">Fatores Considerados:</h4>
-                <ul className="space-y-1 text-blue-700">
-                  <li>• Altura em centímetros</li>
-                  <li>• Sexo (masculino/feminino)</li>
-                  <li>• Fórmula de Devine</li>
-                  <li>• Faixa de peso saudável</li>
-                </ul>
-              </div>
-              <div className="p-4 bg-green-50 rounded-lg">
-                <h4 className="font-semibold text-green-800 mb-2">Importante:</h4>
-                <ul className="space-y-1 text-green-700">
-                  <li>• É apenas uma estimativa</li>
-                  <li>• Não considera massa muscular</li>
-                  <li>• Varia com idade e atividade</li>
-                  <li>• Consulte um profissional</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+                {resultado && (
+                  <Card className="mt-4">
+                    <CardHeader>
+                      <CardTitle className="text-lg">Resultado</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-600 mb-2">
+                          {resultado.pesoIdealMin} - {resultado.pesoIdealMax} kg
+                        </div>
+                        <div className="text-lg font-semibold text-foreground">
+                          Peso Ideal
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <p className="text-sm text-muted-foreground">
+                          {resultado.description}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {resultado.recommendation}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+              </CardContent>
+            </Card>
+          </CalculatorLayout>
+        </div>
+      </Container>
     </div>
   )
 }
