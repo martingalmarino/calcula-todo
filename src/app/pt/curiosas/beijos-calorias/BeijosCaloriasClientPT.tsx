@@ -121,9 +121,9 @@ export default function BeijosCaloriasClientPT() {
   };
 
   const breadcrumbs = [
-    { name: 'Início', href: '/pt/' },
-    { name: 'Curiosas', href: '/pt/curiosas/' },
-    { name: 'Beijos e Calorias', href: '/pt/curiosas/beijos-calorias/' }
+    { label: 'Início', href: '/pt/' },
+    { label: 'Curiosas', href: '/pt/curiosas/' },
+    { label: 'Beijos e Calorias', href: '/pt/curiosas/beijos-calorias/' }
   ];
 
   const getActividadeDescription = (atividade: string) => {
