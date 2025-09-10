@@ -1,11 +1,16 @@
 "use client"
 
 import { useState } from 'react'
+import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Scale, AlertCircle } from 'lucide-react'
 import { calculateIMC, IMCResult } from '@/lib/math/health'
+import { jsonLdCalculator } from '@/lib/seo'
+import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function ImcClientIT() {
   const [weight, setWeight] = useState('')
@@ -59,6 +64,8 @@ export default function ImcClientIT() {
     { label: 'Obeso', values: { weight: '100', height: '175' } }
   ]
 
+  const breadcrumbs = getBreadcrumbs('/it/salute/imc')
+
   const faqItems = [
     {
       question: 'Cos\'è l\'IMC?',
@@ -79,102 +86,125 @@ export default function ImcClientIT() {
   ]
 
   return (
-    <CalculatorLayout
-      title="Calcolatrice Indice di Massa Corporea (IMC)"
-      description="Calcola il tuo indice di massa corporea per valutare se il tuo peso è ideale per la tua altezza"
-      examples={examples}
-      onExampleClick={handleExample}
-      faqItems={faqItems}
-    >
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label htmlFor="weight" className="block text-sm font-medium text-gray-700 mb-2">
-              Peso (kg)
-            </label>
-            <Input
-              id="weight"
-              type="number"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}
-              placeholder="Es. 70"
-              min="20"
-              max="300"
-              step="0.1"
-            />
-          </div>
-          <div>
-            <label htmlFor="height" className="block text-sm font-medium text-gray-700 mb-2">
-              Altezza (cm)
-            </label>
-            <Input
-              id="height"
-              type="number"
-              value={height}
-              onChange={(e) => setHeight(e.target.value)}
-              placeholder="Es. 175"
-              min="100"
-              max="250"
-              step="0.1"
-            />
-          </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdCalculator({
+            name: 'Calcolatrice IMC - Indice di Massa Corporea',
+            description: 'Calcola il tuo Indice di Massa Corporea e scopri la tua categoria di peso ideale',
+            url: '/it/salute/imc/',
+            category: 'Salute'
+          }))
+        }}
+      />
+      
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Calcolatrice IMC - Indice di Massa Corporea"
+            description="Calcola il tuo Indice di Massa Corporea e scopri la tua categoria di peso ideale"
+            examples={examples}
+            faqItems={faqItems}
+            onExampleClick={handleExample}
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Scale className="h-5 w-5" />
+                  Calcolatrice IMC
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Peso (kg)
+                    </label>
+                    <Input
+                      type="number"
+                      placeholder="Es: 70"
+                      value={weight}
+                      onChange={(e) => setWeight(e.target.value)}
+                      className="w-full"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Altezza (cm)
+                    </label>
+                    <Input
+                      type="number"
+                      placeholder="Es: 175"
+                      value={height}
+                      onChange={(e) => setHeight(e.target.value)}
+                      className="w-full"
+                    />
+                  </div>
+                </div>
+
+                <Button onClick={handleCalculate} className="w-full">
+                  Calcola IMC
+                </Button>
+
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded flex items-center gap-2">
+                    <AlertCircle className="h-4 w-4" />
+                    {error}
+                  </div>
+                )}
+
+                {result && (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg">Risultato IMC</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-blue-600 mb-2">
+                          {result.imc.toFixed(1)}
+                        </div>
+                        <div className="text-lg font-semibold text-gray-800 mb-2">
+                          {result.category}
+                        </div>
+                        <div className="text-gray-600 mb-4">
+                          {result.description}
+                        </div>
+                      </div>
+                      
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <h4 className="font-semibold text-blue-900 mb-2">Raccomandazione:</h4>
+                        <p className="text-blue-800">{result.recommendation}</p>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div className="flex justify-between">
+                          <span>Peso inserito:</span>
+                          <span className="font-medium">{weight} kg</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Altezza inserita:</span>
+                          <span className="font-medium">{height} cm</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>IMC calcolato:</span>
+                          <span className="font-medium">{result.imc.toFixed(1)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Categoria:</span>
+                          <span className="font-medium">{result.category}</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+              </CardContent>
+            </Card>
+          </CalculatorLayout>
         </div>
-
-        <Button onClick={handleCalculate} className="w-full">
-          Calcola IMC
-        </Button>
-
-        {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-            {error}
-          </div>
-        )}
-
-        {result && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Risultato IMC</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">
-                  {result.imc.toFixed(1)}
-                </div>
-                <div className="text-lg font-semibold text-gray-800 mb-2">
-                  {result.category}
-                </div>
-                <div className="text-gray-600 mb-4">
-                  {result.description}
-                </div>
-              </div>
-              
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-blue-900 mb-2">Raccomandazione:</h4>
-                <p className="text-blue-800">{result.recommendation}</p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                <div className="flex justify-between">
-                  <span>Peso inserito:</span>
-                  <span className="font-medium">{weight} kg</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Altezza inserita:</span>
-                  <span className="font-medium">{height} cm</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>IMC calcolato:</span>
-                  <span className="font-medium">{result.imc.toFixed(1)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Categoria:</span>
-                  <span className="font-medium">{result.category}</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-      </div>
-    </CalculatorLayout>
+      </Container>
+    </>
   )
 }

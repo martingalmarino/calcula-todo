@@ -9,7 +9,7 @@ import { LanguageSelector } from "@/components/LanguageSelector"
 
 const navigationItems = [
   { label: "Finanze", href: "/it/finanzas", hasDropdown: true },
-  { label: "Salute", href: "/it/salud", hasDropdown: true },
+  { label: "Salute", href: "/it/salute", hasDropdown: true },
   { label: "Matematica", href: "/it/matematicas", hasDropdown: true },
   { label: "Curiose", href: "/it/curiosas", hasDropdown: true },
   { label: "Geometria", href: "/it/geometria", hasDropdown: true },
