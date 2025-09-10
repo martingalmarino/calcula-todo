@@ -1,11 +1,16 @@
 "use client"
 
 import { useState } from 'react'
+import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Heart, AlertCircle } from 'lucide-react'
 import { calculatePaFi, PaFiResult } from '@/lib/math/health'
+import { jsonLdCalculator } from '@/lib/seo'
+import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function PafiClientIT() {
   const [systolic, setSystolic] = useState('')
@@ -65,6 +70,8 @@ export default function PafiClientIT() {
     if (example.heartRate) setHeartRate(example.heartRate as string)
   }
 
+  const breadcrumbs = getBreadcrumbs('/it/salute/pafi')
+
   const examples = [
     { label: 'Pressione Normale', values: { systolic: '120', diastolic: '80', heartRate: '70' } },
     { label: 'Ipertensione', values: { systolic: '140', diastolic: '90', heartRate: '75' } },
@@ -92,14 +99,39 @@ export default function PafiClientIT() {
   ]
 
   return (
-    <CalculatorLayout
-      title="Calcolatrice PaFi"
-      description="Calcola l'indice PaFi per valutare la funzione cardiovascolare"
-      examples={examples}
-      onExampleClick={handleExample}
-      faqItems={faqItems}
-    >
-      <div className="space-y-6">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdCalculator({
+            name: 'Calcolatrice PaFi - Indice Cardiovascolare',
+            description: 'Calcola l\'indice PaFi per valutare la funzione cardiovascolare',
+            url: '/it/salute/pafi/',
+            category: 'Salute'
+          }))
+        }}
+      />
+      
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Calcolatrice PaFi"
+            description="Calcola l'indice PaFi per valutare la funzione cardiovascolare"
+            examples={examples}
+            onExampleClick={handleExample}
+            faqItems={faqItems}
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Heart className="h-5 w-5" />
+                  Calcolatrice PaFi
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <label htmlFor="systolic" className="block text-sm font-medium text-gray-700 mb-2">
@@ -203,7 +235,12 @@ export default function PafiClientIT() {
             </CardContent>
           </Card>
         )}
+              </div>
+            </CardContent>
+          </Card>
+        </CalculatorLayout>
       </div>
-    </CalculatorLayout>
-  )
+    </Container>
+  </>
+)
 }
