@@ -12,30 +12,13 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   const isItalian = pathname.startsWith('/it')
   const isPortuguese = pathname.startsWith('/pt')
   
-  if (isItalian) {
-    return (
-      <>
-        <HeaderItalian />
-        <main className="flex-1">
-          {children}
-        </main>
-        <FooterItalian />
-      </>
-    )
+  // Para rutas de idiomas específicos, solo renderizar children
+  // porque ya tienen sus propios layouts con header/footer
+  if (isItalian || isPortuguese) {
+    return <>{children}</>
   }
   
-  if (isPortuguese) {
-    return (
-      <>
-        <HeaderPortuguese />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
-      </>
-    )
-  }
-  
+  // Para rutas en español (default), aplicar header/footer
   return (
     <>
       <Header />
