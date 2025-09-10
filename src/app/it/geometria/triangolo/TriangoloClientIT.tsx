@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Triangle, AlertCircle, Info } from 'lucide-react'
-import { calculateTriangle, type TriangleResult } from '@/lib/math/geometry'
+import { calculateTriangle, calculateTriangleFromSides, type TriangleResult } from '@/lib/math/geometry'
 import { jsonLdCalculator } from '@/lib/seo'
 
 export default function TriangoloClientIT() {
@@ -71,7 +71,7 @@ export default function TriangoloClientIT() {
           return
         }
 
-        const triangleResult = calculateTriangle(side1Num, side2Num, side3Num)
+        const triangleResult = calculateTriangleFromSides(side1Num, side2Num, side3Num)
         setResult(triangleResult)
       } catch {
         setError('Errore nel calcolo. Verifica i valori inseriti.')
