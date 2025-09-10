@@ -61,7 +61,18 @@ export default function CaloriasClientPT() {
     }
 
     try {
-      const resultado = calculateCalories(pesoNum, alturaNum, idadeNum, sexo as 'masculino' | 'feminino', atividade, 'pt')
+      // Mapear sexo para o formato esperado pela função
+      const gender = sexo === 'masculino' ? 'male' : 'female'
+      
+      // Mapear atividade para o formato esperado pela função
+      let activityLevel: 'sedentary' | 'light' | 'moderate' | 'active' | 'very_active' = 'moderate'
+      if (atividade === 'sedentario') activityLevel = 'sedentary'
+      else if (atividade === 'leve') activityLevel = 'light'
+      else if (atividade === 'moderado') activityLevel = 'moderate'
+      else if (atividade === 'intenso') activityLevel = 'active'
+      else if (atividade === 'extremo') activityLevel = 'very_active'
+      
+      const resultado = calculateCalories(pesoNum, alturaNum, idadeNum, gender, activityLevel, 'pt')
       setResultado(resultado)
     } catch {
       setError('Erro ao calcular as calorias. Verifique os valores inseridos.')
