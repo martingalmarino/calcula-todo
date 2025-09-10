@@ -8,12 +8,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Shield, AlertCircle, CheckCircle, XCircle, Info, Eye, EyeOff } from 'lucide-react'
-import { analyzePassword, type PasswordAnalysisResult } from '@/lib/math/technology'
+import { analyzePasswordEntropy, type PasswordEntropyResult } from '@/lib/math/technology'
 import { jsonLdCalculator } from '@/lib/seo'
 
 export default function AnalisiPasswordClientIT() {
   const [password, setPassword] = useState('')
-  const [result, setResult] = useState<PasswordAnalysisResult | null>(null)
+  const [result, setResult] = useState<PasswordEntropyResult | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [showPassword, setShowPassword] = useState(false)
 
@@ -27,7 +27,7 @@ export default function AnalisiPasswordClientIT() {
     }
 
     try {
-      const analysisResult = analyzePassword(password)
+      const analysisResult = analyzePasswordEntropy(password)
       setResult(analysisResult)
     } catch {
       setError('Errore nell\'analisi della password.')
@@ -87,13 +87,24 @@ export default function AnalisiPasswordClientIT() {
   }
 
   const getStrengthColor = (strength: string) => {
-    switch (strength.toLowerCase()) {
-      case 'molto debole': return 'text-red-600'
-      case 'debole': return 'text-orange-600'
-      case 'media': return 'text-yellow-600'
-      case 'forte': return 'text-blue-600'
-      case 'molto forte': return 'text-green-600'
+    switch (strength) {
+      case 'muy_débil': return 'text-red-600'
+      case 'débil': return 'text-orange-600'
+      case 'medio': return 'text-yellow-600'
+      case 'fuerte': return 'text-blue-600'
+      case 'muy_fuerte': return 'text-green-600'
       default: return 'text-gray-600'
+    }
+  }
+
+  const getStrengthLabel = (strength: string) => {
+    switch (strength) {
+      case 'muy_débil': return 'Molto Debole'
+      case 'débil': return 'Debole'
+      case 'medio': return 'Medio'
+      case 'fuerte': return 'Forte'
+      case 'muy_fuerte': return 'Molto Forte'
+      default: return 'Sconosciuto'
     }
   }
 
@@ -193,15 +204,15 @@ export default function AnalisiPasswordClientIT() {
                     <CardContent className="space-y-4">
                       <div className="text-center">
                         <div className={`text-3xl font-bold mb-2 ${getStrengthColor(result.strength)}`}>
-                          {result.strength}
+                          {getStrengthLabel(result.strength)}
                         </div>
                         <div className="text-lg font-semibold text-foreground mb-2">
-                          Punteggio: {result.score}/100
+                          Entropia: {result.entropy.toFixed(1)} bit
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2">
                           <div 
                             className={`h-2 rounded-full transition-all duration-300 ${getStrengthColor(result.strength).replace('text-', 'bg-')}`}
-                            style={{ width: `${result.score}%` } as React.CSSProperties}
+                            style={{ width: `${Math.min((result.entropy / 80) * 100, 100)}%` } as React.CSSProperties}
                           />
                         </div>
                       </div>
@@ -212,7 +223,7 @@ export default function AnalisiPasswordClientIT() {
                           <div className="space-y-1 text-sm">
                             <div className="flex justify-between">
                               <span>Lunghezza:</span>
-                              <span className="font-medium">{result.length} caratteri</span>
+                              <span className="font-medium">{result.password.length} caratteri</span>
                             </div>
                             <div className="flex justify-between">
                               <span>Entropia:</span>
@@ -220,46 +231,34 @@ export default function AnalisiPasswordClientIT() {
                             </div>
                             <div className="flex justify-between">
                               <span>Tempo di Cracking:</span>
-                              <span className="font-medium">{result.crackTime}</span>
+                              <span className="font-medium">{result.crackTime.formatted}</span>
                             </div>
                           </div>
                         </div>
 
                         <div className="bg-green-50 p-4 rounded-lg">
-                          <h4 className="font-medium text-green-800 mb-2">Composizione</h4>
+                          <h4 className="font-medium text-green-800 mb-2">Hash</h4>
                           <div className="space-y-1 text-sm">
                             <div className="flex justify-between">
-                              <span>Maiuscole:</span>
-                              <span className="font-medium">{result.hasUppercase ? 'Sì' : 'No'}</span>
+                              <span>MD5:</span>
+                              <span className="font-medium font-mono text-xs">{result.hashMD5.substring(0, 8)}...</span>
                             </div>
                             <div className="flex justify-between">
-                              <span>Minuscole:</span>
-                              <span className="font-medium">{result.hasLowercase ? 'Sì' : 'No'}</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span>Numeri:</span>
-                              <span className="font-medium">{result.hasNumbers ? 'Sì' : 'No'}</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span>Simboli:</span>
-                              <span className="font-medium">{result.hasSymbols ? 'Sì' : 'No'}</span>
+                              <span>SHA256:</span>
+                              <span className="font-medium font-mono text-xs">{result.hashSHA256.substring(0, 8)}...</span>
                             </div>
                           </div>
                         </div>
                       </div>
 
                       <div className="bg-gray-50 rounded-lg p-4">
-                        <h4 className="font-medium mb-2">Raccomandazioni:</h4>
+                        <h4 className="font-medium mb-2">Suggerimenti:</h4>
                         <div className="space-y-2">
-                          {result.recommendations.map((rec, index) => (
+                          {result.suggestions.map((suggestion, index) => (
                             <div key={index} className="flex items-start gap-2 text-sm">
-                              {rec.type === 'warning' ? (
-                                <XCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
-                              ) : (
-                                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                              )}
-                              <span className={rec.type === 'warning' ? 'text-red-700' : 'text-green-700'}>
-                                {rec.message}
+                              <Info className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                              <span className="text-blue-700">
+                                {suggestion}
                               </span>
                             </div>
                           ))}

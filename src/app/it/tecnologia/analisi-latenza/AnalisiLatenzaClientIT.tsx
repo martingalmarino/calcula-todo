@@ -8,13 +8,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Zap, AlertCircle, Clock, Globe, Activity, Info } from 'lucide-react'
-import { analyzeLatency, type LatencyAnalysisResult } from '@/lib/math/technology'
+import { analyzeLatency, type LatencyResult } from '@/lib/math/technology'
 import { jsonLdCalculator } from '@/lib/seo'
 
 export default function AnalisiLatenzaClientIT() {
   const [ping, setPing] = useState('')
   const [distance, setDistance] = useState('')
-  const [result, setResult] = useState<LatencyAnalysisResult | null>(null)
+  const [result, setResult] = useState<LatencyResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleCalculate = () => {
@@ -100,12 +100,14 @@ export default function AnalisiLatenzaClientIT() {
     setError(null)
   }
 
-  const getLatencyLevel = (ping: number) => {
-    if (ping < 20) return { level: 'Eccellente', color: 'text-green-600', bg: 'bg-green-50', border: 'border-green-200' }
-    if (ping < 50) return { level: 'Buono', color: 'text-blue-600', bg: 'bg-blue-50', border: 'border-blue-200' }
-    if (ping < 100) return { level: 'Accettabile', color: 'text-yellow-600', bg: 'bg-yellow-50', border: 'border-yellow-200' }
-    if (ping < 200) return { level: 'Lento', color: 'text-orange-600', bg: 'bg-orange-50', border: 'border-orange-200' }
-    return { level: 'Molto Lento', color: 'text-red-600', bg: 'bg-red-50', border: 'border-red-200' }
+  const getLatencyLevel = (category: string) => {
+    switch (category) {
+      case 'excelente': return { level: 'Eccellente', color: 'text-green-600', bg: 'bg-green-50', border: 'border-green-200' }
+      case 'bueno': return { level: 'Buono', color: 'text-blue-600', bg: 'bg-blue-50', border: 'border-blue-200' }
+      case 'aceptable': return { level: 'Accettabile', color: 'text-yellow-600', bg: 'bg-yellow-50', border: 'border-yellow-200' }
+      case 'lento': return { level: 'Lento', color: 'text-red-600', bg: 'bg-red-50', border: 'border-red-200' }
+      default: return { level: 'Sconosciuto', color: 'text-gray-600', bg: 'bg-gray-50', border: 'border-gray-200' }
+    }
   }
 
   return (
@@ -194,10 +196,10 @@ export default function AnalisiLatenzaClientIT() {
                     <CardContent className="space-y-4">
                       <div className="text-center">
                         <div className="text-4xl font-bold text-blue-600 mb-2">
-                          {result.ping}ms
+                          {result.pingMs}ms
                         </div>
-                        <div className={`text-lg font-semibold mb-2 ${getLatencyLevel(result.ping).color}`}>
-                          {getLatencyLevel(result.ping).level}
+                        <div className={`text-lg font-semibold mb-2 ${getLatencyLevel(result.category).color}`}>
+                          {getLatencyLevel(result.category).level}
                         </div>
                         <div className="text-sm text-muted-foreground">
                           Latenza di Rete
@@ -211,73 +213,63 @@ export default function AnalisiLatenzaClientIT() {
                             <span className="font-medium text-blue-800">Tempo di Risposta</span>
                           </div>
                           <p className="text-2xl font-bold text-blue-900">
-                            {result.ping}ms
+                            {result.pingMs}ms
                           </p>
                         </div>
 
                         <div className="bg-green-50 p-4 rounded-lg">
                           <div className="flex items-center gap-2 mb-2">
                             <Globe className="h-4 w-4 text-green-600" />
-                            <span className="font-medium text-green-800">Velocità di Propagazione</span>
+                            <span className="font-medium text-green-800">Categoria</span>
                           </div>
                           <p className="text-2xl font-bold text-green-900">
-                            {result.propagationSpeed.toFixed(1)}%
+                            {getLatencyLevel(result.category).level}
                           </p>
                         </div>
 
                         <div className="bg-purple-50 p-4 rounded-lg">
                           <div className="flex items-center gap-2 mb-2">
                             <Activity className="h-4 w-4 text-purple-600" />
-                            <span className="font-medium text-purple-800">Efficienza</span>
+                            <span className="font-medium text-purple-800">Tempo in Secondi</span>
                           </div>
                           <p className="text-2xl font-bold text-purple-900">
-                            {result.efficiency.toFixed(1)}%
+                            {result.responseTime.seconds.toFixed(3)}s
                           </p>
                         </div>
                       </div>
 
-                      {result.distance && (
-                        <div className="bg-gray-50 rounded-lg p-4">
-                          <h4 className="font-medium mb-2">Analisi della Distanza:</h4>
-                          <div className="grid grid-cols-2 gap-2 text-sm">
-                            <div className="flex justify-between">
-                              <span>Distanza:</span>
-                              <span className="font-medium">{result.distance} km</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span>Latenza Teorica:</span>
-                              <span className="font-medium">{result.theoreticalLatency.toFixed(1)}ms</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span>Latenza Reale:</span>
-                              <span className="font-medium">{result.ping}ms</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span>Overhead di Rete:</span>
-                              <span className="font-medium">{result.networkOverhead.toFixed(1)}ms</span>
-                            </div>
-                          </div>
+                      <div className="bg-gray-50 rounded-lg p-4">
+                        <h4 className="font-medium mb-2">Descrizione:</h4>
+                        <p className="text-sm text-gray-700 mb-3">{result.description}</p>
+                        
+                        <h4 className="font-medium mb-2">Casi d&apos;Uso Ideali:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {result.useCases.map((useCase, index) => (
+                            <span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
+                              {useCase}
+                            </span>
+                          ))}
                         </div>
-                      )}
+                      </div>
 
                       <div className="bg-gray-50 rounded-lg p-4">
                         <h4 className="font-medium mb-2">Dettagli dell&apos;Analisi:</h4>
                         <div className="grid grid-cols-2 gap-2 text-sm">
                           <div className="flex justify-between">
                             <span>Ping:</span>
-                            <span className="font-medium">{result.ping}ms</span>
+                            <span className="font-medium">{result.pingMs}ms</span>
                           </div>
                           <div className="flex justify-between">
-                            <span>Velocità di Propagazione:</span>
-                            <span className="font-medium">{result.propagationSpeed.toFixed(1)}%</span>
+                            <span>Tempo di Risposta:</span>
+                            <span className="font-medium">{result.responseTime.formatted}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span>Efficienza:</span>
-                            <span className="font-medium">{result.efficiency.toFixed(1)}%</span>
+                            <span>Categoria:</span>
+                            <span className="font-medium">{getLatencyLevel(result.category).level}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span>Qualità:</span>
-                            <span className="font-medium">{getLatencyLevel(result.ping).level}</span>
+                            <span>Secondi:</span>
+                            <span className="font-medium">{result.responseTime.seconds.toFixed(3)}s</span>
                           </div>
                         </div>
                       </div>
