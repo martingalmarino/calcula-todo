@@ -4,7 +4,7 @@ import { jsonLdCalculator } from '@/lib/seo'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Container } from '@/components/Container'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { ExercicioClientPT } from './ExercicioClientPT'
+import ExercicioClientPT from './ExercicioClientPT'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Exercício - Calorias Queimadas | CalculaTudo.online',

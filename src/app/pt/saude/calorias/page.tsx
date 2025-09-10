@@ -4,7 +4,7 @@ import { jsonLdCalculator } from '@/lib/seo'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Container } from '@/components/Container'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { CaloriasClientPT } from './CaloriasClientPT'
+import CaloriasClientPT from './CaloriasClientPT'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Calorias - Necessidades Calóricas Diárias | CalculaTudo.online',

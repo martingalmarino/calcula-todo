@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Dumbbell, Calculator, Info, Flame } from 'lucide-react'
+import { Dumbbell, Calculator, Info } from 'lucide-react'
 import { calculateExercise, type ExerciseResult } from '@/lib/math/health'
 
 export default function ExercicioClientPT() {

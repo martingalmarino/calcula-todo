@@ -4,7 +4,7 @@ import { jsonLdCalculator } from '@/lib/seo'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Container } from '@/components/Container'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { PesoIdealClientPT } from './PesoIdealClientPT'
+import PesoIdealClientPT from './PesoIdealClientPT'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Peso Ideal - Descubra seu peso ideal | CalculaTudo.online',

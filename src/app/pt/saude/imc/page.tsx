@@ -4,7 +4,7 @@ import { jsonLdCalculator } from '@/lib/seo'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Container } from '@/components/Container'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { IMCClientPT } from './IMCClientPT'
+import IMCClientPT from './IMCClientPT'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de IMC - Índice de Massa Corporal | CalculaTudo.online',

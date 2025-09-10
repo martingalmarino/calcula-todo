@@ -4,7 +4,7 @@ import { jsonLdCalculator } from '@/lib/seo'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Container } from '@/components/Container'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { AguaClientPT } from './AguaClientPT'
+import AguaClientPT from './AguaClientPT'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Água - Ingestão Diária Recomendada | CalculaTudo.online',

@@ -1,8 +1,7 @@
 import { Metadata } from 'next'
 import { buildMeta } from '@/lib/seo'
 import { CategoryPageLayout } from '@/components/CategoryPageLayout'
-import { getBreadcrumbs } from '@/lib/site.config'
-import { Heart, Activity, Droplets, Moon, Dumbbell, Target } from 'lucide-react'
+import { Heart, Activity, Target } from 'lucide-react'
 import { SaudeClientPT } from './SaudeClientPT'
 
 export const metadata: Metadata = buildMeta({
