@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Droplets, AlertCircle } from 'lucide-react'
-import { calculateWaterIntake } from '@/lib/math/health'
+import { calculateWaterIntake, type WaterIntakeResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
 import { getBreadcrumbs } from '@/lib/site.config'
 
@@ -18,7 +18,7 @@ export default function AguaClientPT() {
   const [idade, setIdade] = useState('')
   const [atividade, setAtividade] = useState('')
   const [clima, setClima] = useState('')
-  const [resultado, setResultado] = useState<{ agua: number; copos: number; description: string; recommendation: string } | null>(null)
+  const [resultado, setResultado] = useState<WaterIntakeResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleCalculate = () => {
@@ -54,7 +54,14 @@ export default function AguaClientPT() {
     }
 
     try {
-      const resultado = calculateWaterIntake(pesoNum, idadeNum, atividade, clima)
+      // Mapear atividade para o formato esperado pela função
+      let activityLevel: 'low' | 'moderate' | 'high' = 'moderate'
+      if (atividade === 'sedentario') activityLevel = 'low'
+      else if (atividade === 'leve') activityLevel = 'low'
+      else if (atividade === 'moderado') activityLevel = 'moderate'
+      else if (atividade === 'intenso') activityLevel = 'high'
+      
+      const resultado = calculateWaterIntake(pesoNum, idadeNum, activityLevel)
       setResultado(resultado)
     } catch {
       setError('Erro ao calcular a ingestão de água. Verifique os valores inseridos.')
@@ -214,10 +221,10 @@ export default function AguaClientPT() {
                       <CardTitle className="text-lg">Resultado</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div className="text-center">
                           <div className="text-2xl font-bold text-blue-600 mb-2">
-                            {resultado.agua} ml
+                            {resultado.dailyWater} ml
                           </div>
                           <div className="text-sm font-semibold text-foreground">
                             Água por dia
@@ -225,21 +232,32 @@ export default function AguaClientPT() {
                         </div>
                         <div className="text-center">
                           <div className="text-2xl font-bold text-green-600 mb-2">
-                            {resultado.copos} copos
+                            {resultado.glasses} copos
                           </div>
                           <div className="text-sm font-semibold text-foreground">
                             Copos de 250ml
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-purple-600 mb-2">
+                            {resultado.bottles} garrafas
+                          </div>
+                          <div className="text-sm font-semibold text-foreground">
+                            Garrafas de 500ml
                           </div>
                         </div>
                       </div>
                       
                       <div className="space-y-2">
                         <p className="text-sm text-muted-foreground">
-                          {resultado.description}
+                          <strong>Categoria:</strong> {resultado.category}
                         </p>
-                        <p className="text-sm text-muted-foreground">
-                          {resultado.recommendation}
-                        </p>
+                        <div className="space-y-1">
+                          <p className="text-sm font-medium text-foreground">Recomendações:</p>
+                          {resultado.recommendations.map((rec, index) => (
+                            <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
+                          ))}
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
