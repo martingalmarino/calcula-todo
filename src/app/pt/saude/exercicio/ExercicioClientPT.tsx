@@ -7,11 +7,12 @@ import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Dumbbell, AlertCircle } from 'lucide-react'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { Dumbbell, Calculator, Copy, Share } from 'lucide-react'
 import { calculateExercise, type ExerciseResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function ExercicioClientPT() {
   const [peso, setPeso] = useState('')
@@ -75,7 +76,11 @@ export default function ExercicioClientPT() {
     }
   }
 
-  const breadcrumbs = getBreadcrumbs('/pt/saude/exercicio')
+  const breadcrumbs = [
+    { label: 'Início', href: '/pt/' },
+    { label: 'Saúde', href: '/pt/saude/' },
+    { label: 'Exercício', href: '/pt/saude/exercicio/' }
+  ]
 
   const examples = [
     {
@@ -140,36 +145,30 @@ export default function ExercicioClientPT() {
             <div className="grid gap-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Peso (kg)
-                  </label>
+                  <Label htmlFor="peso">Peso (kg)</Label>
                   <Input
+                    id="peso"
                     type="number"
-                    placeholder="Ex: 70"
                     value={peso}
                     onChange={(e) => setPeso(e.target.value)}
-                    className="w-full"
+                    placeholder="Ex: 70"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Duração (minutos)
-                  </label>
+                  <Label htmlFor="duracao">Duração (minutos)</Label>
                   <Input
+                    id="duracao"
                     type="number"
-                    placeholder="Ex: 30"
                     value={duracao}
                     onChange={(e) => setDuracao(e.target.value)}
-                    className="w-full"
+                    placeholder="Ex: 30"
                   />
                 </div>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Tipo de Exercício
-                  </label>
+                  <Label htmlFor="exercicio">Tipo de Exercício</Label>
                   <Select value={exercicio} onValueChange={setExercicio}>
                     <SelectTrigger>
                       <SelectValue placeholder="Selecione o exercício" />
@@ -187,9 +186,7 @@ export default function ExercicioClientPT() {
                   </Select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Intensidade
-                  </label>
+                  <Label htmlFor="intensidade">Intensidade</Label>
                   <Select value={intensidade} onValueChange={setIntensidade}>
                     <SelectTrigger>
                       <SelectValue placeholder="Selecione a intensidade" />
@@ -205,16 +202,16 @@ export default function ExercicioClientPT() {
               
               <div className="mt-4">
                 <Button onClick={handleCalculate} className="calculator-button">
-                  <Dumbbell className="h-4 w-4" />
+                  <Calculator className="h-4 w-4" />
                   Calcular Calorias Queimadas
                 </Button>
               </div>
 
               {error && (
-                <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                  <AlertCircle className="h-4 w-4" />
-                  <span className="text-sm">{error}</span>
-                </div>
+                <Alert variant="destructive">
+                  <AlertTitle>Erro</AlertTitle>
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
               )}
 
               {resultado && (
@@ -226,19 +223,24 @@ export default function ExercicioClientPT() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-600 mb-2">
-                        {resultado.caloriesBurned} kcal
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="bg-white p-4 rounded-lg border">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Dumbbell className="h-4 w-4 text-gray-600" />
+                          <span className="text-sm text-gray-600">Calorias Queimadas</span>
+                        </div>
+                        <p className="text-2xl font-bold text-orange-600">{resultado.caloriesBurned} kcal</p>
                       </div>
-                      <div className="text-lg font-semibold text-foreground">
-                        Calorias Queimadas
+                      <div className="bg-white p-4 rounded-lg border">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Dumbbell className="h-4 w-4 text-gray-600" />
+                          <span className="text-sm text-gray-600">Duração</span>
+                        </div>
+                        <p className="text-2xl font-bold text-orange-600">{resultado.duration} min</p>
                       </div>
                     </div>
                     
                     <div className="space-y-2">
-                      <p className="text-sm text-muted-foreground">
-                        <strong>Duração:</strong> {resultado.duration} minutos
-                      </p>
                       <p className="text-sm text-muted-foreground">
                         <strong>Intensidade:</strong> {resultado.intensity}
                       </p>
@@ -251,6 +253,19 @@ export default function ExercicioClientPT() {
                     </div>
                   </CardContent>
                 </Card>
+              )}
+
+              {resultado && (
+                <div className="flex gap-2 mt-4">
+                  <Button variant="outline" size="sm">
+                    <Copy className="h-4 w-4 mr-2" />
+                    Copiar resultado
+                  </Button>
+                  <Button variant="outline" size="sm">
+                    <Share className="h-4 w-4 mr-2" />
+                    Compartilhar
+                  </Button>
+                </div>
               )}
             </div>
           </CalculatorLayout>

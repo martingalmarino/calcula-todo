@@ -7,11 +7,12 @@ import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Droplets, AlertCircle } from 'lucide-react'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { Droplets, Calculator, Copy, Share } from 'lucide-react'
 import { calculateWaterIntake, type WaterIntakeResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function AguaClientPT() {
   const [peso, setPeso] = useState('')
@@ -68,7 +69,11 @@ export default function AguaClientPT() {
     }
   }
 
-  const breadcrumbs = getBreadcrumbs('/pt/saude/agua')
+  const breadcrumbs = [
+    { label: 'Início', href: '/pt/' },
+    { label: 'Saúde', href: '/pt/saude/' },
+    { label: 'Água', href: '/pt/saude/agua/' }
+  ]
 
   const examples = [
     {
@@ -133,36 +138,30 @@ export default function AguaClientPT() {
             <div className="grid gap-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Peso (kg)
-                  </label>
+                  <Label htmlFor="peso">Peso (kg)</Label>
                   <Input
+                    id="peso"
                     type="number"
-                    placeholder="Ex: 70"
                     value={peso}
                     onChange={(e) => setPeso(e.target.value)}
-                    className="w-full"
+                    placeholder="Ex: 70"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Idade (anos)
-                  </label>
+                  <Label htmlFor="idade">Idade (anos)</Label>
                   <Input
+                    id="idade"
                     type="number"
-                    placeholder="Ex: 30"
                     value={idade}
                     onChange={(e) => setIdade(e.target.value)}
-                    className="w-full"
+                    placeholder="Ex: 30"
                   />
                 </div>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Nível de Atividade
-                  </label>
+                  <Label htmlFor="atividade">Nível de Atividade</Label>
                   <Select value={atividade} onValueChange={setAtividade}>
                     <SelectTrigger>
                       <SelectValue placeholder="Selecione o nível de atividade" />
@@ -176,9 +175,7 @@ export default function AguaClientPT() {
                   </Select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Clima
-                  </label>
+                  <Label htmlFor="clima">Clima</Label>
                   <Select value={clima} onValueChange={setClima}>
                     <SelectTrigger>
                       <SelectValue placeholder="Selecione o clima" />
@@ -195,16 +192,16 @@ export default function AguaClientPT() {
               
               <div className="mt-4">
                 <Button onClick={handleCalculate} className="calculator-button">
-                  <Droplets className="h-4 w-4" />
+                  <Calculator className="h-4 w-4" />
                   Calcular Ingestão de Água
                 </Button>
               </div>
 
               {error && (
-                <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                  <AlertCircle className="h-4 w-4" />
-                  <span className="text-sm">{error}</span>
-                </div>
+                <Alert variant="destructive">
+                  <AlertTitle>Erro</AlertTitle>
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
               )}
 
               {resultado && (
@@ -217,29 +214,26 @@ export default function AguaClientPT() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-blue-600 mb-2">
-                          {resultado.dailyWater} ml
+                      <div className="bg-white p-4 rounded-lg border">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Droplets className="h-4 w-4 text-gray-600" />
+                          <span className="text-sm text-gray-600">Água por dia</span>
                         </div>
-                        <div className="text-sm font-semibold text-foreground">
-                          Água por dia
-                        </div>
+                        <p className="text-2xl font-bold text-blue-600">{resultado.dailyWater} ml</p>
                       </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-green-600 mb-2">
-                          {resultado.glasses} copos
+                      <div className="bg-white p-4 rounded-lg border">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Droplets className="h-4 w-4 text-gray-600" />
+                          <span className="text-sm text-gray-600">Copos (250ml)</span>
                         </div>
-                        <div className="text-sm font-semibold text-foreground">
-                          Copos de 250ml
-                        </div>
+                        <p className="text-2xl font-bold text-green-600">{resultado.glasses} copos</p>
                       </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-purple-600 mb-2">
-                          {resultado.bottles} garrafas
+                      <div className="bg-white p-4 rounded-lg border">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Droplets className="h-4 w-4 text-gray-600" />
+                          <span className="text-sm text-gray-600">Garrafas (500ml)</span>
                         </div>
-                        <div className="text-sm font-semibold text-foreground">
-                          Garrafas de 500ml
-                        </div>
+                        <p className="text-2xl font-bold text-purple-600">{resultado.bottles} garrafas</p>
                       </div>
                     </div>
                     
@@ -256,6 +250,19 @@ export default function AguaClientPT() {
                     </div>
                   </CardContent>
                 </Card>
+              )}
+
+              {resultado && (
+                <div className="flex gap-2 mt-4">
+                  <Button variant="outline" size="sm">
+                    <Copy className="h-4 w-4 mr-2" />
+                    Copiar resultado
+                  </Button>
+                  <Button variant="outline" size="sm">
+                    <Share className="h-4 w-4 mr-2" />
+                    Compartilhar
+                  </Button>
+                </div>
               )}
             </div>
           </CalculatorLayout>

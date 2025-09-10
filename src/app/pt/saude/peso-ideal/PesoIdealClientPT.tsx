@@ -7,11 +7,12 @@ import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Target, AlertCircle } from 'lucide-react'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { Target, Calculator, Copy, Share } from 'lucide-react'
 import { calculateIdealWeight, type IdealWeightResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function PesoIdealClientPT() {
   const [altura, setAltura] = useState('')
@@ -56,7 +57,11 @@ export default function PesoIdealClientPT() {
     }
   }
 
-  const breadcrumbs = getBreadcrumbs('/pt/saude/peso-ideal')
+  const breadcrumbs = [
+    { label: 'Início', href: '/pt/' },
+    { label: 'Saúde', href: '/pt/saude/' },
+    { label: 'Peso Ideal', href: '/pt/saude/peso-ideal/' }
+  ]
 
   const examples = [
     {
@@ -118,22 +123,18 @@ export default function PesoIdealClientPT() {
           >
             <div className="grid gap-4">
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Altura (cm)
-                </label>
+                <Label htmlFor="altura">Altura (cm)</Label>
                 <Input
+                  id="altura"
                   type="number"
-                  placeholder="Ex: 175"
                   value={altura}
                   onChange={(e) => setAltura(e.target.value)}
-                  className="w-full"
+                  placeholder="Ex: 175"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Sexo
-                </label>
+                <Label htmlFor="sexo">Sexo</Label>
                 <Select value={sexo} onValueChange={setSexo}>
                   <SelectTrigger>
                     <SelectValue placeholder="Selecione o sexo" />
@@ -147,16 +148,16 @@ export default function PesoIdealClientPT() {
               
               <div className="mt-4">
                 <Button onClick={handleCalculate} className="calculator-button">
-                  <Target className="h-4 w-4" />
+                  <Calculator className="h-4 w-4" />
                   Calcular Peso Ideal
                 </Button>
               </div>
 
               {error && (
-                <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                  <AlertCircle className="h-4 w-4" />
-                  <span className="text-sm">{error}</span>
-                </div>
+                <Alert variant="destructive">
+                  <AlertTitle>Erro</AlertTitle>
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
               )}
 
               {resultado && (
@@ -168,15 +169,20 @@ export default function PesoIdealClientPT() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600 mb-2">
-                        {resultado.range.min} - {resultado.range.max} kg
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="bg-white p-4 rounded-lg border">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Target className="h-4 w-4 text-gray-600" />
+                          <span className="text-sm text-gray-600">Faixa Ideal</span>
+                        </div>
+                        <p className="text-2xl font-bold text-green-600">{resultado.range.min} - {resultado.range.max} kg</p>
                       </div>
-                      <div className="text-lg font-semibold text-foreground">
-                        Peso Ideal
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        Peso ideal: {resultado.idealWeight} kg
+                      <div className="bg-white p-4 rounded-lg border">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Target className="h-4 w-4 text-gray-600" />
+                          <span className="text-sm text-gray-600">Peso Ideal</span>
+                        </div>
+                        <p className="text-2xl font-bold text-green-600">{resultado.idealWeight} kg</p>
                       </div>
                     </div>
                     
@@ -193,6 +199,19 @@ export default function PesoIdealClientPT() {
                     </div>
                   </CardContent>
                 </Card>
+              )}
+
+              {resultado && (
+                <div className="flex gap-2 mt-4">
+                  <Button variant="outline" size="sm">
+                    <Copy className="h-4 w-4 mr-2" />
+                    Copiar resultado
+                  </Button>
+                  <Button variant="outline" size="sm">
+                    <Share className="h-4 w-4 mr-2" />
+                    Compartilhar
+                  </Button>
+                </div>
               )}
             </div>
           </CalculatorLayout>
