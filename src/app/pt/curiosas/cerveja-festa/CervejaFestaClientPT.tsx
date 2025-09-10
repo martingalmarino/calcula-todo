@@ -64,7 +64,7 @@ export default function CervejaFestaClientPT() {
     try {
       const resultado = calcularCervezaFiesta(convidadosNum, nivelConsumoNum, duracaoHorasNum, precoLitroNum);
       setResultado({
-        litrosNecessarios: resultado.litrosNecessarios,
+        litrosNecessarios: resultado.litrosNecesarios,
         custoTotal: resultado.costoTotal,
         tempoTerminacao: resultado.tiempoTerminacion,
         mensagem: resultado.mensaje
