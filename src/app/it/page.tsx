@@ -184,22 +184,22 @@ export default function ItalianHomePage() {
                     <h3 className="text-blue-900 text-xl font-bold">Curiose</h3>
                   </div>
                   <ChipsContainer>
-                    <Chip href="/it/curiosas/cafe-ahorro/" icon="coffee" ariaLabel="Caff&egrave; vs. Risparmio">
-                      Caff&egrave; vs. Risparmio
+                    <Chip href="/it/curiosas/caffe-risparmio/" icon="coffee" ariaLabel="Caffè vs. Risparmio">
+                      Caffè vs. Risparmio
                     </Chip>
                     <Chip href="/it/curiosas/pizza-persona/" icon="pizza" ariaLabel="Pizza per Persona">
                       Pizza per Persona
                     </Chip>
-                    <Chip href="/it/curiosas/expectativa-comida/" icon="heart" ariaLabel="Aspettativa di Vita e Cibo">
+                    <Chip href="/it/curiosas/aspettativa-vita-cibo/" icon="heart" ariaLabel="Aspettativa di Vita e Cibo">
                       Aspettativa di Vita e Cibo
                     </Chip>
-                    <Chip href="/it/curiosas/besos-calorias/" icon="heart" ariaLabel="Baci Brucia Calorie">
+                    <Chip href="/it/curiosas/baci-brucia-calorie/" icon="target" ariaLabel="Baci Brucia Calorie">
                       Baci Brucia Calorie
                     </Chip>
-                    <Chip href="/it/curiosas/tiempo-peliculas/" icon="tv" ariaLabel="Tempo nei Film">
+                    <Chip href="/it/curiosas/tempo-film/" icon="film" ariaLabel="Tempo nei Film">
                       Tempo nei Film
                     </Chip>
-                    <Chip href="/it/curiosas/nivel-friolento/" icon="thermometer" ariaLabel="Livello di Freddoloso">
+                    <Chip href="/it/curiosas/livello-freddoloso/" icon="thermometer" ariaLabel="Livello di Freddoloso">
                       Livello di Freddoloso
                     </Chip>
                   </ChipsContainer>
