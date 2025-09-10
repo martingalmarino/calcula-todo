@@ -134,32 +134,28 @@ export default function SonoClientPT() {
                       <CardTitle className="text-lg">Horários Ideais para Acordar</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="text-center p-4 bg-blue-50 rounded-lg">
-                          <div className="text-xl font-bold text-blue-600 mb-2">
-                            {resultado.horario5Ciclos}
-                          </div>
-                          <div className="text-sm font-semibold text-foreground">
-                            5 Ciclos (7.5h)
-                          </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-600 mb-2">
+                          {resultado.wakeUpTime}
                         </div>
-                        <div className="text-center p-4 bg-green-50 rounded-lg">
-                          <div className="text-xl font-bold text-green-600 mb-2">
-                            {resultado.horario6Ciclos}
-                          </div>
-                          <div className="text-sm font-semibold text-foreground">
-                            6 Ciclos (9h)
-                          </div>
+                        <div className="text-lg font-semibold text-foreground">
+                          Horário Ideal para Acordar
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          {resultado.sleepCycles} ciclos de sono
                         </div>
                       </div>
                       
                       <div className="space-y-2">
                         <p className="text-sm text-muted-foreground">
-                          {resultado.description}
+                          <strong>Hora de dormir:</strong> {resultado.bedTime}
                         </p>
-                        <p className="text-sm text-muted-foreground">
-                          {resultado.recommendation}
-                        </p>
+                        <div className="space-y-1">
+                          <p className="text-sm font-medium text-foreground">Recomendações:</p>
+                          {resultado.recommendations.map((rec, index) => (
+                            <p key={index} className="text-sm text-muted-foreground">• {rec}</p>
+                          ))}
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
