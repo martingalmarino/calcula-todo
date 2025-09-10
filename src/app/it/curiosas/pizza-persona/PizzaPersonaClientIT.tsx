@@ -21,9 +21,8 @@ export default function PizzaPersonaClientIT() {
     personas: number
     nivelHambre: number
     tamañoPizza: string
+    porcionesNecesarias: number
     pizzasNecesarias: number
-    porcionesTotal: number
-    porcionesPorPersona: number
     porcionesPorPizza: number
   } | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -199,10 +198,10 @@ export default function PizzaPersonaClientIT() {
                         <div className="bg-blue-50 p-4 rounded-lg">
                           <h4 className="font-semibold text-blue-900 mb-2">Dettagli del Calcolo:</h4>
                           <p className="text-blue-800 text-sm">
-                            {resultado.personas} persone × {resultado.porcionesPorPersona} porzioni/persona = {resultado.porcionesTotal} porzioni totali
+                            {resultado.personas} persone × {resultado.nivelHambre} livello fame = {resultado.porcionesNecesarias} porzioni necessarie
                           </p>
                           <p className="text-blue-800 text-sm">
-                            {resultado.porcionesTotal} porzioni ÷ {resultado.porcionesPorPizza} porzioni/pizza = {resultado.pizzasNecesarias} pizze
+                            {resultado.porcionesNecesarias} porzioni ÷ {resultado.porcionesPorPizza} porzioni/pizza = {resultado.pizzasNecesarias} pizze
                           </p>
                         </div>
 
@@ -220,12 +219,12 @@ export default function PizzaPersonaClientIT() {
                             <span className="font-medium">{resultado.tamañoPizza}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span>Porzioni per Persona:</span>
-                            <span className="font-medium">{resultado.porcionesPorPersona}</span>
+                            <span>Porzioni Necessarie:</span>
+                            <span className="font-medium">{resultado.porcionesNecesarias}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span>Porzioni Totali:</span>
-                            <span className="font-medium">{resultado.porcionesTotal}</span>
+                            <span>Porzioni per Pizza:</span>
+                            <span className="font-medium">{resultado.porcionesPorPizza}</span>
                           </div>
                           <div className="flex justify-between">
                             <span>Pizze Necessarie:</span>
