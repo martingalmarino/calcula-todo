@@ -1,12 +1,17 @@
 "use client"
 
 import { useState } from 'react'
+import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Droplets, AlertCircle } from 'lucide-react'
 import { calculateWaterIntake, WaterIntakeResult } from '@/lib/math/health'
+import { jsonLdCalculator } from '@/lib/seo'
+import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function AcquaGiornalieraClientIT() {
   const [weight, setWeight] = useState('')
@@ -55,6 +60,8 @@ export default function AcquaGiornalieraClientIT() {
     if (example.activity) setActivity(example.activity as string)
   }
 
+  const breadcrumbs = getBreadcrumbs('/it/salute/acqua-giornaliera')
+
   const examples = [
     { label: 'Uomo Attivo', values: { weight: '75', age: '30', activity: 'moderate' } },
     { label: 'Donna Sedentaria', values: { weight: '65', age: '25', activity: 'low' } },
@@ -82,14 +89,39 @@ export default function AcquaGiornalieraClientIT() {
   ]
 
   return (
-    <CalculatorLayout
-      title="Calcolatrice Acqua Giornaliera Raccomandata"
-      description="Calcola la quantità di acqua giornaliera raccomandata per la tua salute"
-      examples={examples}
-      onExampleClick={handleExample}
-      faqItems={faqItems}
-    >
-      <div className="space-y-6">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdCalculator({
+            name: 'Calcolatrice Acqua Giornaliera Raccomandata',
+            description: 'Calcola la quantità di acqua giornaliera raccomandata per la tua salute',
+            url: '/it/salute/acqua-giornaliera/',
+            category: 'Salute'
+          }))
+        }}
+      />
+      
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Calcolatrice Acqua Giornaliera Raccomandata"
+            description="Calcola la quantità di acqua giornaliera raccomandata per la tua salute"
+            examples={examples}
+            onExampleClick={handleExample}
+            faqItems={faqItems}
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Droplets className="h-5 w-5" />
+                  Calcolatrice Acqua Giornaliera
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <label htmlFor="weight" className="block text-sm font-medium text-gray-700 mb-2">
@@ -203,7 +235,12 @@ export default function AcquaGiornalieraClientIT() {
             </CardContent>
           </Card>
         )}
+              </div>
+            </CardContent>
+          </Card>
+        </CalculatorLayout>
       </div>
-    </CalculatorLayout>
-  )
+    </Container>
+  </>
+)
 }

@@ -1,11 +1,16 @@
 "use client"
 
 import { useState } from 'react'
+import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { CalendarHeart, AlertCircle } from 'lucide-react'
 import { calculateOvulation, OvulationResult } from '@/lib/math/health'
+import { jsonLdCalculator } from '@/lib/seo'
+import { getBreadcrumbs } from '@/lib/site.config'
 
 export default function OvulazioneClientIT() {
   const [lastPeriod, setLastPeriod] = useState('')
@@ -41,6 +46,8 @@ export default function OvulazioneClientIT() {
     if (example.cycleLength) setCycleLength(example.cycleLength as string)
   }
 
+  const breadcrumbs = getBreadcrumbs('/it/salute/ovulazione')
+
   const examples = [
     { label: 'Ciclo 28 giorni', values: { lastPeriod: '2024-01-01', cycleLength: '28' } },
     { label: 'Ciclo 30 giorni', values: { lastPeriod: '2024-01-01', cycleLength: '30' } },
@@ -68,14 +75,39 @@ export default function OvulazioneClientIT() {
   ]
 
   return (
-    <CalculatorLayout
-      title="Calcolatrice di Ovulazione"
-      description="Calcola i giorni fertili e il periodo di ovulazione per la pianificazione familiare"
-      examples={examples}
-      onExampleClick={handleExample}
-      faqItems={faqItems}
-    >
-      <div className="space-y-6">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdCalculator({
+            name: 'Calcolatrice di Ovulazione e Giorni Fertili',
+            description: 'Calcola i giorni fertili e il periodo di ovulazione per la pianificazione familiare',
+            url: '/it/salute/ovulazione/',
+            category: 'Salute'
+          }))
+        }}
+      />
+      
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Calcolatrice di Ovulazione"
+            description="Calcola i giorni fertili e il periodo di ovulazione per la pianificazione familiare"
+            examples={examples}
+            onExampleClick={handleExample}
+            faqItems={faqItems}
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CalendarHeart className="h-5 w-5" />
+                  Calcolatrice di Ovulazione
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label htmlFor="lastPeriod" className="block text-sm font-medium text-gray-700 mb-2">
@@ -170,7 +202,12 @@ export default function OvulazioneClientIT() {
             </CardContent>
           </Card>
         )}
+              </div>
+            </CardContent>
+          </Card>
+        </CalculatorLayout>
       </div>
-    </CalculatorLayout>
-  )
+    </Container>
+  </>
+)
 }
