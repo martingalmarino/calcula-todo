@@ -240,16 +240,16 @@ export default function PortugueseHomePage() {
                     <Chip href="/pt/outras/escala-notas/" icon="award" ariaLabel="Escala de Notas">
                       Escala de Notas
                     </Chip>
-                    <Chip href="/pt/outras/gasto-gasolina-viagem/" icon="car" ariaLabel="Gasto de Gasolina em Viagem">
+                    <Chip href="/pt/outras/gasto-gasolina/" icon="car" ariaLabel="Gasto de Gasolina em Viagem">
                       Gasto de Gasolina em Viagem
                     </Chip>
-                    <Chip href="/pt/outras/contador-palavras-caracteres/" icon="type" ariaLabel="Contador de Palavras e Caracteres">
+                    <Chip href="/pt/outras/contador-palavras/" icon="type" ariaLabel="Contador de Palavras e Caracteres">
                       Contador de Palavras e Caracteres
                     </Chip>
-                    <Chip href="/pt/outras/conversor-numeros-romanos/" icon="hash" ariaLabel="Conversor de Números Romanos">
+                    <Chip href="/pt/outras/numeros-romanos/" icon="hash" ariaLabel="Conversor de Números Romanos">
                       Conversor de Números Romanos
                     </Chip>
-                    <Chip href="/pt/outras/contador-cliques-cps/" icon="mouse-pointer" ariaLabel="Contador de Cliques (CPS)">
+                    <Chip href="/pt/outras/contador-cliques/" icon="mouse-pointer" ariaLabel="Contador de Cliques (CPS)">
                       Contador de Cliques (CPS)
                     </Chip>
                     <Chip href="/pt/outras/calculadora-gorjeta/" icon="dollar-sign" ariaLabel="Calculadora de Gorjeta">
