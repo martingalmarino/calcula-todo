@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { CervejaFestaClientPT } from './CervejaFestaClientPT'
+import CervejaFestaClientPT from './CervejaFestaClientPT'
 import { buildMeta } from '@/lib/seo'
 
 export const metadata: Metadata = buildMeta({
