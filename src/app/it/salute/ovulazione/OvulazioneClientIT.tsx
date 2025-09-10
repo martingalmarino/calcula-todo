@@ -136,7 +136,7 @@ export default function OvulazioneClientIT() {
           </div>
         </div>
 
-        <Button onClick={handleCalculate} className="w-full">
+        <Button onClick={handleCalculate} className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-200">
           Calcola Ovulazione
         </Button>
 
