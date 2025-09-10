@@ -12,7 +12,6 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { calcularCaloriasAfectivas } from '@/lib/math/curiosas';
-import { getRelatedCalculators, getBreadcrumbs } from '@/lib/site.config';
 import { jsonLdCalculator } from '@/lib/seo';
 
 export default function BeijosCaloriasClientPT() {
@@ -297,7 +296,7 @@ export default function BeijosCaloriasClientPT() {
                         <p>• <strong>Benefícios extras:</strong> Além de queimar calorias, essas atividades liberam endorfinas e reduzem o estresse</p>
                         <p>• <strong>Exercício emocional:</strong> Beijos intensos podem aumentar a frequência cardíaca como um exercício leve</p>
                         <p>• <strong>Risadas saudáveis:</strong> 10 minutos de risada podem queimar até 20 calorias e melhorar o sistema imunológico</p>
-                        <p>• <strong>Abraços terapêuticos:</strong> Os abraços liberam oxitocina, o "hormônio do amor"</p>
+                        <p>• <strong>Abraços terapêuticos:</strong> Os abraços liberam oxitocina, o &quot;hormônio do amor&quot;</p>
                       </div>
                     </div>
                   </CardContent>
