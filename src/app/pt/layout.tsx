@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import '../globals.css'
-import { ConditionalLayout } from '@/components/ConditionalLayout'
+import { HeaderPortuguese } from '@/components/HeaderPortuguese'
+import { Footer } from '@/components/Footer'
 import { AnalyticsProvider } from '@/lib/analytics'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -119,9 +120,11 @@ export default function PortugueseLayout({
       <body className={inter.className}>
         <AnalyticsProvider>
           <div className="min-h-screen flex flex-col">
-            <ConditionalLayout>
+            <HeaderPortuguese />
+            <main className="flex-1">
               {children}
-            </ConditionalLayout>
+            </main>
+            <Footer />
           </div>
         </AnalyticsProvider>
         {/* Lucide Icons CDN */}

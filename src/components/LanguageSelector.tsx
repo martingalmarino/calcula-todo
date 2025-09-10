@@ -43,36 +43,39 @@ export function LanguageSelector() {
   };
   
   return (
-    <div className="flex gap-2 items-center">
+    <div className="flex gap-1 items-center">
       <Link 
         href={getTargetUrl('es')}
-        className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
+        className={`px-2 py-1 rounded text-xs font-medium transition-colors ${
           !isItalian && !isPortuguese
             ? 'bg-blue-600 text-white' 
             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
         }`}
+        title="Español"
       >
-        {localeConfig.es.flag} ES
+        {localeConfig.es.flag}
       </Link>
       <Link 
         href={getTargetUrl('it')}
-        className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
+        className={`px-2 py-1 rounded text-xs font-medium transition-colors ${
           isItalian 
             ? 'bg-green-600 text-white' 
             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
         }`}
+        title="Italiano"
       >
-        {localeConfig.it.flag} IT
+        {localeConfig.it.flag}
       </Link>
       <Link 
         href={getTargetUrl('pt')}
-        className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
+        className={`px-2 py-1 rounded text-xs font-medium transition-colors ${
           isPortuguese 
             ? 'bg-yellow-600 text-white' 
             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
         }`}
+        title="Português"
       >
-        🇧🇷 PT
+        🇧🇷
       </Link>
     </div>
   );
