@@ -9,8 +9,7 @@ import SonoClientPT from './SonoClientPT'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Sono - Ciclos de Sono e Horários | CalculaTudo.online',
   description: 'Calcule seus ciclos de sono e descubra os melhores horários para dormir e acordar baseado na ciência do sono.',
-  keywords: ['sono', 'ciclos de sono', 'horário de dormir', 'descanso', 'qualidade do sono'],
-  path: '/pt/saude/sono/'
+  keywords: ['sono', 'ciclos de sono', 'horário de dormir', 'descanso', 'qualidade do sono']
 })
 
 const breadcrumbs = [

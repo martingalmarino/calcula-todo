@@ -9,8 +9,7 @@ import PesoIdealClientPT from './PesoIdealClientPT'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Peso Ideal - Descubra seu peso ideal | CalculaTudo.online',
   description: 'Calcule seu peso ideal baseado na fórmula de Devine. Descubra qual é o peso recomendado para sua altura e sexo.',
-  keywords: ['peso ideal', 'calculadora peso', 'fórmula Devine', 'peso recomendado', 'altura'],
-  path: '/pt/saude/peso-ideal/'
+  keywords: ['peso ideal', 'calculadora peso', 'fórmula Devine', 'peso recomendado', 'altura']
 })
 
 const breadcrumbs = [

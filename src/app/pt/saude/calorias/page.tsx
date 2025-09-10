@@ -9,8 +9,7 @@ import CaloriasClientPT from './CaloriasClientPT'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Calorias - Necessidades Calóricas Diárias | CalculaTudo.online',
   description: 'Calcule suas necessidades calóricas diárias baseadas em peso, altura, idade, sexo e nível de atividade física.',
-  keywords: ['calorias', 'necessidades calóricas', 'TMB', 'metabolismo', 'dieta', 'atividade física'],
-  path: '/pt/saude/calorias/'
+  keywords: ['calorias', 'necessidades calóricas', 'TMB', 'metabolismo', 'dieta', 'atividade física']
 })
 
 const breadcrumbs = [

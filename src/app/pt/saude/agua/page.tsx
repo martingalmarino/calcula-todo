@@ -9,8 +9,7 @@ import AguaClientPT from './AguaClientPT'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Água - Ingestão Diária Recomendada | CalculaTudo.online',
   description: 'Calcule quanta água você deve beber por dia baseado no seu peso, idade e nível de atividade física.',
-  keywords: ['água', 'hidratação', 'líquidos', 'ingestão diária', 'saúde'],
-  path: '/pt/saude/agua/'
+  keywords: ['água', 'hidratação', 'líquidos', 'ingestão diária', 'saúde']
 })
 
 const breadcrumbs = [

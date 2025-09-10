@@ -9,8 +9,7 @@ import ExercicioClientPT from './ExercicioClientPT'
 export const metadata: Metadata = buildMeta({
   title: 'Calculadora de Exercício - Calorias Queimadas | CalculaTudo.online',
   description: 'Calcule as calorias queimadas durante exercícios físicos baseado no tipo de atividade, duração, peso e intensidade.',
-  keywords: ['exercício', 'calorias queimadas', 'atividade física', 'treino', 'fitness'],
-  path: '/pt/saude/exercicio/'
+  keywords: ['exercício', 'calorias queimadas', 'atividade física', 'treino', 'fitness']
 })
 
 const breadcrumbs = [
