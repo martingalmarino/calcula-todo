@@ -13,7 +13,7 @@ interface PromotionalBlockProps {
 
 export function PromotionalBlock({ title, description, features }: PromotionalBlockProps) {
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+    <div className="p-8 md:p-12">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
           {title}

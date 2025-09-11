@@ -29,11 +29,11 @@ export default function HomePage() {
         }}
       />
       
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
+      <div className="min-h-screen bg-white">
         <Container>
           <div className="py-8">
             {/* Main Title */}
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               <h1 className="text-blue-600 text-4xl md:text-5xl font-bold mb-6">
                 Calculadoras Online Gratuitas
               </h1>
@@ -45,7 +45,7 @@ export default function HomePage() {
 
 
             {/* Additional Categories Section - New Responsive Design */}
-            <div className="mt-20 py-16">
+            <div className="mt-8 py-8">
               <div className="max-w-7xl mx-auto">
               
               {/* Categories Grid - Responsive */}
