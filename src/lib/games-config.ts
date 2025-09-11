@@ -1,4 +1,4 @@
-import { Calculator, Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, LucideIcon } from 'lucide-react'
+import { Calculator, Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -142,6 +142,17 @@ export const gamesConfig: GameConfig[] = [
     category: 'Juegos Matemáticos',
     keywords: ['mayor', 'menor', 'comparación', 'números', 'agilidad mental', 'sentido numérico', 'decimales', 'fracciones'],
     icon: ArrowUp,
+    difficulty: 'básico',
+    timeRange: '30s'
+  },
+  {
+    title: 'Par o Impar Exprés',
+    label: 'Par o Impar Exprés',
+    description: 'Clasifica números como pares o impares antes de que termine el tiempo. ¡Desafía tu agilidad mental y reconocimiento numérico!',
+    href: '/juegos-matematicos/par-impar',
+    category: 'Juegos Matemáticos',
+    keywords: ['par', 'impar', 'números pares', 'números impares', 'clasificación', 'agilidad mental', 'reconocimiento numérico', 'velocidad'],
+    icon: Hash,
     difficulty: 'básico',
     timeRange: '30s'
   }
