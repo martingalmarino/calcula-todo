@@ -1,94 +1,121 @@
 "use client"
 
-import { Container } from '@/components/Container'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Calendar, User, Clock, Plus, Plane } from 'lucide-react'
-import { SITE } from '@/lib/site.config'
+import { CategoryPageLayout } from '@/components/CategoryPageLayout'
+import { Calendar, User, Clock, Plus, Plane, Calculator, Users } from 'lucide-react'
+
+const calendarioCluster = {
+  name: 'Calendário',
+  label: 'Calendário',
+  description: 'Ferramentas de calendário e datas: calcular dias entre datas, idade exata, somar/subtrair dias, horas e minutos, e dias de férias',
+  href: '/pt/calendario/',
+  calculators: [
+    {
+      name: 'Calculadora de Idade',
+      label: 'Calculadora de Idade',
+      description: 'Calcula sua idade exata em anos, meses e dias',
+      href: '/pt/calendario/calculadora-idade/',
+      icon: 'user',
+      category: 'calendario',
+      keywords: ['idade', 'anos', 'meses', 'dias', 'nascimento']
+    },
+    {
+      name: 'Dias entre Datas',
+      label: 'Dias entre Datas',
+      description: 'Calcula a diferença em dias entre duas datas específicas',
+      href: '/pt/calendario/dias-entre-datas/',
+      icon: 'calendar',
+      category: 'calendario',
+      keywords: ['dias', 'datas', 'diferença', 'calendário']
+    },
+    {
+      name: 'Dias de Férias',
+      label: 'Dias de Férias',
+      description: 'Calcula os dias de férias entre duas datas',
+      href: '/pt/calendario/dias-ferias/',
+      icon: 'plane',
+      category: 'calendario',
+      keywords: ['férias', 'dias', 'trabalho', 'descanso']
+    },
+    {
+      name: 'Horas e Minutos',
+      label: 'Horas e Minutos',
+      description: 'Calcula e converte entre horas e minutos',
+      href: '/pt/calendario/horas-e-minutos/',
+      icon: 'clock',
+      category: 'calendario',
+      keywords: ['horas', 'minutos', 'tempo', 'conversão']
+    },
+    {
+      name: 'Somar e Subtrair Dias',
+      label: 'Somar e Subtrair Dias',
+      description: 'Soma ou subtrai dias a uma data específica',
+      href: '/pt/calendario/somar-e-subtrair-dias/',
+      icon: 'plus',
+      category: 'calendario',
+      keywords: ['somar', 'subtrair', 'dias', 'data']
+    }
+  ]
+}
 
 export default function CalendarioClientPT() {
-  const calendarioCluster = SITE.clusters.calendario
+  const customIcons = {
+    '/pt/calendario/calculadora-idade/': User,
+    '/pt/calendario/dias-entre-datas/': Calendar,
+    '/pt/calendario/dias-ferias/': Plane,
+    '/pt/calendario/horas-e-minutos/': Clock,
+    '/pt/calendario/somar-e-subtrair-dias/': Plus
+  }
 
-  const calculatorsPT = calendarioCluster.calculators.map(calc => {
-    let href = calc.href.replace('/calendario/', '/pt/calendario/')
-    
-    // Corrigir nomes das pastas para coincidir com as que vamos criar
-    if (href.includes('calculadora-edad')) {
-      href = href.replace('calculadora-edad', 'calculadora-idade')
+  const customStats = [
+    {
+      icon: Calculator,
+      value: calendarioCluster.calculators.length.toString(),
+      label: 'Calculadoras Disponíveis',
+      color: 'blue' as const
+    },
+    {
+      icon: Calendar,
+      value: '5',
+      label: 'Ferramentas de Tempo',
+      color: 'green' as const
+    },
+    {
+      icon: Users,
+      value: '100%',
+      label: 'Gratuito',
+      color: 'purple' as const
     }
-    if (href.includes('dias-entre-fechas')) {
-      href = href.replace('dias-entre-fechas', 'dias-entre-datas')
-    }
-    if (href.includes('dias-vacaciones')) {
-      href = href.replace('dias-vacaciones', 'dias-ferias')
-    }
-    if (href.includes('horas-minutos')) {
-      href = href.replace('horas-minutos', 'horas-e-minutos')
-    }
-    if (href.includes('sumar-restar-dias')) {
-      href = href.replace('sumar-restar-dias', 'somar-e-subtrair-dias')
-    }
+  ]
 
-    return {
-      ...calc,
-      href,
-      label: calc.label === 'Calculadora de Edad' ? 'Calculadora de Idade' :
-             calc.label === 'Días entre Fechas' ? 'Dias entre Datas' :
-             calc.label === 'Días de Vacaciones' ? 'Dias de Férias' :
-             calc.label === 'Horas y Minutos' ? 'Horas e Minutos' :
-             calc.label === 'Sumar / Restar Días' ? 'Somar e Subtrair Dias' : calc.label,
-      description: calc.description === 'Calcula la diferencia en días entre dos fechas específicas' ? 'Calcula a diferença em dias entre duas datas específicas' :
-                  calc.description === 'Calcula tu edad exacta en años, meses y días' ? 'Calcula sua idade exata em anos, meses e dias' :
-                  calc.description === 'Suma o resta días a una fecha específica' ? 'Soma ou subtrai dias a uma data específica' :
-                  calc.description === 'Calcula y convierte entre horas y minutos' ? 'Calcula e converte entre horas e minutos' :
-                  calc.description === 'Calcula los días de vacaciones entre dos fechas' ? 'Calcula os dias de férias entre duas datas' : calc.description
+  const faqItems = [
+    {
+      question: "Como funciona a calculadora de idade?",
+      answer: "A calculadora de idade calcula sua idade exata em anos, meses e dias desde sua data de nascimento até a data atual ou uma data específica que você escolher."
+    },
+    {
+      question: "Posso calcular dias entre duas datas?",
+      answer: "Sim! Nossa calculadora de dias entre datas mostra a diferença exata em dias, semanas, meses e anos entre duas datas específicas."
+    },
+    {
+      question: "Como somar ou subtrair dias de uma data?",
+      answer: "Use nossa calculadora de somar/subtrair dias para adicionar ou remover um número específico de dias de qualquer data, mostrando o resultado e o dia da semana."
+    },
+    {
+      question: "Posso converter entre horas e minutos?",
+      answer: "Sim! Nossa calculadora de horas e minutos permite somar, subtrair e converter entre diferentes unidades de tempo."
+    },
+    {
+      question: "Como calcular dias de férias?",
+      answer: "A calculadora de dias de férias mostra o total de dias entre duas datas, separando dias úteis e fins de semana para planejamento de férias."
     }
-  })
+  ]
 
   return (
-    <Container>
-      <div className="py-8">
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Calendar className="h-8 w-8 text-blue-600" />
-            <h1 className="text-3xl font-bold text-gray-900">Calculadoras de Calendário</h1>
-          </div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Ferramentas de calendário e datas: calcular dias entre datas, idade exata, somar/subtrair dias, horas e minutos, e dias de férias.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {calculatorsPT.map((calculator, index) => {
-            const icons = [User, Calendar, Plus, Clock, Plane]
-            const IconComponent = icons[index] || Calendar
-            
-            return (
-              <Card key={calculator.href} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <IconComponent className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <CardTitle className="text-lg">{calculator.label}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">{calculator.description}</p>
-                  <a
-                    href={calculator.href}
-                    className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                  >
-                    Usar Calculadora
-                    <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                </CardContent>
-              </Card>
-            )
-          })}
-        </div>
-      </div>
-    </Container>
+    <CategoryPageLayout
+      category={calendarioCluster}
+      customIcons={customIcons}
+      customStats={customStats}
+      faqItems={faqItems}
+    />
   )
 }
