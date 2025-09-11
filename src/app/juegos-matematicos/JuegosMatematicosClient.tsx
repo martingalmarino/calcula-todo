@@ -1,7 +1,7 @@
 "use client"
 
 import { CategoryPageLayout } from '@/components/CategoryPageLayout'
-import { Calculator, Gamepad2, Brain, Trophy, Clock, Target } from 'lucide-react'
+import { Calculator, Gamepad2, Trophy, Clock, Target, TrendingUp, Grid3X3 } from 'lucide-react'
 
 const juegosMatematicosCluster = {
   title: 'Juegos de Inteligencia Matemática',
@@ -32,6 +32,38 @@ const juegosMatematicosCluster = {
       href: '/juegos-matematicos/fracciones',
       category: 'Juegos Matemáticos',
       keywords: ['fracciones', 'visual', 'pizzas', 'matemáticas visuales']
+    },
+    {
+      title: 'Desafío de Múltiplos y Divisores',
+      label: 'Desafío de Múltiplos y Divisores',
+      description: 'Identifica múltiplos y divisores rápidamente. ¡Filtra números por sus propiedades!',
+      href: '/juegos-matematicos/multiplos-divisores',
+      category: 'Juegos Matemáticos',
+      keywords: ['múltiplos', 'divisores', 'números', 'propiedades', 'filtrado']
+    },
+    {
+      title: 'Rompecabezas de Porcentajes',
+      label: 'Rompecabezas de Porcentajes',
+      description: 'Calcula descuentos y aumentos con porcentajes. ¡Domina los cálculos comerciales!',
+      href: '/juegos-matematicos/porcentajes',
+      category: 'Juegos Matemáticos',
+      keywords: ['porcentajes', 'descuentos', 'aumentos', 'cálculos comerciales']
+    },
+    {
+      title: 'Secuencias Numéricas',
+      label: 'Secuencias Numéricas',
+      description: 'Descubre el patrón y completa la secuencia. ¡Desarrolla tu pensamiento lógico!',
+      href: '/juegos-matematicos/secuencias',
+      category: 'Juegos Matemáticos',
+      keywords: ['secuencias', 'patrones', 'lógica', 'progresiones', 'series']
+    },
+    {
+      title: 'Sudoku de Operaciones Matemáticas',
+      label: 'Sudoku de Operaciones Matemáticas',
+      description: 'Resuelve grillas donde cada fila y columna debe sumar el mismo resultado. ¡Desafía tu lógica matemática!',
+      href: '/juegos-matematicos/sudoku-operaciones',
+      category: 'Juegos Matemáticos',
+      keywords: ['sudoku', 'operaciones', 'grilla', 'lógica matemática', 'sumas']
     }
   ]
 }
@@ -40,19 +72,23 @@ export default function JuegosMatematicosClient() {
   const customIcons = {
     'Sumas y Restas contra Reloj': Calculator,
     'Encuentra el Número Faltante': Target,
-    'Rompecabezas de Fracciones': Gamepad2
+    'Rompecabezas de Fracciones': Gamepad2,
+    'Desafío de Múltiplos y Divisores': Target,
+    'Rompecabezas de Porcentajes': Calculator,
+    'Secuencias Numéricas': TrendingUp,
+    'Sudoku de Operaciones Matemáticas': Grid3X3
   }
 
   const customStats = [
     {
       icon: Gamepad2,
-      value: '3',
+      value: '7',
       label: 'Juegos Disponibles',
       color: 'blue' as const
     },
     {
       icon: Clock,
-      value: '30s',
+      value: '30-45s',
       label: 'Por Partida',
       color: 'green' as const
     },
@@ -67,11 +103,11 @@ export default function JuegosMatematicosClient() {
   const faqItems = [
     {
       question: "¿Cómo funcionan los juegos de matemáticas?",
-      answer: "Cada juego tiene una duración de 30 segundos donde debes resolver la mayor cantidad de problemas matemáticos posibles. Cada acierto suma puntos y al final obtienes un ranking según tu rendimiento."
+      answer: "Cada juego tiene una duración de 30-45 segundos donde debes resolver la mayor cantidad de problemas matemáticos posibles. Cada acierto suma puntos y al final obtienes un ranking según tu rendimiento."
     },
     {
-      question: "¿Qué niveles de dificultad hay?",
-      answer: "Actualmente tenemos juegos de nivel fácil, perfectos para practicar y mejorar la agilidad mental. Los problemas van desde sumas y restas básicas hasta fracciones visuales."
+      question: "¿Qué tipos de juegos hay disponibles?",
+      answer: "Tenemos 7 juegos diferentes: operaciones básicas, ecuaciones, fracciones visuales, múltiplos y divisores, porcentajes, secuencias numéricas y sudoku matemático. Cada uno desarrolla habilidades específicas."
     },
     {
       question: "¿Los juegos son apropiados para niños?",
