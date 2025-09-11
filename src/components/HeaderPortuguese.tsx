@@ -14,6 +14,7 @@ const navigationItems = [
   { label: "Curiosas", href: "/pt/curiosas", hasDropdown: true },
   { label: "Geometria", href: "/pt/geometria", hasDropdown: true },
   { label: "Calendário", href: "/pt/calendario", hasDropdown: true },
+  { label: "Tecnologia", href: "/pt/tecnologia", hasDropdown: true },
   { label: "Outras", href: "/pt/outras", hasDropdown: true },
 ]
 
