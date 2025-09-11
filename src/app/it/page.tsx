@@ -44,7 +44,7 @@ export default function ItalianHomePage() {
         }}
       />
       
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
         <Container>
           <div className="py-8">
 
@@ -60,7 +60,7 @@ export default function ItalianHomePage() {
             </div>
 
             {/* Categories Section */}
-            <div className="mt-20 bg-gray-50 py-16 -mx-4 px-4">
+            <div className="mt-20 py-16">
               <div className="max-w-7xl mx-auto">
               
               {/* Categories Grid - Responsive */}
