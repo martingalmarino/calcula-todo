@@ -28,7 +28,7 @@ export default function JuegosMatematicosClient() {
   
   // Generar iconos dinámicamente
   const customIcons = gamesConfig.reduce((acc, game) => {
-    acc[game.title] = game.icon
+    acc[game.href] = game.icon
     return acc
   }, {} as Record<string, LucideIcon>)
 
