@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
 import { PromotionalBlock } from '@/components/PromotionalBlock'
-import GamesPromoBanner from '@/components/GamesPromoBanner'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
 
 export const metadata: Metadata = buildMeta({
@@ -44,9 +43,23 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Games Promotional Banner */}
-            <div className="mb-12">
-              <GamesPromoBanner />
+            {/* Pre-header para Juegos Matemáticos */}
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-full px-6 py-3 shadow-sm">
+                <span className="text-2xl">🎮</span>
+                <span className="text-blue-800 font-semibold text-lg">
+                  ¡Nuevo! 
+                </span>
+                <a 
+                  href="/juegos-matematicos" 
+                  className="text-blue-600 hover:text-blue-800 font-bold underline decoration-2 underline-offset-2 hover:decoration-blue-800 transition-colors"
+                >
+                  Juegos de Inteligencia Matemática
+                </a>
+                <span className="text-blue-700 text-sm">
+                  • 13 juegos educativos
+                </span>
+              </div>
             </div>
 
             {/* Additional Categories Section - New Responsive Design */}
