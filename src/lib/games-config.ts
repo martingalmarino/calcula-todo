@@ -1,4 +1,4 @@
-import { Calculator, Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, LucideIcon } from 'lucide-react'
+import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -20,7 +20,7 @@ export const gamesConfig: GameConfig[] = [
     href: '/juegos-matematicos/sumas-restas',
     category: 'Juegos Matemáticos',
     keywords: ['sumas', 'restas', 'velocidad', 'cálculo mental', 'agilidad'],
-    icon: Calculator,
+    icon: Zap,
     difficulty: 'básico',
     timeRange: '30s'
   },
@@ -64,7 +64,7 @@ export const gamesConfig: GameConfig[] = [
     href: '/juegos-matematicos/porcentajes',
     category: 'Juegos Matemáticos',
     keywords: ['porcentajes', 'descuentos', 'aumentos', 'cálculos comerciales'],
-    icon: Calculator,
+    icon: Percent,
     difficulty: 'intermedio',
     timeRange: '30s'
   },
@@ -97,7 +97,7 @@ export const gamesConfig: GameConfig[] = [
     href: '/juegos-matematicos/ecuaciones-expres',
     category: 'Juegos Matemáticos',
     keywords: ['ecuaciones', 'álgebra', 'primer grado', 'segundo grado', 'avanzado'],
-    icon: Calculator,
+    icon: Gamepad2,
     difficulty: 'avanzado',
     timeRange: '60s'
   },
