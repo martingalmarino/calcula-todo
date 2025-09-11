@@ -221,6 +221,7 @@ export default function NumeroFaltanteClient() {
         showIntroduction={showIntroduction}
         currentQuestion={currentQuestion}
         totalQuestions={totalQuestions}
+        currentGamePath="/juegos-matematicos/numero-faltante/"
       >
         {currentEquation && (
           <div className="w-full">

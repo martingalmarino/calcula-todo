@@ -180,6 +180,7 @@ export default function SumasRestasClient() {
         showIntroduction={showIntroduction}
         currentQuestion={currentQuestion}
         totalQuestions={totalQuestions}
+        currentGamePath="/juegos-matematicos/sumas-restas/"
       >
                 {currentOperation && (
                   <div className="w-full">

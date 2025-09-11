@@ -231,6 +231,7 @@ export default function PorcentajesClient() {
         showIntroduction={showIntroduction}
         currentQuestion={currentQuestion}
         totalQuestions={totalQuestions}
+        currentGamePath="/juegos-matematicos/porcentajes/"
       >
         {currentProblem && (
           <div className="w-full">

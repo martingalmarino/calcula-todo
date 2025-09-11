@@ -25,6 +25,7 @@ interface GameLayoutProps {
   showIntroduction: boolean
   currentQuestion: number
   totalQuestions: number
+  currentGamePath?: string // Para excluir el juego actual de los relacionados
 }
 
 export function GameLayout({
@@ -41,7 +42,8 @@ export function GameLayout({
   gameResult,
   showIntroduction,
   currentQuestion,
-  totalQuestions
+  totalQuestions,
+  currentGamePath
 }: GameLayoutProps) {
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60)
@@ -53,6 +55,49 @@ export function GameLayout({
     if (points >= 15) return { rank: 'Genio', emoji: '🤯', color: 'text-purple-600' }
     if (points >= 8) return { rank: 'Rápido', emoji: '⚡', color: 'text-blue-600' }
     return { rank: 'Principiante', emoji: '🌱', color: 'text-green-600' }
+  }
+
+  // Generar juegos relacionados aleatorios
+  const getRelatedGames = () => {
+    const allGames = [
+      {
+        path: '/juegos-matematicos/sumas-restas/',
+        title: 'Sumas y Restas',
+        description: 'Resuelve operaciones contra el tiempo',
+        icon: Calculator
+      },
+      {
+        path: '/juegos-matematicos/numero-faltante/',
+        title: 'Número Faltante',
+        description: 'Encuentra el número que falta en la ecuación',
+        icon: Target
+      },
+      {
+        path: '/juegos-matematicos/fracciones/',
+        title: 'Fracciones Visuales',
+        description: 'Selecciona la pizza que representa la fracción',
+        icon: Gamepad2
+      },
+      {
+        path: '/juegos-matematicos/multiplos-divisores/',
+        title: 'Múltiplos y Divisores',
+        description: 'Identifica múltiplos y divisores rápidamente',
+        icon: Target
+      },
+      {
+        path: '/juegos-matematicos/porcentajes/',
+        title: 'Porcentajes',
+        description: 'Calcula descuentos y aumentos',
+        icon: Calculator
+      }
+    ]
+
+    // Filtrar el juego actual
+    const availableGames = allGames.filter(game => game.path !== currentGamePath)
+    
+    // Mezclar y tomar 2 aleatorios
+    const shuffled = availableGames.sort(() => Math.random() - 0.5)
+    return shuffled.slice(0, 2)
   }
 
   // Introduction Screen - Integrado con el diseño del sitio
@@ -227,37 +272,26 @@ export function GameLayout({
             Otros Juegos de Matemáticas
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Link href="/juegos-matematicos/numero-faltante/">
-              <Card className="calculator-card hover:shadow-lg transition-shadow cursor-pointer">
-                <CardContent className="p-4">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-blue-100 p-2 rounded-lg">
-                      <Target className="h-5 w-5 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-blue-900">Número Faltante</h4>
-                      <p className="text-sm text-gray-600">Encuentra el número que falta en la ecuación</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-            
-            <Link href="/juegos-matematicos/fracciones/">
-              <Card className="calculator-card hover:shadow-lg transition-shadow cursor-pointer">
-                <CardContent className="p-4">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-blue-100 p-2 rounded-lg">
-                      <Gamepad2 className="h-5 w-5 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-blue-900">Fracciones Visuales</h4>
-                      <p className="text-sm text-gray-600">Selecciona la pizza que representa la fracción</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
+            {getRelatedGames().map((game, index) => {
+              const IconComponent = game.icon
+              return (
+                <Link key={index} href={game.path}>
+                  <Card className="calculator-card hover:shadow-lg transition-shadow cursor-pointer">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <div className="bg-blue-100 p-2 rounded-lg">
+                          <IconComponent className="h-5 w-5 text-blue-600" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-blue-900">{game.title}</h4>
+                          <p className="text-sm text-gray-600">{game.description}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </div>

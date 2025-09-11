@@ -265,6 +265,7 @@ export default function FraccionesClient() {
         showIntroduction={showIntroduction}
         currentQuestion={currentQuestion}
         totalQuestions={totalQuestions}
+        currentGamePath="/juegos-matematicos/fracciones/"
       >
         {currentFraction && (
           <div className="w-full">

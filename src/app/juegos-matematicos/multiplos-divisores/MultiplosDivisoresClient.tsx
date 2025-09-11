@@ -210,6 +210,7 @@ export default function MultiplosDivisoresClient() {
         showIntroduction={showIntroduction}
         currentQuestion={currentQuestion}
         totalQuestions={totalQuestions}
+        currentGamePath="/juegos-matematicos/multiplos-divisores/"
       >
         {currentChallenge && (
           <div className="w-full">
