@@ -1,4 +1,4 @@
-import { Calculator, Gamepad2, Target, TrendingUp, Grid3X3, Dice1, LucideIcon } from 'lucide-react'
+import { Calculator, Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -111,6 +111,17 @@ export const gamesConfig: GameConfig[] = [
     icon: Dice1,
     difficulty: 'avanzado',
     timeRange: '45s'
+  },
+  {
+    title: 'Razonamiento Lógico con Patrones',
+    label: 'Razonamiento Lógico con Patrones',
+    description: 'Descubre patrones matemáticos en secuencias de símbolos y números. ¡Desafía tu pensamiento lógico y razonamiento abstracto!',
+    href: '/juegos-matematicos/patrones-logicos',
+    category: 'Juegos Matemáticos',
+    keywords: ['patrones', 'lógica', 'secuencias', 'razonamiento', 'símbolos', 'pensamiento abstracto'],
+    icon: Brain,
+    difficulty: 'avanzado',
+    timeRange: '40s'
   }
 ]
 
