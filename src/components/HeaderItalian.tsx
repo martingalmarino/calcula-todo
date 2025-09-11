@@ -26,8 +26,8 @@ export function HeaderItalian() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/it" className="flex items-center space-x-2">
-            <Calculator className="h-8 w-8 text-white" />
-            <span className="text-xl font-bold text-white">CalculaTutto.online</span>
+            <Calculator className="h-6 w-6 text-white" />
+            <span className="text-lg font-bold text-white">CalculaTutto.online</span>
           </Link>
 
           {/* Desktop Navigation */}
