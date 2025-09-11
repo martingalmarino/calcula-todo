@@ -55,43 +55,43 @@ export function GameLayout({
   // Introduction Screen
   if (showIntroduction) {
     return (
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 rounded-3xl p-8 md:p-12 text-white shadow-2xl">
+      <div className="max-w-2xl mx-auto px-4">
+        <div className="bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 rounded-2xl p-6 text-white shadow-lg">
           {/* Progress Badge */}
-          <div className="flex justify-center mb-8">
-            <div className="bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 text-sm font-semibold">
+          <div className="flex justify-center mb-4">
+            <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-1 text-xs font-semibold">
               JUEGO DE MATEMÁTICAS
             </div>
           </div>
 
           {/* Title */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto">{description}</p>
+          <div className="text-center mb-6">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">{title}</h1>
+            <p className="text-sm text-white/90">{description}</p>
           </div>
 
           {/* Introduction Content */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
-            <div className="text-center space-y-6">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-6">
+            <div className="text-center space-y-4">
               <div className="flex justify-center">
-                <div className="bg-white/20 rounded-full p-4">
-                  <Brain className="h-12 w-12" />
+                <div className="bg-white/20 rounded-full p-2">
+                  <Brain className="h-6 w-6" />
                 </div>
               </div>
-              <p className="text-lg leading-relaxed text-white/95">
+              <p className="text-sm leading-relaxed text-white/95">
                 {introduction}
               </p>
-              <div className="flex justify-center gap-4 text-sm">
-                <div className="flex items-center gap-2 bg-white/20 rounded-full px-4 py-2">
-                  <Clock className="h-4 w-4" />
-                  <span>30 segundos</span>
+              <div className="flex justify-center gap-2 text-xs">
+                <div className="flex items-center gap-1 bg-white/20 rounded-full px-2 py-1">
+                  <Clock className="h-3 w-3" />
+                  <span>30s</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/20 rounded-full px-4 py-2">
-                  <Target className="h-4 w-4" />
-                  <span>Máxima velocidad</span>
+                <div className="flex items-center gap-1 bg-white/20 rounded-full px-2 py-1">
+                  <Target className="h-3 w-3" />
+                  <span>Velocidad</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/20 rounded-full px-4 py-2">
-                  <Trophy className="h-4 w-4" />
+                <div className="flex items-center gap-1 bg-white/20 rounded-full px-2 py-1">
+                  <Trophy className="h-3 w-3" />
                   <span>3 niveles</span>
                 </div>
               </div>
@@ -102,10 +102,9 @@ export function GameLayout({
           <div className="text-center">
             <Button 
               onClick={onStart}
-              size="lg"
-              className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold text-lg px-12 py-4 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
             >
-              <Play className="h-6 w-6 mr-3" />
+              <Play className="h-4 w-4 mr-2" />
               ¡JUGAR AHORA!
             </Button>
           </div>
@@ -116,31 +115,31 @@ export function GameLayout({
 
   // Game Screen
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
+    <div className="max-w-2xl mx-auto px-4 space-y-4">
       {/* Game Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-6 text-white shadow-lg">
+      <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-4 text-white shadow-lg">
         <div className="flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <div className="bg-white/20 rounded-full p-2">
-              <Trophy className="h-6 w-6" />
+          <div className="flex items-center gap-2">
+            <div className="bg-white/20 rounded-full p-1">
+              <Trophy className="h-4 w-4" />
             </div>
             <div>
-              <h2 className="text-xl font-bold">{title}</h2>
-              <p className="text-white/80 text-sm">¡Demuestra tu velocidad mental!</p>
+              <h2 className="text-lg font-bold">{title}</h2>
+              <p className="text-white/80 text-xs">¡Demuestra tu velocidad mental!</p>
             </div>
           </div>
           
-          <div className="flex gap-6">
+          <div className="flex gap-4">
             <div className="text-center">
-              <div className="flex items-center gap-2 text-2xl font-bold">
-                <Clock className="h-6 w-6" />
+              <div className="flex items-center gap-1 text-lg font-bold">
+                <Clock className="h-4 w-4" />
                 <span aria-live="polite">{formatTime(timeLeft)}</span>
               </div>
               <p className="text-white/70 text-xs">Tiempo</p>
             </div>
             <div className="text-center">
-              <div className="flex items-center gap-2 text-2xl font-bold">
-                <Zap className="h-6 w-6" />
+              <div className="flex items-center gap-1 text-lg font-bold">
+                <Zap className="h-4 w-4" />
                 <span aria-live="polite">{score}</span>
               </div>
               <p className="text-white/70 text-xs">Puntos</p>
@@ -150,40 +149,40 @@ export function GameLayout({
       </div>
 
       {/* Game Content */}
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div className="p-8">
+      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className="p-4">
           {/* Feedback */}
           {feedback && (
-            <div className={`mb-6 p-4 rounded-xl text-center font-semibold text-lg ${
+            <div className={`mb-4 p-3 rounded-lg text-center font-semibold text-sm ${
               feedback === 'correct' 
-                ? 'bg-green-100 text-green-800 border-2 border-green-300' 
-                : 'bg-red-100 text-red-800 border-2 border-red-300'
+                ? 'bg-green-100 text-green-800 border border-green-300' 
+                : 'bg-red-100 text-red-800 border border-red-300'
             }`}>
               {feedback === 'correct' ? '✅ ¡Correcto!' : '❌ Incorrecto'}
             </div>
           )}
 
           {/* Game Content */}
-          <div className="min-h-[300px] flex items-center justify-center">
+          <div className="min-h-[200px] flex items-center justify-center">
             {children}
           </div>
 
           {/* Game Controls */}
-          <div className="flex gap-4 justify-center mt-8">
+          <div className="flex gap-3 justify-center mt-4">
             {isActive && (
               <Button 
                 onClick={onNext} 
-                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 text-sm"
               >
-                Siguiente Pregunta
+                Siguiente
               </Button>
             )}
             <Button 
               onClick={onReset} 
               variant="outline" 
-              className="border-2 border-gray-300 hover:border-gray-400 font-semibold px-6 py-3 rounded-xl"
+              className="border border-gray-300 hover:border-gray-400 font-semibold px-4 py-2 rounded-lg text-sm"
             >
-              <RotateCcw className="h-4 w-4 mr-2" />
+              <RotateCcw className="h-3 w-3 mr-1" />
               Reiniciar
             </Button>
           </div>
@@ -192,23 +191,23 @@ export function GameLayout({
 
       {/* Game Result */}
       {gameResult && (
-        <div className="bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 rounded-2xl p-8 text-white shadow-2xl">
-          <div className="text-center space-y-6">
-            <div className="text-6xl">{gameResult.emoji}</div>
-            <h3 className="text-3xl font-bold">¡Juego Terminado!</h3>
-            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
-              <div className="text-2xl font-semibold mb-2">
+        <div className="bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 rounded-xl p-6 text-white shadow-lg">
+          <div className="text-center space-y-4">
+            <div className="text-4xl">{gameResult.emoji}</div>
+            <h3 className="text-xl font-bold">¡Juego Terminado!</h3>
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+              <div className="text-lg font-semibold mb-1">
                 Puntuación: {gameResult.points} puntos
               </div>
-              <div className={`text-3xl font-bold ${getRankInfo(gameResult.points).color}`}>
+              <div className={`text-xl font-bold ${getRankInfo(gameResult.points).color}`}>
                 {gameResult.rank} {gameResult.emoji}
               </div>
             </div>
             <Button 
               onClick={onReset} 
-              className="bg-white text-orange-600 hover:bg-gray-100 font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              className="bg-white text-orange-600 hover:bg-gray-100 font-bold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
             >
-              <Play className="h-5 w-5 mr-2" />
+              <Play className="h-4 w-4 mr-2" />
               Jugar de Nuevo
             </Button>
           </div>

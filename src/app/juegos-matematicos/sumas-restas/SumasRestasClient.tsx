@@ -170,23 +170,23 @@ export default function SumasRestasClient() {
         showIntroduction={showIntroduction}
       >
         {currentOperation && (
-          <div className="w-full max-w-2xl mx-auto">
+          <div className="w-full">
             {/* Question */}
-            <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl p-8 mb-8">
+            <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-xl p-4 mb-4">
               <div className="text-center">
-                <h3 className="text-2xl font-semibold text-gray-700 mb-6">¿Cuál es el resultado?</h3>
-                <div className="flex items-center justify-center gap-6 text-6xl font-bold text-gray-800">
-                  <span className="bg-white rounded-xl px-6 py-4 shadow-lg">{currentOperation.num1}</span>
+                <h3 className="text-lg font-semibold text-gray-700 mb-4">¿Cuál es el resultado?</h3>
+                <div className="flex items-center justify-center gap-3 text-3xl font-bold text-gray-800">
+                  <span className="bg-white rounded-lg px-3 py-2 shadow-md">{currentOperation.num1}</span>
                   <span className="text-purple-600">{currentOperation.operator}</span>
-                  <span className="bg-white rounded-xl px-6 py-4 shadow-lg">{currentOperation.num2}</span>
+                  <span className="bg-white rounded-lg px-3 py-2 shadow-md">{currentOperation.num2}</span>
                   <span className="text-gray-500">=</span>
-                  <span className="bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-xl px-6 py-4 shadow-lg">?</span>
+                  <span className="bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-lg px-3 py-2 shadow-md">?</span>
                 </div>
               </div>
             </div>
 
             {/* Answer Input */}
-            <div className="text-center space-y-6">
+            <div className="text-center space-y-4">
               <div className="flex justify-center">
                 <Input
                   type="number"
@@ -194,7 +194,7 @@ export default function SumasRestasClient() {
                   onChange={(e) => setUserAnswer(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Tu respuesta"
-                  className="text-center text-3xl w-48 h-16 border-2 border-purple-300 focus:border-purple-500 rounded-xl shadow-lg"
+                  className="text-center text-xl w-32 h-12 border-2 border-purple-300 focus:border-purple-500 rounded-lg shadow-md"
                   disabled={!isActive}
                   autoFocus
                 />
@@ -203,11 +203,11 @@ export default function SumasRestasClient() {
               {isActive && (
                 <Button 
                   onClick={checkAnswer}
-                  className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold text-xl px-12 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                   disabled={!userAnswer}
                 >
-                  <Calculator className="h-6 w-6 mr-3" />
-                  Verificar Respuesta
+                  <Calculator className="h-4 w-4 mr-2" />
+                  Verificar
                 </Button>
               )}
             </div>
@@ -215,11 +215,11 @@ export default function SumasRestasClient() {
         )}
 
         {!currentOperation && !isActive && !showIntroduction && (
-          <div className="text-center space-y-6">
-            <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-2xl p-8">
-              <Calculator className="h-20 w-20 mx-auto text-orange-600 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">¡Preparado para el desafío!</h3>
-              <p className="text-lg text-gray-600">
+          <div className="text-center space-y-4">
+            <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-xl p-4">
+              <Calculator className="h-12 w-12 mx-auto text-orange-600 mb-3" />
+              <h3 className="text-lg font-bold text-gray-800 mb-2">¡Preparado para el desafío!</h3>
+              <p className="text-sm text-gray-600">
                 Resuelve la mayor cantidad de sumas y restas en 30 segundos.
                 <br />
                 Cada respuesta correcta suma 1 punto.
