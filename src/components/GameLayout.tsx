@@ -1,7 +1,9 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Clock, Trophy, RotateCcw, Play, Zap, Target, Brain, CheckCircle, XCircle } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Card, CardContent } from "@/components/ui/card"
+import { Clock, Trophy, RotateCcw, Play, Calculator, CheckCircle, XCircle } from "lucide-react"
 
 interface GameLayoutProps {
   title: string
@@ -50,45 +52,55 @@ export function GameLayout({
     return { rank: 'Principiante', emoji: '🌱', color: 'text-green-600' }
   }
 
-  // Introduction Screen - Estilo profesional del artefacto
+  // Introduction Screen - Integrado con el diseño del sitio
   if (showIntroduction) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 font-inter">
-        <div className="max-w-4xl mx-auto px-6 py-12 min-h-screen flex flex-col justify-center">
-          <div className="text-center max-w-2xl mx-auto">
-            {/* Game Logo */}
-            <h1 className="text-6xl font-extrabold text-white mb-6 drop-shadow-lg">
-              🧮 Matemáticas
-            </h1>
-            <p className="text-2xl font-medium text-white/90 mb-12">
-              {description}
-            </p>
-            
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
+        <div className="container mx-auto px-4 py-8 max-w-4xl">
+          <div className="text-center space-y-8">
+            {/* Header */}
+            <div className="space-y-4">
+              <div className="text-6xl">🧮</div>
+              <h1 className="text-3xl md:text-4xl font-bold text-blue-900">
+                {title}
+              </h1>
+              <p className="text-lg text-blue-700 max-w-2xl mx-auto">
+                {description}
+              </p>
+            </div>
+
             {/* Feature Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              <div className="bg-white text-purple-600 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl mb-4">⏱️</div>
-                <div className="text-xl font-bold mb-2">30 Segundos</div>
-                <div className="text-base text-gray-600">Tiempo límite por partida</div>
-              </div>
-              <div className="bg-white text-purple-600 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl mb-4">⚡</div>
-                <div className="text-xl font-bold mb-2">Velocidad</div>
-                <div className="text-base text-gray-600">Pon a prueba tu agilidad mental</div>
-              </div>
-              <div className="bg-white text-purple-600 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl mb-4">🏆</div>
-                <div className="text-xl font-bold mb-2">3 Niveles</div>
-                <div className="text-base text-gray-600">Principiante, Rápido, Genio</div>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+              <Card className="calculator-card">
+                <CardContent className="p-6 text-center">
+                  <Clock className="h-8 w-8 mx-auto mb-3 text-blue-600" />
+                  <h3 className="font-semibold text-blue-900 mb-2">30 Segundos</h3>
+                  <p className="text-sm text-gray-600">Tiempo límite por partida</p>
+                </CardContent>
+              </Card>
+              <Card className="calculator-card">
+                <CardContent className="p-6 text-center">
+                  <Trophy className="h-8 w-8 mx-auto mb-3 text-blue-600" />
+                  <h3 className="font-semibold text-blue-900 mb-2">Velocidad</h3>
+                  <p className="text-sm text-gray-600">Pon a prueba tu agilidad mental</p>
+                </CardContent>
+              </Card>
+              <Card className="calculator-card">
+                <CardContent className="p-6 text-center">
+                  <Calculator className="h-8 w-8 mx-auto mb-3 text-blue-600" />
+                  <h3 className="font-semibold text-blue-900 mb-2">3 Niveles</h3>
+                  <p className="text-sm text-gray-600">Principiante, Rápido, Genio</p>
+                </CardContent>
+              </Card>
             </div>
 
             {/* Start Button */}
             <Button 
               onClick={onStart}
-              className="bg-white text-purple-600 text-2xl font-bold px-16 py-6 rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 uppercase tracking-wide"
+              size="lg"
+              className="calculator-button text-lg px-8 py-4"
             >
-              <Play className="h-6 w-6 mr-3" />
+              <Play className="h-5 w-5 mr-2" />
               Jugar Ahora
             </Button>
           </div>
@@ -97,107 +109,126 @@ export function GameLayout({
     )
   }
 
-  // Game Screen - Estilo profesional del artefacto
+  // Game Screen - Mobile-first design
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 font-inter relative">
-      {/* Timer Circular */}
-      <div className={`fixed top-6 right-6 w-20 h-20 rounded-full flex items-center justify-center shadow-xl z-50 transition-all duration-300 ${
-        timeLeft <= 10 
-          ? 'bg-red-500 text-white animate-pulse' 
-          : 'bg-white text-purple-600'
-      }`}>
-        <span className="text-2xl font-bold">{timeLeft}</span>
-      </div>
-      
-      {/* Score Container */}
-      <div className="fixed top-6 left-6 bg-white text-purple-600 px-6 py-4 rounded-full shadow-xl z-50">
-        <span className="font-bold">Puntos: {score}</span>
-      </div>
-
-      <div className="max-w-4xl mx-auto px-6 py-12 min-h-screen flex flex-col justify-center">
-        {/* Question Indicator */}
-        <div className="bg-white text-purple-600 text-sm font-bold uppercase tracking-wider px-6 py-3 rounded-full text-center mb-12 shadow-lg mx-auto">
-          Pregunta 1 / 15
-        </div>
-
-        {/* Progress Bar */}
-        <div className="bg-white/20 h-2 rounded-full overflow-hidden mb-8 backdrop-blur-sm">
-          <div 
-            className="h-full bg-white rounded-full transition-all duration-300 relative"
-            style={{ width: '6.67%' }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
+      <div className="container mx-auto px-4 py-4 max-w-4xl">
+        {/* Header compacto - Mobile optimized */}
+        <div className="flex justify-between items-center mb-6 bg-white rounded-lg p-4 shadow-sm">
+          <div className="flex items-center gap-2">
+            <div className="bg-blue-100 p-2 rounded-full">
+              <Trophy className="h-4 w-4 text-blue-600" />
+            </div>
+            <span className="font-semibold text-blue-900">Puntos: {score}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className={`p-2 rounded-full ${
+              timeLeft <= 10 ? 'bg-red-100' : 'bg-blue-100'
+            }`}>
+              <Clock className={`h-4 w-4 ${
+                timeLeft <= 10 ? 'text-red-600' : 'text-blue-600'
+              }`} />
+            </div>
+            <span className={`font-bold text-lg ${
+              timeLeft <= 10 ? 'text-red-600' : 'text-blue-600'
+            }`}>
+              {formatTime(timeLeft)}
+            </span>
           </div>
         </div>
 
-        {/* Question Title */}
-        <h2 className="text-4xl font-bold text-white text-center mb-12 leading-tight">
-          ¿Cuál es el resultado?
-        </h2>
-
-        {/* Math Container */}
-        <div className="bg-white rounded-3xl p-12 mb-12 shadow-2xl text-center">
-          {children}
+        {/* Progress indicator */}
+        <div className="mb-6">
+          <div className="flex justify-between text-sm text-gray-600 mb-2">
+            <span>Progreso</span>
+            <span>Pregunta 1 / 15</span>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div 
+              className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+              style={{ width: '6.67%' }}
+            ></div>
+          </div>
         </div>
 
-        {/* Game Controls */}
-        <div className="flex gap-4 justify-center flex-wrap">
+        {/* Main Game Card */}
+        <Card className="calculator-card mb-6">
+          <CardContent className="p-6">
+            <h2 className="text-xl font-semibold text-center text-blue-900 mb-6">
+              ¿Cuál es el resultado?
+            </h2>
+            
+            {/* Math Equation - Mobile optimized */}
+            <div className="space-y-6">
+              {children}
+            </div>
+
+            {/* Feedback inline */}
+            {feedback && (
+              <div className={`mt-4 p-4 rounded-lg flex items-center justify-center gap-2 ${
+                feedback === 'correct' 
+                  ? 'bg-green-100 text-green-800 border border-green-200' 
+                  : 'bg-red-100 text-red-800 border border-red-200'
+              }`}>
+                {feedback === 'correct' ? (
+                  <CheckCircle className="h-5 w-5" />
+                ) : (
+                  <XCircle className="h-5 w-5" />
+                )}
+                <span className="font-semibold">
+                  {feedback === 'correct' ? '¡Correcto! +1 punto' : 'Incorrecto'}
+                </span>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Game Controls - Mobile optimized */}
+        <div className="space-y-3">
           {isActive && (
             <Button 
               onClick={onNext} 
-              className="bg-white/20 text-white border-2 border-white/30 px-6 py-3 rounded-xl font-semibold hover:bg-white/30 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+              variant="outline"
+              size="lg"
+              className="w-full"
             >
-              Saltar
+              Siguiente Pregunta
             </Button>
           )}
           <Button 
             onClick={onReset} 
-            className="bg-white/20 text-white border-2 border-white/30 px-6 py-3 rounded-xl font-semibold hover:bg-white/30 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+            variant="outline"
+            size="lg"
+            className="w-full"
           >
             <RotateCcw className="h-4 w-4 mr-2" />
-            Reiniciar
+            Reiniciar Juego
           </Button>
         </div>
+
+        {/* Game Result - Sin overlay, inline */}
+        {gameResult && (
+          <Card className="calculator-card mt-6 border-green-200 bg-green-50">
+            <CardContent className="p-6 text-center">
+              <div className="text-4xl mb-4">{gameResult.emoji}</div>
+              <h3 className="text-xl font-bold text-green-800 mb-2">
+                ¡Juego Terminado!
+              </h3>
+              <p className="text-green-700 mb-4">
+                Puntuación: {gameResult.points} puntos - Nivel: {gameResult.rank}
+              </p>
+              <Button 
+                onClick={onReset} 
+                size="lg"
+                className="calculator-button"
+              >
+                <Play className="h-4 w-4 mr-2" />
+                Jugar de Nuevo
+              </Button>
+            </CardContent>
+          </Card>
+        )}
       </div>
-
-      {/* Feedback Overlay */}
-      {feedback && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-in fade-in duration-300">
-          <div className={`bg-white p-12 rounded-3xl text-center shadow-2xl animate-in zoom-in duration-500 ${
-            feedback === 'correct' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
-          }`}>
-            <div className="text-6xl mb-4">
-              {feedback === 'correct' ? '🎉' : '❌'}
-            </div>
-            <div className="text-3xl font-bold mb-2">
-              {feedback === 'correct' ? '¡Correcto!' : 'Incorrecto'}
-            </div>
-            <div className="text-xl opacity-90">
-              {feedback === 'correct' ? '+1 punto' : 'Inténtalo de nuevo'}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Game Result */}
-      {gameResult && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-in fade-in duration-300">
-          <div className="bg-white p-12 rounded-3xl text-center shadow-2xl animate-in zoom-in duration-500">
-            <div className="text-6xl mb-4">{gameResult.emoji}</div>
-            <h3 className="text-3xl font-bold mb-2 text-purple-600">¡Juego Terminado!</h3>
-            <div className="text-xl text-gray-600 mb-6">
-              Puntuación: {gameResult.points} puntos - Nivel: {gameResult.rank}
-            </div>
-            <Button 
-              onClick={onReset} 
-              className="bg-purple-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-            >
-              <Play className="h-5 w-5 mr-2" />
-              Jugar de Nuevo
-            </Button>
-          </div>
-        </div>
-      )}
     </div>
   )
 }

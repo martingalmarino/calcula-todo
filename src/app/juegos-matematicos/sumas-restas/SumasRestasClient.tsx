@@ -171,40 +171,47 @@ export default function SumasRestasClient() {
       >
                 {currentOperation && (
                   <div className="w-full">
-                    {/* Math Equation - Estilo profesional del artefacto */}
-                    <div className="flex items-center justify-center gap-8 mb-8 flex-wrap">
-                      <div className="bg-gray-100 text-purple-600 text-6xl font-extrabold px-8 py-6 rounded-3xl min-w-[140px] text-center border-4 border-gray-200 transition-all duration-300">
-                        {currentOperation.num1}
+                    {/* Math Equation - Mobile-first design */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+                      {/* Mobile: Stack vertical, Desktop: Horizontal */}
+                      <div className="flex items-center gap-4">
+                        <div className="bg-blue-50 text-blue-900 text-3xl sm:text-4xl font-bold px-4 py-3 rounded-lg border-2 border-blue-200 min-w-[80px] text-center">
+                          {currentOperation.num1}
+                        </div>
+                        <div className="text-3xl sm:text-4xl font-bold text-blue-600">
+                          {currentOperation.operator}
+                        </div>
+                        <div className="bg-blue-50 text-blue-900 text-3xl sm:text-4xl font-bold px-4 py-3 rounded-lg border-2 border-blue-200 min-w-[80px] text-center">
+                          {currentOperation.num2}
+                        </div>
+                        <div className="text-3xl sm:text-4xl font-bold text-blue-600">
+                          =
+                        </div>
                       </div>
-                      <div className="text-5xl font-extrabold text-purple-600">
-                        {currentOperation.operator}
-                      </div>
-                      <div className="bg-gray-100 text-purple-600 text-6xl font-extrabold px-8 py-6 rounded-3xl min-w-[140px] text-center border-4 border-gray-200 transition-all duration-300">
-                        {currentOperation.num2}
-                      </div>
-                      <div className="text-5xl font-extrabold text-purple-600">
-                        =
-                      </div>
+                      
+                      {/* Answer Input - Touch optimized */}
                       <Input
                         type="number"
                         value={userAnswer}
                         onChange={(e) => setUserAnswer(e.target.value)}
                         onKeyPress={handleKeyPress}
                         placeholder="?"
-                        className="bg-gray-100 text-purple-600 text-6xl font-extrabold px-8 py-6 rounded-3xl min-w-[140px] text-center border-4 border-purple-300 focus:border-purple-600 focus:ring-4 focus:ring-purple-100 outline-none transition-all duration-300 hover:scale-105"
+                        className="calculator-input text-3xl sm:text-4xl font-bold text-center min-h-[60px] border-2 border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-200"
                         disabled={!isActive}
                         autoFocus
                       />
                     </div>
 
-                    {/* Validate Button - Estilo profesional del artefacto */}
+                    {/* Validate Button - Mobile optimized */}
                     {isActive && (
                       <Button 
                         onClick={checkAnswer}
-                        className="bg-pink-600 hover:bg-pink-700 text-white text-2xl font-bold px-16 py-6 rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 uppercase tracking-wide w-full max-w-md mx-auto"
+                        size="lg"
+                        className="calculator-button w-full text-lg py-4"
                         disabled={!userAnswer}
                       >
-                        Validar ✓
+                        <Calculator className="h-5 w-5 mr-2" />
+                        Verificar Respuesta
                       </Button>
                     )}
                   </div>
@@ -212,10 +219,10 @@ export default function SumasRestasClient() {
 
         {!currentOperation && !isActive && !showIntroduction && (
           <div className="text-center">
-            <div className="bg-gray-100 text-purple-600 p-8 rounded-3xl">
-              <Calculator className="h-16 w-16 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-3">¡Preparado para el desafío!</h3>
-              <p className="text-lg text-gray-600">
+            <div className="bg-blue-50 text-blue-900 p-6 rounded-lg border border-blue-200">
+              <Calculator className="h-12 w-12 mx-auto mb-4 text-blue-600" />
+              <h3 className="text-xl font-bold mb-3">¡Preparado para el desafío!</h3>
+              <p className="text-blue-700">
                 Resuelve la mayor cantidad de sumas y restas en 30 segundos.
                 <br />
                 Cada respuesta correcta suma 1 punto.
