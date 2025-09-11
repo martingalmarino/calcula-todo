@@ -1,4 +1,4 @@
-import { Calculator, Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, LucideIcon } from 'lucide-react'
+import { Calculator, Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -122,6 +122,17 @@ export const gamesConfig: GameConfig[] = [
     icon: Brain,
     difficulty: 'avanzado',
     timeRange: '40s'
+  },
+  {
+    title: 'El Laberinto Algebraico',
+    label: 'El Laberinto Algebraico',
+    description: 'Navega por un laberinto resolviendo operaciones algebraicas en cada paso. ¡Desafía tu agilidad matemática y pensamiento estratégico!',
+    href: '/juegos-matematicos/laberinto-algebraico',
+    category: 'Juegos Matemáticos',
+    keywords: ['laberinto', 'álgebra', 'operaciones', 'navegación', 'matemáticas', 'estrategia', 'pensamiento lógico'],
+    icon: Map,
+    difficulty: 'avanzado',
+    timeRange: '50s'
   }
 ]
 
