@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
+import { PromotionalBlock } from '@/components/PromotionalBlock'
 import { buildMeta } from '@/lib/seo'
 
 export const metadata: Metadata = buildMeta({
@@ -272,6 +273,32 @@ export default function GermanHomePage() {
                 Alle Rechner sind kostenlos und sofort einsatzbereit.
               </p>
             </div>
+
+            {/* Promotional Block */}
+            <PromotionalBlock
+              title="Warum unsere Rechner wählen?"
+              description="Wir bieten präzise, kostenlose und benutzerfreundliche Tools für alle Ihre Berechnungen"
+              features={[
+                {
+                  title: "Schnell und Präzise",
+                  description: "Sofortige Ergebnisse mit präzisen und zuverlässigen Berechnungen",
+                  icon: "⚡",
+                  bgColor: "bg-blue-100"
+                },
+                {
+                  title: "100% Kostenlos",
+                  description: "Alle Rechner sind vollständig kostenlos, ohne Grenzen",
+                  icon: "🆓",
+                  bgColor: "bg-green-100"
+                },
+                {
+                  title: "Responsive",
+                  description: "Funktioniert perfekt auf Computer, Tablet und Handy",
+                  icon: "📱",
+                  bgColor: "bg-purple-100"
+                }
+              ]}
+            />
 
           </div>
         </Container>

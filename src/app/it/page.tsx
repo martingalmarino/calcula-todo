@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
+import { PromotionalBlock } from '@/components/PromotionalBlock'
 import { buildMeta } from '@/lib/seo'
 
 export const metadata: Metadata = buildMeta({
@@ -323,21 +324,31 @@ export default function ItalianHomePage() {
               </div>
             </div>
 
-            {/* SEO Content Section */}
-            <div className="mt-20 mb-12">
-              <div className="max-w-4xl mx-auto">
-                <div className="bg-gray-50 rounded-lg p-8">
-                  <div className="prose prose-lg max-w-none text-gray-700">
-                    <p className="text-lg leading-relaxed mb-4">
-                      Trova le migliori calcolatrici online gratuite per risolvere operazioni di matematica, finanza, salute, statistica e geometria in pochi secondi. Il nostro obiettivo è che tu possa eseguire i tuoi calcoli in modo rapido, preciso e semplice, senza bisogno di installare nulla sul tuo dispositivo.
-                    </p>
-                    <p className="text-lg leading-relaxed">
-                      Con più di 30 calcolatrici specializzate, potrai calcolare percentuali e frazioni, stimare il tuo indice di massa corporea o risolvere problemi di algebra e trigonometria.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Promotional Block */}
+            <PromotionalBlock
+              title="Perché scegliere le nostre calcolatrici?"
+              description="Offriamo strumenti precisi, gratuiti e facili da usare per tutti i tuoi calcoli"
+              features={[
+                {
+                  title: "Veloce e Preciso",
+                  description: "Risultati istantanei con calcoli precisi e affidabili",
+                  icon: "⚡",
+                  bgColor: "bg-blue-100"
+                },
+                {
+                  title: "100% Gratuito",
+                  description: "Tutte le calcolatrici sono completamente gratuite, senza limiti",
+                  icon: "🆓",
+                  bgColor: "bg-green-100"
+                },
+                {
+                  title: "Responsive",
+                  description: "Funziona perfettamente su computer, tablet e cellulare",
+                  icon: "📱",
+                  bgColor: "bg-purple-100"
+                }
+              ]}
+            />
           </div>
         </Container>
       </div>

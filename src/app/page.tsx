@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
+import { PromotionalBlock } from '@/components/PromotionalBlock'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
 
 export const metadata: Metadata = buildMeta({
@@ -307,21 +308,31 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* SEO Content Section */}
-            <div className="mt-20 mb-12">
-              <div className="max-w-4xl mx-auto">
-                <div className="bg-gray-50 rounded-lg p-8">
-                  <div className="prose prose-lg max-w-none text-gray-700">
-                    <p className="text-lg leading-relaxed mb-4">
-                      Encuentra las mejores calculadoras online gratuitas para resolver operaciones de matemáticas, finanzas, salud, estadísticas y geometría en segundos. Nuestro objetivo es que realices tus cálculos de forma rápida, precisa y sencilla, sin necesidad de instalar nada en tu dispositivo.
-                    </p>
-                    <p className="text-lg leading-relaxed">
-                      Con más de 30 calculadoras especializadas, podrás desde calcular porcentajes y fracciones, hasta estimar tu índice de masa corporal o resolver problemas de álgebra y trigonometría.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Promotional Block */}
+            <PromotionalBlock
+              title="¿Por qué elegir nuestras calculadoras?"
+              description="Ofrecemos herramientas precisas, gratuitas y fáciles de usar para todos tus cálculos"
+              features={[
+                {
+                  title: "Rápido y Preciso",
+                  description: "Resultados instantáneos con cálculos precisos y confiables",
+                  icon: "⚡",
+                  bgColor: "bg-blue-100"
+                },
+                {
+                  title: "100% Gratis",
+                  description: "Todas las calculadoras son completamente gratuitas, sin límites",
+                  icon: "🆓",
+                  bgColor: "bg-green-100"
+                },
+                {
+                  title: "Responsivo",
+                  description: "Funciona perfectamente en computadora, tablet y móvil",
+                  icon: "📱",
+                  bgColor: "bg-purple-100"
+                }
+              ]}
+            />
           </div>
         </Container>
       </div>
