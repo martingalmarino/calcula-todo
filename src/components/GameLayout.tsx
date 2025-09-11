@@ -3,7 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
-import { Clock, Trophy, RotateCcw, Play, Calculator, CheckCircle, XCircle } from "lucide-react"
+import { Clock, Trophy, RotateCcw, Play, Calculator, CheckCircle, XCircle, Target, Gamepad2 } from "lucide-react"
+import Link from "next/link"
 
 interface GameLayoutProps {
   title: string
@@ -60,7 +61,6 @@ export function GameLayout({
           <div className="text-center space-y-8">
             {/* Header */}
             <div className="space-y-4">
-              <div className="text-6xl">🧮</div>
               <h1 className="text-3xl md:text-4xl font-bold text-blue-900">
                 {title}
               </h1>
@@ -228,6 +228,46 @@ export function GameLayout({
             </CardContent>
           </Card>
         )}
+
+        {/* Juegos Relacionados */}
+        <div className="mt-8">
+          <h3 className="text-xl font-bold text-blue-900 mb-4 text-center">
+            Otros Juegos de Matemáticas
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Link href="/juegos-matematicos/numero-faltante/">
+              <Card className="calculator-card hover:shadow-lg transition-shadow cursor-pointer">
+                <CardContent className="p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-blue-100 p-2 rounded-lg">
+                      <Target className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-blue-900">Número Faltante</h4>
+                      <p className="text-sm text-gray-600">Encuentra el número que falta en la ecuación</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+            
+            <Link href="/juegos-matematicos/fracciones/">
+              <Card className="calculator-card hover:shadow-lg transition-shadow cursor-pointer">
+                <CardContent className="p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-blue-100 p-2 rounded-lg">
+                      <Gamepad2 className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-blue-900">Fracciones Visuales</h4>
+                      <p className="text-sm text-gray-600">Selecciona la pizza que representa la fracción</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   )
