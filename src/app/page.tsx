@@ -45,22 +45,21 @@ export default function HomePage() {
 
             {/* Pre-header para Juegos Matemáticos */}
             <div className="text-center mb-8 px-4">
-              <div className="inline-flex flex-col sm:flex-row items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-full px-4 sm:px-6 py-3 shadow-sm max-w-fit mx-auto">
-                <div className="flex items-center gap-2">
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-4 py-3 shadow-sm max-w-sm mx-auto">
+                <div className="flex items-center justify-center gap-2 mb-2">
                   <span className="text-2xl">🎮</span>
-                  <span className="text-blue-800 font-semibold text-lg">
-                    ¡Nuevo! 
+                  <span className="text-blue-800 font-bold text-lg">
+                    ¡Nuevo!
                   </span>
                 </div>
                 <a 
                   href="/juegos-matematicos" 
-                  className="text-blue-600 hover:text-blue-800 font-bold underline decoration-2 underline-offset-2 hover:decoration-blue-800 transition-colors text-center"
+                  className="block text-blue-600 hover:text-blue-800 font-bold text-lg mb-1 transition-colors"
                 >
-                  <span className="hidden sm:inline">Juegos de Inteligencia Matemática</span>
-                  <span className="sm:hidden">Juegos Matemáticos</span>
+                  Juegos Matemáticos
                 </a>
                 <span className="text-blue-700 text-sm">
-                  • 13 juegos educativos
+                  13 juegos educativos
                 </span>
               </div>
             </div>
