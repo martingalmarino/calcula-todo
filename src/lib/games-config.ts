@@ -1,4 +1,4 @@
-import { Calculator, Gamepad2, Target, TrendingUp, Grid3X3, LucideIcon } from 'lucide-react'
+import { Calculator, Gamepad2, Target, TrendingUp, Grid3X3, Dice1, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -100,6 +100,17 @@ export const gamesConfig: GameConfig[] = [
     icon: Calculator,
     difficulty: 'avanzado',
     timeRange: '60s'
+  },
+  {
+    title: 'Juego de Probabilidad',
+    label: 'Juego de Probabilidad',
+    description: 'Calcula probabilidades con dados, cartas y monedas en tiempo limitado. ¡Desafía tu comprensión estadística!',
+    href: '/juegos-matematicos/probabilidad',
+    category: 'Juegos Matemáticos',
+    keywords: ['probabilidad', 'estadística', 'dados', 'cartas', 'monedas', 'avanzado'],
+    icon: Dice1,
+    difficulty: 'avanzado',
+    timeRange: '45s'
   }
 ]
 
