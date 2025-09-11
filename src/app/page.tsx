@@ -191,6 +191,25 @@ export default function HomePage() {
                   </ChipsContainer>
                 </div>
 
+                {/* Juegos Matemáticos Section */}
+                <div className="category-section-new">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">🎮</span>
+                    <h3 className="text-blue-900 text-xl font-bold">Juegos de Inteligencia Matemática</h3>
+                  </div>
+                  <ChipsContainer>
+                    <Chip href="/juegos-matematicos/sumas-restas/" icon="calculator" ariaLabel="Sumas y Restas contra Reloj">
+                      Sumas y Restas contra Reloj
+                    </Chip>
+                    <Chip href="/juegos-matematicos/numero-faltante/" icon="target" ariaLabel="Encuentra el Número Faltante">
+                      Encuentra el Número Faltante
+                    </Chip>
+                    <Chip href="/juegos-matematicos/fracciones/" icon="gamepad-2" ariaLabel="Rompecabezas de Fracciones">
+                      Rompecabezas de Fracciones
+                    </Chip>
+                  </ChipsContainer>
+                </div>
+
                 {/* Finanzas Section */}
                 <div className="category-section-new">
                   <div className="flex items-center gap-3 mb-6">
