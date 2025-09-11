@@ -8,9 +8,10 @@ export function LanguageSelector() {
   const pathname = usePathname();
   const isItalian = pathname.startsWith('/it');
   const isPortuguese = pathname.startsWith('/pt');
+  const isGerman = pathname.startsWith('/de');
   
   // Función para obtener la URL de destino
-  const getTargetUrl = (targetLocale: 'es' | 'it' | 'pt'): string => {
+  const getTargetUrl = (targetLocale: 'es' | 'it' | 'pt' | 'de'): string => {
     if (targetLocale === 'it') {
       // Si vamos a italiano
       if (isItalian) {
@@ -29,13 +30,22 @@ export function LanguageSelector() {
         // Estamos en español o italiano, obtener URL de destino
         return getLanguageSwitchUrl(pathname, 'pt');
       }
+    } else if (targetLocale === 'de') {
+      // Si vamos a alemán
+      if (isGerman) {
+        // Ya estamos en alemán, mantener la ruta actual
+        return pathname;
+      } else {
+        // Estamos en español, italiano o portugués, obtener URL de destino
+        return getLanguageSwitchUrl(pathname, 'de');
+      }
     } else {
       // Si vamos a español
-      if (!isItalian && !isPortuguese) {
+      if (!isItalian && !isPortuguese && !isGerman) {
         // Ya estamos en español, mantener la ruta actual
         return pathname;
       } else {
-        // Estamos en italiano o portugués, obtener URL de destino
+        // Estamos en italiano, portugués o alemán, obtener URL de destino
         return getLanguageSwitchUrl(pathname, 'es');
       }
     }
@@ -46,7 +56,7 @@ export function LanguageSelector() {
       <Link 
         href={getTargetUrl('es')}
         className={`px-2 py-1 rounded text-xs font-bold transition-colors ${
-          !isItalian && !isPortuguese
+          !isItalian && !isPortuguese && !isGerman
             ? 'bg-white text-blue-900' 
             : 'bg-white/10 text-white hover:bg-white/20'
         }`}
@@ -75,6 +85,17 @@ export function LanguageSelector() {
         title="Português"
       >
         PT
+      </Link>
+      <Link 
+        href={getTargetUrl('de')}
+        className={`px-2 py-1 rounded text-xs font-bold transition-colors ${
+          isGerman 
+            ? 'bg-white text-blue-900' 
+            : 'bg-white/10 text-white hover:bg-white/20'
+        }`}
+        title="Deutsch"
+      >
+        DE
       </Link>
     </div>
   );

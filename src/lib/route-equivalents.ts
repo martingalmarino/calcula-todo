@@ -7,6 +7,7 @@ export interface RouteEquivalent {
   es: string;  // Ruta en español
   it: string;  // Ruta en italiano
   pt: string;  // Ruta en portugués
+  de: string;  // Ruta en alemán
   category: string;  // Categoría para organización
 }
 
@@ -20,68 +21,78 @@ export const routeEquivalents: RouteEquivalent[] = [
     es: '/',
     it: '/it',
     pt: '/pt',
+    de: '/de',
     category: 'homepage'
   },
   
   // Matemáticas
-  {
-    es: '/matematicas/fracciones/',
-    it: '/it/matematicas/frazioni/',
-    pt: '/pt/matematica/fracoes/',
-    category: 'matematicas'
-  },
-  {
-    es: '/matematicas/porcentajes/',
-    it: '/it/matematicas/percentuali/',
-    pt: '/pt/matematica/percentuais/',
-    category: 'matematicas'
-  },
-  {
-    es: '/matematicas/potencias-raices/',
-    it: '/it/matematicas/potenze-e-radici/',
-    pt: '/pt/matematica/potencias-e-raizes/',
-    category: 'matematicas'
-  },
-  {
-    es: '/matematicas/algebra/',
-    it: '/it/matematicas/algebra/',
-    pt: '/pt/matematica/algebra/',
-    category: 'matematicas'
-  },
-  {
-    es: '/matematicas/trigonometria/',
-    it: '/it/matematicas/trigonometria/',
-    pt: '/pt/matematica/trigonometria/',
-    category: 'matematicas'
-  },
-  {
-    es: '/matematicas/derivadas/',
-    it: '/it/matematicas/derivate/',
-    pt: '/pt/matematica/derivadas/',
-    category: 'matematicas'
-  },
+  // {
+  //   es: '/matematicas/fracciones/',
+  //   it: '/it/matematicas/frazioni/',
+  //   pt: '/pt/matematica/fracoes/',
+  //   de: '/de/mathematik/bruche/',
+  //   category: 'matematicas'
+  // },
+  // {
+  //   es: '/matematicas/porcentajes/',
+  //   it: '/it/matematicas/percentuali/',
+  //   pt: '/pt/matematica/percentuais/',
+  //   de: '/de/mathematik/prozente/',
+  //   category: 'matematicas'
+  // },
+  // {
+  //   es: '/matematicas/potencias-raices/',
+  //   it: '/it/matematicas/potenze-e-radici/',
+  //   pt: '/pt/matematica/potencias-e-raizes/',
+  //   de: '/de/mathematik/potenzen-wurzeln/',
+  //   category: 'matematicas'
+  // },
+  // {
+  //   es: '/matematicas/algebra/',
+  //   it: '/it/matematicas/algebra/',
+  //   pt: '/pt/matematica/algebra/',
+  //   de: '/de/mathematik/algebra/',
+  //   category: 'matematicas'
+  // },
+  // {
+  //   es: '/matematicas/trigonometria/',
+  //   it: '/it/matematicas/trigonometria/',
+  //   pt: '/pt/matematica/trigonometria/',
+  //   de: '/de/mathematik/trigonometrie/',
+  //   category: 'matematicas'
+  // },
+  // {
+  //   es: '/matematicas/derivadas/',
+  //   it: '/it/matematicas/derivate/',
+  //   pt: '/pt/matematica/derivadas/',
+  //   de: '/de/mathematik/ableitungen/',
+  //   category: 'matematicas'
+  // },
   
   // Salud
-  {
-    es: '/salud/imc/',
-    it: '/it/salud/imc/',
-    pt: '/pt/saude/imc/',
-    category: 'salud'
-  },
+  // {
+  //   es: '/salud/imc/',
+  //   it: '/it/salud/imc/',
+  //   pt: '/pt/saude/imc/',
+  //   de: '/de/gesundheit/bmi/',
+  //   category: 'salud'
+  // },
   
   // Categorías principales
-  {
-    es: '/matematicas/',
-    it: '/it/matematicas/',
-    pt: '/pt/matematica/',
-    category: 'categorias'
-  },
-  {
-    es: '/salud/',
-    it: '/it/salud/',
-    pt: '/pt/saude/',
-    category: 'categorias'
-  }
+  // {
+  //   es: '/matematicas/',
+  //   it: '/it/matematicas/',
+  //   pt: '/pt/matematica/',
+  //   de: '/de/mathematik/',
+  //   category: 'categorias'
+  // },
+  // {
+  //   es: '/salud/',
+  //   it: '/it/salud/',
+  //   pt: '/pt/saude/',
+  //   de: '/de/gesundheit/',
+  //   category: 'categorias'
+  // }
 ];
 
 /**
@@ -90,14 +101,16 @@ export const routeEquivalents: RouteEquivalent[] = [
  * @param targetLocale - Idioma de destino ('es', 'it' o 'pt')
  * @returns Ruta equivalente o null si no existe
  */
-export function getEquivalentRoute(currentPath: string, targetLocale: 'es' | 'it' | 'pt'): string | null {
+export function getEquivalentRoute(currentPath: string, targetLocale: 'es' | 'it' | 'pt' | 'de'): string | null {
   const equivalent = routeEquivalents.find(route => {
     if (targetLocale === 'it') {
       return route.es === currentPath;
     } else if (targetLocale === 'pt') {
       return route.es === currentPath;
+    } else if (targetLocale === 'de') {
+      return route.es === currentPath;
     } else {
-      return route.it === currentPath || route.pt === currentPath;
+      return route.it === currentPath || route.pt === currentPath || route.de === currentPath;
     }
   });
   
@@ -106,6 +119,8 @@ export function getEquivalentRoute(currentPath: string, targetLocale: 'es' | 'it
       return equivalent.it;
     } else if (targetLocale === 'pt') {
       return equivalent.pt;
+    } else if (targetLocale === 'de') {
+      return equivalent.de;
     } else {
       return equivalent.es;
     }
@@ -142,9 +157,10 @@ export function getRoutesForLocale(locale: 'es' | 'it' | 'pt'): string[] {
  * @param locale - Idioma ('es', 'it' o 'pt')
  * @returns Ruta de la homepage
  */
-export function getHomepageForLocale(locale: 'es' | 'it' | 'pt'): string {
+export function getHomepageForLocale(locale: 'es' | 'it' | 'pt' | 'de'): string {
   if (locale === 'it') return '/it';
   if (locale === 'pt') return '/pt';
+  if (locale === 'de') return '/de';
   return '/';
 }
 
@@ -154,7 +170,7 @@ export function getHomepageForLocale(locale: 'es' | 'it' | 'pt'): string {
  * @param targetLocale - Idioma de destino ('es', 'it' o 'pt')
  * @returns URL de destino (equivalente o homepage)
  */
-export function getLanguageSwitchUrl(currentPath: string, targetLocale: 'es' | 'it' | 'pt'): string {
+export function getLanguageSwitchUrl(currentPath: string, targetLocale: 'es' | 'it' | 'pt' | 'de'): string {
   const equivalentRoute = getEquivalentRoute(currentPath, targetLocale);
   
   if (equivalentRoute) {
