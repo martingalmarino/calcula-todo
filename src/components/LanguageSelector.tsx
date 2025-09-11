@@ -45,7 +45,7 @@ export function LanguageSelector() {
     <div className="flex gap-1 items-center">
       <Link 
         href={getTargetUrl('es')}
-        className={`px-3 py-1 rounded text-sm font-bold transition-colors ${
+        className={`px-2 py-1 rounded text-xs font-bold transition-colors ${
           !isItalian && !isPortuguese
             ? 'bg-white text-blue-900' 
             : 'bg-white/10 text-white hover:bg-white/20'
@@ -56,7 +56,7 @@ export function LanguageSelector() {
       </Link>
       <Link 
         href={getTargetUrl('it')}
-        className={`px-3 py-1 rounded text-sm font-bold transition-colors ${
+        className={`px-2 py-1 rounded text-xs font-bold transition-colors ${
           isItalian 
             ? 'bg-white text-blue-900' 
             : 'bg-white/10 text-white hover:bg-white/20'
@@ -67,7 +67,7 @@ export function LanguageSelector() {
       </Link>
       <Link 
         href={getTargetUrl('pt')}
-        className={`px-3 py-1 rounded text-sm font-bold transition-colors ${
+        className={`px-2 py-1 rounded text-xs font-bold transition-colors ${
           isPortuguese 
             ? 'bg-white text-blue-900' 
             : 'bg-white/10 text-white hover:bg-white/20'
