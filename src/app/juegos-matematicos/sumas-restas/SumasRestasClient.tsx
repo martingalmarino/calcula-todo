@@ -92,11 +92,6 @@ export default function SumasRestasClient() {
     }, 1000)
   }
 
-  // Next question
-  const nextQuestion = () => {
-    if (!isActive) return
-    checkAnswer()
-  }
 
   // Handle Enter key
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -161,7 +156,6 @@ export default function SumasRestasClient() {
         introduction="¡Bienvenido al desafío de velocidad mental! Resuelve la mayor cantidad de sumas y restas en solo 30 segundos. Cada respuesta correcta suma 1 punto. ¿Podrás alcanzar el nivel de Genio? ¡Demuestra tu agilidad mental!"
         onStart={startGame}
         onReset={resetGame}
-        onNext={nextQuestion}
         isActive={isActive}
         timeLeft={timeLeft}
         score={score}

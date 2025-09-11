@@ -13,7 +13,6 @@ interface GameLayoutProps {
   children: React.ReactNode
   onStart: () => void
   onReset: () => void
-  onNext: () => void
   isActive: boolean
   timeLeft: number
   score: number
@@ -33,7 +32,6 @@ export function GameLayout({
   children,
   onStart,
   onReset,
-  onNext,
   isActive,
   timeLeft,
   score,
@@ -185,16 +183,6 @@ export function GameLayout({
 
         {/* Game Controls - Mobile optimized */}
         <div className="space-y-3">
-          {isActive && (
-            <Button 
-              onClick={onNext} 
-              variant="outline"
-              size="lg"
-              className="w-full"
-            >
-              Siguiente Pregunta
-            </Button>
-          )}
           <Button 
             onClick={onReset} 
             variant="outline"
