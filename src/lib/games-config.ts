@@ -1,4 +1,4 @@
-import { Calculator, Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, LucideIcon } from 'lucide-react'
+import { Calculator, Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -133,6 +133,17 @@ export const gamesConfig: GameConfig[] = [
     icon: Map,
     difficulty: 'avanzado',
     timeRange: '50s'
+  },
+  {
+    title: 'Mayor o Menor',
+    label: 'Mayor o Menor',
+    description: 'Compara números rápidamente y elige cuál es mayor o menor. ¡Desafía tu agilidad mental y sentido numérico!',
+    href: '/juegos-matematicos/mayor-menor',
+    category: 'Juegos Matemáticos',
+    keywords: ['mayor', 'menor', 'comparación', 'números', 'agilidad mental', 'sentido numérico', 'decimales', 'fracciones'],
+    icon: ArrowUp,
+    difficulty: 'básico',
+    timeRange: '30s'
   }
 ]
 
