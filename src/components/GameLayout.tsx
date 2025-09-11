@@ -3,8 +3,9 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
-import { Clock, Trophy, RotateCcw, Play, Calculator, CheckCircle, XCircle, Target, Gamepad2 } from "lucide-react"
+import { Clock, Trophy, RotateCcw, Play, Calculator, CheckCircle, XCircle, Target, Gamepad2, TrendingUp } from "lucide-react"
 import Link from "next/link"
+import { useMemo } from "react"
 
 interface GameLayoutProps {
   title: string
@@ -57,8 +58,8 @@ export function GameLayout({
     return { rank: 'Principiante', emoji: '🌱', color: 'text-green-600' }
   }
 
-  // Generar juegos relacionados aleatorios
-  const getRelatedGames = () => {
+  // Generar juegos relacionados aleatorios (solo una vez por sesión)
+  const relatedGames = useMemo(() => {
     const allGames = [
       {
         path: '/juegos-matematicos/sumas-restas/',
@@ -89,6 +90,12 @@ export function GameLayout({
         title: 'Porcentajes',
         description: 'Calcula descuentos y aumentos',
         icon: Calculator
+      },
+      {
+        path: '/juegos-matematicos/secuencias/',
+        title: 'Secuencias Numéricas',
+        description: 'Completa patrones matemáticos',
+        icon: TrendingUp
       }
     ]
 
@@ -98,7 +105,7 @@ export function GameLayout({
     // Mezclar y tomar 2 aleatorios
     const shuffled = availableGames.sort(() => Math.random() - 0.5)
     return shuffled.slice(0, 2)
-  }
+  }, [currentGamePath])
 
   // Introduction Screen - Integrado con el diseño del sitio
   if (showIntroduction) {
@@ -272,7 +279,7 @@ export function GameLayout({
             Otros Juegos de Matemáticas
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {getRelatedGames().map((game, index) => {
+            {relatedGames.map((game, index) => {
               const IconComponent = game.icon
               return (
                 <Link key={index} href={game.path}>
