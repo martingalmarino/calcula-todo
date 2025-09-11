@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Clock, Trophy, RotateCcw, Play, Zap, Target, Brain } from "lucide-react"
+import { Clock, Trophy, RotateCcw, Play, Zap, Target, Brain, CheckCircle, XCircle } from "lucide-react"
 
 interface GameLayoutProps {
   title: string
@@ -50,229 +50,154 @@ export function GameLayout({
     return { rank: 'Principiante', emoji: '🌱', color: 'text-green-600' }
   }
 
-  // Introduction Screen
+  // Introduction Screen - Estilo profesional del artefacto
   if (showIntroduction) {
     return (
-      <div className="w-full min-h-screen bg-gradient-to-br from-purple-600 to-purple-800">
-        <div className="max-w-2xl mx-auto px-4 py-8">
-          <div className="bg-purple-50 rounded-2xl p-6 shadow-xl">
-            {/* Progress Badge */}
-            <div className="flex justify-center mb-4">
-              <div className="bg-blue-100 text-blue-600 rounded-full px-4 py-1 text-xs font-semibold">
-                JUEGO DE MATEMÁTICAS
+      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 font-inter">
+        <div className="max-w-4xl mx-auto px-6 py-12 min-h-screen flex flex-col justify-center">
+          <div className="text-center max-w-2xl mx-auto">
+            {/* Game Logo */}
+            <h1 className="text-6xl font-extrabold text-white mb-6 drop-shadow-lg">
+              🧮 Matemáticas
+            </h1>
+            <p className="text-2xl font-medium text-white/90 mb-12">
+              {description}
+            </p>
+            
+            {/* Feature Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <div className="bg-white text-purple-600 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl mb-4">⏱️</div>
+                <div className="text-xl font-bold mb-2">30 Segundos</div>
+                <div className="text-base text-gray-600">Tiempo límite por partida</div>
               </div>
-            </div>
-
-            {/* Title */}
-            <div className="text-center mb-6">
-              <h1 className="text-2xl md:text-3xl font-bold mb-2 text-gray-800">{title}</h1>
-              <p className="text-sm text-gray-600">{description}</p>
-            </div>
-
-            {/* Introduction Content */}
-            <div className="bg-white/50 rounded-xl p-4 mb-6">
-              <div className="text-center space-y-4">
-                <div className="flex justify-center">
-                  <div className="bg-blue-100 rounded-full p-2">
-                    <Brain className="h-6 w-6 text-blue-600" />
-                  </div>
-                </div>
-                <p className="text-sm leading-relaxed text-gray-700">
-                  {introduction}
-                </p>
-                <div className="flex justify-center gap-2 text-xs">
-                  <div className="flex items-center gap-1 bg-blue-50 text-blue-700 rounded-full px-2 py-1">
-                    <Clock className="h-3 w-3" />
-                    <span>30s</span>
-                  </div>
-                  <div className="flex items-center gap-1 bg-blue-50 text-blue-700 rounded-full px-2 py-1">
-                    <Target className="h-3 w-3" />
-                    <span>Velocidad</span>
-                  </div>
-                  <div className="flex items-center gap-1 bg-blue-50 text-blue-700 rounded-full px-2 py-1">
-                    <Trophy className="h-3 w-3" />
-                    <span>3 niveles</span>
-                  </div>
-                </div>
+              <div className="bg-white text-purple-600 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl mb-4">⚡</div>
+                <div className="text-xl font-bold mb-2">Velocidad</div>
+                <div className="text-base text-gray-600">Pon a prueba tu agilidad mental</div>
+              </div>
+              <div className="bg-white text-purple-600 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl mb-4">🏆</div>
+                <div className="text-xl font-bold mb-2">3 Niveles</div>
+                <div className="text-base text-gray-600">Principiante, Rápido, Genio</div>
               </div>
             </div>
 
             {/* Start Button */}
-            <div className="text-center">
-              <Button 
-                onClick={onStart}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-              >
-                <Play className="h-4 w-4 mr-2" />
-                ¡JUGAR AHORA!
-              </Button>
-            </div>
-          </div>
-          
-          {/* Related Games Section */}
-          <div className="mt-12">
-            <h3 className="text-lg font-semibold text-white mb-4 text-center">Otros Juegos de Matemáticas</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-purple-50 rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
-                <div className="flex items-center gap-3">
-                  <div className="bg-blue-100 rounded-full p-2">
-                    <Target className="h-5 w-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-blue-900">Número Faltante</h4>
-                    <p className="text-xs text-gray-600">Encuentra el número que falta</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-purple-50 rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
-                <div className="flex items-center gap-3">
-                  <div className="bg-purple-100 rounded-full p-2">
-                    <Brain className="h-5 w-5 text-purple-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-blue-900">Fracciones Visuales</h4>
-                    <p className="text-xs text-gray-600">Identifica fracciones con pizzas</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Button 
+              onClick={onStart}
+              className="bg-white text-purple-600 text-2xl font-bold px-16 py-6 rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 uppercase tracking-wide"
+            >
+              <Play className="h-6 w-6 mr-3" />
+              Jugar Ahora
+            </Button>
           </div>
         </div>
       </div>
     )
   }
 
-  // Game Screen
+  // Game Screen - Estilo profesional del artefacto
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-purple-600 to-purple-800">
-      <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
-        {/* Game Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-4 text-white shadow-lg">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              <div className="bg-white/20 rounded-full p-1">
-                <Trophy className="h-4 w-4 text-yellow-300" />
-              </div>
-              <div>
-                <h2 className="text-lg font-bold text-white">{title}</h2>
-                <p className="text-gray-200 text-xs">¡Demuestra tu velocidad mental!</p>
-              </div>
-            </div>
-            
-            <div className="flex gap-4">
-              <div className="text-center">
-                <div className="flex items-center gap-1 text-lg font-bold text-white">
-                  <Clock className="h-4 w-4 text-yellow-300" />
-                  <span aria-live="polite">{formatTime(timeLeft)}</span>
-                </div>
-                <p className="text-gray-200 text-xs">Tiempo</p>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center gap-1 text-lg font-bold text-white">
-                  <Zap className="h-4 w-4 text-yellow-300" />
-                  <span aria-live="polite">{score}</span>
-                </div>
-                <p className="text-gray-200 text-xs">Puntos</p>
-              </div>
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 font-inter relative">
+      {/* Timer Circular */}
+      <div className={`fixed top-6 right-6 w-20 h-20 rounded-full flex items-center justify-center shadow-xl z-50 transition-all duration-300 ${
+        timeLeft <= 10 
+          ? 'bg-red-500 text-white animate-pulse' 
+          : 'bg-white text-purple-600'
+      }`}>
+        <span className="text-2xl font-bold">{timeLeft}</span>
+      </div>
+      
+      {/* Score Container */}
+      <div className="fixed top-6 left-6 bg-white text-purple-600 px-6 py-4 rounded-full shadow-xl z-50">
+        <span className="font-bold">Puntos: {score}</span>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 py-12 min-h-screen flex flex-col justify-center">
+        {/* Question Indicator */}
+        <div className="bg-white text-purple-600 text-sm font-bold uppercase tracking-wider px-6 py-3 rounded-full text-center mb-12 shadow-lg mx-auto">
+          Pregunta 1 / 15
+        </div>
+
+        {/* Progress Bar */}
+        <div className="bg-white/20 h-2 rounded-full overflow-hidden mb-8 backdrop-blur-sm">
+          <div 
+            className="h-full bg-white rounded-full transition-all duration-300 relative"
+            style={{ width: '6.67%' }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
           </div>
         </div>
 
-        {/* Game Content */}
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="p-4">
-            {/* Feedback */}
-            {feedback && (
-              <div className={`mb-4 p-3 rounded-lg text-center font-semibold text-sm ${
-                feedback === 'correct' 
-                  ? 'bg-green-100 text-green-800 border border-green-300' 
-                  : 'bg-red-100 text-red-800 border border-red-300'
-              }`}>
-                {feedback === 'correct' ? '✅ ¡Correcto!' : '❌ Incorrecto'}
-              </div>
-            )}
+        {/* Question Title */}
+        <h2 className="text-4xl font-bold text-white text-center mb-12 leading-tight">
+          ¿Cuál es el resultado?
+        </h2>
 
-            {/* Game Content */}
-            <div className="min-h-[200px] flex items-center justify-center">
-              {children}
-            </div>
-
-            {/* Game Controls */}
-            <div className="flex gap-3 justify-center mt-4">
-              {isActive && (
-                <Button 
-                  onClick={onNext} 
-                  className="bg-blue-600 hover:bg-blue-800 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 text-sm"
-                >
-                  Siguiente
-                </Button>
-              )}
-              <Button 
-                onClick={onReset} 
-                variant="outline" 
-                className="bg-white border border-red-400 text-red-600 hover:bg-red-50 hover:border-red-500 font-semibold px-4 py-2 rounded-lg text-sm"
-              >
-                <RotateCcw className="h-3 w-3 mr-1" />
-                Reiniciar
-              </Button>
-            </div>
-          </div>
+        {/* Math Container */}
+        <div className="bg-white rounded-3xl p-12 mb-12 shadow-2xl text-center">
+          {children}
         </div>
 
-        {/* Game Result */}
-        {gameResult && (
-          <div className="bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 rounded-xl p-6 text-white shadow-lg">
-            <div className="text-center space-y-4">
-              <div className="text-4xl">{gameResult.emoji}</div>
-              <h3 className="text-xl font-bold">¡Juego Terminado!</h3>
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                <div className="text-lg font-semibold mb-1">
-                  Puntuación: {gameResult.points} puntos
-                </div>
-                <div className={`text-xl font-bold ${getRankInfo(gameResult.points).color}`}>
-                  {gameResult.rank} {gameResult.emoji}
-                </div>
-              </div>
-              <Button 
-                onClick={onReset} 
-                className="bg-white text-orange-600 hover:bg-gray-100 font-bold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-              >
-                <Play className="h-4 w-4 mr-2" />
-                Jugar de Nuevo
-              </Button>
-            </div>
-          </div>
-        )}
-
-        {/* Related Games Section */}
-        <div className="mt-12">
-          <h3 className="text-lg font-semibold text-white mb-4 text-center">Otros Juegos de Matemáticas</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-purple-50 rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
-              <div className="flex items-center gap-3">
-                <div className="bg-blue-100 rounded-full p-2">
-                  <Target className="h-5 w-5 text-blue-600" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-blue-900">Número Faltante</h4>
-                  <p className="text-xs text-gray-600">Encuentra el número que falta</p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-purple-50 rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
-              <div className="flex items-center gap-3">
-                <div className="bg-purple-100 rounded-full p-2">
-                  <Brain className="h-5 w-5 text-purple-600" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-blue-900">Fracciones Visuales</h4>
-                  <p className="text-xs text-gray-600">Identifica fracciones con pizzas</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Game Controls */}
+        <div className="flex gap-4 justify-center flex-wrap">
+          {isActive && (
+            <Button 
+              onClick={onNext} 
+              className="bg-white/20 text-white border-2 border-white/30 px-6 py-3 rounded-xl font-semibold hover:bg-white/30 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+            >
+              Saltar
+            </Button>
+          )}
+          <Button 
+            onClick={onReset} 
+            className="bg-white/20 text-white border-2 border-white/30 px-6 py-3 rounded-xl font-semibold hover:bg-white/30 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+          >
+            <RotateCcw className="h-4 w-4 mr-2" />
+            Reiniciar
+          </Button>
         </div>
       </div>
+
+      {/* Feedback Overlay */}
+      {feedback && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-in fade-in duration-300">
+          <div className={`bg-white p-12 rounded-3xl text-center shadow-2xl animate-in zoom-in duration-500 ${
+            feedback === 'correct' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+          }`}>
+            <div className="text-6xl mb-4">
+              {feedback === 'correct' ? '🎉' : '❌'}
+            </div>
+            <div className="text-3xl font-bold mb-2">
+              {feedback === 'correct' ? '¡Correcto!' : 'Incorrecto'}
+            </div>
+            <div className="text-xl opacity-90">
+              {feedback === 'correct' ? '+1 punto' : 'Inténtalo de nuevo'}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Game Result */}
+      {gameResult && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-in fade-in duration-300">
+          <div className="bg-white p-12 rounded-3xl text-center shadow-2xl animate-in zoom-in duration-500">
+            <div className="text-6xl mb-4">{gameResult.emoji}</div>
+            <h3 className="text-3xl font-bold mb-2 text-purple-600">¡Juego Terminado!</h3>
+            <div className="text-xl text-gray-600 mb-6">
+              Puntuación: {gameResult.points} puntos - Nivel: {gameResult.rank}
+            </div>
+            <Button 
+              onClick={onReset} 
+              className="bg-purple-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            >
+              <Play className="h-5 w-5 mr-2" />
+              Jugar de Nuevo
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

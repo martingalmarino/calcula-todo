@@ -169,57 +169,53 @@ export default function SumasRestasClient() {
         gameResult={gameResult}
         showIntroduction={showIntroduction}
       >
-        {currentOperation && (
-          <div className="w-full">
-            {/* Question */}
-            <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-xl p-4 mb-4">
-              <div className="text-center">
-                <h3 className="text-lg font-semibold text-gray-700 mb-4">¿Cuál es el resultado?</h3>
-                <div className="flex items-center justify-center gap-3 text-3xl font-bold text-gray-800">
-                  <span className="bg-white rounded-lg px-3 py-2 shadow-md">{currentOperation.num1}</span>
-                  <span className="text-purple-600">{currentOperation.operator}</span>
-                  <span className="bg-white rounded-lg px-3 py-2 shadow-md">{currentOperation.num2}</span>
-                  <span className="text-gray-500">=</span>
-                  <span className="bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-lg px-3 py-2 shadow-md">?</span>
-                </div>
-              </div>
-            </div>
+                {currentOperation && (
+                  <div className="w-full">
+                    {/* Math Equation - Estilo profesional del artefacto */}
+                    <div className="flex items-center justify-center gap-8 mb-8 flex-wrap">
+                      <div className="bg-gray-100 text-purple-600 text-6xl font-extrabold px-8 py-6 rounded-3xl min-w-[140px] text-center border-4 border-gray-200 transition-all duration-300">
+                        {currentOperation.num1}
+                      </div>
+                      <div className="text-5xl font-extrabold text-purple-600">
+                        {currentOperation.operator}
+                      </div>
+                      <div className="bg-gray-100 text-purple-600 text-6xl font-extrabold px-8 py-6 rounded-3xl min-w-[140px] text-center border-4 border-gray-200 transition-all duration-300">
+                        {currentOperation.num2}
+                      </div>
+                      <div className="text-5xl font-extrabold text-purple-600">
+                        =
+                      </div>
+                      <Input
+                        type="number"
+                        value={userAnswer}
+                        onChange={(e) => setUserAnswer(e.target.value)}
+                        onKeyPress={handleKeyPress}
+                        placeholder="?"
+                        className="bg-gray-100 text-purple-600 text-6xl font-extrabold px-8 py-6 rounded-3xl min-w-[140px] text-center border-4 border-purple-300 focus:border-purple-600 focus:ring-4 focus:ring-purple-100 outline-none transition-all duration-300 hover:scale-105"
+                        disabled={!isActive}
+                        autoFocus
+                      />
+                    </div>
 
-            {/* Answer Input */}
-            <div className="text-center space-y-4">
-              <div className="flex justify-center">
-                <Input
-                  type="number"
-                  value={userAnswer}
-                  onChange={(e) => setUserAnswer(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Tu respuesta"
-                  className="text-center text-xl w-32 h-12 border border-gray-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 rounded-lg shadow-sm bg-white placeholder-gray-400"
-                  disabled={!isActive}
-                  autoFocus
-                />
-              </div>
-
-              {isActive && (
-                <Button 
-                  onClick={checkAnswer}
-                  className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                  disabled={!userAnswer}
-                >
-                  <Calculator className="h-4 w-4 mr-2" />
-                  Verificar
-                </Button>
-              )}
-            </div>
-          </div>
-        )}
+                    {/* Validate Button - Estilo profesional del artefacto */}
+                    {isActive && (
+                      <Button 
+                        onClick={checkAnswer}
+                        className="bg-pink-600 hover:bg-pink-700 text-white text-2xl font-bold px-16 py-6 rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 uppercase tracking-wide w-full max-w-md mx-auto"
+                        disabled={!userAnswer}
+                      >
+                        Validar ✓
+                      </Button>
+                    )}
+                  </div>
+                )}
 
         {!currentOperation && !isActive && !showIntroduction && (
-          <div className="text-center space-y-4">
-            <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-xl p-4">
-              <Calculator className="h-12 w-12 mx-auto text-orange-600 mb-3" />
-              <h3 className="text-lg font-bold text-gray-800 mb-2">¡Preparado para el desafío!</h3>
-              <p className="text-sm text-gray-600">
+          <div className="text-center">
+            <div className="bg-gray-100 text-purple-600 p-8 rounded-3xl">
+              <Calculator className="h-16 w-16 mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-3">¡Preparado para el desafío!</h3>
+              <p className="text-lg text-gray-600">
                 Resuelve la mayor cantidad de sumas y restas en 30 segundos.
                 <br />
                 Cada respuesta correcta suma 1 punto.
