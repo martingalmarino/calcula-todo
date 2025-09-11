@@ -212,10 +212,10 @@ export default function GermanHomePage() {
                     <Chip href="/de/kurioses/kuss-kalorien/" icon="heart" ariaLabel="Kuss-Kalorien-Rechner">
                       Kuss-Kalorien-Rechner
                     </Chip>
-                    <Chip href="/de/kurioses/kaffee-sparen/" icon="coffee" ariaLabel="Kaffee-Spar-Rechner">
+                    <Chip href="/de/kurioses/kaffee-spar/" icon="coffee" ariaLabel="Kaffee-Spar-Rechner">
                       Kaffee-Spar-Rechner
                     </Chip>
-                    <Chip href="/de/kurioses/liebes-rechner/" icon="heart" ariaLabel="Liebes-Rechner">
+                    <Chip href="/de/kurioses/liebes/" icon="heart" ariaLabel="Liebes-Rechner">
                       Liebes-Rechner
                     </Chip>
                     <Chip href="/de/kurioses/bier-party/" icon="beer" ariaLabel="Bier-Party-Rechner">
