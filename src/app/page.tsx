@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
 import { PromotionalBlock } from '@/components/PromotionalBlock'
+import GamesPromoBanner from '@/components/GamesPromoBanner'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
 
 export const metadata: Metadata = buildMeta({
@@ -43,6 +44,10 @@ export default function HomePage() {
               </p>
             </div>
 
+            {/* Games Promotional Banner */}
+            <div className="mb-12">
+              <GamesPromoBanner />
+            </div>
 
             {/* Additional Categories Section - New Responsive Design */}
             <div className="mt-8 py-8">
