@@ -75,7 +75,7 @@ export default function DiasEntreDatasClientPT() {
   ]
 
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -89,18 +89,19 @@ export default function DiasEntreDatasClientPT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
-        
-        <CalculatorLayout
-          title="Dias entre Datas"
-          description="Calcula a diferença exata em dias, semanas, meses e anos entre duas datas específicas"
-          examples={examples}
-          onExampleClick={(values) => {
-            if (values.startDate) setStartDate(values.startDate as string)
-            if (values.endDate) setEndDate(values.endDate as string)
-          }}
-          relatedLinks={relatedLinks}
-        >
+        <div className="py-8">
+          <Breadcrumbs items={breadcrumbs} />
+          
+          <CalculatorLayout
+            title="Dias entre Datas"
+            description="Calcula a diferença exata em dias, semanas, meses e anos entre duas datas específicas"
+            examples={examples}
+            onExampleClick={(values) => {
+              if (values.startDate) setStartDate(values.startDate as string)
+              if (values.endDate) setEndDate(values.endDate as string)
+            }}
+            relatedLinks={relatedLinks}
+          >
           <div className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -180,8 +181,9 @@ export default function DiasEntreDatasClientPT() {
               </Card>
             )}
           </div>
-        </CalculatorLayout>
+          </CalculatorLayout>
+        </div>
       </Container>
-    </>
+    </div>
   )
 }

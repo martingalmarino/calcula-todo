@@ -75,7 +75,7 @@ export default function DiasFeriasClientPT() {
   ]
 
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -89,18 +89,19 @@ export default function DiasFeriasClientPT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
-        
-        <CalculatorLayout
-          title="Dias de Férias"
-          description="Calcula os dias de férias entre duas datas, separando dias úteis e fins de semana"
-          examples={examples}
-          onExampleClick={(values) => {
-            if (values.startDate) setStartDate(values.startDate as string)
-            if (values.endDate) setEndDate(values.endDate as string)
-          }}
-          relatedLinks={relatedLinks}
-        >
+        <div className="py-8">
+          <Breadcrumbs items={breadcrumbs} />
+          
+          <CalculatorLayout
+            title="Dias de Férias"
+            description="Calcula os dias de férias entre duas datas, separando dias úteis e fins de semana"
+            examples={examples}
+            onExampleClick={(values) => {
+              if (values.startDate) setStartDate(values.startDate as string)
+              if (values.endDate) setEndDate(values.endDate as string)
+            }}
+            relatedLinks={relatedLinks}
+          >
           <div className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -178,8 +179,9 @@ export default function DiasFeriasClientPT() {
               </Card>
             )}
           </div>
-        </CalculatorLayout>
+          </CalculatorLayout>
+        </div>
       </Container>
-    </>
+    </div>
   )
 }

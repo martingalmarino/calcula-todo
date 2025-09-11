@@ -83,7 +83,7 @@ export default function SomarSubtrairDiasClientPT() {
   ]
 
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -97,19 +97,20 @@ export default function SomarSubtrairDiasClientPT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
-        
-        <CalculatorLayout
-          title="Somar e Subtrair Dias"
-          description="Soma ou subtrai dias a uma data específica, mostrando o resultado e o dia da semana"
-          examples={examples}
-          onExampleClick={(values) => {
-            if (values.date) setDate(values.date as string)
-            if (values.days) setDays(values.days as string)
-            if (values.operation) setOperation(values.operation as 'add' | 'subtract')
-          }}
-          relatedLinks={relatedLinks}
-        >
+        <div className="py-8">
+          <Breadcrumbs items={breadcrumbs} />
+          
+          <CalculatorLayout
+            title="Somar e Subtrair Dias"
+            description="Soma ou subtrai dias a uma data específica, mostrando o resultado e o dia da semana"
+            examples={examples}
+            onExampleClick={(values) => {
+              if (values.date) setDate(values.date as string)
+              if (values.days) setDays(values.days as string)
+              if (values.operation) setOperation(values.operation as 'add' | 'subtract')
+            }}
+            relatedLinks={relatedLinks}
+          >
           <div className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -203,8 +204,9 @@ export default function SomarSubtrairDiasClientPT() {
               </Card>
             )}
           </div>
-        </CalculatorLayout>
+          </CalculatorLayout>
+        </div>
       </Container>
-    </>
+    </div>
   )
 }

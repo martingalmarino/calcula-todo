@@ -77,7 +77,7 @@ export default function HorasMinutosClientPT() {
   ]
 
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -91,19 +91,20 @@ export default function HorasMinutosClientPT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
-        
-        <CalculatorLayout
-          title="Horas e Minutos"
-          description="Calcula e converte entre horas e minutos, soma e subtrai tempos"
-          examples={examples}
-          onExampleClick={(values) => {
-            if (values.time1) setTime1(values.time1 as string)
-            if (values.time2) setTime2(values.time2 as string)
-            if (values.operation) setOperation(values.operation as 'add' | 'subtract')
-          }}
-          relatedLinks={relatedLinks}
-        >
+        <div className="py-8">
+          <Breadcrumbs items={breadcrumbs} />
+          
+          <CalculatorLayout
+            title="Horas e Minutos"
+            description="Calcula e converte entre horas e minutos, soma e subtrai tempos"
+            examples={examples}
+            onExampleClick={(values) => {
+              if (values.time1) setTime1(values.time1 as string)
+              if (values.time2) setTime2(values.time2 as string)
+              if (values.operation) setOperation(values.operation as 'add' | 'subtract')
+            }}
+            relatedLinks={relatedLinks}
+          >
           <div className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -194,8 +195,9 @@ export default function HorasMinutosClientPT() {
               </Card>
             )}
           </div>
-        </CalculatorLayout>
+          </CalculatorLayout>
+        </div>
       </Container>
-    </>
+    </div>
   )
 }

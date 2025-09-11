@@ -75,7 +75,7 @@ export default function CalculadoraIdadeClientPT() {
   ]
 
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -89,18 +89,19 @@ export default function CalculadoraIdadeClientPT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
-        
-        <CalculatorLayout
-          title="Calculadora de Idade"
-          description="Calcula sua idade exata em anos, meses e dias desde sua data de nascimento"
-          examples={examples}
-          onExampleClick={(values) => {
-            if (values.birthDate) setBirthDate(values.birthDate as string)
-            if (values.currentDate) setCurrentDate(values.currentDate as string)
-          }}
-          relatedLinks={relatedLinks}
-        >
+        <div className="py-8">
+          <Breadcrumbs items={breadcrumbs} />
+          
+          <CalculatorLayout
+            title="Calculadora de Idade"
+            description="Calcula sua idade exata em anos, meses e dias desde sua data de nascimento"
+            examples={examples}
+            onExampleClick={(values) => {
+              if (values.birthDate) setBirthDate(values.birthDate as string)
+              if (values.currentDate) setCurrentDate(values.currentDate as string)
+            }}
+            relatedLinks={relatedLinks}
+          >
           <div className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -183,8 +184,9 @@ export default function CalculadoraIdadeClientPT() {
               </Card>
             )}
           </div>
-        </CalculatorLayout>
+          </CalculatorLayout>
+        </div>
       </Container>
-    </>
+    </div>
   )
 }
