@@ -190,36 +190,38 @@ export default function FracoesClientPT() {
             relatedLinks={relatedLinks}
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-4 lg:grid-cols-7">
-                <TabsTrigger value="simplify">Simplificar</TabsTrigger>
-                <TabsTrigger value="add">Somar</TabsTrigger>
-                <TabsTrigger value="subtract">Subtrair</TabsTrigger>
-                <TabsTrigger value="multiply">Multiplicar</TabsTrigger>
-                <TabsTrigger value="divide">Dividir</TabsTrigger>
-                <TabsTrigger value="toDecimal">Para Decimal</TabsTrigger>
-                <TabsTrigger value="fromDecimal">De Decimal</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3 p-3">
+                <TabsTrigger value="simplify" className="min-h-[56px] text-base font-medium px-3">Simplificar</TabsTrigger>
+                <TabsTrigger value="add" className="min-h-[56px] text-base font-medium px-3">Somar</TabsTrigger>
+                <TabsTrigger value="subtract" className="min-h-[56px] text-base font-medium px-3">Subtrair</TabsTrigger>
+                <TabsTrigger value="multiply" className="min-h-[56px] text-base font-medium px-3">Multiplicar</TabsTrigger>
+                <TabsTrigger value="divide" className="min-h-[56px] text-base font-medium px-3">Dividir</TabsTrigger>
+                <TabsTrigger value="toDecimal" className="min-h-[56px] text-base font-medium px-3">Para Decimal</TabsTrigger>
+                <TabsTrigger value="fromDecimal" className="min-h-[56px] text-base font-medium px-3">De Decimal</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="simplify" className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="num1">Numerador</Label>
+              <TabsContent value="simplify" className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="num1" className="text-base font-medium">Numerador</Label>
                     <Input
                       id="num1"
                       type="number"
                       value={num1}
                       onChange={(e) => setNum1(e.target.value)}
                       placeholder="Ex: 12"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="den1">Denominador</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="den1" className="text-base font-medium">Denominador</Label>
                     <Input
                       id="den1"
                       type="number"
                       value={den1}
                       onChange={(e) => setDen1(e.target.value)}
                       placeholder="Ex: 18"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
                 </div>
@@ -421,9 +423,9 @@ export default function FracoesClientPT() {
               </TabsContent>
             </Tabs>
             
-            <div className="mt-4">
-              <Button onClick={handleCalculate} className="calculator-button">
-                <Calculator className="h-4 w-4" />
+            <div className="mt-6">
+              <Button onClick={handleCalculate} className="calculator-button w-full min-h-[48px] text-base font-medium">
+                <Calculator className="h-5 w-5" />
                 Calcular
               </Button>
             </div>

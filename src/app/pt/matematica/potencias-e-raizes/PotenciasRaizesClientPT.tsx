@@ -164,17 +164,17 @@ export default function PotenciasRaizesClientPT() {
             relatedLinks={relatedLinks}
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-4">
-                <TabsTrigger value="power">Potência</TabsTrigger>
-                <TabsTrigger value="sqrt">Raiz Quadrada</TabsTrigger>
-                <TabsTrigger value="cbrt">Raiz Cúbica</TabsTrigger>
-                <TabsTrigger value="nthRoot">Raiz N-ésima</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 gap-3 p-3">
+                <TabsTrigger value="power" className="min-h-[56px] text-base font-medium px-3">Potência</TabsTrigger>
+                <TabsTrigger value="sqrt" className="min-h-[56px] text-base font-medium px-3">Raiz Quadrada</TabsTrigger>
+                <TabsTrigger value="cbrt" className="min-h-[56px] text-base font-medium px-3">Raiz Cúbica</TabsTrigger>
+                <TabsTrigger value="nthRoot" className="min-h-[56px] text-base font-medium px-3">Raiz N-ésima</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="power" className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="base">Base</Label>
+              <TabsContent value="power" className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="base" className="text-base font-medium">Base</Label>
                     <Input
                       id="base"
                       type="number"
@@ -182,10 +182,11 @@ export default function PotenciasRaizesClientPT() {
                       value={base}
                       onChange={(e) => setBase(e.target.value)}
                       placeholder="Ex: 2"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="exponent">Expoente</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="exponent" className="text-base font-medium">Expoente</Label>
                     <Input
                       id="exponent"
                       type="number"
@@ -193,10 +194,11 @@ export default function PotenciasRaizesClientPT() {
                       value={exponent}
                       onChange={(e) => setExponent(e.target.value)}
                       placeholder="Ex: 8"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-muted-foreground text-center">
                   Calcula: base^expoente
                 </p>
               </TabsContent>
@@ -265,9 +267,9 @@ export default function PotenciasRaizesClientPT() {
               </TabsContent>
             </Tabs>
             
-            <div className="mt-4">
-              <Button onClick={handleCalculate} className="calculator-button">
-                <Calculator className="h-4 w-4" />
+            <div className="mt-6">
+              <Button onClick={handleCalculate} className="calculator-button w-full min-h-[48px] text-base font-medium">
+                <Calculator className="h-5 w-5" />
                 Calcular
               </Button>
             </div>

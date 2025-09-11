@@ -172,12 +172,12 @@ export default function PercentuaisClientPT() {
             relatedLinks={relatedLinks}
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 p-2">
-                <TabsTrigger value="percentageOf" className="min-h-[48px] text-sm font-medium">% de</TabsTrigger>
-                <TabsTrigger value="percentageOfNumber" className="min-h-[48px] text-sm font-medium">% de Número</TabsTrigger>
-                <TabsTrigger value="increase" className="min-h-[48px] text-sm font-medium">Aumento</TabsTrigger>
-                <TabsTrigger value="decrease" className="min-h-[48px] text-sm font-medium">Desconto</TabsTrigger>
-                <TabsTrigger value="percentageChange" className="min-h-[48px] text-sm font-medium col-span-2 sm:col-span-1">Variação</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 p-3">
+                <TabsTrigger value="percentageOf" className="min-h-[56px] text-base font-medium px-4">% de</TabsTrigger>
+                <TabsTrigger value="percentageOfNumber" className="min-h-[56px] text-base font-medium px-4">% de Número</TabsTrigger>
+                <TabsTrigger value="increase" className="min-h-[56px] text-base font-medium px-4">Aumento</TabsTrigger>
+                <TabsTrigger value="decrease" className="min-h-[56px] text-base font-medium px-4">Desconto</TabsTrigger>
+                <TabsTrigger value="percentageChange" className="min-h-[56px] text-base font-medium px-4 col-span-1 sm:col-span-2 lg:col-span-1">Variação</TabsTrigger>
               </TabsList>
 
               <TabsContent value="percentageOf" className="space-y-6">

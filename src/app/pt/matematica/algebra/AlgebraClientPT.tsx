@@ -176,16 +176,16 @@ export default function AlgebraClientPT() {
             relatedLinks={relatedLinks}
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="linear">Linear</TabsTrigger>
-                <TabsTrigger value="quadratic">Quadrática</TabsTrigger>
-                <TabsTrigger value="system">Sistema 2x2</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 gap-3 p-3">
+                <TabsTrigger value="linear" className="min-h-[56px] text-base font-medium px-4">Linear</TabsTrigger>
+                <TabsTrigger value="quadratic" className="min-h-[56px] text-base font-medium px-4">Quadrática</TabsTrigger>
+                <TabsTrigger value="system" className="min-h-[56px] text-base font-medium px-4">Sistema 2x2</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="linear" className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="a">Coeficiente a</Label>
+              <TabsContent value="linear" className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="a" className="text-base font-medium">Coeficiente a</Label>
                     <Input
                       id="a"
                       type="number"
@@ -193,10 +193,11 @@ export default function AlgebraClientPT() {
                       value={a}
                       onChange={(e) => setA(e.target.value)}
                       placeholder="Ex: 2"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="b">Coeficiente b</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="b" className="text-base font-medium">Coeficiente b</Label>
                     <Input
                       id="b"
                       type="number"
@@ -204,18 +205,19 @@ export default function AlgebraClientPT() {
                       value={b}
                       onChange={(e) => setB(e.target.value)}
                       placeholder="Ex: 6"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-muted-foreground text-center">
                   Resolve: ax + b = 0
                 </p>
               </TabsContent>
 
-              <TabsContent value="quadratic" className="space-y-4">
-                <div className="grid grid-cols-3 gap-4">
-                  <div>
-                    <Label htmlFor="a">Coeficiente a</Label>
+              <TabsContent value="quadratic" className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="a" className="text-base font-medium">Coeficiente a</Label>
                     <Input
                       id="a"
                       type="number"
@@ -223,10 +225,11 @@ export default function AlgebraClientPT() {
                       value={a}
                       onChange={(e) => setA(e.target.value)}
                       placeholder="Ex: 1"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="b">Coeficiente b</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="b" className="text-base font-medium">Coeficiente b</Label>
                     <Input
                       id="b"
                       type="number"
@@ -234,10 +237,11 @@ export default function AlgebraClientPT() {
                       value={b}
                       onChange={(e) => setB(e.target.value)}
                       placeholder="Ex: -5"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="c">Coeficiente c</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="c" className="text-base font-medium">Coeficiente c</Label>
                     <Input
                       id="c"
                       type="number"
@@ -245,10 +249,11 @@ export default function AlgebraClientPT() {
                       value={c}
                       onChange={(e) => setC(e.target.value)}
                       placeholder="Ex: 6"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-muted-foreground text-center">
                   Resolve: ax² + bx + c = 0
                 </p>
               </TabsContent>
@@ -311,9 +316,9 @@ export default function AlgebraClientPT() {
               </TabsContent>
             </Tabs>
             
-            <div className="mt-4">
-              <Button onClick={handleCalculate} className="calculator-button">
-                <Calculator className="h-4 w-4" />
+            <div className="mt-6">
+              <Button onClick={handleCalculate} className="calculator-button w-full min-h-[48px] text-base font-medium">
+                <Calculator className="h-5 w-5" />
                 Resolver
               </Button>
             </div>

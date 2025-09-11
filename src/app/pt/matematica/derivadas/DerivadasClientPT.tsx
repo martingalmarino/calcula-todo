@@ -198,10 +198,10 @@ export default function DerivadasClientPT() {
             relatedLinks={relatedLinks}
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 gap-2 p-2">
-                <TabsTrigger value="numerical" className="min-h-[48px] text-sm font-medium">Diferenças Centradas</TabsTrigger>
-                <TabsTrigger value="forward" className="min-h-[48px] text-sm font-medium">Diferenças para Frente</TabsTrigger>
-                <TabsTrigger value="backward" className="min-h-[48px] text-sm font-medium">Diferenças para Trás</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 gap-3 p-3">
+                <TabsTrigger value="numerical" className="min-h-[56px] text-base font-medium px-4">Centradas</TabsTrigger>
+                <TabsTrigger value="forward" className="min-h-[56px] text-base font-medium px-4">Para Frente</TabsTrigger>
+                <TabsTrigger value="backward" className="min-h-[56px] text-base font-medium px-4">Para Trás</TabsTrigger>
               </TabsList>
 
               <TabsContent value="numerical" className="space-y-6">
