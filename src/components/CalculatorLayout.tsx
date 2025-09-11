@@ -49,10 +49,11 @@ export function CalculatorLayout({
   const pathname = usePathname()
   const isItalian = pathname.startsWith('/it')
   const isPortuguese = pathname.startsWith('/pt')
+  const isGerman = pathname.startsWith('/de')
 
   const handleCopyResult = () => {
     // Implementar lógica de copiado
-    console.log(isItalian ? "Copia risultato" : isPortuguese ? "Copiar resultado" : "Copiar resultado")
+    console.log(isItalian ? "Copia risultato" : isPortuguese ? "Copiar resultado" : isGerman ? "Ergebnis kopieren" : "Copiar resultado")
   }
 
   const handleShare = () => {
@@ -82,13 +83,13 @@ export function CalculatorLayout({
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="calculator-tabs">
           <TabsTrigger value="calculator" className="calculator-tab">
-            {isItalian ? 'Calcolatrice' : isPortuguese ? 'Calculadora' : 'Calculadora'}
+            {isItalian ? 'Calcolatrice' : isPortuguese ? 'Calculadora' : isGerman ? 'Rechner' : 'Calculadora'}
           </TabsTrigger>
           <TabsTrigger value="examples" className="calculator-tab">
-            {isItalian ? 'Esempi' : isPortuguese ? 'Exemplos' : 'Ejemplos'}
+            {isItalian ? 'Esempi' : isPortuguese ? 'Exemplos' : isGerman ? 'Beispiele' : 'Ejemplos'}
           </TabsTrigger>
           <TabsTrigger value="help" className="calculator-tab">
-            {isItalian ? 'Aiuto' : isPortuguese ? 'Ajuda' : 'Ayuda'}
+            {isItalian ? 'Aiuto' : isPortuguese ? 'Ajuda' : isGerman ? 'Hilfe' : 'Ayuda'}
           </TabsTrigger>
         </TabsList>
 
@@ -99,14 +100,16 @@ export function CalculatorLayout({
                 <div className="p-2 bg-blue-100 rounded-lg">
                   <Lightbulb className="h-5 w-5 text-blue-600" />
                 </div>
-                {isItalian ? 'Calcolatrice' : isPortuguese ? 'Calculadora' : 'Calculadora'}
+                {isItalian ? 'Calcolatrice' : isPortuguese ? 'Calculadora' : isGerman ? 'Rechner' : 'Calculadora'}
               </CardTitle>
               <CardDescription className="text-base text-gray-600">
                 {isItalian 
                   ? 'Inserisci i valori e ottieni il risultato con spiegazione passo-passo'
                   : isPortuguese 
                     ? 'Insira os valores e obtenha o resultado com explicação passo a passo'
-                    : 'Ingresa los valores y obtén el resultado con explicación paso a paso'
+                    : isGerman
+                      ? 'Geben Sie die Werte ein und erhalten Sie das Ergebnis mit Schritt-für-Schritt-Erklärung'
+                      : 'Ingresa los valores y obtén el resultado con explicación paso a paso'
                 }
               </CardDescription>
             </CardHeader>
@@ -117,11 +120,11 @@ export function CalculatorLayout({
               <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-100">
                 <Button onClick={handleCopyResult} className="calculator-action-button flex-1">
                   <Copy className="h-4 w-4 mr-2" />
-                  {isItalian ? 'Copia risultato' : isPortuguese ? 'Copiar resultado' : 'Copiar resultado'}
+                  {isItalian ? 'Copia risultato' : isPortuguese ? 'Copiar resultado' : isGerman ? 'Ergebnis kopieren' : 'Copiar resultado'}
                 </Button>
                 <Button onClick={handleShare} className="calculator-action-button flex-1">
                   <Share2 className="h-4 w-4 mr-2" />
-                  {isItalian ? 'Condividi' : isPortuguese ? 'Compartilhar' : 'Compartir'}
+                  {isItalian ? 'Condividi' : isPortuguese ? 'Compartilhar' : isGerman ? 'Teilen' : 'Compartir'}
                 </Button>
               </div>
             </CardContent>
@@ -134,7 +137,7 @@ export function CalculatorLayout({
                 <div className="flex items-start gap-3">
                   <HelpCircle className="h-5 w-5 text-amber-600 mt-0.5" />
                   <div className="text-sm text-amber-800">
-                    <strong>{isItalian ? 'Nota:' : 'Nota:'}</strong> {disclaimer}
+                    <strong>{isItalian ? 'Nota:' : isGerman ? 'Hinweis:' : 'Nota:'}</strong> {disclaimer}
                   </div>
                 </div>
               </CardContent>
@@ -149,14 +152,16 @@ export function CalculatorLayout({
                 <div className="p-2 bg-green-100 rounded-lg">
                   <Lightbulb className="h-5 w-5 text-green-600" />
                 </div>
-                {isItalian ? 'Esempi Rapidi' : isPortuguese ? 'Exemplos Rápidos' : 'Ejemplos Rápidos'}
+                {isItalian ? 'Esempi Rapidi' : isPortuguese ? 'Exemplos Rápidos' : isGerman ? 'Schnelle Beispiele' : 'Ejemplos Rápidos'}
               </CardTitle>
               <CardDescription className="text-base text-gray-600">
                 {isItalian 
                   ? 'Clicca su un esempio per autocompletare la calcolatrice'
                   : isPortuguese 
                     ? 'Clique em um exemplo para preencher automaticamente a calculadora'
-                    : 'Haz clic en un ejemplo para autocompletar la calculadora'
+                    : isGerman
+                      ? 'Klicken Sie auf ein Beispiel, um den Rechner automatisch auszufüllen'
+                      : 'Haz clic en un ejemplo para autocompletar la calculadora'
                 }
               </CardDescription>
             </CardHeader>
@@ -190,14 +195,16 @@ export function CalculatorLayout({
                   <div className="p-2 bg-purple-100 rounded-lg">
                     <HelpCircle className="h-5 w-5 text-purple-600" />
                   </div>
-                  {isItalian ? 'Domande Frequenti' : isPortuguese ? 'Perguntas Frequentes' : 'Preguntas Frecuentes'}
+                  {isItalian ? 'Domande Frequenti' : isPortuguese ? 'Perguntas Frequentes' : isGerman ? 'Häufig gestellte Fragen' : 'Preguntas Frecuentes'}
                 </CardTitle>
                 <CardDescription className="text-base text-gray-600">
                   {isItalian 
                     ? 'Risposte alle domande più comuni su questa calcolatrice' 
                     : isPortuguese 
                       ? 'Respostas às dúvidas mais comuns sobre esta calculadora'
-                      : 'Respuestas a las dudas más comunes sobre esta calculadora'
+                      : isGerman
+                        ? 'Antworten auf die häufigsten Fragen zu diesem Rechner'
+                        : 'Respuestas a las dudas más comunes sobre esta calculadora'
                   }
                 </CardDescription>
               </CardHeader>
@@ -226,14 +233,16 @@ export function CalculatorLayout({
                   <div className="p-2 bg-orange-100 rounded-lg">
                     <Calculator className="h-5 w-5 text-orange-600" />
                   </div>
-                  {isItalian ? 'Calcolatrici Correlate' : isPortuguese ? 'Calculadoras Relacionadas' : 'Calculadoras Relacionadas'}
+                  {isItalian ? 'Calcolatrici Correlate' : isPortuguese ? 'Calculadoras Relacionadas' : isGerman ? 'Verwandte Rechner' : 'Calculadoras Relacionadas'}
                 </CardTitle>
                 <CardDescription className="text-base text-gray-600">
                   {isItalian 
                     ? 'Altre calcolatrici che potrebbero interessarti' 
                     : isPortuguese 
                       ? 'Outras calculadoras que podem interessar você'
-                      : 'Otras calculadoras que podrían interesarte'
+                      : isGerman
+                        ? 'Andere Rechner, die Sie interessieren könnten'
+                        : 'Otras calculadoras que podrían interesarte'
                   }
                 </CardDescription>
               </CardHeader>
