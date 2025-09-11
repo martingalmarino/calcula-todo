@@ -172,18 +172,18 @@ export default function PercentuaisClientPT() {
             relatedLinks={relatedLinks}
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-5">
-                <TabsTrigger value="percentageOf">% de</TabsTrigger>
-                <TabsTrigger value="percentageOfNumber">% de Número</TabsTrigger>
-                <TabsTrigger value="increase">Aumento</TabsTrigger>
-                <TabsTrigger value="decrease">Desconto</TabsTrigger>
-                <TabsTrigger value="percentageChange">Variação</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 p-2">
+                <TabsTrigger value="percentageOf" className="min-h-[48px] text-sm font-medium">% de</TabsTrigger>
+                <TabsTrigger value="percentageOfNumber" className="min-h-[48px] text-sm font-medium">% de Número</TabsTrigger>
+                <TabsTrigger value="increase" className="min-h-[48px] text-sm font-medium">Aumento</TabsTrigger>
+                <TabsTrigger value="decrease" className="min-h-[48px] text-sm font-medium">Desconto</TabsTrigger>
+                <TabsTrigger value="percentageChange" className="min-h-[48px] text-sm font-medium col-span-2 sm:col-span-1">Variação</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="percentageOf" className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="value1">Valor (X)</Label>
+              <TabsContent value="percentageOf" className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="value1" className="text-base font-medium">Valor (X)</Label>
                     <Input
                       id="value1"
                       type="number"
@@ -191,10 +191,11 @@ export default function PercentuaisClientPT() {
                       value={value1}
                       onChange={(e) => setValue1(e.target.value)}
                       placeholder="Ex: 25"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="value2">Total (Y)</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="value2" className="text-base font-medium">Total (Y)</Label>
                     <Input
                       id="value2"
                       type="number"
@@ -202,18 +203,19 @@ export default function PercentuaisClientPT() {
                       value={value2}
                       onChange={(e) => setValue2(e.target.value)}
                       placeholder="Ex: 200"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-muted-foreground text-center">
                   Calcula: X é quantos % de Y?
                 </p>
               </TabsContent>
 
-              <TabsContent value="percentageOfNumber" className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="percentage">Percentual (%)</Label>
+              <TabsContent value="percentageOfNumber" className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="percentage" className="text-base font-medium">Percentual (%)</Label>
                     <Input
                       id="percentage"
                       type="number"
@@ -221,10 +223,11 @@ export default function PercentuaisClientPT() {
                       value={percentage}
                       onChange={(e) => setPercentage(e.target.value)}
                       placeholder="Ex: 15"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="base">Valor Base</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="base" className="text-base font-medium">Valor Base</Label>
                     <Input
                       id="base"
                       type="number"
@@ -232,18 +235,19 @@ export default function PercentuaisClientPT() {
                       value={base}
                       onChange={(e) => setBase(e.target.value)}
                       placeholder="Ex: 500"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-muted-foreground text-center">
                   Calcula: X% de um número
                 </p>
               </TabsContent>
 
-              <TabsContent value="increase" className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="value1">Valor Inicial</Label>
+              <TabsContent value="increase" className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="value1" className="text-base font-medium">Valor Inicial</Label>
                     <Input
                       id="value1"
                       type="number"
@@ -251,10 +255,11 @@ export default function PercentuaisClientPT() {
                       value={value1}
                       onChange={(e) => setValue1(e.target.value)}
                       placeholder="Ex: 100"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="percentage">% de Aumento</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="percentage" className="text-base font-medium">% de Aumento</Label>
                     <Input
                       id="percentage"
                       type="number"
@@ -262,18 +267,19 @@ export default function PercentuaisClientPT() {
                       value={percentage}
                       onChange={(e) => setPercentage(e.target.value)}
                       placeholder="Ex: 20"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-muted-foreground text-center">
                   Calcula: Valor + X% de aumento
                 </p>
               </TabsContent>
 
-              <TabsContent value="decrease" className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="value1">Valor Inicial</Label>
+              <TabsContent value="decrease" className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="value1" className="text-base font-medium">Valor Inicial</Label>
                     <Input
                       id="value1"
                       type="number"
@@ -281,10 +287,11 @@ export default function PercentuaisClientPT() {
                       value={value1}
                       onChange={(e) => setValue1(e.target.value)}
                       placeholder="Ex: 100"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="percentage">% de Desconto</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="percentage" className="text-base font-medium">% de Desconto</Label>
                     <Input
                       id="percentage"
                       type="number"
@@ -292,18 +299,19 @@ export default function PercentuaisClientPT() {
                       value={percentage}
                       onChange={(e) => setPercentage(e.target.value)}
                       placeholder="Ex: 15"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-muted-foreground text-center">
                   Calcula: Valor - X% de desconto
                 </p>
               </TabsContent>
 
-              <TabsContent value="percentageChange" className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="value1">Valor Inicial</Label>
+              <TabsContent value="percentageChange" className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="value1" className="text-base font-medium">Valor Inicial</Label>
                     <Input
                       id="value1"
                       type="number"
@@ -311,10 +319,11 @@ export default function PercentuaisClientPT() {
                       value={value1}
                       onChange={(e) => setValue1(e.target.value)}
                       placeholder="Ex: 100"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="value2">Valor Final</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="value2" className="text-base font-medium">Valor Final</Label>
                     <Input
                       id="value2"
                       type="number"
@@ -322,18 +331,19 @@ export default function PercentuaisClientPT() {
                       value={value2}
                       onChange={(e) => setValue2(e.target.value)}
                       placeholder="Ex: 120"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-muted-foreground text-center">
                   Calcula: Variação percentual entre dois valores
                 </p>
               </TabsContent>
             </Tabs>
             
-            <div className="mt-4">
-              <Button onClick={handleCalculate} className="calculator-button">
-                <Calculator className="h-4 w-4" />
+            <div className="mt-6">
+              <Button onClick={handleCalculate} className="calculator-button w-full min-h-[48px] text-base font-medium">
+                <Calculator className="h-5 w-5" />
                 Calcular
               </Button>
             </div>

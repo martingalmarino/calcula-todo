@@ -196,20 +196,20 @@ export default function TrigonometriaClientPT() {
             relatedLinks={relatedLinks}
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-4 lg:grid-cols-7">
-                <TabsTrigger value="sin">sin</TabsTrigger>
-                <TabsTrigger value="cos">cos</TabsTrigger>
-                <TabsTrigger value="tan">tan</TabsTrigger>
-                <TabsTrigger value="asin">asin</TabsTrigger>
-                <TabsTrigger value="acos">acos</TabsTrigger>
-                <TabsTrigger value="atan">atan</TabsTrigger>
-                <TabsTrigger value="convert">Converter</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 p-2">
+                <TabsTrigger value="sin" className="min-h-[48px] text-sm font-medium">sin</TabsTrigger>
+                <TabsTrigger value="cos" className="min-h-[48px] text-sm font-medium">cos</TabsTrigger>
+                <TabsTrigger value="tan" className="min-h-[48px] text-sm font-medium">tan</TabsTrigger>
+                <TabsTrigger value="asin" className="min-h-[48px] text-sm font-medium">asin</TabsTrigger>
+                <TabsTrigger value="acos" className="min-h-[48px] text-sm font-medium">acos</TabsTrigger>
+                <TabsTrigger value="atan" className="min-h-[48px] text-sm font-medium">atan</TabsTrigger>
+                <TabsTrigger value="convert" className="min-h-[48px] text-sm font-medium col-span-2 sm:col-span-1">Converter</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="sin" className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="angle">Ângulo</Label>
+              <TabsContent value="sin" className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="angle" className="text-base font-medium">Ângulo</Label>
                     <Input
                       id="angle"
                       type="number"
@@ -217,12 +217,13 @@ export default function TrigonometriaClientPT() {
                       value={angle}
                       onChange={(e) => setAngle(e.target.value)}
                       placeholder="Ex: 30"
+                      className="min-h-[48px] text-base"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="unit">Unidade</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="unit" className="text-base font-medium">Unidade</Label>
                     <Select value={unit} onValueChange={setUnit}>
-                      <SelectTrigger>
+                      <SelectTrigger className="min-h-[48px] text-base">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -232,7 +233,7 @@ export default function TrigonometriaClientPT() {
                     </Select>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-muted-foreground text-center">
                   Calcula: sin(ângulo)
                 </p>
               </TabsContent>
@@ -428,9 +429,9 @@ export default function TrigonometriaClientPT() {
               </TabsContent>
             </Tabs>
             
-            <div className="mt-4">
-              <Button onClick={handleCalculate} className="calculator-button">
-                <Calculator className="h-4 w-4" />
+            <div className="mt-6">
+              <Button onClick={handleCalculate} className="calculator-button w-full min-h-[48px] text-base font-medium">
+                <Calculator className="h-5 w-5" />
                 Calcular
               </Button>
             </div>

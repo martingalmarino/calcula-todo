@@ -198,30 +198,31 @@ export default function DerivadasClientPT() {
             relatedLinks={relatedLinks}
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="numerical">Diferenças Centradas</TabsTrigger>
-                <TabsTrigger value="forward">Diferenças para Frente</TabsTrigger>
-                <TabsTrigger value="backward">Diferenças para Trás</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 gap-2 p-2">
+                <TabsTrigger value="numerical" className="min-h-[48px] text-sm font-medium">Diferenças Centradas</TabsTrigger>
+                <TabsTrigger value="forward" className="min-h-[48px] text-sm font-medium">Diferenças para Frente</TabsTrigger>
+                <TabsTrigger value="backward" className="min-h-[48px] text-sm font-medium">Diferenças para Trás</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="numerical" className="space-y-4">
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="function">Função f(x)</Label>
+              <TabsContent value="numerical" className="space-y-6">
+                <div className="space-y-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="function" className="text-base font-medium">Função f(x)</Label>
                     <Input
                       id="function"
                       type="text"
                       value={functionStr}
                       onChange={(e) => setFunctionStr(e.target.value)}
                       placeholder="Ex: x*x, sin(x), exp(x)"
+                      className="min-h-[48px] text-base"
                     />
-                    <p className="text-xs text-muted-foreground mt-1">
+                    <p className="text-sm text-muted-foreground">
                       Use x como variável. Funções disponíveis: sin, cos, tan, sqrt, abs, exp, log, pow
                     </p>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="x0">Ponto x</Label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="x0" className="text-base font-medium">Ponto x</Label>
                       <Input
                         id="x0"
                         type="number"
@@ -229,10 +230,11 @@ export default function DerivadasClientPT() {
                         value={x0}
                         onChange={(e) => setX0(e.target.value)}
                         placeholder="Ex: 2"
+                        className="min-h-[48px] text-base"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="h">Passo h</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="h" className="text-base font-medium">Passo h</Label>
                       <Input
                         id="h"
                         type="number"
@@ -240,11 +242,12 @@ export default function DerivadasClientPT() {
                         value={h}
                         onChange={(e) => setH(e.target.value)}
                         placeholder="Ex: 0.001"
+                        className="min-h-[48px] text-base"
                       />
                     </div>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-muted-foreground text-center">
                   Calcula: f&apos;(x) ≈ [f(x+h) - f(x-h)] / (2h)
                 </p>
               </TabsContent>
@@ -340,9 +343,9 @@ export default function DerivadasClientPT() {
               </TabsContent>
             </Tabs>
             
-            <div className="mt-4">
-              <Button onClick={handleCalculate} className="calculator-button">
-                <Calculator className="h-4 w-4" />
+            <div className="mt-6">
+              <Button onClick={handleCalculate} className="calculator-button w-full min-h-[48px] text-base font-medium">
+                <Calculator className="h-5 w-5" />
                 Calcular Derivada
               </Button>
             </div>
