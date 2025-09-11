@@ -203,7 +203,7 @@ export default function SumasRestasClient() {
               {isActive && (
                 <Button 
                   onClick={checkAnswer}
-                  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                  className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                   disabled={!userAnswer}
                 >
                   <Calculator className="h-4 w-4 mr-2" />

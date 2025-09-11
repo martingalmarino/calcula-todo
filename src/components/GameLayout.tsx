@@ -53,9 +53,9 @@ export function GameLayout({
   // Introduction Screen
   if (showIntroduction) {
     return (
-      <div className="w-full min-h-screen bg-gradient-to-br from-indigo-600 to-indigo-800">
+      <div className="w-full min-h-screen bg-gradient-to-br from-purple-600 to-purple-800">
         <div className="max-w-2xl mx-auto px-4 py-8">
-          <div className="bg-white rounded-2xl p-6 shadow-xl">
+          <div className="bg-purple-50 rounded-2xl p-6 shadow-xl">
             {/* Progress Badge */}
             <div className="flex justify-center mb-4">
               <div className="bg-blue-100 text-blue-600 rounded-full px-4 py-1 text-xs font-semibold">
@@ -65,12 +65,12 @@ export function GameLayout({
 
             {/* Title */}
             <div className="text-center mb-6">
-              <h1 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900">{title}</h1>
+              <h1 className="text-2xl md:text-3xl font-bold mb-2 text-gray-800">{title}</h1>
               <p className="text-sm text-gray-600">{description}</p>
             </div>
 
             {/* Introduction Content */}
-            <div className="bg-gray-50 rounded-xl p-4 mb-6">
+            <div className="bg-white/50 rounded-xl p-4 mb-6">
               <div className="text-center space-y-4">
                 <div className="flex justify-center">
                   <div className="bg-blue-100 rounded-full p-2">
@@ -101,7 +101,7 @@ export function GameLayout({
             <div className="text-center">
               <Button 
                 onClick={onStart}
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
               >
                 <Play className="h-4 w-4 mr-2" />
                 ¡JUGAR AHORA!
@@ -113,24 +113,24 @@ export function GameLayout({
           <div className="mt-12">
             <h3 className="text-lg font-semibold text-white mb-4 text-center">Otros Juegos de Matemáticas</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
+              <div className="bg-purple-50 rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
                 <div className="flex items-center gap-3">
                   <div className="bg-blue-100 rounded-full p-2">
                     <Target className="h-5 w-5 text-blue-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Número Faltante</h4>
+                    <h4 className="font-semibold text-blue-900">Número Faltante</h4>
                     <p className="text-xs text-gray-600">Encuentra el número que falta</p>
                   </div>
                 </div>
               </div>
-              <div className="bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
+              <div className="bg-purple-50 rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
                 <div className="flex items-center gap-3">
-                  <div className="bg-blue-100 rounded-full p-2">
-                    <Brain className="h-5 w-5 text-blue-600" />
+                  <div className="bg-purple-100 rounded-full p-2">
+                    <Brain className="h-5 w-5 text-purple-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Fracciones Visuales</h4>
+                    <h4 className="font-semibold text-blue-900">Fracciones Visuales</h4>
                     <p className="text-xs text-gray-600">Identifica fracciones con pizzas</p>
                   </div>
                 </div>
@@ -144,35 +144,35 @@ export function GameLayout({
 
   // Game Screen
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-indigo-600 to-indigo-800">
+    <div className="w-full min-h-screen bg-gradient-to-br from-purple-600 to-purple-800">
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
         {/* Game Header */}
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-4 text-white shadow-lg">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <div className="bg-white/20 rounded-full p-1">
-                <Trophy className="h-4 w-4" />
+                <Trophy className="h-4 w-4 text-yellow-300" />
               </div>
               <div>
-                <h2 className="text-lg font-bold">{title}</h2>
-                <p className="text-white/80 text-xs">¡Demuestra tu velocidad mental!</p>
+                <h2 className="text-lg font-bold text-white">{title}</h2>
+                <p className="text-gray-200 text-xs">¡Demuestra tu velocidad mental!</p>
               </div>
             </div>
             
             <div className="flex gap-4">
               <div className="text-center">
-                <div className="flex items-center gap-1 text-lg font-bold">
-                  <Clock className="h-4 w-4" />
+                <div className="flex items-center gap-1 text-lg font-bold text-white">
+                  <Clock className="h-4 w-4 text-yellow-300" />
                   <span aria-live="polite">{formatTime(timeLeft)}</span>
                 </div>
-                <p className="text-white/70 text-xs">Tiempo</p>
+                <p className="text-gray-200 text-xs">Tiempo</p>
               </div>
               <div className="text-center">
-                <div className="flex items-center gap-1 text-lg font-bold">
-                  <Zap className="h-4 w-4" />
+                <div className="flex items-center gap-1 text-lg font-bold text-white">
+                  <Zap className="h-4 w-4 text-yellow-300" />
                   <span aria-live="polite">{score}</span>
                 </div>
-                <p className="text-white/70 text-xs">Puntos</p>
+                <p className="text-gray-200 text-xs">Puntos</p>
               </div>
             </div>
           </div>
@@ -202,7 +202,7 @@ export function GameLayout({
               {isActive && (
                 <Button 
                   onClick={onNext} 
-                  className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 text-sm"
+                  className="bg-blue-600 hover:bg-blue-800 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 text-sm"
                 >
                   Siguiente
                 </Button>
@@ -210,7 +210,7 @@ export function GameLayout({
               <Button 
                 onClick={onReset} 
                 variant="outline" 
-                className="border border-red-300 text-red-600 hover:border-red-400 hover:bg-red-50 font-semibold px-4 py-2 rounded-lg text-sm"
+                className="bg-white border border-red-400 text-red-600 hover:bg-red-50 hover:border-red-500 font-semibold px-4 py-2 rounded-lg text-sm"
               >
                 <RotateCcw className="h-3 w-3 mr-1" />
                 Reiniciar
@@ -248,24 +248,24 @@ export function GameLayout({
         <div className="mt-12">
           <h3 className="text-lg font-semibold text-white mb-4 text-center">Otros Juegos de Matemáticas</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
+            <div className="bg-purple-50 rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
               <div className="flex items-center gap-3">
                 <div className="bg-blue-100 rounded-full p-2">
                   <Target className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Número Faltante</h4>
+                  <h4 className="font-semibold text-blue-900">Número Faltante</h4>
                   <p className="text-xs text-gray-600">Encuentra el número que falta</p>
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
+            <div className="bg-purple-50 rounded-xl p-4 hover:shadow-lg transition-all duration-200 cursor-pointer">
               <div className="flex items-center gap-3">
-                <div className="bg-blue-100 rounded-full p-2">
-                  <Brain className="h-5 w-5 text-blue-600" />
+                <div className="bg-purple-100 rounded-full p-2">
+                  <Brain className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Fracciones Visuales</h4>
+                  <h4 className="font-semibold text-blue-900">Fracciones Visuales</h4>
                   <p className="text-xs text-gray-600">Identifica fracciones con pizzas</p>
                 </div>
               </div>
