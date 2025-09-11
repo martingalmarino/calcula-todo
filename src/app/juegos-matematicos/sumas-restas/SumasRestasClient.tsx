@@ -24,6 +24,8 @@ export default function SumasRestasClient() {
   const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null)
   const [gameResult, setGameResult] = useState<{ points: number; rank: string; emoji: string } | null>(null)
   const [showIntroduction, setShowIntroduction] = useState(true)
+  const [currentQuestion, setCurrentQuestion] = useState(1)
+  const totalQuestions = 15
 
   // Generate random operation
   const generateOperation = useCallback((): Operation => {
@@ -55,6 +57,7 @@ export default function SumasRestasClient() {
     setScore(0)
     setGameResult(null)
     setFeedback(null)
+    setCurrentQuestion(1)
     setCurrentOperation(generateOperation())
     setUserAnswer('')
   }
@@ -69,6 +72,7 @@ export default function SumasRestasClient() {
     setUserAnswer('')
     setFeedback(null)
     setGameResult(null)
+    setCurrentQuestion(1)
   }
 
   // Check answer
@@ -88,6 +92,18 @@ export default function SumasRestasClient() {
     setTimeout(() => {
       setFeedback(null)
       setUserAnswer('')
+      
+      // Increment question number
+      setCurrentQuestion(prev => {
+        const nextQuestion = prev + 1
+        if (nextQuestion > totalQuestions) {
+          // Game finished
+          setIsActive(false)
+          return prev
+        }
+        return nextQuestion
+      })
+      
       setCurrentOperation(generateOperation())
     }, 1000)
   }
@@ -162,6 +178,8 @@ export default function SumasRestasClient() {
         feedback={feedback}
         gameResult={gameResult}
         showIntroduction={showIntroduction}
+        currentQuestion={currentQuestion}
+        totalQuestions={totalQuestions}
       >
                 {currentOperation && (
                   <div className="w-full">
