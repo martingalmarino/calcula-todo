@@ -243,7 +243,7 @@ export default function GermanHomePage() {
                     <Chip href="/de/andere/benzin-reise/" icon="car" ariaLabel="Benzin-Reise-Rechner">
                       Benzin-Reise-Rechner
                     </Chip>
-                    <Chip href="/de/andere/wort-zeichen-zaehler/" icon="type" ariaLabel="Wort- und Zeichenzähler">
+                    <Chip href="/de/andere/wort-zeichenzaehler/" icon="type" ariaLabel="Wort- und Zeichenzähler">
                       Wort- und Zeichenzähler
                     </Chip>
                     <Chip href="/de/andere/roemische-zahlen/" icon="hash" ariaLabel="Römische Zahlen">
