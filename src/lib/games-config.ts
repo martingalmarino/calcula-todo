@@ -1,4 +1,4 @@
-import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, LucideIcon } from 'lucide-react'
+import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -155,6 +155,17 @@ export const gamesConfig: GameConfig[] = [
     icon: Hash,
     difficulty: 'básico',
     timeRange: '30s'
+  },
+  {
+    title: 'Rompecabezas Geométrico Simple',
+    label: 'Rompecabezas Geométrico Simple',
+    description: 'Calcula perímetros y áreas de figuras geométricas simples. ¡Desafía tu conocimiento de geometría básica!',
+    href: '/juegos-matematicos/rompecabezas-geometrico',
+    category: 'Juegos Matemáticos',
+    keywords: ['geometría', 'perímetro', 'área', 'rectángulo', 'cuadrado', 'triángulo', 'figuras geométricas', 'matemáticas visuales'],
+    icon: Shapes,
+    difficulty: 'intermedio',
+    timeRange: '45s'
   }
 ]
 
