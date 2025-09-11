@@ -23,6 +23,7 @@ export default function SumasRestasClient() {
   const [userAnswer, setUserAnswer] = useState('')
   const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null)
   const [gameResult, setGameResult] = useState<{ points: number; rank: string; emoji: string } | null>(null)
+  const [showIntroduction, setShowIntroduction] = useState(true)
 
   // Generate random operation
   const generateOperation = useCallback((): Operation => {
@@ -48,6 +49,7 @@ export default function SumasRestasClient() {
 
   // Start game
   const startGame = () => {
+    setShowIntroduction(false)
     setIsActive(true)
     setTimeLeft(30)
     setScore(0)
@@ -59,6 +61,7 @@ export default function SumasRestasClient() {
 
   // Reset game
   const resetGame = () => {
+    setShowIntroduction(true)
     setIsActive(false)
     setTimeLeft(30)
     setScore(0)
@@ -155,6 +158,7 @@ export default function SumasRestasClient() {
       <GameLayout
         title="Sumas y Restas contra Reloj"
         description="Resuelve operaciones de suma y resta en 30 segundos. ¡Demuestra tu velocidad mental!"
+        introduction="¡Bienvenido al desafío de velocidad mental! Resuelve la mayor cantidad de sumas y restas en solo 30 segundos. Cada respuesta correcta suma 1 punto. ¿Podrás alcanzar el nivel de Genio? ¡Demuestra tu agilidad mental!"
         onStart={startGame}
         onReset={resetGame}
         onNext={nextQuestion}
@@ -163,61 +167,65 @@ export default function SumasRestasClient() {
         score={score}
         feedback={feedback}
         gameResult={gameResult}
+        showIntroduction={showIntroduction}
       >
         {currentOperation && (
-          <Card>
-            <CardContent className="p-8">
-              <div className="text-center space-y-6">
-                <div className="flex items-center justify-center gap-4 text-4xl font-bold">
-                  <span>{currentOperation.num1}</span>
-                  <span className="text-blue-600">{currentOperation.operator}</span>
-                  <span>{currentOperation.num2}</span>
-                  <span className="text-gray-400">=</span>
-                  <span className="text-green-600">?</span>
+          <div className="w-full max-w-2xl mx-auto">
+            {/* Question */}
+            <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl p-8 mb-8">
+              <div className="text-center">
+                <h3 className="text-2xl font-semibold text-gray-700 mb-6">¿Cuál es el resultado?</h3>
+                <div className="flex items-center justify-center gap-6 text-6xl font-bold text-gray-800">
+                  <span className="bg-white rounded-xl px-6 py-4 shadow-lg">{currentOperation.num1}</span>
+                  <span className="text-purple-600">{currentOperation.operator}</span>
+                  <span className="bg-white rounded-xl px-6 py-4 shadow-lg">{currentOperation.num2}</span>
+                  <span className="text-gray-500">=</span>
+                  <span className="bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-xl px-6 py-4 shadow-lg">?</span>
                 </div>
-                
-                <div className="flex items-center justify-center gap-3">
-                  <Input
-                    type="number"
-                    value={userAnswer}
-                    onChange={(e) => setUserAnswer(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder="Tu respuesta"
-                    className="text-center text-2xl w-32 h-12"
-                    disabled={!isActive}
-                    autoFocus
-                  />
-                </div>
-
-                {isActive && (
-                  <Button 
-                    onClick={checkAnswer}
-                    className="w-full max-w-xs"
-                    disabled={!userAnswer}
-                  >
-                    <Calculator className="h-4 w-4 mr-2" />
-                    Verificar Respuesta
-                  </Button>
-                )}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+
+            {/* Answer Input */}
+            <div className="text-center space-y-6">
+              <div className="flex justify-center">
+                <Input
+                  type="number"
+                  value={userAnswer}
+                  onChange={(e) => setUserAnswer(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  placeholder="Tu respuesta"
+                  className="text-center text-3xl w-48 h-16 border-2 border-purple-300 focus:border-purple-500 rounded-xl shadow-lg"
+                  disabled={!isActive}
+                  autoFocus
+                />
+              </div>
+
+              {isActive && (
+                <Button 
+                  onClick={checkAnswer}
+                  className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold text-xl px-12 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  disabled={!userAnswer}
+                >
+                  <Calculator className="h-6 w-6 mr-3" />
+                  Verificar Respuesta
+                </Button>
+              )}
+            </div>
+          </div>
         )}
 
-        {!currentOperation && !isActive && timeLeft === 30 && (
-          <Card>
-            <CardContent className="p-8 text-center">
-              <div className="space-y-4">
-                <Calculator className="h-16 w-16 mx-auto text-blue-600" />
-                <h3 className="text-xl font-semibold">¡Preparado para el desafío!</h3>
-                <p className="text-muted-foreground">
-                  Resuelve la mayor cantidad de sumas y restas en 30 segundos.
-                  <br />
-                  Cada respuesta correcta suma 1 punto.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+        {!currentOperation && !isActive && !showIntroduction && (
+          <div className="text-center space-y-6">
+            <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-2xl p-8">
+              <Calculator className="h-20 w-20 mx-auto text-orange-600 mb-4" />
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">¡Preparado para el desafío!</h3>
+              <p className="text-lg text-gray-600">
+                Resuelve la mayor cantidad de sumas y restas en 30 segundos.
+                <br />
+                Cada respuesta correcta suma 1 punto.
+              </p>
+            </div>
+          </div>
         )}
       </GameLayout>
     </>
