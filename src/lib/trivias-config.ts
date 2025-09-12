@@ -332,3 +332,14 @@ export function getTriviasByDifficulty(difficulty: 'básico' | 'intermedio' | 'a
 export function getTriviaById(id: string): TriviaConfig | undefined {
   return triviasConfig.find(trivia => trivia.id === id)
 }
+
+export function getCienciaTriviasStats() {
+  const cienciaTrivias = getTriviasByCategory('Ciencia')
+  const totalQuestions = cienciaTrivias.reduce((sum, trivia) => sum + trivia.totalQuestions, 0)
+  
+  return {
+    totalTrivias: cienciaTrivias.length,
+    totalQuestions,
+    hasNewTrivias: cienciaTrivias.some(trivia => trivia.isNew)
+  }
+}

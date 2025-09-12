@@ -5,7 +5,7 @@ import { PromotionalBlock } from '@/components/PromotionalBlock'
 import { NewLabel } from '@/components/NewLabel'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
 import { getGamesStats } from '@/lib/games-config'
-import { getTriviasStats } from '@/lib/trivias-config'
+import { getTriviasStats, getCienciaTriviasStats } from '@/lib/trivias-config'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadoras Online Gratuitas',
@@ -25,6 +25,7 @@ export const metadata: Metadata = buildMeta({
 export default function HomePage() {
   const gamesStats = getGamesStats()
   const triviasStats = getTriviasStats()
+  const cienciaStats = getCienciaTriviasStats()
   
   return (
     <>
@@ -49,9 +50,9 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Pre-header para Juegos Matemáticos y Trivias */}
+            {/* Pre-header para Juegos Matemáticos, Trivias y Trivias de Ciencia */}
             <div className="text-center mb-8 px-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
                 {/* Juegos Matemáticos */}
                 <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-4 py-3 shadow-sm relative">
                   <div className="absolute -top-2 -right-2">
@@ -87,6 +88,27 @@ export default function HomePage() {
                   </a>
                   <span className="text-green-700 text-sm">
                     {triviasStats.totalTrivias} trivias interactivas
+                  </span>
+                </div>
+
+                {/* Trivias de Ciencia */}
+                <div className="bg-gradient-to-r from-purple-50 to-violet-50 border border-purple-200 rounded-2xl px-4 py-3 shadow-sm relative">
+                  {cienciaStats.hasNewTrivias && (
+                    <div className="absolute -top-2 -right-2">
+                      <NewLabel size="sm" />
+                    </div>
+                  )}
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <span className="text-2xl">🔬</span>
+                  </div>
+                  <a 
+                    href="/trivias/ciencia" 
+                    className="block text-purple-600 hover:text-purple-800 font-bold text-lg mb-1 transition-colors"
+                  >
+                    Trivias de Ciencia
+                  </a>
+                  <span className="text-purple-700 text-sm">
+                    {cienciaStats.totalTrivias} trivias científicas
                   </span>
                 </div>
               </div>
