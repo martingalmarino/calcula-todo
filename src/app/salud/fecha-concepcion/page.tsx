@@ -33,7 +33,8 @@ export default function FechaConcepcionPage() {
   const structuredData = jsonLdCalculator({
     name: calculator.label,
     description: calculator.description,
-    url: `https://www.calculatodo.online${calculator.href}`
+    url: `https://www.calculatodo.online${calculator.href}`,
+    category: calculator.category
   })
 
   return (
