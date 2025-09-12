@@ -9,6 +9,7 @@ import {
   Apple,
   Moon,
   Activity,
+  Monitor,
   LucideIcon 
 } from 'lucide-react'
 
@@ -94,6 +95,20 @@ export const triviasConfig: TriviaConfig[] = [
     keywords: ['ejercicio', 'actividad física', 'OMS', 'salud', 'deporte', 'fitness', 'recomendaciones'],
     difficulty: 'básico',
     icon: Activity,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/calorias'
+  },
+  {
+    id: 'tiempo-sentado-sedentarismo',
+    title: '¿Cuánto tiempo pasás sentado? (Sedentarismo)',
+    label: '¿Cuánto tiempo pasás sentado? (Sedentarismo)',
+    description: 'Descubre los riesgos del sedentarismo y aprende cómo combatir los efectos de estar sentado demasiado tiempo. Conoce las recomendaciones para un estilo de vida más activo.',
+    href: '/trivias/tiempo-sentado-sedentarismo',
+    category: 'Salud',
+    keywords: ['sedentarismo', 'tiempo sentado', 'salud', 'pausas activas', 'estilo de vida', 'trabajo', 'oficina'],
+    difficulty: 'básico',
+    icon: Monitor,
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/salud/calorias'
