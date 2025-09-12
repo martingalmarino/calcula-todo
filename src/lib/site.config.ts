@@ -818,6 +818,61 @@ export const SITE: SiteConfig = {
           keywords: ['regla de tres', 'proporciones', 'encuestas', 'análisis', 'estadística']
         }
       ]
+    },
+    quimica: {
+      label: 'Química',
+      href: '/quimica/',
+      description: 'Calculadoras químicas para pH, molaridad, gases ideales, masa molar, energía de enlace y diluciones. Herramientas esenciales para estudiantes y profesionales.',
+      calculators: [
+        {
+          label: 'Calculadora de pH',
+          href: '/quimica/ph/',
+          description: 'Calcula el pH de una solución a partir de la concentración de iones hidrógeno [H⁺]',
+          icon: 'flask',
+          category: 'ácido-base',
+          keywords: ['pH', 'iones hidrógeno', 'concentración', 'ácido', 'base', 'neutro', 'logaritmo']
+        },
+        {
+          label: 'Calculadora de Molaridad',
+          href: '/quimica/molaridad/',
+          description: 'Calcula la concentración molar (M) y convierte entre gramos y moles usando masa molar',
+          icon: 'flask',
+          category: 'concentración',
+          keywords: ['molaridad', 'concentración', 'moles', 'litros', 'masa molar', 'gramos']
+        },
+        {
+          label: 'Ley de Gases Ideales',
+          href: '/quimica/gases-ideales/',
+          description: 'Aplica la ecuación PV = nRT para calcular presión, volumen, moles o temperatura',
+          icon: 'wind',
+          category: 'gases',
+          keywords: ['gases ideales', 'PV=nRT', 'presión', 'volumen', 'moles', 'temperatura', 'constante R']
+        },
+        {
+          label: 'Calculadora de Masa Molar',
+          href: '/quimica/masa-molar/',
+          description: 'Calcula la masa molar total de una fórmula química sumando los elementos',
+          icon: 'atom',
+          category: 'masa molecular',
+          keywords: ['masa molar', 'fórmula química', 'elementos', 'peso molecular', 'mol']
+        },
+        {
+          label: 'Energía de Enlace',
+          href: '/quimica/energia-enlace/',
+          description: 'Calcula la variación de energía (ΔH) en reacciones químicas usando enlaces rotos y formados',
+          icon: 'zap',
+          category: 'termodinámica',
+          keywords: ['energía enlace', 'entalpía', 'reacciones químicas', 'enlaces rotos', 'enlaces formados', 'ΔH']
+        },
+        {
+          label: 'Calculadora de Diluciones',
+          href: '/quimica/diluciones/',
+          description: 'Aplica la fórmula C1V1 = C2V2 para calcular concentraciones y volúmenes en diluciones',
+          icon: 'droplets',
+          category: 'diluciones',
+          keywords: ['diluciones', 'C1V1=C2V2', 'concentración inicial', 'volumen inicial', 'concentración final']
+        }
+      ]
     }
   },
   social: {
