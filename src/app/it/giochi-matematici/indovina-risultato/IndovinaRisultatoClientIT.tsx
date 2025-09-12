@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -133,7 +133,7 @@ export default function IndovinaRisultatoClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Indovina il Risultato"
       description="Osserva operazioni passo dopo passo e indovina il risultato finale. Sfida la tua capacità di seguimento matematico!"
       introduction="Ti mostreremo operazioni passo dopo passo e dovrai indovinare il risultato finale. Hai 40 secondi per risolverne quante più possibile!"
@@ -201,6 +201,6 @@ export default function IndovinaRisultatoClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

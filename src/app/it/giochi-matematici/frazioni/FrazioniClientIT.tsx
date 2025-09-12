@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -107,7 +107,7 @@ export default function FrazioniClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Puzzle delle Frazioni"
       description="Risolvi puzzle visivi con frazioni. Sfida la tua comprensione delle frazioni e migliora le tue abilità matematiche!"
       introduction="Ti mostreremo una rappresentazione visiva di una frazione. Conta le parti colorate e indovina il numeratore. Hai 40 secondi!"
@@ -181,6 +181,6 @@ export default function FrazioniClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

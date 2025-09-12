@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -101,7 +101,7 @@ export default function DivisioniClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Calcolatrice Mentale delle Divisioni"
       description="Pratica divisioni mentali in tempo limitato. Sfida la tua agilità mentale e migliora il calcolo mentale!"
       introduction="Ti mostreremo divisioni e dovrai risolverle mentalmente. Hai 50 secondi per risolverne quante più possibile!"
@@ -155,6 +155,6 @@ export default function DivisioniClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

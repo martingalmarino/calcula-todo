@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -128,7 +128,7 @@ export default function MaggioreMinoreClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Maggiore o Minore"
       description="Confronta numeri e determina quale è maggiore o minore. Sfida il tuo senso numerico e agilità mentale!"
       introduction="Ti mostreremo due numeri e dovrai determinare la relazione tra loro. Hai 30 secondi per risolverne quante più possibile!"
@@ -189,6 +189,6 @@ export default function MaggioreMinoreClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

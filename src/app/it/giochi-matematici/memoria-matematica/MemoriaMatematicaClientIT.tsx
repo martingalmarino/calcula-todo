@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -126,7 +126,7 @@ export default function MemoriaMatematicaClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Memoria Matematica"
       description="Ricorda sequenze di operazioni matematiche e ripetile correttamente. Sfida la tua memoria e concentrazione!"
       introduction="Ti mostreremo una sequenza di operazioni matematiche per 3 secondi. Devi ricordarla e scegliere l'ordine corretto. Hai 50 secondi!"
@@ -203,6 +203,6 @@ export default function MemoriaMatematicaClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

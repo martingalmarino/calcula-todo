@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -128,7 +128,7 @@ export default function OperazioniMisteClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Operazioni Miste Rapide"
       description="Risolvi operazioni miste di somma, sottrazione, moltiplicazione e divisione in tempo limitato. Sfida la tua agilità mentale!"
       introduction="Ti mostreremo operazioni miste e dovrai risolverle mentalmente. Hai 35 secondi per risolverne quante più possibile!"
@@ -182,6 +182,6 @@ export default function OperazioniMisteClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -147,7 +147,7 @@ export default function SequenzeClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Sequenze Numeriche"
       description="Completa sequenze numeriche e trova il pattern. Sfida la tua logica e capacità di riconoscimento dei pattern!"
       introduction="Ti mostreremo una sequenza di numeri con un numero mancante. Trova il pattern e indovina il numero mancante. Hai 45 secondi!"
@@ -215,6 +215,6 @@ export default function SequenzeClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

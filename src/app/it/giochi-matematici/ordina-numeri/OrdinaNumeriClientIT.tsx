@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -106,7 +106,7 @@ export default function OrdinaNumeriClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Ordina i Numeri"
       description="Ordina numeri in sequenza crescente o decrescente in tempo limitato. Sfida la tua agilità mentale e senso numerico!"
       introduction="Ti mostreremo numeri disordinati e dovrai scegliere l'ordinamento corretto. Hai 40 secondi per risolverne quante più possibile!"
@@ -170,6 +170,6 @@ export default function OrdinaNumeriClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

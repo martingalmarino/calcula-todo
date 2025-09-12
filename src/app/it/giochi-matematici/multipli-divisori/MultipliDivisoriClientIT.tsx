@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -104,7 +104,7 @@ export default function MultipliDivisoriClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Sfida Multipli e Divisori"
       description="Identifica multipli e divisori in tempo limitato. Sfida la tua comprensione dei numeri e delle loro relazioni!"
       introduction="Ti mostreremo domande sui multipli e divisori. Devi rispondere Vero o Falso. Hai 45 secondi per risolverne quante più possibile!"
@@ -162,6 +162,6 @@ export default function MultipliDivisoriClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

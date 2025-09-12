@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -112,7 +112,7 @@ export default function SommeSottrazioniClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Somme e Sottrazioni"
       description="Pratica somme e sottrazioni contro il tempo. Sfida la tua agilità mentale e migliora il calcolo mentale!"
       introduction="Ti mostreremo somme e sottrazioni e dovrai risolverle mentalmente. Hai 30 secondi per risolverne quante più possibile!"
@@ -166,6 +166,6 @@ export default function SommeSottrazioniClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

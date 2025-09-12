@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -147,7 +147,7 @@ export default function NumeroMancanteClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Trova il Numero Mancante"
       description="Trova il numero mancante nelle sequenze matematiche. Sfida la tua logica e capacità di ragionamento!"
       introduction="Ti mostreremo una sequenza di numeri con un numero mancante. Trova il pattern e indovina il numero mancante. Hai 35 secondi!"
@@ -215,6 +215,6 @@ export default function NumeroMancanteClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

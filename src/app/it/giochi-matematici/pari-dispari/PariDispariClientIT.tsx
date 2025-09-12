@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -92,7 +92,7 @@ export default function PariDispariClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Pari o Dispari Express"
       description="Identifica rapidamente se i numeri sono pari o dispari. Sfida la tua velocità di riconoscimento numerico!"
       introduction="Ti mostreremo numeri e dovrai identificare rapidamente se sono pari o dispari. Hai 30 secondi per risolverne quante più possibile!"
@@ -150,6 +150,6 @@ export default function PariDispariClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }

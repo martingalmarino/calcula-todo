@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { GameLayout } from '@/components/GameLayout'
+import { GameLayoutIT } from '@/components/GameLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -109,7 +109,7 @@ export default function PercentualiClientIT() {
   const rankInfo = getRankInfo(score)
 
   return (
-    <GameLayout
+    <GameLayoutIT
       title="Puzzle delle Percentuali"
       description="Risolvi puzzle con percentuali e calcoli percentuali. Sfida la tua comprensione delle percentuali!"
       introduction="Ti mostreremo calcoli con percentuali. Devi calcolare aumenti o diminuzioni percentuali. Hai 40 secondi!"
@@ -166,6 +166,6 @@ export default function PercentualiClientIT() {
           </CardContent>
         </Card>
       )}
-    </GameLayout>
+    </GameLayoutIT>
   )
 }
