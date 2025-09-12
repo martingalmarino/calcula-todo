@@ -1,4 +1,4 @@
-import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, Calculator, ArrowUpDown, MemoryStick, Plus, LucideIcon } from 'lucide-react'
+import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, Calculator, ArrowUpDown, MemoryStick, Plus, Search, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -210,6 +210,17 @@ export const gamesConfig: GameConfig[] = [
     icon: Plus,
     difficulty: 'intermedio',
     timeRange: '35s'
+  },
+  {
+    title: 'Adivina el Resultado',
+    label: 'Adivina el Resultado',
+    description: 'Observa operaciones paso a paso y adivina el resultado final. ¡Desafía tu capacidad de seguimiento matemático!',
+    href: '/juegos-matematicos/adivina-resultado',
+    category: 'Juegos Matemáticos',
+    keywords: ['adivina resultado', 'operaciones paso a paso', 'seguimiento matemático', 'cálculo mental', 'agilidad mental', 'observación'],
+    icon: Search,
+    difficulty: 'intermedio',
+    timeRange: '40s'
   }
 ]
 
