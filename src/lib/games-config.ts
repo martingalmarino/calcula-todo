@@ -1,4 +1,4 @@
-import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, Calculator, ArrowUpDown, LucideIcon } from 'lucide-react'
+import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, Calculator, ArrowUpDown, MemoryStick, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -188,6 +188,17 @@ export const gamesConfig: GameConfig[] = [
     icon: ArrowUpDown,
     difficulty: 'intermedio',
     timeRange: '40s'
+  },
+  {
+    title: 'Memoria Matemática',
+    label: 'Memoria Matemática',
+    description: 'Recuerda secuencias de operaciones matemáticas y repítelas correctamente. ¡Desafía tu memoria y concentración!',
+    href: '/juegos-matematicos/memoria-matematica',
+    category: 'Juegos Matemáticos',
+    keywords: ['memoria matemática', 'secuencias', 'operaciones', 'concentración', 'memoria', 'entrenamiento mental', 'recordar'],
+    icon: MemoryStick,
+    difficulty: 'intermedio',
+    timeRange: '50s'
   }
 ]
 
