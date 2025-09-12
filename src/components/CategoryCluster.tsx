@@ -1,7 +1,7 @@
 "use client"
 
 import { SITE } from '@/lib/site.config'
-import { Calculator, Circle, Square, Triangle, Heart, DollarSign, Target, Coffee, HardDrive, RectangleHorizontal, Scale, Calendar, Wrench, LucideIcon } from 'lucide-react'
+import { Calculator, Circle, Square, Triangle, Heart, DollarSign, Target, Coffee, HardDrive, RectangleHorizontal, Scale, Calendar, Wrench, Zap, BarChart3, LucideIcon } from 'lucide-react'
 
 // Mapeo de iconos por categoría
 const categoryIcons: Record<string, LucideIcon> = {
@@ -13,7 +13,9 @@ const categoryIcons: Record<string, LucideIcon> = {
   'geometria': Square,
   'salud': Heart,
   'calendario': Calendar,
-  'otras': Wrench
+  'otras': Wrench,
+  'fisica': Zap,
+  'estadistica': BarChart3
 }
 
 // Mapeo de colores por categoría
@@ -26,7 +28,9 @@ const categoryColors: Record<string, string> = {
   'geometria': 'text-pink-600',
   'salud': 'text-red-600',
   'calendario': 'text-teal-600',
-  'otras': 'text-gray-600'
+  'otras': 'text-gray-600',
+  'fisica': 'text-yellow-600',
+  'estadistica': 'text-cyan-600'
 }
 
 export function CategoryCluster() {
