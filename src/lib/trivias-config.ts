@@ -17,6 +17,7 @@ import {
   Leaf,
   Lightbulb,
   Coins,
+  TrendingDown,
   LucideIcon 
 } from 'lucide-react'
 
@@ -217,6 +218,21 @@ export const triviasConfig: TriviaConfig[] = [
     keywords: ['monedas', 'tipos de cambio', 'geografía', 'países', 'economía', 'divisas', 'finanzas internacionales'],
     difficulty: 'básico',
     icon: Coins,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/finanzas/conversion-monedas',
+    isNew: true
+  },
+  {
+    id: 'quiz-crisis-financieras',
+    title: 'Quiz de Crisis Financieras',
+    label: 'Quiz de Crisis Financieras',
+    description: 'Aprende sobre las crisis financieras más importantes de la historia. Descubre qué causó cada crisis, cuándo ocurrieron y sus consecuencias globales.',
+    href: '/trivias/quiz-crisis-financieras',
+    category: 'Finanzas',
+    keywords: ['crisis financieras', 'historia económica', 'Gran Depresión', 'crisis 2008', 'economía mundial', 'burbujas financieras', 'recesiones'],
+    difficulty: 'intermedio',
+    icon: TrendingDown,
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/finanzas/conversion-monedas',
