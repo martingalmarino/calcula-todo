@@ -96,36 +96,26 @@ export default function PortugueseHomePage() {
                   </ChipsContainer>
                 </div>
 
-                {/* Jogos Matemáticos Promotional Block */}
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-8 border border-blue-200">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl">🎮</span>
-                    <div>
-                      <h3 className="text-blue-900 text-xl font-bold">Jogos de Inteligência Matemática</h3>
-                      <p className="text-blue-700 text-sm">Divirta-se aprendendo com nossos jogos educativos</p>
-                    </div>
-                  </div>
-                  <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-                    <div className="flex-1">
-                      <p className="text-gray-700 mb-3">
-                        Desafie sua mente com <strong>{gamesStats.totalGames} jogos matemáticos</strong> únicos! 
-                        Melhore sua agilidade mental, lógica e habilidades de cálculo de forma divertida.
-                      </p>
-                      <div className="flex flex-wrap gap-2 text-sm text-blue-600">
-                        <span className="bg-blue-100 px-2 py-1 rounded">Somas e Subtrações</span>
-                        <span className="bg-blue-100 px-2 py-1 rounded">Frações</span>
-                        <span className="bg-blue-100 px-2 py-1 rounded">Sudoku</span>
-                        <span className="bg-blue-100 px-2 py-1 rounded">Probabilidade</span>
-                      </div>
-                    </div>
-                    <a 
-                      href="/pt/jogos-matematicos" 
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap"
-                    >
-                      Jogar Agora →
-                    </a>
-                  </div>
+            {/* Pre-header para Jogos Matemáticos */}
+            <div className="text-center mb-8 px-4">
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-4 py-3 shadow-sm max-w-sm mx-auto">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-2xl">🎮</span>
+                  <span className="text-blue-800 font-bold text-lg">
+                    Novo!
+                  </span>
                 </div>
+                <a 
+                  href="/pt/jogos-matematicos" 
+                  className="block text-blue-600 hover:text-blue-800 font-bold text-lg mb-1 transition-colors"
+                >
+                  Jogos Matemáticos
+                </a>
+                <span className="text-blue-700 text-sm">
+                  {gamesStats.totalGames} jogos educativos
+                </span>
+              </div>
+            </div>
                 
                 {/* Calendário Section */}
                 <div className="category-section-new">
