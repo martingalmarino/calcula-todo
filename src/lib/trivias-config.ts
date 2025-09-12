@@ -24,6 +24,10 @@ import {
   Sun,
   TreePine,
   Atom,
+  Globe,
+  Layers,
+  Rocket,
+  BookOpen,
   LucideIcon 
 } from 'lucide-react'
 
@@ -344,6 +348,66 @@ export const triviasConfig: TriviaConfig[] = [
     keywords: ['ecología', 'ecosistemas', 'biodiversidad', 'cadena alimentaria', 'productores', 'consumidores', 'biomas', 'sabana', 'selva tropical', 'capa de ozono', 'energía solar'],
     difficulty: 'básico',
     icon: Leaf,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc',
+    isNew: true
+  },
+  {
+    id: 'quiz-universo-galaxias',
+    title: 'Quiz del Universo y Galaxias',
+    label: 'Quiz del Universo y Galaxias',
+    description: 'Explora los misterios del cosmos, desde el Big Bang hasta las galaxias distantes. Descubre los secretos del universo, la Vía Láctea y los fenómenos astronómicos más fascinantes.',
+    href: '/trivias/quiz-universo-galaxias',
+    category: 'Ciencia',
+    keywords: ['universo', 'galaxias', 'Big Bang', 'Vía Láctea', 'agujero negro', 'año luz', 'materia oscura', 'Hubble', 'Andrómeda', 'espiral', 'supermasivo'],
+    difficulty: 'intermedio',
+    icon: Globe,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc',
+    isNew: true
+  },
+  {
+    id: 'quiz-estados-materia',
+    title: 'Quiz sobre Estados de la Materia',
+    label: 'Quiz sobre Estados de la Materia',
+    description: 'Sumérgete en el mundo de la física y descubre los diferentes estados de la materia. Aprende sobre sólidos, líquidos, gases, plasma y los procesos de cambio de estado.',
+    href: '/trivias/quiz-estados-materia',
+    category: 'Ciencia',
+    keywords: ['estados materia', 'sólido', 'líquido', 'gas', 'plasma', 'sublimación', 'condensación', 'fusión', 'evaporación', 'cristal', 'hielo seco'],
+    difficulty: 'básico',
+    icon: Layers,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc',
+    isNew: true
+  },
+  {
+    id: 'quiz-exploracion-espacial',
+    title: 'Quiz de Exploración Espacial',
+    label: 'Quiz de Exploración Espacial',
+    description: 'Viaja a través de la historia de la exploración espacial. Desde Yuri Gagarin hasta las misiones modernas, descubre los hitos más importantes de la conquista del espacio.',
+    href: '/trivias/quiz-exploracion-espacial',
+    category: 'Ciencia',
+    keywords: ['exploración espacial', 'Yuri Gagarin', 'Apollo 11', 'Hubble', 'ISS', 'Voyager', 'Curiosity', 'Marte', 'Valentina Tereshkova', 'Sputnik', 'James Webb'],
+    difficulty: 'intermedio',
+    icon: Rocket,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc',
+    isNew: true
+  },
+  {
+    id: 'quiz-historia-ciencia',
+    title: 'Quiz de Historia de la Ciencia',
+    label: 'Quiz de Historia de la Ciencia',
+    description: 'Conoce a los grandes científicos y sus descubrimientos que cambiaron el mundo. Desde Copérnico hasta Einstein, explora la evolución del pensamiento científico.',
+    href: '/trivias/quiz-historia-ciencia',
+    category: 'Ciencia',
+    keywords: ['historia ciencia', 'Copérnico', 'Newton', 'Darwin', 'Galileo', 'Marie Curie', 'Fleming', 'Einstein', 'Mendeleiev', 'Gutenberg', 'Pasteur'],
+    difficulty: 'intermedio',
+    icon: BookOpen,
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/salud/imc',
