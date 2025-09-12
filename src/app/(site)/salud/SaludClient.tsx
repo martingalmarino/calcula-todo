@@ -2,7 +2,7 @@
 
 import { CategoryPageLayout } from '@/components/CategoryPageLayout'
 import { SITE } from '@/lib/site.config'
-import { Calculator, Heart, Activity, Scale, Zap, Droplets, Calendar, Users } from 'lucide-react'
+import { Calculator, Heart, Activity, Scale, Zap, Droplets, Calendar, Users, Timer, Bike, Dumbbell } from 'lucide-react'
 
 const saludCluster = SITE.clusters.salud
 
@@ -13,7 +13,13 @@ export default function SaludClient() {
     '/salud/grasa-corporal/': Heart,
     '/salud/pafi/': Zap,
     '/salud/agua-diaria/': Droplets,
-    '/salud/ovulacion/': Calendar
+    '/salud/ovulacion/': Calendar,
+    '/salud/necesidades-energeticas/': Zap,
+    '/salud/fecha-concepcion/': Heart,
+    '/salud/calorias-deporte/': Activity,
+    '/salud/ritmo-carrera/': Timer,
+    '/salud/velocidad-ciclismo/': Bike,
+    '/salud/1rm/': Dumbbell
   }
 
   const customStats = [
@@ -25,7 +31,7 @@ export default function SaludClient() {
     },
     {
       icon: Heart,
-      value: '6',
+      value: '12',
       label: 'Herramientas de Salud',
       color: 'green' as const
     },

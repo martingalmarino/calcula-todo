@@ -604,6 +604,38 @@ export const SITE: SiteConfig = {
           icon: 'heart',
           category: 'reproductivo',
           keywords: ['concepción', 'embarazo', 'fecha concepción', 'gestación', 'parto', 'menstruación']
+        },
+        {
+          label: 'Calorías Quemadas en el Deporte',
+          href: '/salud/calorias-deporte/',
+          description: 'Calcula las calorías quemadas en diferentes deportes según tu peso y tiempo de actividad',
+          icon: 'activity',
+          category: 'ejercicio',
+          keywords: ['calorías', 'deporte', 'ejercicio', 'quemar calorías', 'MET', 'correr', 'nadar', 'fútbol', 'ciclismo']
+        },
+        {
+          label: 'Ritmo de Carrera (Pace Calculator)',
+          href: '/salud/ritmo-carrera/',
+          description: 'Calcula tu ritmo por kilómetro y velocidad media en carreras y maratones',
+          icon: 'timer',
+          category: 'running',
+          keywords: ['ritmo', 'carrera', 'pace', 'velocidad', 'kilómetro', 'maratón', 'running', 'tiempo']
+        },
+        {
+          label: 'Velocidad Media en Ciclismo',
+          href: '/salud/velocidad-ciclismo/',
+          description: 'Calcula la velocidad media en bicicleta y estima tiempos en distintas distancias',
+          icon: 'bike',
+          category: 'ciclismo',
+          keywords: ['velocidad', 'ciclismo', 'bicicleta', 'distancia', 'tiempo', 'km/h', 'carrera ciclista']
+        },
+        {
+          label: 'Calculadora de 1RM (One Rep Max)',
+          href: '/salud/1rm/',
+          description: 'Calcula tu máximo de una repetición (1RM) usando las fórmulas de Epley o Brzycki',
+          icon: 'dumbbell',
+          category: 'fuerza',
+          keywords: ['1RM', 'one rep max', 'máximo', 'fuerza', 'peso', 'repeticiones', 'Epley', 'Brzycki', 'gimnasio']
         }
       ]
     },
