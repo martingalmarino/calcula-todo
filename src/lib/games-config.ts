@@ -1,4 +1,4 @@
-import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, Calculator, LucideIcon } from 'lucide-react'
+import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, Calculator, ArrowUpDown, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -177,6 +177,17 @@ export const gamesConfig: GameConfig[] = [
     icon: Calculator,
     difficulty: 'intermedio',
     timeRange: '45s'
+  },
+  {
+    title: 'Ordena los Números',
+    label: 'Ordena los Números',
+    description: 'Ordena números en secuencia ascendente o descendente en tiempo limitado. ¡Desafía tu agilidad mental y sentido numérico!',
+    href: '/juegos-matematicos/ordena-numeros',
+    category: 'Juegos Matemáticos',
+    keywords: ['ordenar números', 'secuencias', 'ascendente', 'descendente', 'agilidad mental', 'sentido numérico', 'ordenamiento'],
+    icon: ArrowUpDown,
+    difficulty: 'intermedio',
+    timeRange: '40s'
   }
 ]
 
