@@ -38,6 +38,20 @@ export const triviasConfig: TriviaConfig[] = [
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/salud/imc'
+  },
+  {
+    id: 'mitos-salud',
+    title: 'Juego de Mitos de Salud',
+    label: 'Juego de Mitos de Salud',
+    description: 'Desmiente creencias comunes sobre salud de forma lúdica. ¿Sabes distinguir entre mitos y realidades?',
+    href: '/trivias/mitos-salud',
+    category: 'Salud',
+    keywords: ['mitos salud', 'creencias', 'verdadero falso', 'nutrición', 'bienestar', 'desmentir'],
+    difficulty: 'intermedio',
+    icon: Shield,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc'
   }
 ]
 
