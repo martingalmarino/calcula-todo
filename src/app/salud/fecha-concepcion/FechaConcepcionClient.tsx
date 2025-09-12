@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Input } from '@/components/ui/input'
-import { Select } from '@/components/ui/select'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { Alert } from '@/components/ui/alert'
 import { Calendar, Clock, Baby } from 'lucide-react'
@@ -171,13 +171,14 @@ export default function FechaConcepcionClient() {
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Método de Cálculo
           </label>
-          <Select
-            value={method}
-            onChange={(e) => setMethod(e.target.value)}
-          >
-            <option value="">Selecciona un método</option>
-            <option value="due-date">Basado en fecha probable de parto</option>
-            <option value="last-period">Basado en fecha de última menstruación</option>
+          <Select value={method} onValueChange={setMethod}>
+            <SelectTrigger>
+              <SelectValue placeholder="Selecciona un método" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="due-date">Basado en fecha probable de parto</SelectItem>
+              <SelectItem value="last-period">Basado en fecha de última menstruación</SelectItem>
+            </SelectContent>
           </Select>
         </div>
 

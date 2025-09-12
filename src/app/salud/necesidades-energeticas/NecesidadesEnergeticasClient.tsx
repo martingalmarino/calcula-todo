@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Input } from '@/components/ui/input'
-import { Select } from '@/components/ui/select'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { Alert } from '@/components/ui/alert'
 import { Activity, Scale, User } from 'lucide-react'
@@ -214,13 +214,14 @@ export default function NecesidadesEnergeticasClient() {
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Género
             </label>
-            <Select
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-            >
-              <option value="">Selecciona género</option>
-              <option value="masculino">Masculino</option>
-              <option value="femenino">Femenino</option>
+            <Select value={gender} onValueChange={setGender}>
+              <SelectTrigger>
+                <SelectValue placeholder="Selecciona género" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="masculino">Masculino</SelectItem>
+                <SelectItem value="femenino">Femenino</SelectItem>
+              </SelectContent>
             </Select>
           </div>
 
@@ -260,16 +261,17 @@ export default function NecesidadesEnergeticasClient() {
             <Activity className="inline w-4 h-4 mr-1" />
             Nivel de Actividad Física
           </label>
-          <Select
-            value={activityLevel}
-            onChange={(e) => setActivityLevel(e.target.value)}
-          >
-            <option value="">Selecciona nivel de actividad</option>
-            {activityLevels.map((level) => (
-              <option key={level.value} value={level.value}>
-                {level.label}
-              </option>
-            ))}
+          <Select value={activityLevel} onValueChange={setActivityLevel}>
+            <SelectTrigger>
+              <SelectValue placeholder="Selecciona nivel de actividad" />
+            </SelectTrigger>
+            <SelectContent>
+              {activityLevels.map((level) => (
+                <SelectItem key={level.value} value={level.value}>
+                  {level.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
           </Select>
         </div>
 
