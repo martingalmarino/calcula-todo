@@ -18,6 +18,7 @@ import {
   Lightbulb,
   Coins,
   TrendingDown,
+  Bone,
   LucideIcon 
 } from 'lucide-react'
 
@@ -236,6 +237,21 @@ export const triviasConfig: TriviaConfig[] = [
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/finanzas/conversion-monedas',
+    isNew: true
+  },
+  {
+    id: 'quiz-huesos-cuerpo-humano',
+    title: 'Quiz sobre los huesos del cuerpo humano',
+    label: 'Quiz sobre los huesos del cuerpo humano',
+    description: 'Aprende sobre la anatomía ósea del cuerpo humano. Descubre cuántos huesos tenemos, cuáles son los más largos y pequeños, y sus funciones principales.',
+    href: '/trivias/quiz-huesos-cuerpo-humano',
+    category: 'Ciencia',
+    keywords: ['huesos', 'anatomía', 'cuerpo humano', 'esqueleto', 'fémur', 'cráneo', 'columna vertebral', 'biología'],
+    difficulty: 'básico',
+    icon: Bone,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc',
     isNew: true
   }
 ]
