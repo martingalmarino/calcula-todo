@@ -3,6 +3,7 @@
 import { CategoryPageLayout } from '@/components/CategoryPageLayout'
 import { getTriviasByCategory, getTriviasStats } from '@/lib/trivias-config'
 import { jsonLdCollection } from '@/lib/seo'
+import { Brain, BookOpen, Zap } from 'lucide-react'
 
 const cienciaTrivias = getTriviasByCategory('Ciencia')
 const stats = getTriviasStats()
@@ -37,9 +38,24 @@ export default function TriviasCienciaClient() {
           difficulties: stats.difficulties
         }}
         customStats={[
-          { label: 'Trivias de Ciencia', value: `${cienciaTrivias.length}` },
-          { label: 'Preguntas Totales', value: `${cienciaTrivias.reduce((sum, trivia) => sum + trivia.totalQuestions, 0)}` },
-          { label: '100% Gratuito', value: 'Siempre' }
+          { 
+            icon: Brain, 
+            label: 'Trivias de Ciencia', 
+            value: `${cienciaTrivias.length}`,
+            color: 'blue' as const
+          },
+          { 
+            icon: BookOpen, 
+            label: 'Preguntas Totales', 
+            value: `${cienciaTrivias.reduce((sum, trivia) => sum + trivia.totalQuestions, 0)}`,
+            color: 'green' as const
+          },
+          { 
+            icon: Zap, 
+            label: '100% Gratuito', 
+            value: 'Siempre',
+            color: 'purple' as const
+          }
         ]}
         faqItems={[
           {
