@@ -1,84 +1,41 @@
 "use client"
 
-import { SITE } from '@/lib/site.config'
-import { Calculator, Circle, Square, Triangle, Heart, DollarSign, Target, Coffee, HardDrive, RectangleHorizontal, Scale, Calendar, Wrench, Zap, BarChart3, FlaskRound, LucideIcon } from 'lucide-react'
+import { SITE_IT } from '@/lib/site-config-it'
+import { Calculator, Circle, Square, Triangle, Heart, DollarSign, Target, Coffee, HardDrive, RectangleHorizontal, Scale, Calendar, Wrench, LucideIcon } from 'lucide-react'
 
 // Mapeo de iconos por categoría
 const categoryIcons: Record<string, LucideIcon> = {
   'matematicas': Calculator,
-  'finanzas': DollarSign,
+  'finanze': DollarSign,
   'marketing': Target,
   'curiosas': Coffee,
   'tecnologia': HardDrive,
   'geometria': Square,
-  'salud': Heart,
+  'salute': Heart,
   'calendario': Calendar,
-  'otras': Wrench,
-  'fisica': Zap,
-  'estadistica': BarChart3,
-  'quimica': FlaskRound
+  'altre': Wrench
 }
 
 // Mapeo de colores por categoría
 const categoryColors: Record<string, string> = {
   'matematicas': 'text-blue-600',
-  'finanzas': 'text-green-600',
+  'finanze': 'text-green-600',
   'marketing': 'text-purple-600',
   'curiosas': 'text-orange-600',
   'tecnologia': 'text-indigo-600',
   'geometria': 'text-pink-600',
-  'salud': 'text-red-600',
+  'salute': 'text-red-600',
   'calendario': 'text-teal-600',
-  'otras': 'text-gray-600',
-  'fisica': 'text-yellow-600',
-  'estadistica': 'text-cyan-600',
-  'quimica': 'text-emerald-600'
-}
-
-// Mapeo de etiquetas en italiano
-const categoryLabelsIT: Record<string, string> = {
-  'matematicas': 'Matematica',
-  'finanzas': 'Finanze',
-  'marketing': 'Marketing',
-  'curiosas': 'Curiose',
-  'tecnologia': 'Tecnologia',
-  'geometria': 'Geometria',
-  'salud': 'Salute',
-  'calendario': 'Calendario',
-  'otras': 'Altre',
-  'fisica': 'Fisica',
-  'estadistica': 'Statistica',
-  'quimica': 'Chimica'
-}
-
-// Mapeo de URLs en italiano
-const categoryUrlsIT: Record<string, string> = {
-  'matematicas': '/it/matematicas',
-  'finanzas': '/it/finanze',
-  'marketing': '/it/marketing',
-  'curiosas': '/it/curiosas',
-  'tecnologia': '/it/tecnologia',
-  'geometria': '/it/geometria',
-  'salud': '/it/salute',
-  'calendario': '/it/calendario',
-  'otras': '/it/altre',
-  'fisica': '/it/fisica',
-  'estadistica': '/it/statistica',
-  'quimica': '/it/chimica'
+  'altre': 'text-gray-600'
 }
 
 export function CategoryClusterIT() {
-  // Filtrar categorías excluyendo estadistica y quimica
-  const excludedCategories = ['estadistica', 'quimica']
-  
-  const categories = Object.entries(SITE.clusters)
-    .filter(([key]) => !excludedCategories.includes(key))
+  // Usar la configuración específica de italiano
+  const categories = Object.entries(SITE_IT.clusters)
     .map(([key, cluster]) => ({
       key,
       ...cluster,
-      calculatorCount: cluster.calculators.length,
-      labelIT: categoryLabelsIT[key] || cluster.label,
-      urlIT: categoryUrlsIT[key] || cluster.href
+      calculatorCount: cluster.calculators.length
     }))
 
   return (
@@ -90,7 +47,7 @@ export function CategoryClusterIT() {
         return (
           <a
             key={category.key}
-            href={category.urlIT}
+            href={category.href}
             className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:shadow-md hover:border-gray-300 transition-all duration-200 group"
           >
             <div className="flex flex-col items-center space-y-3">
@@ -99,7 +56,7 @@ export function CategoryClusterIT() {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 text-sm mb-1">
-                  {category.labelIT}
+                  {category.label}
                 </h3>
                 <p className="text-xs text-gray-500">
                   {category.calculatorCount} calcolatrici
