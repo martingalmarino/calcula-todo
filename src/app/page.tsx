@@ -160,12 +160,6 @@ export default function HomePage() {
                   description: "Interfaz intuitiva y amigable para usuarios de todos los niveles",
                   icon: "🎯",
                   bgColor: "bg-purple-100"
-                },
-                {
-                  title: "Sin Registro",
-                  description: "Usa todas las calculadoras sin necesidad de crear una cuenta",
-                  icon: "🚀",
-                  bgColor: "bg-orange-100"
                 }
               ]}
             />
