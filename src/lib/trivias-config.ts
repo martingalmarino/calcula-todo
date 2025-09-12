@@ -16,6 +16,7 @@ import {
   Recycle,
   Leaf,
   Lightbulb,
+  Coins,
   LucideIcon 
 } from 'lucide-react'
 
@@ -204,6 +205,21 @@ export const triviasConfig: TriviaConfig[] = [
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/otras/calculadora-propinas',
+    isNew: true
+  },
+  {
+    id: 'quiz-monedas-tipos-cambio',
+    title: 'Quiz de Monedas y Tipos de Cambio',
+    label: 'Quiz de Monedas y Tipos de Cambio',
+    description: 'Aprende sobre las monedas oficiales de diferentes países del mundo. Descubre qué países usan qué monedas y expande tu conocimiento geográfico.',
+    href: '/trivias/quiz-monedas-tipos-cambio',
+    category: 'Finanzas',
+    keywords: ['monedas', 'tipos de cambio', 'geografía', 'países', 'economía', 'divisas', 'finanzas internacionales'],
+    difficulty: 'básico',
+    icon: Coins,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/finanzas/conversion-monedas',
     isNew: true
   }
 ]
