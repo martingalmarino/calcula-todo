@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Select } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { Alert } from '@/components/ui/alert'
-import { Zap, Activity, Scale, User } from 'lucide-react'
+import { Activity, Scale, User } from 'lucide-react'
 
 interface NEDResult {
   ned: number
@@ -191,8 +191,6 @@ export default function NecesidadesEnergeticasClient() {
     <CalculatorLayout
       title="Calculadora de Necesidades Energéticas Diarias (NED)"
       description="Calcula tus necesidades energéticas diarias para mantener el equilibrio energético según tu edad, género, peso, altura y nivel de actividad física."
-      icon={Zap}
-      category="Salud"
     >
       <div className="space-y-6">
         {/* Inputs */}

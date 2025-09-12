@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Select } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { Alert } from '@/components/ui/alert'
-import { Heart, Calendar, Clock, Baby } from 'lucide-react'
+import { Calendar, Clock, Baby } from 'lucide-react'
 
 interface ConceptionResult {
   conceptionDate: Date
@@ -164,8 +164,6 @@ export default function FechaConcepcionClient() {
     <CalculatorLayout
       title="Calculadora de Fecha de Concepción de Embarazo"
       description="Calcula la fecha probable de concepción basándose en la fecha de parto o en la fecha de tu última menstruación."
-      icon={Heart}
-      category="Salud"
     >
       <div className="space-y-6">
         {/* Method Selection */}
