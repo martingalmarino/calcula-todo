@@ -142,6 +142,29 @@ export default function ItalianHomePage() {
               </div>
             </div>
 
+            {/* Category Cluster Section */}
+            <div className="mt-8 py-8">
+              <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                    Tutte le Categorie
+                  </h2>
+                  <p className="text-gray-600 text-lg">
+                    Esplora le nostre calcolatrici organizzate per categorie
+                  </p>
+                </div>
+                
+                <CategoryClusterIT />
+              </div>
+            </div>
+
+            {/* Popular Calculators Pills Section */}
+            <div className="mt-8 py-8 bg-gray-50">
+              <div className="max-w-7xl mx-auto px-4">
+                <PopularCalculatorsPillsIT />
+              </div>
+            </div>
+
             {/* Promotional Block */}
             <PromotionalBlock
               title="Perché scegliere le nostre calcolatrici?"
@@ -167,29 +190,6 @@ export default function ItalianHomePage() {
                 }
               ]}
             />
-
-            {/* Category Cluster Section */}
-            <div className="mt-8 py-8">
-              <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                    Tutte le Categorie
-                  </h2>
-                  <p className="text-gray-600 text-lg">
-                    Esplora le nostre calcolatrici organizzate per categorie
-                  </p>
-                </div>
-                
-                <CategoryClusterIT />
-              </div>
-            </div>
-
-            {/* Popular Calculators Pills Section */}
-            <div className="mt-8 py-8 bg-gray-50">
-              <div className="max-w-7xl mx-auto px-4">
-                <PopularCalculatorsPillsIT />
-              </div>
-            </div>
           </div>
         </Container>
       </div>
