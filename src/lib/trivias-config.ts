@@ -10,6 +10,7 @@ import {
   Moon,
   Activity,
   Monitor,
+  Lock,
   LucideIcon 
 } from 'lucide-react'
 
@@ -112,6 +113,20 @@ export const triviasConfig: TriviaConfig[] = [
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/salud/calorias'
+  },
+  {
+    id: 'contrasenas-seguras',
+    title: 'Quiz de Contraseñas Seguras',
+    label: 'Quiz de Contraseñas Seguras',
+    description: 'Aprende sobre ciberseguridad y buenas prácticas para crear contraseñas seguras. Descubre cómo proteger tus cuentas digitales de forma efectiva.',
+    href: '/trivias/contrasenas-seguras',
+    category: 'Tecnología',
+    keywords: ['contraseñas', 'seguridad', 'ciberseguridad', 'protección', 'cuentas', 'digital', 'privacy'],
+    difficulty: 'básico',
+    icon: Lock,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/tecnologia/analisis-contraseñas'
   }
 ]
 
