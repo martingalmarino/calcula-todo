@@ -199,7 +199,7 @@ export default function FechaConcepcionClient() {
   const handleExampleClick = (values: Record<string, unknown>) => {
     setMethod(String(values.method || ''))
     if (values.method === 'last-period') {
-      setLastPeriodDate(String(values.lastPeriodDate || ''))
+      setLastPeriod(String(values.lastPeriodDate || ''))
     } else if (values.method === 'due-date') {
       setDueDate(String(values.dueDate || ''))
     }
