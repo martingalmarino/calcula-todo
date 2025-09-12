@@ -15,7 +15,6 @@ const navigationItems = [
   { label: "Geometría", href: "/geometria", hasDropdown: true },
   { label: "Calendario", href: "/calendario", hasDropdown: true },
   { label: "Otras", href: "/otras", hasDropdown: true },
-  { label: "Trivias", href: "/trivias", hasDropdown: false },
 ]
 
 export function Header() {

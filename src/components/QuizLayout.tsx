@@ -70,34 +70,34 @@ export function QuizLayout({
 
   if (showIntroduction) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-100">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
         <div className="container mx-auto px-4 py-8 max-w-4xl">
           <div className="text-center space-y-8">
             {/* Header */}
             <div className="space-y-4">
-              <h1 className="text-3xl md:text-4xl font-bold text-green-900">{title}</h1>
-              <p className="text-lg text-green-700 max-w-2xl mx-auto">{description}</p>
+              <h1 className="text-3xl md:text-4xl font-bold text-blue-900">{title}</h1>
+              <p className="text-lg text-blue-700 max-w-2xl mx-auto">{description}</p>
             </div>
             {/* Feature Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
               <Card className="calculator-card">
                 <CardContent className="p-6 text-center">
-                  <Clock className="h-8 w-8 mx-auto mb-3 text-green-600" />
-                  <h3 className="font-semibold text-green-900 mb-2">5 Minutos</h3>
+                  <Clock className="h-8 w-8 mx-auto mb-3 text-blue-600" />
+                  <h3 className="font-semibold text-blue-900 mb-2">5 Minutos</h3>
                   <p className="text-sm text-gray-600">Tiempo límite por quiz</p>
                 </CardContent>
               </Card>
               <Card className="calculator-card">
                 <CardContent className="p-6 text-center">
-                  <Trophy className="h-8 w-8 mx-auto mb-3 text-green-600" />
-                  <h3 className="font-semibold text-green-900 mb-2">Conocimiento</h3>
+                  <Trophy className="h-8 w-8 mx-auto mb-3 text-blue-600" />
+                  <h3 className="font-semibold text-blue-900 mb-2">Conocimiento</h3>
                   <p className="text-sm text-gray-600">Pon a prueba tu sabiduría</p>
                 </CardContent>
               </Card>
               <Card className="calculator-card">
                 <CardContent className="p-6 text-center">
-                  <Brain className="h-8 w-8 mx-auto mb-3 text-green-600" />
-                  <h3 className="font-semibold text-green-900 mb-2">{totalQuestions} Preguntas</h3>
+                  <Brain className="h-8 w-8 mx-auto mb-3 text-blue-600" />
+                  <h3 className="font-semibold text-blue-900 mb-2">{totalQuestions} Preguntas</h3>
                   <p className="text-sm text-gray-600">Aprende mientras juegas</p>
                 </CardContent>
               </Card>
@@ -114,21 +114,21 @@ export function QuizLayout({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
       <div className="container mx-auto px-4 py-4 max-w-4xl">
         {/* Header compacto - Mobile optimized */}
         <div className="flex justify-between items-center mb-6 bg-white rounded-lg p-4 shadow-sm">
           <div className="flex items-center gap-2">
-            <div className="bg-green-100 p-2 rounded-full">
-              <Trophy className="h-4 w-4 text-green-600" />
+            <div className="bg-blue-100 p-2 rounded-full">
+              <Trophy className="h-4 w-4 text-blue-600" />
             </div>
-            <span className="font-semibold text-green-900">Puntos: {score}</span>
+            <span className="font-semibold text-blue-900">Puntos: {score}</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className={`p-2 rounded-full ${timeLeft <= 60 ? 'bg-red-100' : 'bg-green-100'}`}>
-              <Clock className={`h-4 w-4 ${timeLeft <= 60 ? 'text-red-600' : 'text-green-600'}`} />
+            <div className={`p-2 rounded-full ${timeLeft <= 60 ? 'bg-red-100' : 'bg-blue-100'}`}>
+              <Clock className={`h-4 w-4 ${timeLeft <= 60 ? 'text-red-600' : 'text-blue-600'}`} />
             </div>
-            <span className={`font-bold text-lg ${timeLeft <= 60 ? 'text-red-600' : 'text-green-600'}`}>
+            <span className={`font-bold text-lg ${timeLeft <= 60 ? 'text-red-600' : 'text-blue-600'}`}>
               {formatTime(timeLeft)}
             </span>
           </div>
@@ -189,13 +189,13 @@ export function QuizLayout({
 
         {/* Quiz Result - Sin overlay, inline */}
         {quizResult && (
-          <Card className="calculator-card mt-6 border-green-200 bg-green-50">
+          <Card className="calculator-card mt-6 border-blue-200 bg-blue-50">
             <CardContent className="p-6 text-center">
               <div className="text-4xl mb-4">{quizResult.emoji}</div>
-              <h3 className="text-xl font-bold text-green-800 mb-2">
+              <h3 className="text-xl font-bold text-blue-800 mb-2">
                 ¡Quiz Completado!
               </h3>
-              <p className="text-green-700 mb-4">
+              <p className="text-blue-700 mb-4">
                 Puntuación: {quizResult.points} puntos - Nivel: {getRankInfo(quizResult.points).rank}
               </p>
               <div className="space-y-3">
@@ -228,7 +228,7 @@ export function QuizLayout({
         {/* Trivias Relacionadas */}
         {relatedTrivias.length > 0 && (
           <div className="mt-8">
-            <h3 className="text-xl font-bold text-green-900 mb-4 text-center">
+            <h3 className="text-xl font-bold text-blue-900 mb-4 text-center">
               Otras Trivias Interesantes
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -239,11 +239,11 @@ export function QuizLayout({
                     <Card className="calculator-card hover:shadow-lg transition-shadow cursor-pointer">
                       <CardContent className="p-4">
                         <div className="flex items-center gap-3">
-                          <div className="bg-green-100 p-2 rounded-lg">
-                            <IconComponent className="h-5 w-5 text-green-600" />
+                          <div className="bg-blue-100 p-2 rounded-lg">
+                            <IconComponent className="h-5 w-5 text-blue-600" />
                           </div>
                           <div>
-                            <h4 className="font-semibold text-green-900">{trivia.title}</h4>
+                            <h4 className="font-semibold text-blue-900">{trivia.title}</h4>
                             <p className="text-sm text-gray-600">{trivia.description}</p>
                           </div>
                         </div>

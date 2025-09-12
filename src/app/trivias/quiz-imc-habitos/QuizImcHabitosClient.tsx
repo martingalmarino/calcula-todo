@@ -231,7 +231,7 @@ export default function QuizImcHabitosClient() {
           <div className="w-full">
             {/* Question */}
             <div className="text-center mb-6">
-              <h2 className="text-xl font-semibold text-green-900 mb-4">
+              <h2 className="text-xl font-semibold text-blue-900 mb-4">
                 {currentQuestion.question}
               </h2>
               {currentQuestion.explanation && feedback && (
@@ -251,7 +251,7 @@ export default function QuizImcHabitosClient() {
                     className={`w-full py-3 text-left justify-start transition-all duration-200 ${
                       selectedAnswer === option
                         ? (feedback === 'correct' ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600')
-                        : 'bg-green-500 hover:bg-green-600'
+                        : 'bg-blue-500 hover:bg-blue-600'
                     }`}
                     disabled={!isActive || feedback !== null || answeredQuestions.has(currentQuestion.id)}
                   >
@@ -266,7 +266,7 @@ export default function QuizImcHabitosClient() {
                     className={`py-3 transition-all duration-200 ${
                       selectedAnswer === true
                         ? (feedback === 'correct' ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600')
-                        : 'bg-green-500 hover:bg-green-600'
+                        : 'bg-blue-500 hover:bg-blue-600'
                     }`}
                     disabled={!isActive || feedback !== null || answeredQuestions.has(currentQuestion.id)}
                   >
@@ -277,7 +277,7 @@ export default function QuizImcHabitosClient() {
                     className={`py-3 transition-all duration-200 ${
                       selectedAnswer === false
                         ? (feedback === 'correct' ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600')
-                        : 'bg-green-500 hover:bg-green-600'
+                        : 'bg-blue-500 hover:bg-blue-600'
                     }`}
                     disabled={!isActive || feedback !== null || answeredQuestions.has(currentQuestion.id)}
                   >
