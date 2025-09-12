@@ -20,6 +20,7 @@ import {
   TrendingDown,
   Bone,
   Microscope,
+  Ruler,
   LucideIcon 
 } from 'lucide-react'
 
@@ -265,6 +266,21 @@ export const triviasConfig: TriviaConfig[] = [
     keywords: ['científicos', 'historia', 'descubrimientos', 'Einstein', 'Newton', 'Darwin', 'Marie Curie', 'Galileo', 'física', 'química', 'biología'],
     difficulty: 'intermedio',
     icon: Microscope,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc',
+    isNew: true
+  },
+  {
+    id: 'quiz-unidades-medida',
+    title: 'Quiz sobre unidades de medida',
+    label: 'Quiz sobre unidades de medida',
+    description: 'Aprende sobre el Sistema Internacional de Unidades y los instrumentos de medición. Descubre las unidades básicas de longitud, masa, volumen y más.',
+    href: '/trivias/quiz-unidades-medida',
+    category: 'Ciencia',
+    keywords: ['unidades', 'medida', 'Sistema Internacional', 'SI', 'metro', 'kilogramo', 'litro', 'instrumentos', 'medición', 'física', 'química'],
+    difficulty: 'básico',
+    icon: Ruler,
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/salud/imc',
