@@ -11,7 +11,7 @@ const structuredData = jsonLdCollection({
   name: 'Trivias de Ciencia',
   description: 'Trivias educativas sobre ciencia, anatomía, biología y más. Aprende sobre el cuerpo humano, huesos, órganos y sistemas biológicos.',
   url: '/trivias/ciencia',
-  items: cienciaTrivias.map(trivia => ({
+  calculators: cienciaTrivias.map(trivia => ({
     name: trivia.title,
     description: trivia.description,
     url: `https://www.calculatodo.online${trivia.href}`
