@@ -90,7 +90,7 @@ export default function QuizGrandesCientificosClient() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [score, setScore] = useState(0)
   const [timeLeft, setTimeLeft] = useState(300) // 5 minutos
-  const [gameState, setGameState] = useState<'playing' | 'finished'>('playing')
+  const [gameState, setGameState] = useState<'intro' | 'playing' | 'finished'>('intro')
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [showFeedback, setShowFeedback] = useState(false)
   const currentQuestion = questions[currentQuestionIndex]
@@ -142,11 +142,15 @@ export default function QuizGrandesCientificosClient() {
     }, 2000)
   }, [selectedAnswer, showFeedback, currentQuestion.correctAnswer, currentQuestion.id, currentQuestionIndex, totalQuestions])
 
+  const startQuiz = useCallback(() => {
+    setGameState('playing')
+  }, [])
+
   const resetGame = useCallback(() => {
     setCurrentQuestionIndex(0)
     setScore(0)
     setTimeLeft(300)
-    setGameState('playing')
+    setGameState('intro')
     setSelectedAnswer(null)
     setShowFeedback(false)
   }, [])
@@ -190,14 +194,14 @@ export default function QuizGrandesCientificosClient() {
       title="Quiz de grandes científicos"
       description="Descubre los científicos más importantes de la historia y sus contribuciones que cambiaron el mundo de la ciencia."
       introduction={introduction}
-      onStart={() => {}}
+      onStart={startQuiz}
       onReset={resetGame}
       isActive={gameState === 'playing'}
       timeLeft={timeLeft}
       score={score}
       feedback={null}
       quizResult={quizResult}
-      showIntroduction={false}
+      showIntroduction={gameState === 'intro'}
       currentQuestion={currentQuestionIndex + 1}
       totalQuestions={totalQuestions}
       currentTriviaPath="/trivias/quiz-grandes-cientificos"
