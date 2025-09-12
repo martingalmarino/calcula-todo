@@ -1,0 +1,337 @@
+"use client"
+
+import { useState, useCallback } from 'react'
+import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Input } from '@/components/Input'
+import { Select } from '@/components/Select'
+import { Button } from '@/components/Button'
+import { Alert } from '@/components/Alert'
+import { Zap, Activity, Scale, User } from 'lucide-react'
+
+interface NEDResult {
+  ned: number
+  category: string
+  description: string
+  color: string
+  recommendations: string[]
+}
+
+export default function NecesidadesEnergeticasClient() {
+  const [age, setAge] = useState<string>('')
+  const [gender, setGender] = useState<string>('')
+  const [weight, setWeight] = useState<string>('')
+  const [height, setHeight] = useState<string>('')
+  const [activityLevel, setActivityLevel] = useState<string>('')
+  const [result, setResult] = useState<NEDResult | null>(null)
+  const [error, setError] = useState<string>('')
+
+  const activityLevels = [
+    { value: 'sedentario', label: 'Sedentario (poco o ningún ejercicio)' },
+    { value: 'ligero', label: 'Actividad ligera (ejercicio ligero 1-3 días/semana)' },
+    { value: 'moderado', label: 'Actividad moderada (ejercicio moderado 3-5 días/semana)' },
+    { value: 'intenso', label: 'Actividad intensa (ejercicio intenso 6-7 días/semana)' },
+    { value: 'muy-intenso', label: 'Actividad muy intensa (ejercicio muy intenso, trabajo físico)' }
+  ]
+
+  const calculateNED = useCallback(() => {
+    setError('')
+    setResult(null)
+
+    // Validaciones
+    if (!age || !gender || !weight || !height || !activityLevel) {
+      setError('Por favor, completa todos los campos')
+      return
+    }
+
+    const ageNum = parseFloat(age)
+    const weightNum = parseFloat(weight)
+    const heightNum = parseFloat(height)
+
+    if (ageNum < 1 || ageNum > 120) {
+      setError('La edad debe estar entre 1 y 120 años')
+      return
+    }
+
+    if (weightNum < 10 || weightNum > 300) {
+      setError('El peso debe estar entre 10 y 300 kg')
+      return
+    }
+
+    if (heightNum < 50 || heightNum > 250) {
+      setError('La altura debe estar entre 50 y 250 cm')
+      return
+    }
+
+    // Cálculo del NED usando las ecuaciones de la FAO/WHO/UNU
+    let ned: number
+
+    if (ageNum >= 18) {
+      // Adultos (18+ años)
+      if (gender === 'masculino') {
+        // Ecuación de Mifflin-St Jeor para hombres
+        const bmr = 10 * weightNum + 6.25 * heightNum - 5 * ageNum + 5
+        const activityMultipliers = {
+          'sedentario': 1.2,
+          'ligero': 1.375,
+          'moderado': 1.55,
+          'intenso': 1.725,
+          'muy-intenso': 1.9
+        }
+        ned = bmr * activityMultipliers[activityLevel as keyof typeof activityMultipliers]
+      } else {
+        // Ecuación de Mifflin-St Jeor para mujeres
+        const bmr = 10 * weightNum + 6.25 * heightNum - 5 * ageNum - 161
+        const activityMultipliers = {
+          'sedentario': 1.2,
+          'ligero': 1.375,
+          'moderado': 1.55,
+          'intenso': 1.725,
+          'muy-intenso': 1.9
+        }
+        ned = bmr * activityMultipliers[activityLevel as keyof typeof activityMultipliers]
+      }
+    } else {
+      // Niños y adolescentes (1-17 años)
+      if (gender === 'masculino') {
+        if (ageNum >= 1 && ageNum <= 3) {
+          ned = 88.5 - (61.9 * ageNum) + (1.0 * weightNum) + (1.0 * heightNum)
+        } else if (ageNum >= 4 && ageNum <= 10) {
+          ned = 22.7 + (17.5 * weightNum) + (6.0 * heightNum)
+        } else if (ageNum >= 11 && ageNum <= 17) {
+          ned = 17.5 + (12.2 * weightNum) + (5.0 * heightNum)
+        } else {
+          ned = 0
+        }
+      } else {
+        if (ageNum >= 1 && ageNum <= 3) {
+          ned = 88.5 - (61.9 * ageNum) + (1.0 * weightNum) + (1.0 * heightNum)
+        } else if (ageNum >= 4 && ageNum <= 10) {
+          ned = 22.5 + (12.2 * weightNum) + (5.0 * heightNum)
+        } else if (ageNum >= 11 && ageNum <= 17) {
+          ned = 7.4 + (12.2 * weightNum) + (5.0 * heightNum)
+        } else {
+          ned = 0
+        }
+      }
+    }
+
+    // Clasificación del resultado
+    let category: string
+    let description: string
+    let color: string
+    let recommendations: string[]
+
+    if (ned < 1200) {
+      category = 'Muy Bajo'
+      description = 'Las necesidades energéticas son muy bajas. Consulta con un profesional de la salud.'
+      color = 'text-red-600'
+      recommendations = [
+        'Consulta con un nutricionista o médico',
+        'Evalúa tu estado de salud general',
+        'Considera aumentar la actividad física gradualmente'
+      ]
+    } else if (ned < 1500) {
+      category = 'Bajo'
+      description = 'Necesidades energéticas bajas, típicas de personas sedentarias o con bajo peso.'
+      color = 'text-orange-600'
+      recommendations = [
+        'Considera aumentar la actividad física',
+        'Asegúrate de consumir alimentos nutritivos',
+        'Mantén un peso saludable'
+      ]
+    } else if (ned < 2500) {
+      category = 'Normal'
+      description = 'Necesidades energéticas dentro del rango normal para tu perfil.'
+      color = 'text-green-600'
+      recommendations = [
+        'Mantén una dieta equilibrada',
+        'Continúa con tu nivel de actividad actual',
+        'Monitorea tu peso regularmente'
+      ]
+    } else if (ned < 3500) {
+      category = 'Alto'
+      description = 'Necesidades energéticas altas, típicas de personas muy activas o con alta masa muscular.'
+      color = 'text-blue-600'
+      recommendations = [
+        'Asegúrate de consumir suficientes calorías',
+        'Mantén una dieta rica en nutrientes',
+        'Considera suplementos si es necesario'
+      ]
+    } else {
+      category = 'Muy Alto'
+      description = 'Necesidades energéticas muy altas, típicas de atletas de élite o personas con trabajo muy físico.'
+      color = 'text-purple-600'
+      recommendations = [
+        'Consulta con un nutricionista deportivo',
+        'Planifica comidas frecuentes y nutritivas',
+        'Considera suplementos deportivos'
+      ]
+    }
+
+    setResult({
+      ned: Math.round(ned),
+      category,
+      description,
+      color,
+      recommendations
+    })
+  }, [age, gender, weight, height, activityLevel])
+
+  const resetCalculator = useCallback(() => {
+    setAge('')
+    setGender('')
+    setWeight('')
+    setHeight('')
+    setActivityLevel('')
+    setResult(null)
+    setError('')
+  }, [])
+
+  return (
+    <CalculatorLayout
+      title="Calculadora de Necesidades Energéticas Diarias (NED)"
+      description="Calcula tus necesidades energéticas diarias para mantener el equilibrio energético según tu edad, género, peso, altura y nivel de actividad física."
+      icon={Zap}
+      category="Salud"
+    >
+      <div className="space-y-6">
+        {/* Inputs */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              <User className="inline w-4 h-4 mr-1" />
+              Edad (años)
+            </label>
+            <Input
+              type="number"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+              placeholder="Ej: 25"
+              min="1"
+              max="120"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Género
+            </label>
+            <Select
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <option value="">Selecciona género</option>
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+            </Select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              <Scale className="inline w-4 h-4 mr-1" />
+              Peso (kg)
+            </label>
+            <Input
+              type="number"
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+              placeholder="Ej: 70"
+              min="10"
+              max="300"
+              step="0.1"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Altura (cm)
+            </label>
+            <Input
+              type="number"
+              value={height}
+              onChange={(e) => setHeight(e.target.value)}
+              placeholder="Ej: 175"
+              min="50"
+              max="250"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            <Activity className="inline w-4 h-4 mr-1" />
+            Nivel de Actividad Física
+          </label>
+          <Select
+            value={activityLevel}
+            onChange={(e) => setActivityLevel(e.target.value)}
+          >
+            <option value="">Selecciona nivel de actividad</option>
+            {activityLevels.map((level) => (
+              <option key={level.value} value={level.value}>
+                {level.label}
+              </option>
+            ))}
+          </Select>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex gap-4">
+          <Button onClick={calculateNED} className="flex-1">
+            Calcular NED
+          </Button>
+          <Button onClick={resetCalculator} variant="outline">
+            Limpiar
+          </Button>
+        </div>
+
+        {/* Error */}
+        {error && (
+          <Alert variant="destructive">
+            {error}
+          </Alert>
+        )}
+
+        {/* Result */}
+        {result && (
+          <div className="bg-white border border-gray-200 rounded-lg p-6 space-y-4">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Necesidades Energéticas Diarias
+              </h3>
+              <div className="text-4xl font-bold text-blue-600 mb-2">
+                {result.ned.toLocaleString()} kcal/día
+              </div>
+              <div className={`text-lg font-semibold ${result.color}`}>
+                {result.category}
+              </div>
+              <p className="text-gray-600 mt-2">
+                {result.description}
+              </p>
+            </div>
+
+            <div className="border-t pt-4">
+              <h4 className="font-semibold text-gray-900 mb-3">Recomendaciones:</h4>
+              <ul className="space-y-2">
+                {result.recommendations.map((rec, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-blue-500 mr-2">•</span>
+                    <span className="text-gray-700">{rec}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <h4 className="font-semibold text-blue-900 mb-2">Información Importante:</h4>
+              <p className="text-blue-800 text-sm">
+                Las necesidades energéticas diarias (NED) son estimaciones basadas en ecuaciones estándar. 
+                Para casos específicos, embarazo, lactancia o condiciones médicas, consulta con un profesional de la salud.
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+    </CalculatorLayout>
+  )
+}

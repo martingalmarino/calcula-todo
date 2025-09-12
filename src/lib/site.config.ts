@@ -155,6 +155,14 @@ export const SITE: SiteConfig = {
           icon: 'logarithm',
           category: 'logaritmos',
           keywords: ['logaritmos', 'base', 'natural', 'decimal', 'cambio de base']
+        },
+        {
+          label: 'Coeficiente Binomial',
+          href: '/matematicas/coeficiente-binomial/',
+          description: 'Calcular el coeficiente binomial C(n,k) para combinaciones y probabilidades',
+          icon: 'function',
+          category: 'combinatoria',
+          keywords: ['coeficiente binomial', 'combinaciones', 'C(n,k)', 'probabilidad', 'matemáticas discretas']
         }
       ],
       subcategories: [
@@ -580,6 +588,22 @@ export const SITE: SiteConfig = {
           icon: 'calendar',
           category: 'reproductivo',
           keywords: ['ovulación', 'días fértiles', 'ciclo menstrual', 'fertilidad', 'planificación']
+        },
+        {
+          label: 'Necesidades Energéticas Diarias',
+          href: '/salud/necesidades-energeticas/',
+          description: 'Calcula tus necesidades energéticas diarias (NED) para mantener el equilibrio energético',
+          icon: 'zap',
+          category: 'nutrición',
+          keywords: ['necesidades energéticas', 'NED', 'EER', 'calorías diarias', 'metabolismo', 'energía']
+        },
+        {
+          label: 'Fecha de Concepción de Embarazo',
+          href: '/salud/fecha-concepcion/',
+          description: 'Calcula la fecha probable de concepción basándose en la fecha de parto o última menstruación',
+          icon: 'heart',
+          category: 'reproductivo',
+          keywords: ['concepción', 'embarazo', 'fecha concepción', 'gestación', 'parto', 'menstruación']
         }
       ]
     },
