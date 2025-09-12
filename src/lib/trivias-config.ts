@@ -56,11 +56,28 @@ export const triviasConfig: TriviaConfig[] = [
 ]
 
 export function getTriviasStats() {
+  const totalTrivias = triviasConfig.length
+  const totalQuestions = triviasConfig.reduce((sum, trivia) => sum + trivia.totalQuestions, 0)
+  const categories = [...new Set(triviasConfig.map(trivia => trivia.category))]
+  
+  // Calcular rango de tiempo dinámicamente
+  const timeLimits = triviasConfig.map(trivia => trivia.timeLimit)
+  const minTime = Math.min(...timeLimits) / 60
+  const maxTime = Math.max(...timeLimits) / 60
+  const timeRangeDisplay = minTime === maxTime 
+    ? `${minTime} min` 
+    : `${minTime}-${maxTime} min`
+  
+  // Calcular dificultades disponibles
+  const difficulties = [...new Set(triviasConfig.map(trivia => trivia.difficulty))]
+  
   return {
-    totalTrivias: triviasConfig.length,
-    totalQuestions: triviasConfig.reduce((sum, trivia) => sum + trivia.totalQuestions, 0),
-    timeRangeDisplay: '5-10 min',
-    categories: [...new Set(triviasConfig.map(trivia => trivia.category))]
+    totalTrivias,
+    totalQuestions,
+    timeRangeDisplay,
+    categories,
+    difficulties,
+    avgQuestionsPerTrivia: Math.round(totalQuestions / totalTrivias)
   }
 }
 
@@ -69,4 +86,16 @@ export function getRelatedTrivias(currentTriviaId: string, limit: number = 2): T
     .filter(trivia => trivia.id !== currentTriviaId)
     .sort(() => Math.random() - 0.5)
     .slice(0, limit)
+}
+
+export function getTriviasByCategory(category: string): TriviaConfig[] {
+  return triviasConfig.filter(trivia => trivia.category === category)
+}
+
+export function getTriviasByDifficulty(difficulty: 'básico' | 'intermedio' | 'avanzado'): TriviaConfig[] {
+  return triviasConfig.filter(trivia => trivia.difficulty === difficulty)
+}
+
+export function getTriviaById(id: string): TriviaConfig | undefined {
+  return triviasConfig.find(trivia => trivia.id === id)
 }

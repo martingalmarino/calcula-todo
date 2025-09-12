@@ -38,18 +38,18 @@ export default function TriviasClient() {
       icon: Brain,
       value: stats.totalTrivias.toString(),
       label: 'Trivias Disponibles',
-      color: 'green' as const
+      color: 'blue' as const
     },
     {
       icon: Clock,
       value: stats.timeRangeDisplay,
       label: 'Por Quiz',
-      color: 'blue' as const
+      color: 'green' as const
     },
     {
       icon: Trophy,
-      value: '100%',
-      label: 'Gratuito',
+      value: `${stats.totalQuestions} preguntas`,
+      label: 'Total de Preguntas',
       color: 'purple' as const
     }
   ]
@@ -60,11 +60,15 @@ export default function TriviasClient() {
   const faqItems = [
     {
       question: "¿Cómo funcionan las trivias educativas?",
-      answer: `Cada trivia tiene una duración de ${stats.timeRangeDisplay} donde debes responder preguntas sobre diferentes temas. Cada respuesta correcta suma puntos y al final obtienes un ranking según tu rendimiento.`
+      answer: `Cada trivia tiene una duración de ${stats.timeRangeDisplay} donde debes responder ${stats.avgQuestionsPerTrivia} preguntas en promedio sobre diferentes temas. Cada respuesta correcta suma puntos y al final obtienes un ranking según tu rendimiento.`
     },
     {
       question: "¿Qué temas cubren las trivias?",
       answer: `Tenemos ${stats.totalTrivias} trivias diferentes sobre: ${categories.join(', ')}. Cada una está diseñada para enseñar conceptos importantes de forma entretenida.`
+    },
+    {
+      question: "¿Qué niveles de dificultad hay disponibles?",
+      answer: `Ofrecemos trivias de ${stats.difficulties.join(', ')}. Puedes elegir según tu nivel de conocimiento y experiencia.`
     },
     {
       question: "¿Las trivias son apropiadas para todas las edades?",
