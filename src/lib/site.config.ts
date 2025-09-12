@@ -708,6 +708,61 @@ export const SITE: SiteConfig = {
           keywords: ['clicks', 'CPS', 'velocidad', 'juegos', 'test', 'destreza']
         }
       ]
+    },
+    fisica: {
+      label: 'Física',
+      href: '/fisica/',
+      description: 'Calculadoras de física para resolver problemas de mecánica, electricidad, energía y gravitación con fórmulas fundamentales.',
+      calculators: [
+        {
+          label: 'Velocidad',
+          href: '/fisica/velocidad/',
+          description: 'Calcula velocidad promedio con distancia y tiempo en diferentes unidades (m/s, km/h)',
+          icon: 'zap',
+          category: 'mecánica',
+          keywords: ['velocidad', 'distancia', 'tiempo', 'm/s', 'km/h', 'movimiento']
+        },
+        {
+          label: 'Fuerza',
+          href: '/fisica/fuerza/',
+          description: 'Calcula fuerza aplicando la segunda ley de Newton (F = m·a) en Newtons',
+          icon: 'zap',
+          category: 'mecánica',
+          keywords: ['fuerza', 'masa', 'aceleración', 'newton', 'segunda ley', 'F=ma']
+        },
+        {
+          label: 'Energía Cinética',
+          href: '/fisica/energia-cinetica/',
+          description: 'Calcula energía cinética usando la fórmula Ec = ½·m·v² en Joules',
+          icon: 'zap',
+          category: 'energía',
+          keywords: ['energía cinética', 'masa', 'velocidad', 'joules', 'cinética']
+        },
+        {
+          label: 'Potencia',
+          href: '/fisica/potencia/',
+          description: 'Calcula potencia dividiendo trabajo entre tiempo (P = W/t) en Watts',
+          icon: 'zap',
+          category: 'energía',
+          keywords: ['potencia', 'trabajo', 'tiempo', 'watts', 'energía']
+        },
+        {
+          label: 'Ley de Ohm',
+          href: '/fisica/ley-ohm/',
+          description: 'Calcula tensión, corriente o resistencia usando la ley de Ohm (V = I·R)',
+          icon: 'zap',
+          category: 'electricidad',
+          keywords: ['ley ohm', 'tensión', 'corriente', 'resistencia', 'voltios', 'amperios', 'ohmios']
+        },
+        {
+          label: 'Gravedad',
+          href: '/fisica/gravedad/',
+          description: 'Calcula fuerza gravitatoria entre dos masas usando F = G·m₁·m₂ / r²',
+          icon: 'zap',
+          category: 'gravitación',
+          keywords: ['gravedad', 'fuerza gravitatoria', 'masas', 'distancia', 'newton', 'constante gravitacional']
+        }
+      ]
     }
   },
   social: {
