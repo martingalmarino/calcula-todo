@@ -4,6 +4,7 @@ import { Chip, ChipsContainer } from '@/components/Chip'
 import { PromotionalBlock } from '@/components/PromotionalBlock'
 import { buildMeta } from '@/lib/seo'
 import { getGamesStatsIT } from '@/lib/games-config-it'
+import { getTriviasStatsIT, getTriviasByCategoryIT } from '@/lib/trivias-config-it'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calcolatrici Online Gratuite',
@@ -22,6 +23,8 @@ export const metadata: Metadata = buildMeta({
 
 export default function ItalianHomePage() {
   const gamesStatsIT = getGamesStatsIT()
+  const triviasStatsIT = getTriviasStatsIT()
+  const scienzaTrivias = getTriviasByCategoryIT('Scienza')
   
   return (
     <>
@@ -80,6 +83,93 @@ export default function ItalianHomePage() {
                 <span className="text-blue-700 text-sm">
                   {gamesStatsIT.totalGames} giochi educativi
                 </span>
+              </div>
+            </div>
+
+            {/* Trivie Educative Cards */}
+            <div className="text-center mb-8 px-4">
+              <div className="max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  
+                  {/* Giochi Matematici Card */}
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="relative">
+                      <div className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                        <span className="text-yellow-300">✨</span>
+                        NUOVO
+                        <span className="text-yellow-300">✨</span>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-4xl mb-3">🎮</div>
+                        <h3 className="text-blue-800 font-bold text-lg mb-2">
+                          Giochi Matematici
+                        </h3>
+                        <p className="text-blue-700 text-sm mb-4">
+                          {gamesStatsIT.totalGames} giochi educativi
+                        </p>
+                        <a 
+                          href="/it/giochi-matematici" 
+                          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors"
+                        >
+                          Gioca Ora
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Trivie Educative Card */}
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="relative">
+                      <div className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                        <span className="text-yellow-300">✨</span>
+                        NUOVO
+                        <span className="text-yellow-300">✨</span>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-4xl mb-3">🧠</div>
+                        <h3 className="text-green-800 font-bold text-lg mb-2">
+                          Trivie Educative
+                        </h3>
+                        <p className="text-green-700 text-sm mb-4">
+                          {triviasStatsIT.totalTrivias} trivie interattive
+                        </p>
+                        <a 
+                          href="/it/trivias" 
+                          className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors"
+                        >
+                          Inizia Quiz
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Trivie di Scienza Card */}
+                  <div className="bg-gradient-to-br from-purple-50 to-violet-50 border border-purple-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="relative">
+                      <div className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                        <span className="text-yellow-300">✨</span>
+                        NUOVO
+                        <span className="text-yellow-300">✨</span>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-4xl mb-3">🔬</div>
+                        <h3 className="text-purple-800 font-bold text-lg mb-2">
+                          Trivie di Scienza
+                        </h3>
+                        <p className="text-purple-700 text-sm mb-4">
+                          {scienzaTrivias.length} trivie scientifiche
+                        </p>
+                        <a 
+                          href="/it/trivias/scienza" 
+                          className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors"
+                        >
+                          Esplora Scienza
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </div>
 
