@@ -89,6 +89,18 @@ export default function RootLayout({
   return (
     <html lang="es-AR" suppressHydrationWarning>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YD3X3F7QEZ"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-YD3X3F7QEZ');
+            `,
+          }}
+        />
         <meta name="google-site-verification" content="u-MVoJHGUNMJadZ7ojXLQK1ELhcuh2gEU3eWmAJTNmE" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
