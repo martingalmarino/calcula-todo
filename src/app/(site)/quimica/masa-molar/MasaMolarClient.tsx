@@ -184,8 +184,8 @@ export default function MasaMolarClient() {
             description="Calcula la masa molar total de una fórmula química sumando los elementos"
             examples={examples}
             faqItems={faqItems}
-            onExampleClick={(values) => {
-              setFormula(values.formula)
+            onExampleClick={(values: Record<string, unknown>) => {
+              setFormula((values.formula as string) || '')
               setResults(null)
               setError(null)
             }}

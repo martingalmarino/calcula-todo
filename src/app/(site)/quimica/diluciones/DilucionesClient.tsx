@@ -177,12 +177,12 @@ export default function DilucionesClient() {
             faqItems={faqItems}
             onExampleClick={(values: Record<string, unknown>) => {
               setVariableToCalculate(values.variableToCalculate as 'C1' | 'V1' | 'C2' | 'V2')
-              setConcentration1(values.concentration1 || '')
-              setVolume1(values.volume1 || '')
-              setConcentration2(values.concentration2 || '')
-              setVolume2(values.volume2 || '')
-              setConcentrationUnit(values.concentrationUnit || 'M')
-              setVolumeUnit(values.volumeUnit || 'L')
+              setConcentration1((values.concentration1 as string) || '')
+              setVolume1((values.volume1 as string) || '')
+              setConcentration2((values.concentration2 as string) || '')
+              setVolume2((values.volume2 as string) || '')
+              setConcentrationUnit((values.concentrationUnit as string) || 'M')
+              setVolumeUnit((values.volumeUnit as string) || 'L')
               setResults(null)
               setError(null)
             }}

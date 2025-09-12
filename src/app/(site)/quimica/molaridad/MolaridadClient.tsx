@@ -183,12 +183,12 @@ export default function MolaridadClient() {
             description="Calcula la concentración molar (M) y convierte entre gramos y moles usando masa molar"
             examples={examples}
             faqItems={faqItems}
-            onExampleClick={(values) => {
+            onExampleClick={(values: Record<string, unknown>) => {
               setInputType(values.inputType as 'moles' | 'grams')
-              setMoles(values.moles || '')
-              setGrams(values.grams || '')
-              setMolarMass(values.molarMass || '')
-              setVolume(values.volume || '')
+              setMoles((values.moles as string) || '')
+              setGrams((values.grams as string) || '')
+              setMolarMass((values.molarMass as string) || '')
+              setVolume((values.volume as string) || '')
               setResults(null)
               setError(null)
             }}

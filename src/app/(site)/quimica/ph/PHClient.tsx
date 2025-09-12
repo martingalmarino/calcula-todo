@@ -143,8 +143,8 @@ export default function PHClient() {
             description="Calcula el pH de una solución a partir de la concentración de iones hidrógeno [H⁺]"
             examples={examples}
             faqItems={faqItems}
-            onExampleClick={(values) => {
-              setConcentration(values.concentration)
+            onExampleClick={(values: Record<string, unknown>) => {
+              setConcentration((values.concentration as string) || '')
               setResults(null)
               setError(null)
             }}

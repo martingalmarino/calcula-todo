@@ -243,8 +243,8 @@ export default function EnergiaEnlaceClient() {
             examples={examples}
             faqItems={faqItems}
             onExampleClick={(values: Record<string, unknown>) => {
-              setBondsBroken(values.bondsBroken || [])
-              setBondsFormed(values.bondsFormed || [])
+              setBondsBroken((values.bondsBroken as BondData[]) || [])
+              setBondsFormed((values.bondsFormed as BondData[]) || [])
               setResults(null)
               setError(null)
             }}

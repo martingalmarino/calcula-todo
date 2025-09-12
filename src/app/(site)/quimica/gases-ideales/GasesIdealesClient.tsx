@@ -189,13 +189,13 @@ export default function GasesIdealesClient() {
             faqItems={faqItems}
             onExampleClick={(values: Record<string, unknown>) => {
               setVariableToCalculate(values.variableToCalculate as 'P' | 'V' | 'n' | 'T')
-              setPressure(values.pressure || '')
-              setVolume(values.volume || '')
-              setMoles(values.moles || '')
-              setTemperature(values.temperature || '')
-              setPressureUnit(values.pressureUnit || 'atm')
-              setVolumeUnit(values.volumeUnit || 'L')
-              setTemperatureUnit(values.temperatureUnit || 'K')
+              setPressure((values.pressure as string) || '')
+              setVolume((values.volume as string) || '')
+              setMoles((values.moles as string) || '')
+              setTemperature((values.temperature as string) || '')
+              setPressureUnit((values.pressureUnit as string) || 'atm')
+              setVolumeUnit((values.volumeUnit as string) || 'L')
+              setTemperatureUnit((values.temperatureUnit as string) || 'K')
               setResults(null)
               setError(null)
             }}
