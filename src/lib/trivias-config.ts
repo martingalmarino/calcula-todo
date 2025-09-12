@@ -6,6 +6,7 @@ import {
   Target, 
   Trophy, 
   Clock, 
+  Apple,
   LucideIcon 
 } from 'lucide-react'
 
@@ -52,6 +53,20 @@ export const triviasConfig: TriviaConfig[] = [
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/salud/imc'
+  },
+  {
+    id: 'nutricion-calorias',
+    title: 'Trivia de Nutrición Básica',
+    label: 'Trivia de Nutrición Básica',
+    description: 'Adivina las calorías de distintos alimentos y aprende sobre nutrición. Incluye comparaciones visuales y modo batalla.',
+    href: '/trivias/nutricion-calorias',
+    category: 'Salud',
+    keywords: ['nutrición', 'calorías', 'alimentos', 'dieta', 'salud', 'comparaciones'],
+    difficulty: 'intermedio',
+    icon: Apple,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/calorias'
   }
 ]
 
