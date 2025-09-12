@@ -122,7 +122,7 @@ export default function CoeficienteBinomialClient() {
         calculation,
         applications
       })
-    } catch (error) {
+    } catch {
       setError('Error al calcular el coeficiente binomial')
     }
   }, [n, k])

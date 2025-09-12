@@ -101,7 +101,7 @@ export default function FechaConcepcionClient() {
         trimester,
         method: methodDescription
       })
-    } catch (error) {
+    } catch {
       setError('Error al calcular la fecha de concepción')
     }
   }, [method, dueDate, lastPeriod])

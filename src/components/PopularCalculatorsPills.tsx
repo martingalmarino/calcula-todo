@@ -1,8 +1,13 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { SITE } from '@/lib/site.config'
+import { SITE, Calculator } from '@/lib/site.config'
 import { Chip, ChipsContainer } from '@/components/Chip'
+
+interface CalculatorWithCategory extends Calculator {
+  categoryKey: string
+  categoryLabel: string
+}
 
 // Calculadoras populares por categoría (2 de cada una)
 const popularCalculatorsByCategory = {
@@ -18,12 +23,12 @@ const popularCalculatorsByCategory = {
 }
 
 export function PopularCalculatorsPills() {
-  const [randomCalculators, setRandomCalculators] = useState<any[]>([])
+  const [randomCalculators, setRandomCalculators] = useState<CalculatorWithCategory[]>([])
 
   useEffect(() => {
     // Función para obtener calculadoras aleatorias
     const getRandomCalculators = () => {
-      const allCalculators: any[] = []
+      const allCalculators: CalculatorWithCategory[] = []
       
       // Recopilar todas las calculadoras populares
       Object.entries(popularCalculatorsByCategory).forEach(([categoryKey, calculatorSlugs]) => {
