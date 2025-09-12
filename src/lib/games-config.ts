@@ -1,4 +1,4 @@
-import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, Calculator, ArrowUpDown, MemoryStick, Plus, Search, LucideIcon } from 'lucide-react'
+import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, Calculator, ArrowUpDown, MemoryStick, Plus, Search, Divide, Scale, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -221,6 +221,28 @@ export const gamesConfig: GameConfig[] = [
     icon: Search,
     difficulty: 'intermedio',
     timeRange: '40s'
+  },
+  {
+    title: 'Calculadora Mental de Divisiones',
+    label: 'Calculadora Mental de Divisiones',
+    description: 'Practica divisiones mentales en tiempo limitado. ¡Desafía tu agilidad mental y mejora tu cálculo mental!',
+    href: '/juegos-matematicos/divisiones',
+    category: 'Juegos Matemáticos',
+    keywords: ['divisiones', 'cálculo mental', 'agilidad mental', 'matemáticas', 'práctica', 'velocidad', 'dividir'],
+    icon: Divide,
+    difficulty: 'intermedio',
+    timeRange: '50s'
+  },
+  {
+    title: 'Comparación de Números',
+    label: 'Comparación de Números',
+    description: 'Compara números y determina cuál es mayor, menor o igual. ¡Desafía tu sentido numérico y agilidad mental!',
+    href: '/juegos-matematicos/comparacion-numeros',
+    category: 'Juegos Matemáticos',
+    keywords: ['comparación de números', 'mayor que', 'menor que', 'igual que', 'sentido numérico', 'agilidad mental', 'comparar'],
+    icon: Scale,
+    difficulty: 'intermedio',
+    timeRange: '45s'
   }
 ]
 
