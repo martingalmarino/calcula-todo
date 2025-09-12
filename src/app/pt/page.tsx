@@ -61,6 +61,27 @@ export default function PortugueseHomePage() {
               </p>
             </div>
 
+            {/* Pre-header para Jogos Matemáticos */}
+            <div className="text-center mb-8 px-4">
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-4 py-3 shadow-sm max-w-sm mx-auto">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-2xl">🎮</span>
+                  <span className="text-blue-800 font-bold text-lg">
+                    Novo!
+                  </span>
+                </div>
+                <a 
+                  href="/pt/jogos-matematicos" 
+                  className="block text-blue-600 hover:text-blue-800 font-bold text-lg mb-1 transition-colors"
+                >
+                  Jogos Matemáticos
+                </a>
+                <span className="text-blue-700 text-sm">
+                  {gamesStats.totalGames} jogos educativos
+                </span>
+              </div>
+            </div>
+
             {/* Categories Section */}
             <div className="mt-8 py-8">
               <div className="max-w-7xl mx-auto">
@@ -95,27 +116,6 @@ export default function PortugueseHomePage() {
                     </Chip>
                   </ChipsContainer>
                 </div>
-
-            {/* Pre-header para Jogos Matemáticos */}
-            <div className="text-center mb-8 px-4">
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-4 py-3 shadow-sm max-w-sm mx-auto">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <span className="text-2xl">🎮</span>
-                  <span className="text-blue-800 font-bold text-lg">
-                    Novo!
-                  </span>
-                </div>
-                <a 
-                  href="/pt/jogos-matematicos" 
-                  className="block text-blue-600 hover:text-blue-800 font-bold text-lg mb-1 transition-colors"
-                >
-                  Jogos Matemáticos
-                </a>
-                <span className="text-blue-700 text-sm">
-                  {gamesStats.totalGames} jogos educativos
-                </span>
-              </div>
-            </div>
                 
                 {/* Calendário Section */}
                 <div className="category-section-new">
