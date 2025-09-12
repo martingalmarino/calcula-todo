@@ -1,4 +1,4 @@
-import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, Calculator, ArrowUpDown, MemoryStick, LucideIcon } from 'lucide-react'
+import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, Calculator, ArrowUpDown, MemoryStick, Plus, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -199,6 +199,17 @@ export const gamesConfig: GameConfig[] = [
     icon: MemoryStick,
     difficulty: 'intermedio',
     timeRange: '50s'
+  },
+  {
+    title: 'Operaciones Mixtas Rápidas',
+    label: 'Operaciones Mixtas Rápidas',
+    description: 'Resuelve operaciones mixtas de suma, resta, multiplicación y división en tiempo limitado. ¡Desafía tu agilidad mental!',
+    href: '/juegos-matematicos/operaciones-mixtas',
+    category: 'Juegos Matemáticos',
+    keywords: ['operaciones mixtas', 'suma', 'resta', 'multiplicación', 'división', 'agilidad mental', 'cálculo mental', 'expresiones'],
+    icon: Plus,
+    difficulty: 'intermedio',
+    timeRange: '35s'
   }
 ]
 
