@@ -7,6 +7,7 @@ import {
   Trophy, 
   Clock, 
   Apple,
+  Moon,
   LucideIcon 
 } from 'lucide-react'
 
@@ -67,6 +68,20 @@ export const triviasConfig: TriviaConfig[] = [
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/salud/calorias'
+  },
+  {
+    id: 'dormir-suficiente',
+    title: '¿Dormís lo suficiente?',
+    label: '¿Dormís lo suficiente?',
+    description: 'Pon a prueba tus conocimientos sobre el sueño y los hábitos saludables. Aprende cuántas horas necesitas dormir según tu edad.',
+    href: '/trivias/dormir-suficiente',
+    category: 'Salud',
+    keywords: ['sueño', 'dormir', 'hábitos saludables', 'insomnio', 'salud mental', 'descanso'],
+    difficulty: 'básico',
+    icon: Moon,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/sueno'
   }
 ]
 
