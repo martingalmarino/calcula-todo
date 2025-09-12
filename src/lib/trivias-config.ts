@@ -12,6 +12,7 @@ import {
   Monitor,
   Lock,
   Wifi,
+  Palette,
   LucideIcon 
 } from 'lucide-react'
 
@@ -142,6 +143,20 @@ export const triviasConfig: TriviaConfig[] = [
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/tecnologia/velocidad-descarga'
+  },
+  {
+    id: 'adivina-color-hex-rgb',
+    title: 'Adivina el Color (HEX ↔ RGB)',
+    label: 'Adivina el Color (HEX ↔ RGB)',
+    description: 'Pon a prueba tus conocimientos sobre códigos de color. Aprende a convertir entre códigos hexadecimales (HEX) y valores RGB de forma divertida.',
+    href: '/trivias/adivina-color-hex-rgb',
+    category: 'Tecnología',
+    keywords: ['colores', 'hex', 'rgb', 'conversión', 'códigos', 'diseño', 'web', 'paleta'],
+    difficulty: 'intermedio',
+    icon: Palette,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/tecnologia/conversion-colores'
   }
 ]
 
