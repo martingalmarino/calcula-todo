@@ -15,6 +15,7 @@ import {
   Palette,
   Recycle,
   Leaf,
+  Lightbulb,
   LucideIcon 
 } from 'lucide-react'
 
@@ -184,6 +185,20 @@ export const triviasConfig: TriviaConfig[] = [
     keywords: ['huella de carbono', 'CO2', 'emisiones', 'sostenibilidad', 'medio ambiente', 'transporte', 'dieta', 'energía'],
     difficulty: 'intermedio',
     icon: Leaf,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/otras/calculadora-propinas'
+  },
+  {
+    id: 'juego-consumo-electrico',
+    title: 'Juego de Consumo Eléctrico',
+    label: 'Juego de Consumo Eléctrico',
+    description: 'Aprende sobre eficiencia energética y consumo eléctrico en el hogar. Descubre qué electrodomésticos gastan más energía y cómo ahorrar en tu factura.',
+    href: '/trivias/juego-consumo-electrico',
+    category: 'Medio Ambiente',
+    keywords: ['consumo eléctrico', 'eficiencia energética', 'electrodomésticos', 'ahorro energético', 'factura de luz', 'sostenibilidad', 'energía'],
+    difficulty: 'básico',
+    icon: Lightbulb,
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/otras/calculadora-propinas'
