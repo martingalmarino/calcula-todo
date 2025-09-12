@@ -4,6 +4,7 @@ import { Chip, ChipsContainer } from '@/components/Chip'
 import { PromotionalBlock } from '@/components/PromotionalBlock'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
 import { getGamesStats } from '@/lib/games-config'
+import { getTriviasStats } from '@/lib/trivias-config'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadoras Online Gratuitas',
@@ -22,6 +23,7 @@ export const metadata: Metadata = buildMeta({
 
 export default function HomePage() {
   const gamesStats = getGamesStats()
+  const triviasStats = getTriviasStats()
   
   return (
     <>
@@ -63,6 +65,27 @@ export default function HomePage() {
                 </a>
                 <span className="text-blue-700 text-sm">
                   {gamesStats.totalGames} juegos educativos
+                </span>
+              </div>
+            </div>
+
+            {/* Pre-header para Trivias */}
+            <div className="text-center mb-8 px-4">
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl px-4 py-3 shadow-sm max-w-sm mx-auto">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-2xl">🧠</span>
+                  <span className="text-green-800 font-bold text-lg">
+                    ¡Nuevo!
+                  </span>
+                </div>
+                <a 
+                  href="/trivias" 
+                  className="block text-green-600 hover:text-green-800 font-bold text-lg mb-1 transition-colors"
+                >
+                  Trivias Educativas
+                </a>
+                <span className="text-green-700 text-sm">
+                  {triviasStats.totalTrivias} quiz interactivos
                 </span>
               </div>
             </div>
