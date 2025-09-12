@@ -1,7 +1,7 @@
 "use client"
 
 import { SITE } from '@/lib/site.config'
-import { Calculator, Circle, Square, Triangle, Heart, DollarSign, Target, Coffee, HardDrive, RectangleHorizontal, Scale, Calendar, DollarSign as DollarSignIcon, LucideIcon } from 'lucide-react'
+import { Calculator, Circle, Square, Triangle, Heart, DollarSign, Target, Coffee, HardDrive, RectangleHorizontal, Scale, Calendar, Wrench, LucideIcon } from 'lucide-react'
 
 // Mapeo de iconos por categoría
 const categoryIcons: Record<string, LucideIcon> = {
@@ -13,7 +13,7 @@ const categoryIcons: Record<string, LucideIcon> = {
   'geometria': Square,
   'salud': Heart,
   'calendario': Calendar,
-  'otras': DollarSignIcon
+  'otras': Wrench
 }
 
 // Mapeo de colores por categoría
