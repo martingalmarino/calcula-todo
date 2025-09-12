@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { jsonLdCalculator } from '@/lib/seo'
@@ -265,7 +265,7 @@ export default function NutrizioneCalorieClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Trivia di Nutrizione Básica"
         description="Indovina le calorie di diversi alimenti e impara sulla nutrizione. Include confronti visivi e modalità battaglia."
         introduction="Benvenuto alla Trivia di Nutrizione Básica! Ti presenteremo domande sulle calorie di diversi alimenti. Ogni risposta include una spiegazione e un confronto visivo per imparare in modo divertente. Alcune domande sono in modalità 'battaglia' dove dovrai scegliere tra opzioni. Dimostra le tue conoscenze nutrizionali!"
@@ -405,7 +405,7 @@ export default function NutrizioneCalorieClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

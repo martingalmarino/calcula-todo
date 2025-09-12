@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { triviasConfigIT } from '@/lib/trivias-config-it'
@@ -231,7 +231,7 @@ export default function MitiSaluteClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Gioco di Miti di Salute"
         description="Smentisci credenze comuni sulla salute in modo ludico. Sai distinguere tra miti e realtà?"
         introduction="Benvenuto al Gioco di Miti di Salute! Ti presenteremo affermazioni su salute e nutrizione. La tua missione è determinare se sono vere o false. Ogni risposta corretta vale un punto e riceverai una spiegazione breve. Alla fine, otterrai un ranking secondo la tua conoscenza. Dimostra di essere un vero cacciatore di miti!"
@@ -327,7 +327,7 @@ export default function MitiSaluteClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

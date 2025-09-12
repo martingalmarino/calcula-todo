@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { Share2, Check, Monitor, Clock, AlertTriangle } from 'lucide-react'
@@ -246,7 +246,7 @@ export default function TempoSedutoSedentarietaClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Quanto tempo passi seduto? (Sedentarietà)"
         description="Scopri i rischi della sedentarietà e impara come combattere gli effetti dello stare seduto troppo tempo. Conosci le raccomandazioni per uno stile di vita più attivo."
         introduction="Benvenuto al quiz sulla sedentarietà! Ti faremo domande sui rischi di stare seduto troppo tempo e come combattere la sedentarietà. Imparerai sulle ore raccomandate, i benefici delle pause attive, e strategie per rimanere più attivo durante il giorno. Scopri se conosci i pericoli della sedentarietà e come evitarli!"
@@ -368,7 +368,7 @@ export default function TempoSedutoSedentarietaClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

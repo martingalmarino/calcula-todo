@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { triviasConfigIT } from '@/lib/trivias-config-it'
@@ -258,7 +258,7 @@ export default function IndovinaColoreHexRgbClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Indovina il Colore (HEX ↔ RGB)"
         description="Metti alla prova le tue conoscenze sui codici di colore. Impara a convertire tra codici esadecimali (HEX) e valori RGB in modo divertente."
         introduction="Benvenuto a Indovina il Colore! Ti faremo domande sulla conversione tra codici esadecimali (HEX) e valori RGB. Imparerai sui sistemi di colore digitale, come si rappresentano i colori nel web, e le equivalenze tra diversi formati. Scopri se conosci i codici di colore più comuni!"
@@ -359,7 +359,7 @@ export default function IndovinaColoreHexRgbClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

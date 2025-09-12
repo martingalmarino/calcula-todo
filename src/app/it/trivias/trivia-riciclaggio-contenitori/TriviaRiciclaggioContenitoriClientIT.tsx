@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { Share2, Check, Recycle, Leaf, Trash2 } from 'lucide-react'
@@ -246,7 +246,7 @@ export default function TriviaRiciclaggioContenitoriClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Trivia di Riciclaggio: Cosa va in ogni contenitore?"
         description="Impara sulla corretta classificazione dei rifiuti e riciclaggio. Scopri cosa va in ogni contenitore per prenderti cura dell\'ambiente."
         introduction="Benvenuto alla Trivia di Riciclaggio! Ti faremo domande sulla corretta classificazione dei rifiuti nei diversi contenitori. Imparerai sul contenitore verde (vetro), blu (carta/cartone), giallo (contenitori), marrone (organico) e punti puliti speciali. Scopri se conosci le migliori pratiche per prenderti cura dell\'ambiente!"
@@ -333,7 +333,7 @@ export default function TriviaRiciclaggioContenitoriClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

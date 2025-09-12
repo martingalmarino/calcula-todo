@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { Heart } from 'lucide-react'
 import { jsonLdCalculator } from '@/lib/seo'
@@ -210,7 +210,7 @@ export default function QuizImcAbitudiniClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Quiz di IMC e Abitudini Salutari"
         description="Metti alla prova le tue conoscenze su salute corporea, IMC e abitudini salutari. Impara mentre ti diverti."
         introduction="Benvenuto al Quiz di IMC e Abitudini Salutari! Metti alla prova le tue conoscenze su salute corporea, indice di massa corporea e abitudini salutari. Hai 5 minuti per rispondere a 10 domande. Ogni risposta corretta vale 1 punto. Riuscirai a raggiungere il livello di Esperto in Salute? Dimostra la tua conoscenza!"
@@ -300,7 +300,7 @@ export default function QuizImcAbitudiniClientIT() {
             </div>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

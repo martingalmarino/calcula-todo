@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useCallback, useMemo } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { getRelatedTriviasIT } from '@/lib/trivias-config-it'
 import { Microscope } from 'lucide-react'
 
@@ -190,7 +190,7 @@ export default function QuizGrandiScienziatiClientIT() {
   } : null
 
   return (
-    <QuizLayout
+                  <QuizLayoutIT
       title="Quiz di grandi scienziati"
       description="Scopri gli scienziati più importanti della storia e i loro contributi che hanno cambiato il mondo della scienza."
       introduction={introduction}
@@ -266,6 +266,6 @@ export default function QuizGrandiScienziatiClientIT() {
           </div>
         )}
       </div>
-    </QuizLayout>
+                  </QuizLayoutIT>
   )
 }

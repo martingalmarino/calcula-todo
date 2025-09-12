@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useCallback, useMemo } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Ruler } from 'lucide-react'
 
 interface Question {
@@ -188,7 +188,7 @@ export default function QuizUnitaMisuraClientIT() {
   } : null
 
   return (
-    <QuizLayout
+                  <QuizLayoutIT
       title="Quiz sulle unità di misura"
       description="Impara sul Sistema Internazionale di Unità e gli strumenti di misurazione. Scopri le unità base di lunghezza, massa, volume e altro."
       introduction={introduction}
@@ -264,6 +264,6 @@ export default function QuizUnitaMisuraClientIT() {
           </div>
         )}
       </div>
-    </QuizLayout>
+                  </QuizLayoutIT>
   )
 }

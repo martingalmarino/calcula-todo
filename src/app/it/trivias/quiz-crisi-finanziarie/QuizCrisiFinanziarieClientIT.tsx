@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { triviasConfigIT } from '@/lib/trivias-config-it'
@@ -247,7 +247,7 @@ export default function QuizCrisiFinanziarieClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Quiz di Crisi Finanziarie"
         description="Impara sulle crisi finanziarie più importanti della storia. Scopri cosa ha causato ogni crisi, quando sono avvenute e le loro conseguenze globali."
         introduction="Benvenuto al Quiz di Crisi Finanziarie! Ti faremo domande sulle crisi economiche più importanti della storia. Imparerai sulla Grande Depressione del 1929, la crisi del 2008, la crisi asiatica del 1997, il corralito argentino e molte altre crisi che hanno modellato l'economia mondiale. Scopri quanto bene conosci la storia economica!"
@@ -334,7 +334,7 @@ export default function QuizCrisiFinanziarieClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

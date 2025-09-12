@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { Share2, Check, Coins, Globe, Banknote } from 'lucide-react'
@@ -246,7 +246,7 @@ export default function QuizMoneteTassiCambioClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Quiz di Monete e Tassi di Cambio"
         description="Impara sulle monete ufficiali di diversi paesi del mondo. Scopri quali paesi usano quali monete e espandi le tue conoscenze geografiche."
         introduction="Benvenuto al Quiz di Monete e Tassi di Cambio! Ti faremo domande sulle monete ufficiali di diversi paesi del mondo. Imparerai sullo yen giapponese, l'euro, il dollaro canadese, il peso messicano e molte altre monete importanti. Scopri quanto bene conosci la geografia monetaria mondiale!"
@@ -368,7 +368,7 @@ export default function QuizMoneteTassiCambioClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

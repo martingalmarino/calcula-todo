@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { triviasConfigIT } from '@/lib/trivias-config-it'
@@ -247,7 +247,7 @@ export default function PasswordSicureClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Quiz di Password Sicure"
         description="Impara sulla cybersicurezza e le buone pratiche per creare password sicure. Scopri come proteggere i tuoi account digitali in modo efficace."
         introduction="Benvenuto al Quiz di Password Sicure! Ti faremo domande sulla cybersicurezza e le buone pratiche per proteggere i tuoi account digitali. Imparerai sulla lunghezza delle password, complessità, gestori di password, e strategie per mantenere i tuoi dati sicuri. Scopri se conosci le migliori pratiche di sicurezza digitale!"
@@ -369,7 +369,7 @@ export default function PasswordSicureClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

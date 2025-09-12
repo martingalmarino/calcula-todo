@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { triviasConfigIT } from '@/lib/trivias-config-it'
@@ -247,7 +247,7 @@ export default function DormireAbbastanzaClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Dormi Abbastanza?"
         description="Metti alla prova le tue conoscenze sul sonno e le abitudini salutari. Impara quante ore hai bisogno di dormire secondo la tua età."
         introduction="Benvenuto al quiz sul sonno! Ti faremo domande su quante ore hai bisogno di dormire secondo la tua età, le fasi del sonno, e abitudini salutari. Imparerai dati importanti su come il sonno influenza la tua salute fisica e mentale. Scopri se sai davvero abbastanza sul riposo!"
@@ -369,7 +369,7 @@ export default function DormireAbbastanzaClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

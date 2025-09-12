@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { Share2, Check, Wifi, Zap, Globe } from 'lucide-react'
@@ -246,7 +246,7 @@ export default function TriviaInternetClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Trivia di Internet"
         description="Metti alla prova le tue conoscenze su internet, reti e tecnologia. Impara concetti base di connettività, protocolli e velocità di internet."
         introduction="Benvenuto alla Trivia di Internet! Ti faremo domande sui concetti base di internet, reti e tecnologia. Imparerai sulle velocità di connessione, protocolli, unità di misura, e come funziona la connettività digitale. Scopri se conosci i fondamenti di internet e delle reti!"
@@ -368,7 +368,7 @@ export default function TriviaInternetClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

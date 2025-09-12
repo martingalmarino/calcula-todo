@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { Share2, Check, Leaf, Car, Plane, TreePine } from 'lucide-react'
@@ -246,7 +246,7 @@ export default function QuizImprontaCarbonicaClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Quiz di Impronta di Carbonio"
         description="Scopri come le tue azioni quotidiane impattano l\'ambiente. Impara sulle emissioni di CO₂, trasporto sostenibile e abitudini eco-friendly."
         introduction="Benvenuto al Quiz di Impronta di Carbonio! Ti faremo domande sull'impatto ambientale di diverse attività e abitudini. Imparerai sulle emissioni di CO₂, trasporto sostenibile, diete eco-friendly, e come ridurre la tua impronta di carbonio personale. Scopri quanto sei consapevole dell'ambiente!"
@@ -368,7 +368,7 @@ export default function QuizImprontaCarbonicaClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { triviasConfigIT } from '@/lib/trivias-config-it'
@@ -247,7 +247,7 @@ export default function GiocoConsumoElettricoClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Gioco di Consumo Elettrico"
         description="Impara sull'efficienza energetica e il consumo elettrico in casa. Scopri quali elettrodomestici consumano più energia e come risparmiare sulla bolletta."
         introduction="Benvenuto al Gioco di Consumo Elettrico! Ti faremo domande sull'efficienza energetica e il consumo elettrico in casa. Imparerai su quali elettrodomestici consumano più energia, come risparmiare sulla bolletta della luce, e le migliori pratiche per essere più efficienti energeticamente. Scopri se conosci i segreti del risparmio energetico!"
@@ -334,7 +334,7 @@ export default function GiocoConsumoElettricoClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

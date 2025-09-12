@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { Share2, Check, Bone, Skull, Heart } from 'lucide-react'
@@ -246,7 +246,7 @@ export default function QuizOssaCorpoUmanoClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Quiz sulle ossa del corpo umano"
         description="Impara sull\'anatomia ossea del corpo umano. Scopri quanti ossa abbiamo, quali sono i più lunghi e piccoli, e le loro funzioni principali."
         introduction="Benvenuto al Quiz sulle ossa del corpo umano! Ti faremo domande sull\'anatomia ossea e lo scheletro umano. Imparerai su quanti ossa abbiamo, quali sono i più lunghi e piccoli, dove si trovano gli ossa principali e le loro funzioni. Scopri quanto bene conosci il tuo stesso scheletro!"
@@ -333,7 +333,7 @@ export default function QuizOssaCorpoUmanoClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

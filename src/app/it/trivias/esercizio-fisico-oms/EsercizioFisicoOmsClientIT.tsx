@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Button } from '@/components/ui/button'
 import { jsonLdCalculator } from '@/lib/seo'
 import { triviasConfigIT } from '@/lib/trivias-config-it'
@@ -247,7 +247,7 @@ export default function EsercizioFisicoOmsClientIT() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <QuizLayout
+                  <QuizLayoutIT
         title="Esercizio Fisico Minimo Raccomandato (OMS)"
         description="Impara le raccomandazioni ufficiali dell\'OMS sull\'attività fisica. Scopri quanto esercizio hai bisogno per mantenerti salutare."
         introduction="Benvenuto al quiz sull\'esercizio fisico! Ti faremo domande sulle raccomandazioni ufficiali dell\'OMS per l\'attività fisica. Imparerai quanti minuti di esercizio hai bisogno per settimana, che tipi di attività contano come esercizio moderato o vigoroso, e i benefici per la salute. Scopri se conosci le linee guida ufficiali per mantenerti attivo e salutare!"
@@ -369,7 +369,7 @@ export default function EsercizioFisicoOmsClientIT() {
             </Button>
           </div>
         )}
-      </QuizLayout>
+                  </QuizLayoutIT>
     </>
   )
 }

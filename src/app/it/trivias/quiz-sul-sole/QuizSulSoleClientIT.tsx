@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useCallback, useMemo } from 'react'
-import { QuizLayout } from '@/components/QuizLayout'
+import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { Sun } from 'lucide-react'
 
 interface Question {
@@ -199,7 +199,7 @@ export default function QuizSulSoleClientIT() {
   } : null
 
   return (
-    <QuizLayout
+                  <QuizLayoutIT
       title="Quiz sul Sole"
       description="Scopri i segreti della nostra stella più vicina. Impara sulla composizione, temperatura, attività solare e fenomeni che influenzano la Terra."
       introduction={introduction}
@@ -281,6 +281,6 @@ export default function QuizSulSoleClientIT() {
           </div>
         )}
       </div>
-    </QuizLayout>
+                  </QuizLayoutIT>
   )
 }
