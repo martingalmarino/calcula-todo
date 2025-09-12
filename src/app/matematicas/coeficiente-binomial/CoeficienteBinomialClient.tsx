@@ -300,7 +300,7 @@ export default function CoeficienteBinomialClient() {
 
         {/* Buttons */}
         <div className="flex gap-4">
-          <Button onClick={calculateBinomial} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
+          <Button onClick={calculateBinomial} className="flex-1 text-white" style={{ backgroundColor: '#0284c7' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0369a1'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0284c7'}>
             <Calculator className="w-4 h-4 mr-2" />
             Calcular C(n,k)
           </Button>
