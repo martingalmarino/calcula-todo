@@ -239,7 +239,7 @@ export default function VarianzaDesviacionClient() {
                 <Button 
                   onClick={calcularVarianza}
                   className="flex-1"
-                  style={{ backgroundColor: '#0284c7' }}
+                  style={{ backgroundColor: '#0284c7', color: 'white' }}
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0369a1'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0284c7'}
                 >
