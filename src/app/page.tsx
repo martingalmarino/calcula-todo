@@ -3,6 +3,7 @@ import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
 import { PromotionalBlock } from '@/components/PromotionalBlock'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
+import { getGamesStats } from '@/lib/games-config'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadoras Online Gratuitas',
@@ -20,6 +21,8 @@ export const metadata: Metadata = buildMeta({
 })
 
 export default function HomePage() {
+  const gamesStats = getGamesStats()
+  
   return (
     <>
       <script
@@ -59,7 +62,7 @@ export default function HomePage() {
                   Juegos Matemáticos
                 </a>
                 <span className="text-blue-700 text-sm">
-                  13 juegos educativos
+                  {gamesStats.totalGames} juegos educativos
                 </span>
               </div>
             </div>
