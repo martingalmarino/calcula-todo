@@ -19,6 +19,7 @@ import {
   Coins,
   TrendingDown,
   Bone,
+  Microscope,
   LucideIcon 
 } from 'lucide-react'
 
@@ -249,6 +250,21 @@ export const triviasConfig: TriviaConfig[] = [
     keywords: ['huesos', 'anatomía', 'cuerpo humano', 'esqueleto', 'fémur', 'cráneo', 'columna vertebral', 'biología'],
     difficulty: 'básico',
     icon: Bone,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc',
+    isNew: true
+  },
+  {
+    id: 'quiz-grandes-cientificos',
+    title: 'Quiz de grandes científicos',
+    label: 'Quiz de grandes científicos',
+    description: 'Descubre los científicos más importantes de la historia. Aprende sobre sus descubrimientos, teorías y contribuciones que cambiaron el mundo de la ciencia.',
+    href: '/trivias/quiz-grandes-cientificos',
+    category: 'Ciencia',
+    keywords: ['científicos', 'historia', 'descubrimientos', 'Einstein', 'Newton', 'Darwin', 'Marie Curie', 'Galileo', 'física', 'química', 'biología'],
+    difficulty: 'intermedio',
+    icon: Microscope,
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/salud/imc',
