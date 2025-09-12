@@ -3,6 +3,8 @@ import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
 import { PromotionalBlock } from '@/components/PromotionalBlock'
 import { NewLabel } from '@/components/NewLabel'
+import { CategoryClusterIT } from '@/components/CategoryClusterIT'
+import { PopularCalculatorsPillsIT } from '@/components/PopularCalculatorsPillsIT'
 import { buildMeta } from '@/lib/seo'
 import { getGamesStatsIT } from '@/lib/games-config-it'
 import { getTriviasStatsIT, getTriviasByCategoryIT } from '@/lib/trivias-config-it'
@@ -423,6 +425,29 @@ export default function ItalianHomePage() {
                 }
               ]}
             />
+
+            {/* Category Cluster Section */}
+            <div className="mt-8 py-8">
+              <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                    Tutte le Categorie
+                  </h2>
+                  <p className="text-gray-600 text-lg">
+                    Esplora le nostre calcolatrici organizzate per categorie
+                  </p>
+                </div>
+                
+                <CategoryClusterIT />
+              </div>
+            </div>
+
+            {/* Popular Calculators Pills Section */}
+            <div className="mt-8 py-8 bg-gray-50">
+              <div className="max-w-7xl mx-auto px-4">
+                <PopularCalculatorsPillsIT />
+              </div>
+            </div>
           </div>
         </Container>
       </div>
