@@ -21,6 +21,7 @@ import {
   Bone,
   Microscope,
   Ruler,
+  Sun,
   LucideIcon 
 } from 'lucide-react'
 
@@ -281,6 +282,21 @@ export const triviasConfig: TriviaConfig[] = [
     keywords: ['unidades', 'medida', 'Sistema Internacional', 'SI', 'metro', 'kilogramo', 'litro', 'instrumentos', 'medición', 'física', 'química'],
     difficulty: 'básico',
     icon: Ruler,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc',
+    isNew: true
+  },
+  {
+    id: 'quiz-sobre-el-sol',
+    title: 'Trivia sobre el Sol',
+    label: 'Trivia sobre el Sol',
+    description: 'Descubre los secretos de nuestra estrella más cercana. Aprende sobre la composición, temperatura, actividad solar y fenómenos que afectan la Tierra.',
+    href: '/trivias/quiz-sobre-el-sol',
+    category: 'Ciencia',
+    keywords: ['sol', 'estrella', 'astronomía', 'física solar', 'energía solar', 'fusión nuclear', 'hidrógeno', 'helio', 'tormentas solares', 'sistema solar'],
+    difficulty: 'intermedio',
+    icon: Sun,
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/salud/imc',
