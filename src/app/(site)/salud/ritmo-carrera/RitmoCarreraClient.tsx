@@ -197,7 +197,8 @@ export default function RitmoCarreraClient() {
   ]
 
   return (
-    <Container>
+    <div>
+      <Container>
       <Breadcrumbs items={breadcrumbs} />
       
       <CalculatorLayout
@@ -339,5 +340,6 @@ export default function RitmoCarreraClient() {
         }}
       />
     </Container>
+    </div>
   )
 }

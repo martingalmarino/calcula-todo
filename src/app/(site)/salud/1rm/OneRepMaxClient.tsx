@@ -169,7 +169,8 @@ export default function OneRepMaxClient() {
   ]
 
   return (
-    <Container>
+    <div>
+      <Container>
       <Breadcrumbs items={breadcrumbs} />
       
       <CalculatorLayout
@@ -326,5 +327,6 @@ export default function OneRepMaxClient() {
         }}
       />
     </Container>
+    </div>
   )
 }

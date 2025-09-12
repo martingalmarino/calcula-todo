@@ -217,7 +217,8 @@ export default function VelocidadCiclismoClient() {
   ]
 
   return (
-    <Container>
+    <div>
+      <Container>
       <Breadcrumbs items={breadcrumbs} />
       
       <CalculatorLayout
@@ -370,5 +371,6 @@ export default function VelocidadCiclismoClient() {
         }}
       />
     </Container>
+    </div>
   )
 }

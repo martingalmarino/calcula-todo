@@ -172,7 +172,8 @@ export default function CaloriasDeporteClient() {
   ]
 
   return (
-    <Container>
+    <div>
+      <Container>
       <Breadcrumbs items={breadcrumbs} />
       
       <CalculatorLayout
@@ -324,5 +325,6 @@ export default function CaloriasDeporteClient() {
         }}
       />
     </Container>
+    </div>
   )
 }
