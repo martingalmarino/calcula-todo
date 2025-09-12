@@ -2,8 +2,10 @@ import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
 import { PromotionalBlock } from '@/components/PromotionalBlock'
+import { NewLabel } from '@/components/NewLabel'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
 import { getGamesStats } from '@/lib/games-config'
+import { getTriviasStats } from '@/lib/trivias-config'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadoras Online Gratuitas',
@@ -22,6 +24,7 @@ export const metadata: Metadata = buildMeta({
 
 export default function HomePage() {
   const gamesStats = getGamesStats()
+  const triviasStats = getTriviasStats()
   
   return (
     <>
@@ -46,24 +49,46 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Pre-header para Juegos Matemáticos */}
+            {/* Pre-header para Juegos Matemáticos y Trivias */}
             <div className="text-center mb-8 px-4">
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-4 py-3 shadow-sm max-w-sm mx-auto">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <span className="text-2xl">🎮</span>
-                  <span className="text-blue-800 font-bold text-lg">
-                    ¡Nuevo!
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                {/* Juegos Matemáticos */}
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-4 py-3 shadow-sm relative">
+                  <div className="absolute -top-2 -right-2">
+                    <NewLabel size="sm" />
+                  </div>
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <span className="text-2xl">🎮</span>
+                  </div>
+                  <a 
+                    href="/juegos-matematicos" 
+                    className="block text-blue-600 hover:text-blue-800 font-bold text-lg mb-1 transition-colors"
+                  >
+                    Juegos Matemáticos
+                  </a>
+                  <span className="text-blue-700 text-sm">
+                    {gamesStats.totalGames} juegos educativos
                   </span>
                 </div>
-                <a 
-                  href="/juegos-matematicos" 
-                  className="block text-blue-600 hover:text-blue-800 font-bold text-lg mb-1 transition-colors"
-                >
-                  Juegos Matemáticos
-                </a>
-                <span className="text-blue-700 text-sm">
-                  {gamesStats.totalGames} juegos educativos
-                </span>
+
+                {/* Trivias */}
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl px-4 py-3 shadow-sm relative">
+                  <div className="absolute -top-2 -right-2">
+                    <NewLabel size="sm" />
+                  </div>
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <span className="text-2xl">🧠</span>
+                  </div>
+                  <a 
+                    href="/trivias" 
+                    className="block text-green-600 hover:text-green-800 font-bold text-lg mb-1 transition-colors"
+                  >
+                    Trivias Educativas
+                  </a>
+                  <span className="text-green-700 text-sm">
+                    {triviasStats.totalTrivias} trivias interactivas
+                  </span>
+                </div>
               </div>
             </div>
 

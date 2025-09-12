@@ -32,6 +32,7 @@ export interface TriviaConfig {
   totalQuestions: number
   timeLimit: number
   relatedCalculator?: string
+  isNew?: boolean
 }
 
 export const triviasConfig: TriviaConfig[] = [
@@ -187,7 +188,8 @@ export const triviasConfig: TriviaConfig[] = [
     icon: Leaf,
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
-    relatedCalculator: '/otras/calculadora-propinas'
+    relatedCalculator: '/otras/calculadora-propinas',
+    isNew: true
   },
   {
     id: 'juego-consumo-electrico',
@@ -201,7 +203,8 @@ export const triviasConfig: TriviaConfig[] = [
     icon: Lightbulb,
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
-    relatedCalculator: '/otras/calculadora-propinas'
+    relatedCalculator: '/otras/calculadora-propinas',
+    isNew: true
   }
 ]
 

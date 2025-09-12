@@ -10,6 +10,7 @@ export interface GameConfig {
   icon: LucideIcon
   difficulty: 'básico' | 'intermedio' | 'avanzado'
   timeRange: string
+  isNew?: boolean
 }
 
 export const gamesConfig: GameConfig[] = [
@@ -231,7 +232,8 @@ export const gamesConfig: GameConfig[] = [
     keywords: ['divisiones', 'cálculo mental', 'agilidad mental', 'matemáticas', 'práctica', 'velocidad', 'dividir'],
     icon: Divide,
     difficulty: 'intermedio',
-    timeRange: '50s'
+    timeRange: '50s',
+    isNew: true
   },
   {
     title: 'Comparación de Números',
@@ -242,7 +244,8 @@ export const gamesConfig: GameConfig[] = [
     keywords: ['comparación de números', 'mayor que', 'menor que', 'igual que', 'sentido numérico', 'agilidad mental', 'comparar'],
     icon: Scale,
     difficulty: 'intermedio',
-    timeRange: '45s'
+    timeRange: '45s',
+    isNew: true
   }
 ]
 
