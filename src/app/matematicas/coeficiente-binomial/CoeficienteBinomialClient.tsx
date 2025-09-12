@@ -267,6 +267,7 @@ export default function CoeficienteBinomialClient() {
               onClick={() => loadExample(5, 2)}
               variant="outline"
               size="sm"
+              className="border-gray-300 hover:bg-gray-50"
             >
               C(5,2) = 10
             </Button>
@@ -274,6 +275,7 @@ export default function CoeficienteBinomialClient() {
               onClick={() => loadExample(10, 3)}
               variant="outline"
               size="sm"
+              className="border-gray-300 hover:bg-gray-50"
             >
               C(10,3) = 120
             </Button>
@@ -281,6 +283,7 @@ export default function CoeficienteBinomialClient() {
               onClick={() => loadExample(6, 0)}
               variant="outline"
               size="sm"
+              className="border-gray-300 hover:bg-gray-50"
             >
               C(6,0) = 1
             </Button>
@@ -288,6 +291,7 @@ export default function CoeficienteBinomialClient() {
               onClick={() => loadExample(8, 8)}
               variant="outline"
               size="sm"
+              className="border-gray-300 hover:bg-gray-50"
             >
               C(8,8) = 1
             </Button>
