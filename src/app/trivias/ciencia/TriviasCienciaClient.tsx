@@ -20,6 +20,25 @@ const structuredData = jsonLdCollection({
 })
 
 export default function TriviasCienciaClient() {
+  // Crear objeto category que coincida con la interfaz Category
+  const category = {
+    label: 'Trivias de Ciencia',
+    href: '/trivias/ciencia',
+    description: 'Descubre el fascinante mundo de la ciencia a través de nuestras trivias educativas. Aprende sobre anatomía, biología, química y más temas científicos de forma divertida e interactiva.',
+    calculators: cienciaTrivias.map(trivia => ({
+      name: trivia.title,
+      href: trivia.href,
+      description: trivia.description,
+      icon: trivia.icon,
+      keywords: trivia.keywords,
+      difficulty: trivia.difficulty,
+      totalQuestions: trivia.totalQuestions,
+      timeLimit: trivia.timeLimit,
+      relatedCalculator: trivia.relatedCalculator,
+      isNew: trivia.isNew
+    }))
+  }
+
   return (
     <>
       <script
@@ -27,16 +46,7 @@ export default function TriviasCienciaClient() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <CategoryPageLayout
-        title="Trivias de Ciencia"
-        description="Descubre el fascinante mundo de la ciencia a través de nuestras trivias educativas. Aprende sobre anatomía, biología, química y más temas científicos de forma divertida e interactiva."
-        icon="🧬"
-        items={cienciaTrivias}
-        stats={{
-          totalItems: cienciaTrivias.length,
-          totalQuestions: cienciaTrivias.reduce((sum, trivia) => sum + trivia.totalQuestions, 0),
-          timeRange: stats.timeRangeDisplay,
-          difficulties: stats.difficulties
-        }}
+        category={category}
         customStats={[
           { 
             icon: Brain, 
