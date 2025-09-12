@@ -14,6 +14,7 @@ import {
   Wifi,
   Palette,
   Recycle,
+  Leaf,
   LucideIcon 
 } from 'lucide-react'
 
@@ -169,6 +170,20 @@ export const triviasConfig: TriviaConfig[] = [
     keywords: ['reciclaje', 'residuos', 'contenedores', 'medio ambiente', 'sostenibilidad', 'ecología', 'separación'],
     difficulty: 'básico',
     icon: Recycle,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/otras/calculadora-propinas'
+  },
+  {
+    id: 'quiz-huella-carbono',
+    title: 'Quiz de Huella de Carbono',
+    label: 'Quiz de Huella de Carbono',
+    description: 'Descubre cómo tus acciones diarias impactan el medio ambiente. Aprende sobre emisiones de CO₂, transporte sostenible y hábitos eco-friendly.',
+    href: '/trivias/quiz-huella-carbono',
+    category: 'Medio Ambiente',
+    keywords: ['huella de carbono', 'CO2', 'emisiones', 'sostenibilidad', 'medio ambiente', 'transporte', 'dieta', 'energía'],
+    difficulty: 'intermedio',
+    icon: Leaf,
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/otras/calculadora-propinas'
