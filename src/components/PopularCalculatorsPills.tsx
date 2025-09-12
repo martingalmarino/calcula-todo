@@ -82,7 +82,7 @@ export function PopularCalculatorsPills() {
                   <Chip
                     key={`${calculator.categoryKey}-${calculator.href}-${index}`}
                     href={calculator.href}
-                    icon={calculator.icon}
+                    icon={calculator.icon || 'calculator'}
                     className="hover:bg-blue-50 hover:border-blue-300 transition-colors"
                   >
                     {calculator.label}
