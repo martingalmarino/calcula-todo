@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
 import { buildMeta } from '@/lib/seo'
+import { getGamesStatsPT } from '@/lib/games-config-pt'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calculadoras Online Grátis',
@@ -19,6 +20,8 @@ export const metadata: Metadata = buildMeta({
 })
 
 export default function PortugueseHomePage() {
+  const gamesStats = getGamesStatsPT()
+  
   return (
     <>
       <script
@@ -91,6 +94,37 @@ export default function PortugueseHomePage() {
                       Calculadora de Derivadas
                     </Chip>
                   </ChipsContainer>
+                </div>
+
+                {/* Jogos Matemáticos Promotional Block */}
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-8 border border-blue-200">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-3xl">🎮</span>
+                    <div>
+                      <h3 className="text-blue-900 text-xl font-bold">Jogos de Inteligência Matemática</h3>
+                      <p className="text-blue-700 text-sm">Divirta-se aprendendo com nossos jogos educativos</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+                    <div className="flex-1">
+                      <p className="text-gray-700 mb-3">
+                        Desafie sua mente com <strong>{gamesStats.totalGames} jogos matemáticos</strong> únicos! 
+                        Melhore sua agilidade mental, lógica e habilidades de cálculo de forma divertida.
+                      </p>
+                      <div className="flex flex-wrap gap-2 text-sm text-blue-600">
+                        <span className="bg-blue-100 px-2 py-1 rounded">Somas e Subtrações</span>
+                        <span className="bg-blue-100 px-2 py-1 rounded">Frações</span>
+                        <span className="bg-blue-100 px-2 py-1 rounded">Sudoku</span>
+                        <span className="bg-blue-100 px-2 py-1 rounded">Probabilidade</span>
+                      </div>
+                    </div>
+                    <a 
+                      href="/pt/jogos-matematicos" 
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap"
+                    >
+                      Jogar Agora →
+                    </a>
+                  </div>
                 </div>
                 
                 {/* Calendário Section */}
