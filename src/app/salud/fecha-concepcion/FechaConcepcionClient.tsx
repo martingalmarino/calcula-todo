@@ -160,10 +160,61 @@ export default function FechaConcepcionClient() {
     }
   }
 
+  const examples = [
+    {
+      label: 'Ejemplo: Última menstruación el 1 de enero de 2024',
+      values: { 
+        method: 'last-period', 
+        lastPeriodDate: '2024-01-01' 
+      }
+    },
+    {
+      label: 'Ejemplo: Fecha probable de parto el 15 de octubre de 2024',
+      values: { 
+        method: 'due-date', 
+        dueDate: '2024-10-15' 
+      }
+    }
+  ]
+
+  const faqItems = [
+    {
+      question: '¿Cómo se calcula la fecha de concepción?',
+      answer: 'La concepción generalmente ocurre entre 11-21 días después del primer día de tu último período menstrual, siendo el día 14 el más común en ciclos de 28 días.'
+    },
+    {
+      question: '¿Qué método es más preciso?',
+      answer: 'El método basado en la última menstruación es más común, pero si conoces tu fecha probable de parto (por ecografía), ese método puede ser más preciso.'
+    },
+    {
+      question: '¿Por qué hay un rango de fechas de concepción?',
+      answer: 'La concepción puede ocurrir en diferentes momentos del ciclo menstrual, por eso se muestra un rango de fechas más probable.'
+    },
+    {
+      question: '¿Qué es la edad gestacional?',
+      answer: 'Es el tiempo transcurrido desde el primer día de tu último período menstrual hasta la fecha actual, expresado en semanas y días.'
+    }
+  ]
+
+  const handleExampleClick = (values: Record<string, unknown>) => {
+    setMethod(String(values.method || ''))
+    if (values.method === 'last-period') {
+      setLastPeriodDate(String(values.lastPeriodDate || ''))
+    } else if (values.method === 'due-date') {
+      setDueDate(String(values.dueDate || ''))
+    }
+    setError('')
+    setResult(null)
+  }
+
   return (
     <CalculatorLayout
       title="Calculadora de Fecha de Concepción de Embarazo"
       description="Calcula la fecha probable de concepción basándose en la fecha de parto o en la fecha de tu última menstruación."
+      examples={examples}
+      faqItems={faqItems}
+      onExampleClick={handleExampleClick}
+      disclaimer="Esta calculadora proporciona estimaciones basadas en promedios. La fecha exacta de concepción puede variar. Consulta con tu médico para información más precisa sobre tu embarazo."
     >
       <div className="space-y-6">
         {/* Method Selection */}
@@ -219,10 +270,10 @@ export default function FechaConcepcionClient() {
 
         {/* Buttons */}
         <div className="flex gap-4">
-          <Button onClick={calculateConception} className="flex-1">
+          <Button onClick={calculateConception} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
             Calcular Fecha de Concepción
           </Button>
-          <Button onClick={resetCalculator} variant="outline">
+          <Button onClick={resetCalculator} variant="outline" className="border-gray-300 hover:bg-gray-50">
             Limpiar
           </Button>
         </div>

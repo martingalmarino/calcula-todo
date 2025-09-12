@@ -141,10 +141,51 @@ export default function CoeficienteBinomialClient() {
     setError('')
   }, [])
 
+  const examples = [
+    {
+      label: 'Ejemplo: C(5,2) - Combinaciones de 5 elementos tomados de 2 en 2',
+      values: { n: '5', k: '2' }
+    },
+    {
+      label: 'Ejemplo: C(10,3) - Combinaciones de 10 elementos tomados de 3 en 3',
+      values: { n: '10', k: '3' }
+    }
+  ]
+
+  const faqItems = [
+    {
+      question: '¿Qué es el coeficiente binomial C(n,k)?',
+      answer: 'El coeficiente binomial C(n,k) representa el número de formas de elegir k elementos de un conjunto de n elementos, sin importar el orden. También se conoce como "n sobre k".'
+    },
+    {
+      question: '¿Cuál es la fórmula del coeficiente binomial?',
+      answer: 'C(n,k) = n! / (k! × (n-k)!) donde n! es el factorial de n.'
+    },
+    {
+      question: '¿Para qué se usa el coeficiente binomial?',
+      answer: 'Se usa en combinatoria, probabilidad, expansión binomial, estadística y muchas áreas de las matemáticas discretas.'
+    },
+    {
+      question: '¿Qué restricciones tienen n y k?',
+      answer: 'n debe ser mayor o igual a 0, k debe estar entre 0 y n (inclusive). Si k > n, el resultado es 0.'
+    }
+  ]
+
+  const handleExampleClick = (values: Record<string, unknown>) => {
+    setN(String(values.n || ''))
+    setK(String(values.k || ''))
+    setError('')
+    setResult(null)
+  }
+
   return (
     <CalculatorLayout
       title="Calculadora del Coeficiente Binomial"
       description="Calcula el coeficiente binomial C(n,k) para combinaciones y probabilidades. Útil para matemáticas discretas, estadística y probabilidad."
+      examples={examples}
+      faqItems={faqItems}
+      onExampleClick={handleExampleClick}
+      disclaimer="Esta calculadora maneja números enteros no negativos. Para valores muy grandes, los resultados pueden ser aproximados debido a limitaciones de precisión numérica."
     >
       <div className="space-y-6">
         {/* Inputs */}
@@ -224,11 +265,11 @@ export default function CoeficienteBinomialClient() {
 
         {/* Buttons */}
         <div className="flex gap-4">
-          <Button onClick={calculateBinomial} className="flex-1">
+          <Button onClick={calculateBinomial} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
             <Calculator className="w-4 h-4 mr-2" />
             Calcular C(n,k)
           </Button>
-          <Button onClick={resetCalculator} variant="outline">
+          <Button onClick={resetCalculator} variant="outline" className="border-gray-300 hover:bg-gray-50">
             Limpiar
           </Button>
         </div>

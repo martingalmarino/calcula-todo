@@ -187,10 +187,66 @@ export default function NecesidadesEnergeticasClient() {
     setError('')
   }, [])
 
+  const examples = [
+    {
+      label: 'Ejemplo: Mujer de 30 años, 65kg, 165cm, actividad moderada',
+      values: { 
+        age: '30', 
+        gender: 'femenino', 
+        weight: '65', 
+        height: '165', 
+        activityLevel: 'moderada' 
+      }
+    },
+    {
+      label: 'Ejemplo: Hombre de 25 años, 80kg, 180cm, actividad alta',
+      values: { 
+        age: '25', 
+        gender: 'masculino', 
+        weight: '80', 
+        height: '180', 
+        activityLevel: 'alta' 
+      }
+    }
+  ]
+
+  const faqItems = [
+    {
+      question: '¿Qué son las Necesidades Energéticas Diarias (NED)?',
+      answer: 'Las NED son la cantidad de calorías que tu cuerpo necesita diariamente para mantener sus funciones básicas y tu nivel de actividad física actual.'
+    },
+    {
+      question: '¿Cuál es la diferencia entre TMB y NED?',
+      answer: 'La TMB (Tasa Metabólica Basal) son las calorías mínimas para funciones básicas. Las NED incluyen además las calorías para tu actividad física diaria.'
+    },
+    {
+      question: '¿Qué nivel de actividad física debo seleccionar?',
+      answer: 'Sedentario: trabajo de oficina, sin ejercicio. Ligera: ejercicio ligero 1-3 días/semana. Moderada: ejercicio moderado 3-5 días/semana. Alta: ejercicio intenso 6-7 días/semana. Muy alta: ejercicio muy intenso, trabajo físico.'
+    },
+    {
+      question: '¿Son precisas estas estimaciones?',
+      answer: 'Son estimaciones basadas en ecuaciones científicas estándar. Para casos específicos como embarazo, lactancia o condiciones médicas, consulta con un profesional de la salud.'
+    }
+  ]
+
+  const handleExampleClick = (values: Record<string, unknown>) => {
+    setAge(String(values.age || ''))
+    setGender(String(values.gender || ''))
+    setWeight(String(values.weight || ''))
+    setHeight(String(values.height || ''))
+    setActivityLevel(String(values.activityLevel || ''))
+    setError('')
+    setResult(null)
+  }
+
   return (
     <CalculatorLayout
       title="Calculadora de Necesidades Energéticas Diarias (NED)"
       description="Calcula tus necesidades energéticas diarias para mantener el equilibrio energético según tu edad, género, peso, altura y nivel de actividad física."
+      examples={examples}
+      faqItems={faqItems}
+      onExampleClick={handleExampleClick}
+      disclaimer="Las necesidades energéticas diarias son estimaciones basadas en ecuaciones estándar. Para casos específicos, embarazo, lactancia o condiciones médicas, consulta con un profesional de la salud."
     >
       <div className="space-y-6">
         {/* Inputs */}
@@ -277,10 +333,10 @@ export default function NecesidadesEnergeticasClient() {
 
         {/* Buttons */}
         <div className="flex gap-4">
-          <Button onClick={calculateNED} className="flex-1">
+          <Button onClick={calculateNED} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
             Calcular NED
           </Button>
-          <Button onClick={resetCalculator} variant="outline">
+          <Button onClick={resetCalculator} variant="outline" className="border-gray-300 hover:bg-gray-50">
             Limpiar
           </Button>
         </div>
