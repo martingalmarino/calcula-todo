@@ -1,11 +1,16 @@
 "use client"
 
 import { useState, useCallback } from 'react'
+import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Alert } from '@/components/ui/alert'
 import { Calculator, Hash, TrendingUp } from 'lucide-react'
+import { jsonLdCalculator } from '@/lib/seo'
+import { getBreadcrumbs } from '@/lib/site.config'
 
 interface BinomialResult {
   coefficient: number
@@ -178,16 +183,42 @@ export default function CoeficienteBinomialClient() {
     setResult(null)
   }
 
+  const breadcrumbs = getBreadcrumbs('/matematicas/coeficiente-binomial')
+
   return (
-    <CalculatorLayout
-      title="Calculadora del Coeficiente Binomial"
-      description="Calcula el coeficiente binomial C(n,k) para combinaciones y probabilidades. Útil para matemáticas discretas, estadística y probabilidad."
-      examples={examples}
-      faqItems={faqItems}
-      onExampleClick={handleExampleClick}
-      disclaimer="Esta calculadora maneja números enteros no negativos. Para valores muy grandes, los resultados pueden ser aproximados debido a limitaciones de precisión numérica."
-    >
-      <div className="space-y-6">
+    <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdCalculator({
+            name: 'Calculadora del Coeficiente Binomial',
+            description: 'Calcula el coeficiente binomial C(n,k) para combinaciones y probabilidades. Útil para matemáticas discretas, estadística y probabilidad.',
+            url: '/matematicas/coeficiente-binomial/',
+            category: 'Matemáticas'
+          }))
+        }}
+      />
+      
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Calculadora del Coeficiente Binomial"
+            description="Calcula el coeficiente binomial C(n,k) para combinaciones y probabilidades. Útil para matemáticas discretas, estadística y probabilidad."
+            examples={examples}
+            faqItems={faqItems}
+            onExampleClick={handleExampleClick}
+            disclaimer="Esta calculadora maneja números enteros no negativos. Para valores muy grandes, los resultados pueden ser aproximados debido a limitaciones de precisión numérica."
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Calculator className="h-5 w-5" />
+                  Calculadora de Coeficiente Binomial
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
         {/* Inputs */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
@@ -348,7 +379,11 @@ export default function CoeficienteBinomialClient() {
             </div>
           </div>
         )}
-      </div>
-    </CalculatorLayout>
+              </CardContent>
+            </Card>
+          </CalculatorLayout>
+        </div>
+      </Container>
+    </div>
   )
 }

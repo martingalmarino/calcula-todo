@@ -1,12 +1,17 @@
 "use client"
 
 import { useState, useCallback } from 'react'
+import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { Alert } from '@/components/ui/alert'
 import { Calendar, Clock, Baby } from 'lucide-react'
+import { jsonLdCalculator } from '@/lib/seo'
+import { getBreadcrumbs } from '@/lib/site.config'
 
 interface ConceptionResult {
   conceptionDate: Date
@@ -207,16 +212,42 @@ export default function FechaConcepcionClient() {
     setResult(null)
   }
 
+  const breadcrumbs = getBreadcrumbs('/salud/fecha-concepcion')
+
   return (
-    <CalculatorLayout
-      title="Calculadora de Fecha de Concepción de Embarazo"
-      description="Calcula la fecha probable de concepción basándose en la fecha de parto o en la fecha de tu última menstruación."
-      examples={examples}
-      faqItems={faqItems}
-      onExampleClick={handleExampleClick}
-      disclaimer="Esta calculadora proporciona estimaciones basadas en promedios. La fecha exacta de concepción puede variar. Consulta con tu médico para información más precisa sobre tu embarazo."
-    >
-      <div className="space-y-6">
+    <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdCalculator({
+            name: 'Calculadora de Fecha de Concepción de Embarazo',
+            description: 'Calcula la fecha probable de concepción basándose en la fecha de parto o en la fecha de tu última menstruación.',
+            url: '/salud/fecha-concepcion/',
+            category: 'Salud'
+          }))
+        }}
+      />
+      
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div className="py-8">
+          <CalculatorLayout
+            title="Calculadora de Fecha de Concepción de Embarazo"
+            description="Calcula la fecha probable de concepción basándose en la fecha de parto o en la fecha de tu última menstruación."
+            examples={examples}
+            faqItems={faqItems}
+            onExampleClick={handleExampleClick}
+            disclaimer="Esta calculadora proporciona estimaciones basadas en promedios. La fecha exacta de concepción puede variar. Consulta con tu médico para información más precisa sobre tu embarazo."
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Baby className="h-5 w-5" />
+                  Calculadora de Concepción
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
         {/* Method Selection */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -347,7 +378,11 @@ export default function FechaConcepcionClient() {
             </div>
           </div>
         )}
-      </div>
-    </CalculatorLayout>
+              </CardContent>
+            </Card>
+          </CalculatorLayout>
+        </div>
+      </Container>
+    </div>
   )
 }

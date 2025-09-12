@@ -73,6 +73,13 @@ export default function OvulacionClient() {
     }
   ]
 
+  const handleExampleClick = (values: Record<string, unknown>) => {
+    setLastPeriod(String(values.lastPeriod || ''))
+    setCycleLength(String(values.cycleLength || '28'))
+    setError(null)
+    setResults(null)
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <script
@@ -141,13 +148,27 @@ export default function OvulacionClient() {
                   </div>
                 </div>
                 
-                <Button 
-                  onClick={handleCalculate} 
-                  className="w-full calculator-button"
-                >
-                  <Calendar className="h-4 w-4 mr-2" />
-                  Calcular Ovulación
-                </Button>
+                <div className="flex gap-4">
+                  <Button 
+                    onClick={handleCalculate} 
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+                  >
+                    <Calendar className="h-4 w-4 mr-2" />
+                    Calcular Ovulación
+                  </Button>
+                  <Button 
+                    onClick={() => {
+                      setLastPeriod('')
+                      setCycleLength('28')
+                      setResults(null)
+                      setError(null)
+                    }} 
+                    variant="outline" 
+                    className="border-gray-300 hover:bg-gray-50"
+                  >
+                    Limpiar
+                  </Button>
+                </div>
 
                 {error && (
                   <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">
