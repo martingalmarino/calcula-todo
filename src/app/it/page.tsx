@@ -134,14 +134,6 @@ export default function ItalianHomePage() {
               </div>
             </div>
 
-            {/* Categories Section */}
-            <div className="mt-8 py-8">
-              <div className="max-w-7xl mx-auto">
-              
-              {/* Categories now handled by CategoryClusterIT component */}
-              </div>
-            </div>
-
             {/* Category Cluster Section */}
             <div className="mt-8 py-8">
               <div className="max-w-7xl mx-auto">

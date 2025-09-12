@@ -34,7 +34,7 @@ export function NewLabel({
         className
       )}
     >
-      ✨ NUEVO
+      ✨ NUOVO
     </span>
   )
 }
