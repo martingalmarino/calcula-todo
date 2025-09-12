@@ -43,6 +43,7 @@ export function CategoryPageLayout({
   const isItalian = pathname.startsWith('/it')
   const isPortuguese = pathname.startsWith('/pt')
   const isGerman = pathname.startsWith('/de')
+  const isGamesCategory = pathname.includes('juegos') || pathname.includes('giochi') || pathname.includes('jogos') || pathname.includes('spiele') || pathname.includes('trivias')
 
   // Stats por defecto si no se proporcionan personalizadas
   const defaultStats = [
@@ -179,7 +180,10 @@ export function CategoryPageLayout({
                 <CardContent className="pt-0">
                   <Button asChild className="w-full calculator-button">
                     <Link href={calculator.href}>
-                      {isItalian ? 'Gioca' : isPortuguese ? 'Jogar' : isGerman ? 'Spielen' : 'Jugar'}
+                      {isGamesCategory 
+                        ? (isItalian ? 'Gioca' : isPortuguese ? 'Jogar' : isGerman ? 'Spielen' : 'Jugar')
+                        : (isItalian ? 'Calcola' : isPortuguese ? 'Calcular' : isGerman ? 'Berechnen' : 'Calcular')
+                      }
                     </Link>
                   </Button>
                 </CardContent>
