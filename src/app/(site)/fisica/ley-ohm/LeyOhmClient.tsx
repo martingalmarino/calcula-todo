@@ -6,7 +6,6 @@ import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { Alert } from '@/components/ui/alert'
 import { Zap, Battery, Activity } from 'lucide-react'
@@ -113,7 +112,7 @@ export function LeyOhmClient() {
     setError('')
   }, [])
 
-  const handleExampleClick = useCallback((values: any) => {
+  const handleExampleClick = useCallback((values: { tension?: string; corriente?: string; resistencia?: string }) => {
     setTension(String(values.tension || ''))
     setCorriente(String(values.corriente || ''))
     setResistencia(String(values.resistencia || ''))

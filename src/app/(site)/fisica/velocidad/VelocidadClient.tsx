@@ -111,7 +111,7 @@ export function VelocidadClient() {
     setError('')
   }, [])
 
-  const handleExampleClick = useCallback((values: any) => {
+  const handleExampleClick = useCallback((values: { distancia?: string; unidadDistancia?: string; tiempo?: string; unidadTiempo?: string }) => {
     setDistancia(String(values.distancia || ''))
     setUnidadDistancia(values.unidadDistancia || 'm')
     setTiempo(String(values.tiempo || ''))

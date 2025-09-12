@@ -129,7 +129,7 @@ export function GravedadClient() {
     setError('')
   }, [])
 
-  const handleExampleClick = useCallback((values: any) => {
+  const handleExampleClick = useCallback((values: { masa1?: string; unidadMasa1?: string; masa2?: string; unidadMasa2?: string; distancia?: string; unidadDistancia?: string }) => {
     setMasa1(String(values.masa1 || ''))
     setUnidadMasa1(values.unidadMasa1 || 'kg')
     setMasa2(String(values.masa2 || ''))

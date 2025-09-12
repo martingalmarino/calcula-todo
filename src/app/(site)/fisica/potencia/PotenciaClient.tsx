@@ -111,7 +111,7 @@ export function PotenciaClient() {
     setError('')
   }, [])
 
-  const handleExampleClick = useCallback((values: any) => {
+  const handleExampleClick = useCallback((values: { trabajo?: string; unidadTrabajo?: string; tiempo?: string; unidadTiempo?: string }) => {
     setTrabajo(String(values.trabajo || ''))
     setUnidadTrabajo(values.unidadTrabajo || 'J')
     setTiempo(String(values.tiempo || ''))

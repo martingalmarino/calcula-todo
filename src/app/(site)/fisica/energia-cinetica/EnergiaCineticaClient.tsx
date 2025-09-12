@@ -108,7 +108,7 @@ export function EnergiaCineticaClient() {
     setError('')
   }, [])
 
-  const handleExampleClick = useCallback((values: any) => {
+  const handleExampleClick = useCallback((values: { masa?: string; unidadMasa?: string; velocidad?: string; unidadVelocidad?: string }) => {
     setMasa(String(values.masa || ''))
     setUnidadMasa(values.unidadMasa || 'kg')
     setVelocidad(String(values.velocidad || ''))

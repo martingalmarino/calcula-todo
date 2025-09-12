@@ -105,7 +105,7 @@ export function FuerzaClient() {
     setError('')
   }, [])
 
-  const handleExampleClick = useCallback((values: any) => {
+  const handleExampleClick = useCallback((values: { masa?: string; unidadMasa?: string; aceleracion?: string; unidadAceleracion?: string }) => {
     setMasa(String(values.masa || ''))
     setUnidadMasa(values.unidadMasa || 'kg')
     setAceleracion(String(values.aceleracion || ''))
