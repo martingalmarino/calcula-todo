@@ -248,10 +248,14 @@ export default function QuizImcHabitosClient() {
                   <Button
                     key={index}
                     onClick={() => checkAnswer(option)}
+                    variant={selectedAnswer === option ? (feedback === 'correct' ? 'default' : 'destructive') : 'outline'}
+                    size="lg"
                     className={`w-full py-3 text-left justify-start transition-all duration-200 ${
                       selectedAnswer === option
-                        ? (feedback === 'correct' ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600')
-                        : 'bg-blue-500 hover:bg-blue-600'
+                        ? feedback === 'correct' 
+                          ? 'bg-green-600 hover:bg-green-700 text-white' 
+                          : 'bg-red-600 hover:bg-red-700 text-white'
+                        : 'hover:bg-blue-50'
                     }`}
                     disabled={!isActive || feedback !== null || answeredQuestions.has(currentQuestion.id)}
                   >
@@ -263,10 +267,14 @@ export default function QuizImcHabitosClient() {
                 <div className="grid grid-cols-2 gap-4">
                   <Button
                     onClick={() => checkAnswer(true)}
+                    variant={selectedAnswer === true ? (feedback === 'correct' ? 'default' : 'destructive') : 'outline'}
+                    size="lg"
                     className={`py-3 transition-all duration-200 ${
                       selectedAnswer === true
-                        ? (feedback === 'correct' ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600')
-                        : 'bg-blue-500 hover:bg-blue-600'
+                        ? feedback === 'correct' 
+                          ? 'bg-green-600 hover:bg-green-700 text-white' 
+                          : 'bg-red-600 hover:bg-red-700 text-white'
+                        : 'hover:bg-blue-50'
                     }`}
                     disabled={!isActive || feedback !== null || answeredQuestions.has(currentQuestion.id)}
                   >
@@ -274,10 +282,14 @@ export default function QuizImcHabitosClient() {
                   </Button>
                   <Button
                     onClick={() => checkAnswer(false)}
+                    variant={selectedAnswer === false ? (feedback === 'correct' ? 'default' : 'destructive') : 'outline'}
+                    size="lg"
                     className={`py-3 transition-all duration-200 ${
                       selectedAnswer === false
-                        ? (feedback === 'correct' ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600')
-                        : 'bg-blue-500 hover:bg-blue-600'
+                        ? feedback === 'correct' 
+                          ? 'bg-green-600 hover:bg-green-700 text-white' 
+                          : 'bg-red-600 hover:bg-red-700 text-white'
+                        : 'hover:bg-blue-50'
                     }`}
                     disabled={!isActive || feedback !== null || answeredQuestions.has(currentQuestion.id)}
                   >
