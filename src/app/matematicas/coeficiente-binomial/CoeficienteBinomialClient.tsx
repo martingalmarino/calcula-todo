@@ -2,10 +2,10 @@
 
 import { useState, useCallback } from 'react'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Input } from '@/components/Input'
-import { Button } from '@/components/Button'
-import { Alert } from '@/components/Alert'
-import { Function, Calculator, Hash, TrendingUp } from 'lucide-react'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Alert } from '@/components/ui/alert'
+import { FunctionSquare, Calculator, Hash, TrendingUp } from 'lucide-react'
 
 interface BinomialResult {
   coefficient: number
@@ -145,7 +145,7 @@ export default function CoeficienteBinomialClient() {
     <CalculatorLayout
       title="Calculadora del Coeficiente Binomial"
       description="Calcula el coeficiente binomial C(n,k) para combinaciones y probabilidades. Útil para matemáticas discretas, estadística y probabilidad."
-      icon={Function}
+      icon={FunctionSquare}
       category="Matemáticas"
     >
       <div className="space-y-6">

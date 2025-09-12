@@ -2,10 +2,10 @@
 
 import { useState, useCallback } from 'react'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Input } from '@/components/Input'
-import { Select } from '@/components/Select'
-import { Button } from '@/components/Button'
-import { Alert } from '@/components/Alert'
+import { Input } from '@/components/ui/input'
+import { Select } from '@/components/ui/select'
+import { Button } from '@/components/ui/button'
+import { Alert } from '@/components/ui/alert'
 import { Zap, Activity, Scale, User } from 'lucide-react'
 
 interface NEDResult {
