@@ -1,4 +1,4 @@
-import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, LucideIcon } from 'lucide-react'
+import { Gamepad2, Target, TrendingUp, Grid3X3, Dice1, Brain, Map, ArrowUp, Hash, Zap, Percent, Shapes, Calculator, LucideIcon } from 'lucide-react'
 
 export interface GameConfig {
   title: string
@@ -164,6 +164,17 @@ export const gamesConfig: GameConfig[] = [
     category: 'Juegos Matemáticos',
     keywords: ['geometría', 'perímetro', 'área', 'rectángulo', 'cuadrado', 'triángulo', 'figuras geométricas', 'matemáticas visuales'],
     icon: Shapes,
+    difficulty: 'intermedio',
+    timeRange: '45s'
+  },
+  {
+    title: 'Calculadora Mental de Multiplicaciones',
+    label: 'Calculadora Mental de Multiplicaciones',
+    description: 'Practica multiplicaciones de 2-3 dígitos en tiempo limitado. ¡Desafía tu agilidad mental y mejora tu cálculo mental!',
+    href: '/juegos-matematicos/multiplicaciones',
+    category: 'Juegos Matemáticos',
+    keywords: ['multiplicaciones', 'cálculo mental', 'agilidad mental', 'matemáticas', 'práctica', 'velocidad', 'multiplicar'],
+    icon: Calculator,
     difficulty: 'intermedio',
     timeRange: '45s'
   }
