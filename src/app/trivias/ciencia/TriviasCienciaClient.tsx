@@ -26,16 +26,12 @@ export default function TriviasCienciaClient() {
     href: '/trivias/ciencia',
     description: 'Descubre el fascinante mundo de la ciencia a través de nuestras trivias educativas. Aprende sobre anatomía, biología, química y más temas científicos de forma divertida e interactiva.',
     calculators: cienciaTrivias.map(trivia => ({
-      name: trivia.title,
+      label: trivia.title,
       href: trivia.href,
       description: trivia.description,
-      icon: trivia.icon,
-      keywords: trivia.keywords,
-      difficulty: trivia.difficulty,
-      totalQuestions: trivia.totalQuestions,
-      timeLimit: trivia.timeLimit,
-      relatedCalculator: trivia.relatedCalculator,
-      isNew: trivia.isNew
+      icon: trivia.icon.name || 'Calculator',
+      category: 'Ciencia',
+      keywords: trivia.keywords
     }))
   }
 
