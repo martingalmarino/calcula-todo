@@ -77,18 +77,18 @@ export function PopularCalculatorsPills() {
         </p>
       </div>
       
-      <ChipsContainer>
-        {randomCalculators.map((calculator, index) => (
-          <Chip
-            key={`${calculator.categoryKey}-${calculator.href}-${index}`}
-            href={calculator.href}
-            variant="outline"
-            className="hover:bg-blue-50 hover:border-blue-300 transition-colors"
-          >
-            {calculator.label}
-          </Chip>
-        ))}
-      </ChipsContainer>
+              <ChipsContainer>
+                {randomCalculators.map((calculator, index) => (
+                  <Chip
+                    key={`${calculator.categoryKey}-${calculator.href}-${index}`}
+                    href={calculator.href}
+                    icon={calculator.icon}
+                    className="hover:bg-blue-50 hover:border-blue-300 transition-colors"
+                  >
+                    {calculator.label}
+                  </Chip>
+                ))}
+              </ChipsContainer>
     </div>
   )
 }
