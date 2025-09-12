@@ -151,22 +151,36 @@ export default function MitosSaludClient() {
       setScore(prevScore => prevScore + 1)
     }
 
-    setAnsweredQuestions(prev => new Set(prev).add(currentQuestion.id))
-
-    setTimeout(() => {
-      setFeedback(null)
-      setSelectedAnswer(null)
-      if (currentQuestionIndex < totalQuestions) {
-        setCurrentQuestionIndex(prevIndex => prevIndex + 1)
-        const nextQuestion = shuffleArray([...quizQuestions].filter(q => !answeredQuestions.has(q.id)))[0];
-        setCurrentQuestion(nextQuestion);
-      } else {
-        setIsActive(false)
-        const finalScore = score + (isCorrect ? 1 : 0);
-        const rankInfo = getRankInfo(finalScore);
-        setQuizResult({ points: finalScore, rank: rankInfo.rank, emoji: rankInfo.emoji })
-      }
-    }, 2000) // Give 2 seconds for feedback and explanation
+    // Actualizar el estado de preguntas respondidas
+    setAnsweredQuestions(prev => {
+      const newAnswered = new Set(prev).add(currentQuestion.id)
+      
+      // Usar setTimeout para permitir que el estado se actualice
+      setTimeout(() => {
+        setFeedback(null)
+        setSelectedAnswer(null)
+        
+        // Verificar si hemos respondido todas las preguntas
+        if (newAnswered.size >= totalQuestions) {
+          // Juego terminado
+          setIsActive(false)
+          const finalScore = score + (isCorrect ? 1 : 0)
+          const rankInfo = getRankInfo(finalScore)
+          setQuizResult({ points: finalScore, rank: rankInfo.rank, emoji: rankInfo.emoji })
+        } else {
+          // Continuar con la siguiente pregunta
+          setCurrentQuestionIndex(prevIndex => prevIndex + 1)
+          // Obtener preguntas no respondidas
+          const unansweredQuestions = quizQuestions.filter(q => !newAnswered.has(q.id))
+          if (unansweredQuestions.length > 0) {
+            const nextQuestion = shuffleArray([...unansweredQuestions])[0]
+            setCurrentQuestion(nextQuestion)
+          }
+        }
+      }, 2000) // Give 2 seconds for feedback and explanation
+      
+      return newAnswered
+    })
   }, [isActive, feedback, currentQuestion, answeredQuestions, currentQuestionIndex, totalQuestions, score, shuffleArray, getRankInfo])
 
   const shareResult = useCallback(() => {
