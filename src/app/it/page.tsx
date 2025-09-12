@@ -3,6 +3,7 @@ import { Container } from '@/components/Container'
 import { Chip, ChipsContainer } from '@/components/Chip'
 import { PromotionalBlock } from '@/components/PromotionalBlock'
 import { buildMeta } from '@/lib/seo'
+import { getGamesStatsIT } from '@/lib/games-config-it'
 
 export const metadata: Metadata = buildMeta({
   title: 'Calcolatrici Online Gratuite',
@@ -20,6 +21,8 @@ export const metadata: Metadata = buildMeta({
 })
 
 export default function ItalianHomePage() {
+  const gamesStatsIT = getGamesStatsIT()
+  
   return (
     <>
       <script
@@ -57,6 +60,27 @@ export default function ItalianHomePage() {
                 Facilitiamo i tuoi calcoli in finanza, salute, matematica, calendario, geometria e molto altro. 
                 Calcolatrici online gratuite, veloci e user-friendly.
               </p>
+            </div>
+
+            {/* Pre-header per Giochi Matematici */}
+            <div className="text-center mb-8 px-4">
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-4 py-3 shadow-sm max-w-sm mx-auto">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-2xl">🎮</span>
+                  <span className="text-blue-800 font-bold text-lg">
+                    Nuovo!
+                  </span>
+                </div>
+                <a 
+                  href="/it/giochi-matematici" 
+                  className="block text-blue-600 hover:text-blue-800 font-bold text-lg mb-1 transition-colors"
+                >
+                  Giochi Matematici
+                </a>
+                <span className="text-blue-700 text-sm">
+                  {gamesStatsIT.totalGames} giochi educativi
+                </span>
+              </div>
             </div>
 
             {/* Categories Section */}
