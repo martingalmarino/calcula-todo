@@ -763,6 +763,61 @@ export const SITE: SiteConfig = {
           keywords: ['gravedad', 'fuerza gravitatoria', 'masas', 'distancia', 'newton', 'constante gravitacional']
         }
       ]
+    },
+    estadistica: {
+      label: 'Estadística',
+      href: '/estadistica/',
+      description: 'Calculadoras estadísticas para análisis de datos, medidas de tendencia central, dispersión y probabilidades básicas.',
+      calculators: [
+        {
+          label: 'Media Aritmética',
+          href: '/estadistica/media-aritmetica/',
+          description: 'Calcula el promedio de una lista de números con fórmula aplicada',
+          icon: 'bar-chart-3',
+          category: 'tendencia central',
+          keywords: ['media', 'promedio', 'aritmética', 'estadística', 'tendencia central']
+        },
+        {
+          label: 'Mediana',
+          href: '/estadistica/mediana/',
+          description: 'Encuentra el valor central de un conjunto de datos ordenados',
+          icon: 'bar-chart-3',
+          category: 'tendencia central',
+          keywords: ['mediana', 'valor central', 'estadística', 'tendencia central', 'ordenamiento']
+        },
+        {
+          label: 'Moda',
+          href: '/estadistica/moda/',
+          description: 'Identifica el número que más se repite en un conjunto de datos',
+          icon: 'bar-chart-3',
+          category: 'tendencia central',
+          keywords: ['moda', 'más repetido', 'frecuencia', 'estadística', 'tendencia central']
+        },
+        {
+          label: 'Varianza y Desviación Estándar',
+          href: '/estadistica/varianza-desviacion/',
+          description: 'Calcula varianza y desviación estándar para población o muestra',
+          icon: 'bar-chart-3',
+          category: 'dispersión',
+          keywords: ['varianza', 'desviación estándar', 'dispersión', 'población', 'muestra', 'estadística']
+        },
+        {
+          label: 'Probabilidad Simple',
+          href: '/estadistica/probabilidad-simple/',
+          description: 'Calcula probabilidad en fracción, decimal y porcentaje',
+          icon: 'bar-chart-3',
+          category: 'probabilidad',
+          keywords: ['probabilidad', 'casos favorables', 'casos totales', 'fracción', 'porcentaje']
+        },
+        {
+          label: 'Regla de Tres (Proporciones)',
+          href: '/estadistica/regla-tres/',
+          description: 'Calcula proporciones y regla de tres para análisis estadístico',
+          icon: 'bar-chart-3',
+          category: 'proporciones',
+          keywords: ['regla de tres', 'proporciones', 'encuestas', 'análisis', 'estadística']
+        }
+      ]
     }
   },
   social: {
