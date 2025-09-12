@@ -122,8 +122,7 @@ export function PotenciaClient() {
 
   const examples = [
     {
-      title: 'Motor eléctrico',
-      description: 'Un motor realiza 1000 J de trabajo en 5 segundos',
+      label: 'Motor eléctrico - Un motor realiza 1000 J de trabajo en 5 segundos',
       values: {
         trabajo: '1000',
         unidadTrabajo: 'J',
@@ -132,8 +131,7 @@ export function PotenciaClient() {
       }
     },
     {
-      title: 'Bombilla LED',
-      description: 'Una bombilla consume 3600 J en 1 hora',
+      label: 'Bombilla LED - Una bombilla consume 3600 J en 1 hora',
       values: {
         trabajo: '3600',
         unidadTrabajo: 'J',

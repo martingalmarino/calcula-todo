@@ -142,8 +142,7 @@ export function GravedadClient() {
 
   const examples = [
     {
-      title: 'Tierra y Luna',
-      description: 'Fuerza gravitatoria entre la Tierra (5.97×10²⁴ kg) y la Luna (7.34×10²² kg) a 384,400 km',
+      label: 'Tierra y Luna - Fuerza gravitatoria entre la Tierra (5.97×10²⁴ kg) y la Luna (7.34×10²² kg) a 384,400 km',
       values: {
         masa1: '5.97e24',
         unidadMasa1: 'kg',
@@ -154,8 +153,7 @@ export function GravedadClient() {
       }
     },
     {
-      title: 'Dos personas',
-      description: 'Fuerza gravitatoria entre dos personas de 70 kg a 1 metro de distancia',
+      label: 'Dos personas - Fuerza gravitatoria entre dos personas de 70 kg a 1 metro de distancia',
       values: {
         masa1: '70',
         unidadMasa1: 'kg',

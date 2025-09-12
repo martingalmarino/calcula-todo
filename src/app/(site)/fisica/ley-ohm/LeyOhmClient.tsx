@@ -87,8 +87,8 @@ export function LeyOhmClient() {
 
     // Calcular todas las equivalencias
     const tensionFinal = v !== null ? v : i! * r!
-    const corrienteFinal = i !== null ? i : v / r!
-    const resistenciaFinal = r !== null ? r : v / i!
+    const corrienteFinal = i !== null ? i : v! / r!
+    const resistenciaFinal = r !== null ? r : v! / i!
 
     const resultado: LeyOhmResult = {
       calculado,
@@ -122,8 +122,7 @@ export function LeyOhmClient() {
 
   const examples = [
     {
-      title: 'Bombilla LED',
-      description: 'Una bombilla LED de 12V con 0.5A de corriente',
+      label: 'Bombilla LED - Una bombilla LED de 12V con 0.5A de corriente',
       values: {
         tension: '12',
         corriente: '0.5',
@@ -131,8 +130,7 @@ export function LeyOhmClient() {
       }
     },
     {
-      title: 'Resistencia en circuito',
-      description: 'Un circuito con 9V y resistencia de 100Ω',
+      label: 'Resistencia en circuito - Un circuito con 9V y resistencia de 100Ω',
       values: {
         tension: '9',
         corriente: '',

@@ -116,8 +116,7 @@ export function FuerzaClient() {
 
   const examples = [
     {
-      title: 'Coche acelerando',
-      description: 'Un coche de 1200 kg acelera a 2 m/s²',
+      label: 'Coche acelerando - Un coche de 1200 kg acelera a 2 m/s²',
       values: {
         masa: '1200',
         unidadMasa: 'kg',
@@ -126,8 +125,7 @@ export function FuerzaClient() {
       }
     },
     {
-      title: 'Objeto en caída libre',
-      description: 'Un objeto de 5 kg en caída libre (g = 9.8 m/s²)',
+      label: 'Objeto en caída libre - Un objeto de 5 kg en caída libre (g = 9.8 m/s²)',
       values: {
         masa: '5',
         unidadMasa: 'kg',

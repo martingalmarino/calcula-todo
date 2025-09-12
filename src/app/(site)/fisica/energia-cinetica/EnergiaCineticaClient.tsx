@@ -119,8 +119,7 @@ export function EnergiaCineticaClient() {
 
   const examples = [
     {
-      title: 'Bala de rifle',
-      description: 'Una bala de 10g viajando a 800 m/s',
+      label: 'Bala de rifle - Una bala de 10g viajando a 800 m/s',
       values: {
         masa: '10',
         unidadMasa: 'g',
@@ -129,8 +128,7 @@ export function EnergiaCineticaClient() {
       }
     },
     {
-      title: 'Coche en autopista',
-      description: 'Un coche de 1500 kg a 120 km/h',
+      label: 'Coche en autopista - Un coche de 1500 kg a 120 km/h',
       values: {
         masa: '1500',
         unidadMasa: 'kg',

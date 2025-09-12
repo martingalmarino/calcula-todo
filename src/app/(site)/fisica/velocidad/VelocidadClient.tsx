@@ -122,8 +122,7 @@ export function VelocidadClient() {
 
   const examples = [
     {
-      title: 'Corredor de 100m',
-      description: 'Un atleta corre 100 metros en 10 segundos',
+      label: 'Corredor de 100m - Un atleta corre 100 metros en 10 segundos',
       values: {
         distancia: '100',
         unidadDistancia: 'm',
@@ -132,8 +131,7 @@ export function VelocidadClient() {
       }
     },
     {
-      title: 'Viaje en auto',
-      description: 'Un auto recorre 50 km en 30 minutos',
+      label: 'Viaje en auto - Un auto recorre 50 km en 30 minutos',
       values: {
         distancia: '50',
         unidadDistancia: 'km',
