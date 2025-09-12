@@ -300,8 +300,9 @@ export default function MolaridadClient() {
 
                 <Button 
                   onClick={handleCalculate}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700"
+                  className="w-full calculator-button"
                 >
+                  <FlaskRound className="h-4 w-4 mr-2" />
                   Calcular Molaridad
                 </Button>
 

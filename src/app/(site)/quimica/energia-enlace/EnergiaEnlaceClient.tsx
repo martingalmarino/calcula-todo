@@ -307,7 +307,8 @@ export default function EnergiaEnlaceClient() {
                     </div>
                   </div>
 
-                  <Button onClick={addBond} className="w-full">
+                  <Button onClick={addBond} className="w-full calculator-button">
+                    <Plus className="h-4 w-4 mr-2" />
                     Agregar Enlace
                   </Button>
                 </div>
@@ -375,8 +376,9 @@ export default function EnergiaEnlaceClient() {
 
                 <Button 
                   onClick={handleCalculate}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700"
+                  className="w-full calculator-button"
                 >
+                  <Zap className="h-4 w-4 mr-2" />
                   Calcular ΔH
                 </Button>
 
