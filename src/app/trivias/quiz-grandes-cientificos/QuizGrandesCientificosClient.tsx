@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo } from 'react'
 import { QuizLayout } from '@/components/QuizLayout'
 import { getRelatedTrivias } from '@/lib/trivias-config'
-import { Microscope, Award, GraduationCap, Share2 } from 'lucide-react'
+import { Microscope } from 'lucide-react'
 
 interface Question {
   id: number
@@ -93,11 +93,8 @@ export default function QuizGrandesCientificosClient() {
   const [gameState, setGameState] = useState<'playing' | 'finished'>('playing')
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [showFeedback, setShowFeedback] = useState(false)
-  const [answeredQuestions, setAnsweredQuestions] = useState<Set<number>>(new Set())
-
   const currentQuestion = questions[currentQuestionIndex]
   const totalQuestions = questions.length
-  const relatedTrivias = getRelatedTrivias('quiz-grandes-cientificos', 2)
 
   const getRankInfo = useCallback((points: number) => {
     const percentage = (points / totalQuestions) * 100
@@ -133,7 +130,6 @@ export default function QuizGrandesCientificosClient() {
       setScore(prev => prev + 1)
     }
 
-    setAnsweredQuestions(prev => new Set([...prev, currentQuestion.id]))
 
     setTimeout(() => {
       if (currentQuestionIndex < totalQuestions - 1) {
@@ -153,7 +149,6 @@ export default function QuizGrandesCientificosClient() {
     setGameState('playing')
     setSelectedAnswer(null)
     setShowFeedback(false)
-    setAnsweredQuestions(new Set())
   }, [])
 
   const shareResult = useCallback(async () => {
@@ -182,123 +177,91 @@ export default function QuizGrandesCientificosClient() {
 
   const rankInfo = useMemo(() => getRankInfo(score), [score, getRankInfo])
 
+  const introduction = "Descubre los científicos más importantes de la historia y sus contribuciones que cambiaron el mundo de la ciencia. Este quiz te permitirá aprender sobre los descubrimientos y teorías que cambiaron nuestra comprensión del universo."
+
+  const quizResult = gameState === 'finished' ? {
+    points: score,
+    rank: rankInfo.rank,
+    emoji: score >= totalQuestions * 0.8 ? "🧪" : score >= totalQuestions * 0.6 ? "📚" : "🔬"
+  } : null
+
   return (
     <QuizLayout
       title="Quiz de grandes científicos"
       description="Descubre los científicos más importantes de la historia y sus contribuciones que cambiaron el mundo de la ciencia."
-      totalQuestions={totalQuestions}
-      currentQuestion={currentQuestionIndex + 1}
+      introduction={introduction}
+      onStart={() => {}}
+      onReset={resetGame}
+      isActive={gameState === 'playing'}
       timeLeft={timeLeft}
       score={score}
-      gameState={gameState}
-      onReset={resetGame}
-      onShare={shareResult}
-      relatedTrivias={relatedTrivias}
+      feedback={null}
+      quizResult={quizResult}
+      showIntroduction={false}
+      currentQuestion={currentQuestionIndex + 1}
+      totalQuestions={totalQuestions}
+      currentTriviaPath="/trivias/quiz-grandes-cientificos"
+      relatedCalculator="/salud/imc"
     >
-      {gameState === 'playing' ? (
-        <div className="space-y-6">
-          <div className="text-center">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">
-              {currentQuestion.question}
-            </h2>
-          </div>
+      <div className="space-y-6">
+        <div className="text-center">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">
+            {currentQuestion.question}
+          </h2>
+        </div>
 
-          <div className="space-y-3">
-            {currentQuestion.options.map((option, index) => {
-              let buttonClass = "w-full p-4 text-left rounded-lg border-2 transition-all duration-200 hover:bg-blue-50"
-              
-              if (selectedAnswer !== null) {
-                if (index === currentQuestion.correctAnswer) {
-                  buttonClass += " bg-green-600 hover:bg-green-700 text-white border-green-600"
-                } else if (index === selectedAnswer && index !== currentQuestion.correctAnswer) {
-                  buttonClass += " bg-red-600 hover:bg-red-700 text-white border-red-600"
-                } else {
-                  buttonClass += " bg-gray-100 text-gray-500 border-gray-300"
-                }
+        <div className="space-y-3">
+          {currentQuestion.options.map((option, index) => {
+            let buttonClass = "w-full p-4 text-left rounded-lg border-2 transition-all duration-200 hover:bg-blue-50"
+            
+            if (selectedAnswer !== null) {
+              if (index === currentQuestion.correctAnswer) {
+                buttonClass += " bg-green-600 hover:bg-green-700 text-white border-green-600"
+              } else if (index === selectedAnswer && index !== currentQuestion.correctAnswer) {
+                buttonClass += " bg-red-600 hover:bg-red-700 text-white border-red-600"
               } else {
-                buttonClass += " border-gray-300 hover:border-blue-400"
+                buttonClass += " bg-gray-100 text-gray-500 border-gray-300"
               }
+            } else {
+              buttonClass += " border-gray-300 hover:border-blue-400"
+            }
 
-              return (
-                <button
-                  key={index}
-                  onClick={() => checkAnswer(index)}
-                  disabled={selectedAnswer !== null}
-                  className={buttonClass}
-                >
-                  <span className="font-medium">{String.fromCharCode(65 + index)}.</span> {option}
-                </button>
-              )
-            })}
-          </div>
+            return (
+              <button
+                key={index}
+                onClick={() => checkAnswer(index)}
+                disabled={selectedAnswer !== null}
+                className={buttonClass}
+              >
+                <span className="font-medium">{String.fromCharCode(65 + index)}.</span> {option}
+              </button>
+            )
+          })}
+        </div>
 
-          {showFeedback && (
-            <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0">
-                  {selectedAnswer === currentQuestion.correctAnswer ? (
-                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm">✓</span>
-                    </div>
-                  ) : (
-                    <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm">✗</span>
-                    </div>
-                  )}
-                </div>
-                <div>
-                  <p className="text-sm text-gray-700">
-                    <strong>Explicación:</strong> {currentQuestion.explanation}
-                  </p>
-                </div>
+        {showFeedback && (
+          <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <div className="flex items-start space-x-3">
+              <div className="flex-shrink-0">
+                {selectedAnswer === currentQuestion.correctAnswer ? (
+                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm">✓</span>
+                  </div>
+                ) : (
+                  <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm">✗</span>
+                  </div>
+                )}
+              </div>
+              <div>
+                <p className="text-sm text-gray-700">
+                  <strong>Explicación:</strong> {currentQuestion.explanation}
+                </p>
               </div>
             </div>
-          )}
-        </div>
-      ) : (
-        <div className="text-center space-y-6">
-          <div className="space-y-4">
-            <div className="w-20 h-20 mx-auto bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-              <Award className="w-10 h-10 text-white" />
-            </div>
-            
-            <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                ¡Quiz Completado!
-              </h2>
-              <p className="text-lg text-gray-600">
-                Obtuviste {score} de {totalQuestions} puntos
-              </p>
-            </div>
-
-            <div className={`text-xl font-semibold ${rankInfo.color}`}>
-              {rankInfo.rank}
-            </div>
-            
-            <p className="text-gray-600 max-w-md mx-auto">
-              {rankInfo.message}
-            </p>
           </div>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button
-              onClick={resetGame}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
-            >
-              <GraduationCap className="w-5 h-5" />
-              <span>Jugar de nuevo</span>
-            </button>
-            
-            <button
-              onClick={shareResult}
-              className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center space-x-2"
-            >
-              <Share2 className="w-5 h-5" />
-              <span>Compartir resultado</span>
-            </button>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </QuizLayout>
   )
 }
