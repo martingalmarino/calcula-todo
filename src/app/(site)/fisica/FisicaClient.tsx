@@ -62,7 +62,7 @@ export function FisicaClient() {
 
   return (
     <CategoryPageLayout
-      cluster={fisicaCluster}
+      category={fisicaCluster}
       customIcons={customIcons}
       customStats={customStats}
       faqItems={faqItems}
