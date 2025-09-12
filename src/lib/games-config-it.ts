@@ -256,6 +256,7 @@ export const getGamesStatsIT = () => {
     totalGames,
     timeRanges,
     difficulties,
+    timeRangeDisplay: '30s-60s',
     gamesByDifficulty: {
       facile: gamesConfigIT.filter(game => game.difficulty === 'facile').length,
       intermedio: gamesConfigIT.filter(game => game.difficulty === 'intermedio').length,
