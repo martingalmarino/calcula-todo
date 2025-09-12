@@ -13,6 +13,7 @@ import {
   Lock,
   Wifi,
   Palette,
+  Recycle,
   LucideIcon 
 } from 'lucide-react'
 
@@ -157,6 +158,20 @@ export const triviasConfig: TriviaConfig[] = [
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/tecnologia/conversion-colores'
+  },
+  {
+    id: 'trivia-reciclaje-contenedores',
+    title: 'Trivia de Reciclaje: ¿Qué va en cada contenedor?',
+    label: 'Trivia de Reciclaje: ¿Qué va en cada contenedor?',
+    description: 'Aprende sobre la correcta clasificación de residuos y reciclaje. Descubre qué va en cada contenedor para cuidar el medio ambiente.',
+    href: '/trivias/trivia-reciclaje-contenedores',
+    category: 'Medio Ambiente',
+    keywords: ['reciclaje', 'residuos', 'contenedores', 'medio ambiente', 'sostenibilidad', 'ecología', 'separación'],
+    difficulty: 'básico',
+    icon: Recycle,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/otras/calculadora-propinas'
   }
 ]
 
