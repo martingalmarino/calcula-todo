@@ -8,6 +8,7 @@ import {
   Clock, 
   Apple,
   Moon,
+  Activity,
   LucideIcon 
 } from 'lucide-react'
 
@@ -82,6 +83,20 @@ export const triviasConfig: TriviaConfig[] = [
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/salud/sueno'
+  },
+  {
+    id: 'ejercicio-fisico-oms',
+    title: 'Ejercicio Físico Mínimo Recomendado (OMS)',
+    label: 'Ejercicio Físico Mínimo Recomendado (OMS)',
+    description: 'Aprende las recomendaciones oficiales de la OMS sobre actividad física. Descubre cuánto ejercicio necesitas para mantenerte saludable.',
+    href: '/trivias/ejercicio-fisico-oms',
+    category: 'Salud',
+    keywords: ['ejercicio', 'actividad física', 'OMS', 'salud', 'deporte', 'fitness', 'recomendaciones'],
+    difficulty: 'básico',
+    icon: Activity,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/calorias'
   }
 ]
 
