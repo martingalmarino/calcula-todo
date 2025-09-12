@@ -363,11 +363,11 @@ export default function NecesidadesEnergeticasClient() {
         </div>
 
         {/* Buttons */}
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <Button onClick={calculateNED} className="flex-1 text-white" style={{ backgroundColor: '#0284c7' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0369a1'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0284c7'}>
             Calcular NED
           </Button>
-          <Button onClick={resetCalculator} variant="outline" className="border-gray-300 hover:bg-gray-50">
+          <Button onClick={resetCalculator} variant="outline" className="border-gray-300 hover:bg-gray-50 sm:w-auto w-full">
             Limpiar
           </Button>
         </div>
