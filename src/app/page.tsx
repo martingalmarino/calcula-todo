@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { PromotionalBlock } from '@/components/PromotionalBlock'
-import { NewLabel } from '@/components/NewLabel'
+import { NewLabelES } from '@/components/NewLabelES'
 import { CategoryCluster } from '@/components/CategoryCluster'
 import { PopularCalculatorsPills } from '@/components/PopularCalculatorsPills'
 import { buildMeta, jsonLdWebSite } from '@/lib/seo'
@@ -57,7 +57,7 @@ export default function HomePage() {
                 {/* Juegos Matemáticos */}
                 <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-4 py-3 shadow-sm relative">
                   <div className="absolute -top-2 -right-2">
-                    <NewLabel size="sm" />
+                    <NewLabelES size="sm" />
                   </div>
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <span className="text-2xl">🎮</span>
@@ -76,7 +76,7 @@ export default function HomePage() {
                 {/* Trivias */}
                 <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl px-4 py-3 shadow-sm relative">
                   <div className="absolute -top-2 -right-2">
-                    <NewLabel size="sm" />
+                    <NewLabelES size="sm" />
                   </div>
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <span className="text-2xl">🧠</span>
@@ -96,7 +96,7 @@ export default function HomePage() {
                 <div className="bg-gradient-to-r from-purple-50 to-violet-50 border border-purple-200 rounded-2xl px-4 py-3 shadow-sm relative">
                   {cienciaStats.hasNewTrivias && (
                     <div className="absolute -top-2 -right-2">
-                      <NewLabel size="sm" />
+                      <NewLabelES size="sm" />
                     </div>
                   )}
                   <div className="flex items-center justify-center gap-2 mb-2">

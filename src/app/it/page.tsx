@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { PromotionalBlock } from '@/components/PromotionalBlock'
-import { NewLabel } from '@/components/NewLabel'
+import { NewLabelIT } from '@/components/NewLabelIT'
 import { CategoryClusterIT } from '@/components/CategoryClusterIT'
 import { PopularCalculatorsPillsIT } from '@/components/PopularCalculatorsPillsIT'
 import { buildMeta } from '@/lib/seo'
@@ -75,7 +75,7 @@ export default function ItalianHomePage() {
                   {/* Giochi Matematici */}
                   <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-4 py-3 shadow-sm relative">
                     <div className="absolute -top-2 -right-2">
-                      <NewLabel size="sm" />
+                      <NewLabelIT size="sm" />
                     </div>
                     <div className="flex items-center justify-center gap-2 mb-2">
                       <span className="text-2xl">🎮</span>
@@ -94,7 +94,7 @@ export default function ItalianHomePage() {
                   {/* Trivias */}
                   <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl px-4 py-3 shadow-sm relative">
                     <div className="absolute -top-2 -right-2">
-                      <NewLabel size="sm" />
+                      <NewLabelIT size="sm" />
                     </div>
                     <div className="flex items-center justify-center gap-2 mb-2">
                       <span className="text-2xl">🧠</span>
@@ -114,7 +114,7 @@ export default function ItalianHomePage() {
                   <div className="bg-gradient-to-r from-purple-50 to-violet-50 border border-purple-200 rounded-2xl px-4 py-3 shadow-sm relative">
                     {scienzaTrivias.some(trivia => trivia.isNew) && (
                       <div className="absolute -top-2 -right-2">
-                        <NewLabel size="sm" />
+                        <NewLabelIT size="sm" />
                       </div>
                     )}
                     <div className="flex items-center justify-center gap-2 mb-2">
