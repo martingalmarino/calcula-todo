@@ -11,6 +11,7 @@ import {
   Activity,
   Monitor,
   Lock,
+  Wifi,
   LucideIcon 
 } from 'lucide-react'
 
@@ -127,6 +128,20 @@ export const triviasConfig: TriviaConfig[] = [
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/tecnologia/analisis-contraseñas'
+  },
+  {
+    id: 'trivia-internet',
+    title: 'Trivia de Internet',
+    label: 'Trivia de Internet',
+    description: 'Pon a prueba tus conocimientos sobre internet, redes y tecnología. Aprende conceptos básicos de conectividad, protocolos y velocidad de internet.',
+    href: '/trivias/trivia-internet',
+    category: 'Tecnología',
+    keywords: ['internet', 'redes', 'velocidad', 'protocolos', 'conectividad', 'tecnología', 'banda ancha'],
+    difficulty: 'básico',
+    icon: Wifi,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/tecnologia/velocidad-descarga'
   }
 ]
 
