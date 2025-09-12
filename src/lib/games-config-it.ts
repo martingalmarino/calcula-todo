@@ -243,6 +243,72 @@ export const gamesConfigIT: GameConfigIT[] = [
     icon: Scale,
     difficulty: 'intermedio',
     timeRange: '45s'
+  },
+  {
+    title: 'Sudoku delle Operazioni',
+    label: 'Sudoku delle Operazioni',
+    description: 'Risolvi sudoku matematici con operazioni. Sfida la tua logica e capacità di risoluzione dei problemi!',
+    href: '/it/giochi-matematici/sudoku-operazioni',
+    category: 'Giochi Matematici',
+    keywords: ['sudoku', 'operazioni', 'logica', 'risoluzione problemi', 'matematica', 'puzzle', 'sfida'],
+    icon: Grid3X3,
+    difficulty: 'avanzato',
+    timeRange: '60s'
+  },
+  {
+    title: 'Equazioni Express',
+    label: 'Equazioni Express',
+    description: 'Risolvi equazioni semplici in tempo limitato. Sfida la tua comprensione dell\'algebra di base!',
+    href: '/it/giochi-matematici/equazioni-express',
+    category: 'Giochi Matematici',
+    keywords: ['equazioni', 'algebra', 'risolvere', 'matematica', 'velocità', 'comprensione', 'base'],
+    icon: TrendingUp,
+    difficulty: 'avanzato',
+    timeRange: '50s'
+  },
+  {
+    title: 'Ragionamento Logico con Modelli',
+    label: 'Ragionamento Logico con Modelli',
+    description: 'Risolvi problemi di ragionamento logico con pattern e modelli. Sfida la tua capacità di pensiero logico!',
+    href: '/it/giochi-matematici/ragionamento-logico',
+    category: 'Giochi Matematici',
+    keywords: ['ragionamento', 'logico', 'pattern', 'modelli', 'pensiero', 'logica', 'problemi'],
+    icon: Brain,
+    difficulty: 'avanzato',
+    timeRange: '55s'
+  },
+  {
+    title: 'Gioco di Probabilità',
+    label: 'Gioco di Probabilità',
+    description: 'Risolvi problemi di probabilità e calcoli probabilistici. Sfida la tua comprensione della probabilità!',
+    href: '/it/giochi-matematici/probabilita',
+    category: 'Giochi Matematici',
+    keywords: ['probabilità', 'calcoli', 'probabilistici', 'comprensione', 'matematica', 'statistica', 'calcolo'],
+    icon: Dice1,
+    difficulty: 'avanzato',
+    timeRange: '50s'
+  },
+  {
+    title: 'Il Labirinto Algebrico',
+    label: 'Il Labirinto Algebrico',
+    description: 'Naviga attraverso un labirinto risolvendo equazioni algebriche. Sfida la tua comprensione dell\'algebra!',
+    href: '/it/giochi-matematici/labirinto-algebrico',
+    category: 'Giochi Matematici',
+    keywords: ['labirinto', 'algebrico', 'equazioni', 'algebra', 'navigare', 'comprensione', 'sfida'],
+    icon: Map,
+    difficulty: 'avanzato',
+    timeRange: '60s'
+  },
+  {
+    title: 'Puzzle Geometrico',
+    label: 'Puzzle Geometrico',
+    description: 'Risolvi puzzle geometrici e problemi di forme. Sfida la tua comprensione della geometria!',
+    href: '/it/giochi-matematici/puzzle-geometrico',
+    category: 'Giochi Matematici',
+    keywords: ['puzzle', 'geometrico', 'forme', 'geometria', 'comprensione', 'problemi', 'sfida'],
+    icon: Target,
+    difficulty: 'intermedio',
+    timeRange: '45s'
   }
 ]
 
