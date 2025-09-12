@@ -22,6 +22,8 @@ import {
   Microscope,
   Ruler,
   Sun,
+  TreePine,
+  Atom,
   LucideIcon 
 } from 'lucide-react'
 
@@ -297,6 +299,51 @@ export const triviasConfig: TriviaConfig[] = [
     keywords: ['sol', 'estrella', 'astronomía', 'física solar', 'energía solar', 'fusión nuclear', 'hidrógeno', 'helio', 'tormentas solares', 'sistema solar'],
     difficulty: 'intermedio',
     icon: Sun,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc',
+    isNew: true
+  },
+  {
+    id: 'quiz-paleontologia-dinosaurios',
+    title: 'Quiz de Paleontología y Dinosaurios',
+    label: 'Quiz de Paleontología y Dinosaurios',
+    description: 'Explora el fascinante mundo de los dinosaurios y la paleontología. Aprende sobre las eras geológicas, fósiles y las criaturas que dominaron la Tierra durante millones de años.',
+    href: '/trivias/quiz-paleontologia-dinosaurios',
+    category: 'Ciencia',
+    keywords: ['dinosaurios', 'paleontología', 'fósiles', 'Tyrannosaurus', 'Triceratops', 'Stegosaurus', 'Cretácico', 'Jurásico', 'Triásico', 'extinción', 'asteroide'],
+    difficulty: 'intermedio',
+    icon: TreePine,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc',
+    isNew: true
+  },
+  {
+    id: 'quiz-elementos-quimicos-tabla-periodica',
+    title: 'Quiz de Elementos Químicos y Tabla Periódica',
+    label: 'Quiz de Elementos Químicos y Tabla Periódica',
+    description: 'Sumérgete en el mundo de la química y la tabla periódica. Descubre los elementos, sus símbolos, propiedades y la organización de la tabla periódica moderna.',
+    href: '/trivias/quiz-elementos-quimicos-tabla-periodica',
+    category: 'Ciencia',
+    keywords: ['elementos químicos', 'tabla periódica', 'química', 'hidrógeno', 'oro', 'helio', 'sodio', 'mercurio', 'carbono', 'Mendeleiev', 'gases nobles'],
+    difficulty: 'básico',
+    icon: Atom,
+    totalQuestions: 10,
+    timeLimit: 300, // 5 minutos
+    relatedCalculator: '/salud/imc',
+    isNew: true
+  },
+  {
+    id: 'quiz-ecologia-ecosistemas',
+    title: 'Quiz de Ecología y Ecosistemas',
+    label: 'Quiz de Ecología y Ecosistemas',
+    description: 'Aprende sobre los ecosistemas, cadenas alimentarias, biodiversidad y el equilibrio ecológico. Descubre cómo interactúan los seres vivos con su entorno.',
+    href: '/trivias/quiz-ecologia-ecosistemas',
+    category: 'Ciencia',
+    keywords: ['ecología', 'ecosistemas', 'biodiversidad', 'cadena alimentaria', 'productores', 'consumidores', 'biomas', 'sabana', 'selva tropical', 'capa de ozono', 'energía solar'],
+    difficulty: 'básico',
+    icon: Leaf,
     totalQuestions: 10,
     timeLimit: 300, // 5 minutos
     relatedCalculator: '/salud/imc',
