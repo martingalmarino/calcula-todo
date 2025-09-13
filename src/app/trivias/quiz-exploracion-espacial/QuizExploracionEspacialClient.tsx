@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { QuizLayout } from '@/components/QuizLayout'
 import { Rocket, CheckCircle, XCircle } from 'lucide-react'
 import { jsonLdCalculator } from '@/lib/seo'
@@ -174,6 +174,24 @@ export default function QuizExploracionEspacialClient() {
       emoji: "🚀"
     }
   }, [gameState, score, getRankInfo])
+
+  // Timer effect
+  useEffect(() => {
+    let timer: NodeJS.Timeout
+    if (gameState === 'playing' && timeLeft > 0 && !quizResult) {
+      timer = setInterval(() => {
+        setTimeLeft((prevTime) => prevTime - 1)
+      }, 1000)
+    } else if (timeLeft === 0 && gameState === 'playing') {
+      setGameState('finished')
+    }
+
+    return () => {
+      if (timer) {
+        clearInterval(timer)
+      }
+    }
+  }, [gameState, timeLeft, quizResult])
 
   const introduction = "Viaja a través de la historia de la exploración espacial. Desde Yuri Gagarin hasta las misiones modernas, descubre los hitos más importantes de la conquista del espacio."
 
