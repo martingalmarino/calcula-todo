@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -13,7 +13,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Calculator, Triangle, Info } from 'lucide-react'
 import { calculateTriangle, calculateTriangleFromSides, type TriangleResult } from '@/lib/math/geometry'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function DreieckRechnerClientDE() {
   const [inputType, setInputType] = useState<'base-height' | 'sides'>('base-height')
@@ -72,7 +72,7 @@ export default function DreieckRechnerClientDE() {
     setError(null)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/geometrie/dreieck')
+  const breadcrumbs = getBreadcrumbsDE('/de/geometrie/dreieck')
 
   const examples = [
     {
@@ -149,7 +149,7 @@ export default function DreieckRechnerClientDE() {
 
       <Container>
         <div className="py-8">
-          <Breadcrumbs 
+          <BreadcrumbsDE 
             items={breadcrumbs} 
             className="mb-8"
           />

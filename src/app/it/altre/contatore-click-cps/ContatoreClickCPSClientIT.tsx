@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { MousePointer, Play, Square, RotateCcw, Clock, Target } from 'lucide-react'
@@ -143,7 +143,7 @@ export default function ContatoreClickCPSClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

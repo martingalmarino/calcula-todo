@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Pizza, AlertCircle } from 'lucide-react'
 import { calcularPizzasNecesarias } from '@/lib/math/curiosas'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function PizzaPersonaClientIT() {
   const [personas, setPersonas] = useState('')
@@ -63,7 +63,7 @@ export default function PizzaPersonaClientIT() {
     if (example.tamañoPizza) setTamañoPizza(example.tamañoPizza as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/curiosas/pizza-persona')
+  const breadcrumbs = getBreadcrumbsIT('/it/curiosas/pizza-persona')
 
   const examples = [
     { label: 'Festa Piccola', values: { personas: '4', nivelHambre: '3', tamañoPizza: 'mediana' } },
@@ -106,7 +106,7 @@ export default function PizzaPersonaClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Activity, AlertCircle } from 'lucide-react'
 import { calculateCalories, type CaloriesResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function KalorienRechnerClientDE() {
   const [weight, setWeight] = useState('')
@@ -55,7 +55,7 @@ export default function KalorienRechnerClientDE() {
     if (example.activityLevel) setActivityLevel(example.activityLevel as 'sedentary' | 'light' | 'moderate' | 'active' | 'very_active')
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/gesundheit/kalorien')
+  const breadcrumbs = getBreadcrumbsDE('/de/gesundheit/kalorien')
 
   const examples = [
     {
@@ -102,7 +102,7 @@ export default function KalorienRechnerClientDE() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsDE items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

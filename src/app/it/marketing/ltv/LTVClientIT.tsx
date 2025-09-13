@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { TrendingUp, AlertCircle } from 'lucide-react'
 import { calcularLTV } from '@/lib/math/marketing'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function LTVClientIT() {
   const [ticketPromedio, setTicketPromedio] = useState('')
@@ -62,7 +62,7 @@ export default function LTVClientIT() {
     if (example.duracionRelacion) setDuracionRelacion(example.duracionRelacion as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/marketing/ltv')
+  const breadcrumbs = getBreadcrumbsIT('/it/marketing/ltv')
 
   const examples = [
     { label: 'E-commerce Fashion', values: { ticketPromedio: '80', frecuenciaCompra: '4', duracionRelacion: '3' } },
@@ -105,7 +105,7 @@ export default function LTVClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

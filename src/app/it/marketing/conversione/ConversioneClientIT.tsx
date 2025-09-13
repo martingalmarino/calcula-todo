@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { BarChart3, AlertCircle } from 'lucide-react'
 import { calcularConversion } from '@/lib/math/marketing'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function ConversioneClientIT() {
   const [visitantes, setVisitantes] = useState('')
@@ -68,7 +68,7 @@ export default function ConversioneClientIT() {
     if (example.ventas) setVentas(example.ventas as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/marketing/conversione')
+  const breadcrumbs = getBreadcrumbsIT('/it/marketing/conversione')
 
   const examples = [
     { label: 'E-commerce', values: { visitantes: '10000', leads: '500', ventas: '50' } },
@@ -111,7 +111,7 @@ export default function ConversioneClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

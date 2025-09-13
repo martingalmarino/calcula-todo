@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Calculator, TrendingUp, DollarSign, Clock } from 'lucide-react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -119,7 +119,7 @@ export default function InteresseSempliceClientIT() {
 
       <Container>
         <div className="py-8">
-          <Breadcrumbs items={breadcrumbs} />
+          <BreadcrumbsIT items={breadcrumbs} />
 
           <CalculatorLayout
             title="Calcolatrice Interesse Semplice"

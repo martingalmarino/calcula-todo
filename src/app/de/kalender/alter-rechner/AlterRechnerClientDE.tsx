@@ -10,7 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { User, Calculator, Info } from 'lucide-react'
 import { calculateAge, type AgeResult } from '@/lib/math/calendar'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function AlterRechnerClientDE() {
   const [birthDate, setBirthDate] = useState('')
@@ -41,7 +41,7 @@ export default function AlterRechnerClientDE() {
     setError(null)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/kalender/alter-rechner')
+  const breadcrumbs = getBreadcrumbsDE('/de/kalender/alter-rechner')
 
   const examples = [
     {

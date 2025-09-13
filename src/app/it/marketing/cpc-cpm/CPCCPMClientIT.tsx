@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Calculator, AlertCircle } from 'lucide-react'
 import { calcularCPCCPM } from '@/lib/math/marketing'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function CPCCPMClientIT() {
   const [costoTotal, setCostoTotal] = useState('')
@@ -75,7 +75,7 @@ export default function CPCCPMClientIT() {
     if (example.impresiones) setImpresiones(example.impresiones as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/marketing/cpc-cpm')
+  const breadcrumbs = getBreadcrumbsIT('/it/marketing/cpc-cpm')
 
   const examples = [
     { label: 'Google Ads', values: { costoTotal: '500', clicks: '100', impresiones: '10000' } },
@@ -118,7 +118,7 @@ export default function CPCCPMClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

@@ -10,7 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Calendar, Calculator, Info } from 'lucide-react'
 import { calculateDaysBetween, type DaysBetweenResult } from '@/lib/math/calendar'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function TageZwischenDatenClientDE() {
   const [startDate, setStartDate] = useState('')
@@ -41,7 +41,7 @@ export default function TageZwischenDatenClientDE() {
     setError(null)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/kalender/tage-zwischen-daten')
+  const breadcrumbs = getBreadcrumbsDE('/de/kalender/tage-zwischen-daten')
 
   const examples = [
     {

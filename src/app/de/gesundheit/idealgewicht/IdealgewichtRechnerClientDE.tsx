@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Target, AlertCircle } from 'lucide-react'
 import { calculateIdealWeight, type IdealWeightResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function IdealgewichtRechnerClientDE() {
   const [height, setHeight] = useState('')
@@ -47,7 +47,7 @@ export default function IdealgewichtRechnerClientDE() {
     if (example.gender) setGender(example.gender as 'male' | 'female')
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/gesundheit/idealgewicht')
+  const breadcrumbs = getBreadcrumbsDE('/de/gesundheit/idealgewicht')
 
   const examples = [
     {
@@ -94,7 +94,7 @@ export default function IdealgewichtRechnerClientDE() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsDE items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

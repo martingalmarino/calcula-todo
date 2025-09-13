@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -13,7 +13,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Calculator, RectangleHorizontal, Info } from 'lucide-react'
 import { calculateRectangle, calculateRectangleFromArea, calculateRectangleFromPerimeter, type RectangleResult } from '@/lib/math/geometry'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function RechteckRechnerClientDE() {
   const [length, setLength] = useState<string>('')
@@ -87,7 +87,7 @@ export default function RechteckRechnerClientDE() {
     setError(null)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/geometrie/rechteck')
+  const breadcrumbs = getBreadcrumbsDE('/de/geometrie/rechteck')
 
   const examples = [
     {
@@ -162,7 +162,7 @@ export default function RechteckRechnerClientDE() {
 
       <Container>
         <div className="py-8">
-          <Breadcrumbs 
+          <BreadcrumbsDE 
             items={breadcrumbs} 
             className="mb-8"
           />

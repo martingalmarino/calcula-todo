@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -13,7 +13,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Calculator, Heart, Zap } from 'lucide-react'
 import { calcularCaloriasAfectivas } from '@/lib/math/curiosas'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function KussKalorienRechnerClientDE() {
   const [actividad, setActividad] = useState<string>('')
@@ -75,7 +75,7 @@ export default function KussKalorienRechnerClientDE() {
     setError(null)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/kurioses/kuss-kalorien')
+  const breadcrumbs = getBreadcrumbsDE('/de/kurioses/kuss-kalorien')
 
   const examples = [
     {
@@ -146,7 +146,7 @@ export default function KussKalorienRechnerClientDE() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsDE items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

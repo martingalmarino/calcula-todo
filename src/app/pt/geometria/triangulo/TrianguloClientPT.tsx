@@ -4,17 +4,17 @@ import { useState } from 'react'
 import { Calculator, Triangle, Info } from 'lucide-react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsPT } from '@/components/BreadcrumbsPT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsPT } from '@/lib/breadcrumbs-pt'
 import { calculateTriangle, calculateTriangleFromSides, type TriangleResult } from '@/lib/math/geometry'
 
-const breadcrumbs = getBreadcrumbs('/pt/geometria/triangulo/');
+const breadcrumbs = getBreadcrumbsPT('/pt/geometria/triangulo/');
 
 const jsonLd = jsonLdCalculator({
   name: 'Calculadora de Área do Triângulo',
@@ -117,7 +117,7 @@ export default function TrianguloClientPT() {
       
       <Container>
         <div className="py-8">
-          <Breadcrumbs items={breadcrumbs} />
+          <BreadcrumbsPT items={breadcrumbs} />
           
           <CalculatorLayout
             title="Calculadora de Área do Triângulo"

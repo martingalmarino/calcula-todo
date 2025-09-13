@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Calculator, Turtle, Bird, Bug } from 'lucide-react';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { Container } from '@/components/Container';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { BreadcrumbsPT } from '@/components/BreadcrumbsPT';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -182,7 +182,7 @@ export default function ExpectativaAnimaisClientPT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsPT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

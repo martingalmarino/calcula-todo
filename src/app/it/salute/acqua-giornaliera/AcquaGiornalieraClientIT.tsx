@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Droplets } from 'lucide-react'
 import { calculateWaterIntake, WaterIntakeResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function AcquaGiornalieraClientIT() {
   const [weight, setWeight] = useState('')
@@ -60,7 +60,7 @@ export default function AcquaGiornalieraClientIT() {
     if (example.activity) setActivity(example.activity as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/salute/acqua-giornaliera')
+  const breadcrumbs = getBreadcrumbsIT('/it/salute/acqua-giornaliera')
 
   const examples = [
     { label: 'Uomo Attivo', values: { weight: '75', age: '30', activity: 'moderate' } },
@@ -103,7 +103,7 @@ export default function AcquaGiornalieraClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

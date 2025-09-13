@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Heart } from 'lucide-react'
 import { calculatePaFi, PaFiResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function PafiClientIT() {
   const [systolic, setSystolic] = useState('')
@@ -70,7 +70,7 @@ export default function PafiClientIT() {
     if (example.heartRate) setHeartRate(example.heartRate as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/salute/pafi')
+  const breadcrumbs = getBreadcrumbsIT('/it/salute/pafi')
 
   const examples = [
     { label: 'Pressione Normale', values: { systolic: '120', diastolic: '80', heartRate: '70' } },
@@ -113,7 +113,7 @@ export default function PafiClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

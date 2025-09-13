@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button'
 import { Thermometer, AlertCircle } from 'lucide-react'
 import { encontrarCiudadesIdeal } from '@/lib/math/curiosas'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function LivelloFreddolosoClientIT() {
   const [temperatura, setTemperatura] = useState('')
@@ -60,7 +60,7 @@ export default function LivelloFreddolosoClientIT() {
     if (example.tolerancia) setTolerancia(example.tolerancia as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/curiosas/livello-freddoloso')
+  const breadcrumbs = getBreadcrumbsIT('/it/curiosas/livello-freddoloso')
 
   const examples = [
     { label: 'Temperatura Ideale Bassa', values: { temperatura: '15', tolerancia: '3' } },
@@ -103,7 +103,7 @@ export default function LivelloFreddolosoClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

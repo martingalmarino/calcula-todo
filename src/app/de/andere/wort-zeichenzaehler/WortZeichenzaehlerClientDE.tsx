@@ -3,13 +3,13 @@
 import { useState, useEffect } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Textarea } from '@/components/ui/textarea'
 import { Type, Clock, FileText } from 'lucide-react'
 import { countWordsAndCharacters, type WordCountResult } from '@/lib/math/others'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function WortZeichenzaehlerClientDE() {
   const [text, setText] = useState('')
@@ -31,7 +31,7 @@ export default function WortZeichenzaehlerClientDE() {
     setText(values.text as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/andere/wort-zeichenzaehler')
+  const breadcrumbs = getBreadcrumbsDE('/de/andere/wort-zeichenzaehler')
 
   const examples = [
     {
@@ -78,7 +78,7 @@ export default function WortZeichenzaehlerClientDE() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsDE items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

@@ -11,7 +11,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Plus, Calculator, Info } from 'lucide-react'
 import { addSubtractDays, type DateOperationResult } from '@/lib/math/calendar'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function TageAddierenSubtrahierenClientDE() {
   const [date, setDate] = useState('')
@@ -50,7 +50,7 @@ export default function TageAddierenSubtrahierenClientDE() {
     setError(null)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/kalender/tage-addieren-subtrahieren')
+  const breadcrumbs = getBreadcrumbsDE('/de/kalender/tage-addieren-subtrahieren')
 
   const examples = [
     {

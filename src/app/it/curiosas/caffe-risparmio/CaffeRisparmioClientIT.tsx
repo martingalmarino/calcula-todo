@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Coffee, AlertCircle } from 'lucide-react'
 import { calcularAhorroCafe } from '@/lib/math/curiosas'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function CaffeRisparmioClientIT() {
   const [precioCafe, setPrecioCafe] = useState('')
@@ -65,7 +65,7 @@ export default function CaffeRisparmioClientIT() {
     if (example.tasaInteres) setTasaInteres(example.tasaInteres as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/curiosas/caffe-risparmio')
+  const breadcrumbs = getBreadcrumbsIT('/it/curiosas/caffe-risparmio')
 
   const examples = [
     { label: 'Caffè Espresso', values: { precioCafe: '1.50', años: '10', tasaInteres: '5' } },
@@ -108,7 +108,7 @@ export default function CaffeRisparmioClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

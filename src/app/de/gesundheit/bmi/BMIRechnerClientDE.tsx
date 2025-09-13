@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Scale, AlertCircle } from 'lucide-react'
 import { calculateIMC, type IMCResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function BMIRechnerClientDE() {
   const [weight, setWeight] = useState('')
@@ -47,7 +47,7 @@ export default function BMIRechnerClientDE() {
     if (example.height) setHeight(example.height as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/gesundheit/bmi')
+  const breadcrumbs = getBreadcrumbsDE('/de/gesundheit/bmi')
 
   const examples = [
     {
@@ -94,7 +94,7 @@ export default function BMIRechnerClientDE() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsDE items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

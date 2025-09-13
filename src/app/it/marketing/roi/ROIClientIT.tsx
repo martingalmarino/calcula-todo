@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Users, AlertCircle } from 'lucide-react'
 import { calcularROIMarketing } from '@/lib/math/marketing'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function ROIClientIT() {
   const [ingresos, setIngresos] = useState('')
@@ -65,7 +65,7 @@ export default function ROIClientIT() {
     if (example.inversion) setInversion(example.inversion as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/marketing/roi')
+  const breadcrumbs = getBreadcrumbsIT('/it/marketing/roi')
 
   const examples = [
     { label: 'Campagna Google Ads', values: { ingresos: '5000', inversion: '1000' } },
@@ -108,7 +108,7 @@ export default function ROIClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

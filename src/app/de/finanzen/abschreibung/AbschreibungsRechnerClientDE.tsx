@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Car, AlertCircle } from 'lucide-react'
 import { calcularDepreciacionVehiculo } from '@/lib/math/finance'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function AbschreibungsRechnerClientDE() {
   const [neuwert, setNeuwert] = useState('')
@@ -75,7 +75,7 @@ export default function AbschreibungsRechnerClientDE() {
     if (example.nutzungsdauer) setNutzungsdauer(example.nutzungsdauer as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/finanzen/abschreibung')
+  const breadcrumbs = getBreadcrumbsDE('/de/finanzen/abschreibung')
 
   const examples = [
     { label: 'Kompaktwagen', values: { neuwert: '25000', restwert: '5000', nutzungsdauer: '8' } },
@@ -118,7 +118,7 @@ export default function AbschreibungsRechnerClientDE() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsDE items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

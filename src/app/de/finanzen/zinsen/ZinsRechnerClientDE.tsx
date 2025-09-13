@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { TrendingUp, AlertCircle } from 'lucide-react'
 import { calcularInteresSimple } from '@/lib/math/finance'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function ZinsRechnerClientDE() {
   const [kapital, setKapital] = useState('')
@@ -79,7 +79,7 @@ export default function ZinsRechnerClientDE() {
     if (example.zeitraumEinheit) setZeitraumEinheit(example.zeitraumEinheit as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/finanzen/zinsen')
+  const breadcrumbs = getBreadcrumbsDE('/de/finanzen/zinsen')
 
   const examples = [
     { label: 'Sparbuch', values: { kapital: '1000', zinsrate: '2.5', zeitraum: '1', zeitraumEinheit: 'jahre' } },
@@ -122,7 +122,7 @@ export default function ZinsRechnerClientDE() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsDE items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

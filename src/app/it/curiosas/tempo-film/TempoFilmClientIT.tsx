@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Film, AlertCircle } from 'lucide-react'
 import { calcularTiempoPeliculas } from '@/lib/math/curiosas'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function TempoFilmClientIT() {
   const [edad, setEdad] = useState('')
@@ -63,7 +63,7 @@ export default function TempoFilmClientIT() {
     if (example.horasPorSemana) setHorasPorSemana(example.horasPorSemana as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/curiosas/tempo-film')
+  const breadcrumbs = getBreadcrumbsIT('/it/curiosas/tempo-film')
 
   const examples = [
     { label: 'Cinefilo Moderato', values: { edad: '30', horasPorSemana: '5' } },
@@ -106,7 +106,7 @@ export default function TempoFilmClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

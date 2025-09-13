@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Heart, AlertCircle } from 'lucide-react'
 import { calculateExercise, type ExerciseResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function SportRechnerClientDE() {
   const [weight, setWeight] = useState('')
@@ -52,7 +52,7 @@ export default function SportRechnerClientDE() {
     if (example.intensity) setIntensity(example.intensity as 'low' | 'moderate' | 'high')
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/gesundheit/sport')
+  const breadcrumbs = getBreadcrumbsDE('/de/gesundheit/sport')
 
   const examples = [
     {
@@ -99,7 +99,7 @@ export default function SportRechnerClientDE() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsDE items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

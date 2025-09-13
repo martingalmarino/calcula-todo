@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Target, AlertCircle } from 'lucide-react'
 import { calcularCAC } from '@/lib/math/marketing'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function CACClientIT() {
   const [inversionTotal, setInversionTotal] = useState('')
@@ -58,7 +58,7 @@ export default function CACClientIT() {
     if (example.nuevosClientes) setNuevosClientes(example.nuevosClientes as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/marketing/cac')
+  const breadcrumbs = getBreadcrumbsIT('/it/marketing/cac')
 
   const examples = [
     { label: 'Startup Tech', values: { inversionTotal: '10000', nuevosClientes: '100' } },
@@ -101,7 +101,7 @@ export default function CACClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

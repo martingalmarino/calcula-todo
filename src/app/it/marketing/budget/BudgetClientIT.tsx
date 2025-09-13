@@ -3,13 +3,13 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { DollarSign, AlertCircle } from 'lucide-react'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function BudgetClientIT() {
   const [budgetTotal, setBudgetTotal] = useState('')
@@ -65,7 +65,7 @@ export default function BudgetClientIT() {
     if (example.canales) setCanales(example.canales as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/marketing/budget')
+  const breadcrumbs = getBreadcrumbsIT('/it/marketing/budget')
 
   const examples = [
     { label: 'Startup', values: { budgetTotal: '5000', canales: '3' } },
@@ -108,7 +108,7 @@ export default function BudgetClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

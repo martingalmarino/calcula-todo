@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsPT } from '@/components/BreadcrumbsPT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
@@ -94,7 +94,7 @@ export default function ContadorPalavrasClientPT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsPT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

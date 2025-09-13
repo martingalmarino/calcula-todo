@@ -4,17 +4,17 @@ import { useState } from 'react'
 import { Calculator, Circle, Info } from 'lucide-react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsPT } from '@/components/BreadcrumbsPT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsPT } from '@/lib/breadcrumbs-pt'
 import { calculateCircle, calculateCircleFromDiameter, calculateCircleFromArea, type CircleResult } from '@/lib/math/geometry'
 
-const breadcrumbs = getBreadcrumbs('/pt/geometria/circulo/');
+const breadcrumbs = getBreadcrumbsPT('/pt/geometria/circulo/');
 
 const jsonLd = jsonLdCalculator({
   name: 'Calculadora de Área e Perímetro do Círculo',
@@ -102,7 +102,7 @@ export default function CirculoClientPT() {
       
       <Container>
         <div className="py-8">
-          <Breadcrumbs items={breadcrumbs} />
+          <BreadcrumbsPT items={breadcrumbs} />
           
           <CalculatorLayout
             title="Calculadora de Área e Perímetro do Círculo"

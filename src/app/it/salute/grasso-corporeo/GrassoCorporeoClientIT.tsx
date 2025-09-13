@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Percent } from 'lucide-react'
 import { calculateBodyFat, BodyFatResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function GrassoCorporeoClientIT() {
   const [weight, setWeight] = useState('')
@@ -76,7 +76,7 @@ export default function GrassoCorporeoClientIT() {
     if (example.waist) setWaist(example.waist as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/salute/grasso-corporeo')
+  const breadcrumbs = getBreadcrumbsIT('/it/salute/grasso-corporeo')
 
   const examples = [
     { label: 'Uomo Adulto', values: { weight: '75', height: '180', age: '30', gender: 'male', waist: '85' } },
@@ -119,7 +119,7 @@ export default function GrassoCorporeoClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

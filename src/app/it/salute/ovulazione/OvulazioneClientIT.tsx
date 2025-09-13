@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { CalendarHeart } from 'lucide-react'
 import { calculateOvulation, OvulationResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function OvulazioneClientIT() {
   const [lastPeriod, setLastPeriod] = useState('')
@@ -46,7 +46,7 @@ export default function OvulazioneClientIT() {
     if (example.cycleLength) setCycleLength(example.cycleLength as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/salute/ovulazione')
+  const breadcrumbs = getBreadcrumbsIT('/it/salute/ovulazione')
 
   const examples = [
     { label: 'Ciclo 28 giorni', values: { lastPeriod: '2024-01-01', cycleLength: '28' } },
@@ -89,7 +89,7 @@ export default function OvulazioneClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

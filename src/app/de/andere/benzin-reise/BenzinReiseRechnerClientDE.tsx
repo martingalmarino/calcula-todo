@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -12,7 +12,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Fuel } from 'lucide-react'
 import { calculateGasExpense, type GasExpenseResult } from '@/lib/math/others'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function BenzinReiseRechnerClientDE() {
   const [distance, setDistance] = useState<string>('')
@@ -70,7 +70,7 @@ export default function BenzinReiseRechnerClientDE() {
     setError(null)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/andere/benzin-reise')
+  const breadcrumbs = getBreadcrumbsDE('/de/andere/benzin-reise')
 
   const examples = [
     {
@@ -121,7 +121,7 @@ export default function BenzinReiseRechnerClientDE() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsDE items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

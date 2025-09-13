@@ -11,7 +11,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Clock, Calculator, Info } from 'lucide-react'
 import { calculateTimeOperation, type TimeCalculationResult } from '@/lib/math/calendar'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function StundenMinutenClientDE() {
   const [time1, setTime1] = useState('')
@@ -44,7 +44,7 @@ export default function StundenMinutenClientDE() {
     setError(null)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/kalender/stunden-minuten')
+  const breadcrumbs = getBreadcrumbsDE('/de/kalender/stunden-minuten')
 
   const examples = [
     {

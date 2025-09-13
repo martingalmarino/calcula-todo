@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Heart, AlertCircle } from 'lucide-react'
 import { calcularImpactoComidaChatarra } from '@/lib/math/curiosas'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function AspettativaVitaCiboClientIT() {
   const [hamburguesas, setHamburguesas] = useState('')
@@ -64,7 +64,7 @@ export default function AspettativaVitaCiboClientIT() {
     if (example.pizzas) setPizzas(example.pizzas as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/it/curiosas/aspettativa-vita-cibo')
+  const breadcrumbs = getBreadcrumbsIT('/it/curiosas/aspettativa-vita-cibo')
 
   const examples = [
     { label: 'Consumo Moderato', values: { hamburguesas: '2', gaseosas: '3', pizzas: '1' } },
@@ -107,7 +107,7 @@ export default function AspettativaVitaCiboClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

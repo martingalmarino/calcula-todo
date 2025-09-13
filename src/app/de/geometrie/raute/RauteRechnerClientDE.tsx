@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -12,7 +12,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Calculator, Diamond, Info } from 'lucide-react'
 import { calculateRhombus, type RhombusResult } from '@/lib/math/geometry'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function RauteRechnerClientDE() {
   const [inputType, setInputType] = useState<'diagonals' | 'side' | 'area'>('diagonals')
@@ -89,7 +89,7 @@ export default function RauteRechnerClientDE() {
     setError(null)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/geometrie/raute')
+  const breadcrumbs = getBreadcrumbsDE('/de/geometrie/raute')
 
   const examples = [
     {
@@ -162,7 +162,7 @@ export default function RauteRechnerClientDE() {
 
       <Container>
         <div className="py-8">
-          <Breadcrumbs 
+          <BreadcrumbsDE 
             items={breadcrumbs} 
             className="mb-8"
           />

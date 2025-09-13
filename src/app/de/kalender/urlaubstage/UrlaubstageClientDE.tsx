@@ -10,7 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Plane, Calculator, Info } from 'lucide-react'
 import { calculateVacationDays, type VacationDaysResult } from '@/lib/math/calendar'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function UrlaubstageClientDE() {
   const [startDate, setStartDate] = useState('')
@@ -41,7 +41,7 @@ export default function UrlaubstageClientDE() {
     setError(null)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/kalender/urlaubstage')
+  const breadcrumbs = getBreadcrumbsDE('/de/kalender/urlaubstage')
 
   const examples = [
     {

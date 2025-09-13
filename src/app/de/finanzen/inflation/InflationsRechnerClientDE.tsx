@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsDE } from '@/components/BreadcrumbsDE'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { TrendingUp, AlertCircle } from 'lucide-react'
 import { calcularIPC } from '@/lib/math/finance'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsDE } from '@/lib/breadcrumbs-de'
 
 export default function InflationsRechnerClientDE() {
   const [betrag, setBetrag] = useState('')
@@ -70,7 +70,7 @@ export default function InflationsRechnerClientDE() {
     if (example.vpiEnde) setVpiEnde(example.vpiEnde as string)
   }
 
-  const breadcrumbs = getBreadcrumbs('/de/finanzen/inflation')
+  const breadcrumbs = getBreadcrumbsDE('/de/finanzen/inflation')
 
   const examples = [
     { label: '10 Jahre Inflation', values: { betrag: '1000', vpiAnfang: '100', vpiEnde: '120' } },
@@ -113,7 +113,7 @@ export default function InflationsRechnerClientDE() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsDE items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout

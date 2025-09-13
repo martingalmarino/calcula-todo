@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsPT } from '@/components/BreadcrumbsPT'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -13,7 +13,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Plus, AlertCircle, Calculator } from 'lucide-react'
 import { addSubtractDays, type DateOperationResult } from '@/lib/math/calendar'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsPT } from '@/lib/breadcrumbs-pt'
 
 export default function SomarSubtrairDiasClientPT() {
   const [date, setDate] = useState('')
@@ -44,7 +44,7 @@ export default function SomarSubtrairDiasClientPT() {
     }
   }
 
-  const breadcrumbs = getBreadcrumbs('/pt/calendario/somar-e-subtrair-dias')
+  const breadcrumbs = getBreadcrumbsPT('/pt/calendario/somar-e-subtrair-dias')
 
   const examples = [
     {
@@ -98,7 +98,7 @@ export default function SomarSubtrairDiasClientPT() {
       
       <Container>
         <div className="py-8">
-          <Breadcrumbs items={breadcrumbs} />
+          <BreadcrumbsPT items={breadcrumbs} />
           
           <CalculatorLayout
             title="Somar e Subtrair Dias"
