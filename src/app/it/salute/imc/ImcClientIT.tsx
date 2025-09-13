@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsIT } from '@/components/BreadcrumbsIT'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Scale, AlertCircle } from 'lucide-react'
 import { calculateIMC, IMCResult } from '@/lib/math/health'
 import { jsonLdCalculator } from '@/lib/seo'
-import { getBreadcrumbs } from '@/lib/site.config'
+import { getBreadcrumbsIT } from '@/lib/breadcrumbs-it'
 
 export default function ImcClientIT() {
   const [weight, setWeight] = useState('')
@@ -64,7 +64,7 @@ export default function ImcClientIT() {
     { label: 'Obeso', values: { weight: '100', height: '175' } }
   ]
 
-  const breadcrumbs = getBreadcrumbs('/it/salute/imc')
+  const breadcrumbs = getBreadcrumbsIT('/it/salute/imc')
 
   const faqItems = [
     {
@@ -100,7 +100,7 @@ export default function ImcClientIT() {
       />
       
       <Container>
-        <Breadcrumbs items={breadcrumbs} />
+        <BreadcrumbsIT items={breadcrumbs} />
         
         <div className="py-8">
           <CalculatorLayout
