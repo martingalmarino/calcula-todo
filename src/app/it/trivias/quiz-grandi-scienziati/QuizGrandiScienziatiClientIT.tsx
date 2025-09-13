@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { QuizLayoutIT } from '@/components/QuizLayoutIT'
 import { getRelatedTriviasIT } from '@/lib/trivias-config-it'
 import { Microscope } from 'lucide-react'
@@ -188,6 +188,24 @@ export default function QuizGrandiScienziatiClientIT() {
     rank: rankInfo.rank,
     emoji: score >= totalQuestions * 0.8 ? "🧪" : score >= totalQuestions * 0.6 ? "📚" : "🔬"
   } : null
+
+  // Timer effect
+  useEffect(() => {
+    let timer: NodeJS.Timeout
+    if (gameState === 'playing' && timeLeft > 0 && !quizResult) {
+      timer = setInterval(() => {
+        setTimeLeft((prevTime) => prevTime - 1)
+      }, 1000)
+    } else if (timeLeft === 0 && gameState === 'playing') {
+      setGameState('finished')
+    }
+
+    return () => {
+      if (timer) {
+        clearInterval(timer)
+      }
+    }
+  }, [gameState, timeLeft, quizResult])
 
   return (
                   <QuizLayoutIT
